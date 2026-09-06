@@ -1,0 +1,33 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+
+# Archivos generados por compilacion
+[Bb]in/
+[Oo]bj/
+
+# carpetas de compilación
+[Dd]ebug*/
+[Rr]elease*/
+x64/
+x86/
+
+# Visual Studio Code
+.vscode/
+
+# Jetbrains Rider
+.idea/
+
+# Nuget
+packages/
+
+# Archivos temporales
+*.tmp
+*.temp
+*.log
+
+# Sistema operativo
+Thumbs.db
+.DS_Store
