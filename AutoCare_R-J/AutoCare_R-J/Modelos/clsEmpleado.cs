@@ -17,6 +17,12 @@ namespace AutoCare_R_J.Modelos
         private string strContraseña;
 
         //Propiedades de un especificos de un empleado
+        public string Puesto
+        {
+            get { return strPuesto; }
+            set { strPuesto = value; }
+        }
+
         public string Rol
         {
             get { return strRol; }
