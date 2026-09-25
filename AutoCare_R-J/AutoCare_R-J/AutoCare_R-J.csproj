@@ -51,7 +51,10 @@
     <Compile Include="Controladores\clsManejadorCitas.cs" />
     <Compile Include="Controladores\clsManejadorClientes.cs" />
     <Compile Include="Controladores\clsManejadorEmpleados.cs" />
+    <Compile Include="Controladores\clsManejadorFacturas.cs" />
+    <Compile Include="Controladores\clsManejadorOrdenesTrabajo.cs" />
     <Compile Include="Controladores\clsManejadorRepuestos.cs" />
+    <Compile Include="Controladores\clsManejadorServicios.cs" />
     <Compile Include="Controladores\clsManejadorVehiculos.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
