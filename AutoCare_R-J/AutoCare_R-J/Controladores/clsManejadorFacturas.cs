@@ -13,7 +13,12 @@ namespace AutoCare_R_J.Controladores
         clsFacturas obFactura = new clsFacturas();
 
         //Creacion de metodo para agregar una factura
-        public void AgregarFactura(string strCodigo, double dblPrecio, double dblDescuento, double dblSubtotal, double dblTotal, string strDescripcionServicio, string strServicio, string strVehiculo, string strFecha, string strRepuesto, double dblPrecioRepuesto)
+        public void AgregarFactura(string strCodigo, double dblPrecio, 
+            double dblDescuento, double dblSubtotal, 
+            double dblTotal, string strDescripcionServicio, 
+            string strServicio, string strVehiculo, 
+            string strFecha, string strRepuesto, 
+            double dblPrecioRepuesto)
         {
             obFactura.Codigo = strCodigo;
             obFactura.Precio = dblPrecio;

@@ -14,7 +14,9 @@ namespace AutoCare_R_J.Controladores
         clsServicios obServicio = new clsServicios();
 
         //Creacion de metodo para agregar un servicio
-        public void AgregarServicio(string strCodigo, string strNombre, string strCategoria, double dblCosto, string strDescripcion, string strDuracion)
+        public void AgregarServicio(string strCodigo, string strNombre, 
+            string strCategoria, double dblCosto, 
+            string strDescripcion, string strDuracion)
         {
             obServicio.Codigo = strCodigo;
             obServicio.Nombre = strNombre;

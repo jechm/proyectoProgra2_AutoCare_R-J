@@ -13,7 +13,11 @@ namespace AutoCare_R_J.Controladores
         clsVehiculos obVehiculo = new clsVehiculos();
 
         //creacion de metodo para agregar un vehiculo, con el prefijo str para indicar que es una variable de tipo string
-        public void agregarVehiculo(string strCodigo, string strPropietario, string strPlaca, string strEstado, string strColor, string strMarca, string strModelo, string strTipo, string strAño)
+        public void agregarVehiculo(string strCodigo, string strPropietario, 
+            string strPlaca, string strEstado, 
+            string strColor, string strMarca, 
+            string strModelo, string strTipo, 
+            string strAño)
         {
             obVehiculo.Codigo = strCodigo;
             obVehiculo.Propietario = strPropietario;

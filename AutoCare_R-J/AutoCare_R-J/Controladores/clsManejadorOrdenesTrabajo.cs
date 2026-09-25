@@ -12,7 +12,9 @@ namespace AutoCare_R_J.Controladores
         //creacion de objeto de la clase ordenes de trabajo, con el prefijo ob para indicar que es un objeto
         clsOrdenesDeTrabajo obOrdenTrabajo = new clsOrdenesDeTrabajo();
         //creacion de metodo para agregar una orden de trabajo, con el prefijo str para indicar que es una variable de tipo string
-        public void agregarOrdenTrabajo(string strCodigo, DateTime dtFechaRecepción, string strServicio, string strVehiculo, string strEstado, string strRepuestos)
+        public void agregarOrdenTrabajo(string strCodigo, DateTime dtFechaRecepción, 
+            string strServicio, string strVehiculo, 
+            string strEstado, string strRepuestos)
         {
             obOrdenTrabajo.Codigo = strCodigo;
             obOrdenTrabajo.FechaRecepción = dtFechaRecepción;
