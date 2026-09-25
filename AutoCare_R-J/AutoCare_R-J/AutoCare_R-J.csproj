@@ -57,8 +57,12 @@
     <Compile Include="Modelos\clsCitas.cs" />
     <Compile Include="Modelos\clsCliente.cs" />
     <Compile Include="Modelos\clsEmpleado.cs" />
+    <Compile Include="Modelos\clsFacturas.cs" />
+    <Compile Include="Modelos\clsOrdenesDeTrabajo.cs" />
     <Compile Include="Modelos\clsPersona.cs" />
     <Compile Include="Modelos\clsRepuesto.cs" />
+    <Compile Include="Modelos\clsServicios.cs" />
+    <Compile Include="Modelos\clsVehiculos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
