@@ -59,7 +59,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modelos\clsCitas.cs" />
+    <Compile Include="Modelos\clsCita.cs" />
     <Compile Include="Modelos\clsCliente.cs" />
     <Compile Include="Modelos\clsEmpleado.cs" />
     <Compile Include="Modelos\clsPersona.cs" />

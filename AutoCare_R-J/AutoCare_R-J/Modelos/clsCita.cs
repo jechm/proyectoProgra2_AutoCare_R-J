@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AutoCare_R_J.Modelos
 {
-    internal class clsCitas
+    internal class clsCita
     {
         //Atributos cita
         private string strCodigoCita;
@@ -66,7 +66,7 @@ namespace AutoCare_R_J.Modelos
         }
 
         //Constructor de Citas
-        public clsCitas(string pCodigoCita,
+        public clsCita(string pCodigoCita,
             string pCodigoCliente, string pCodigoVehiculo,
             string pCodigoTecnico,
             DateTime pFecha, DateTime pHora,
