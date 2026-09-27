@@ -44,8 +44,8 @@ namespace AutoCare_R_J.Modelos
         }
 
 
-        public clsEmpleado(string pCodigo, string pNombre, string pApellido, string pDpi, string pTelefono, string pCorreo, string pEstado, string pPuesto,string pRol, decimal pSueldo, string pUsuario, string pContraseña) 
-            : base(pCodigo, pNombre, pApellido, pDpi, pTelefono, pCorreo, pEstado)
+        public clsEmpleado(string pCodigo, string pNombre, string pApellido, string pDpi, string pTelefono, string pCorreo, string pDireccion, string pEstado, string pPuesto,string pRol, decimal pSueldo, string pUsuario, string pContraseña) 
+            : base(pCodigo, pNombre, pApellido, pDpi, pTelefono, pCorreo, pDireccion, pEstado)
         {
             this.strPuesto = pPuesto;
             this.strRol = pRol;

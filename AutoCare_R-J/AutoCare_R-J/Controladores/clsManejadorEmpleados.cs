@@ -9,17 +9,23 @@ namespace AutoCare_R_J.Controladores
 {
     internal class clsManejadorEmpleados
     {
+        //Atributos
         private IList<clsEmpleado> lstEmpleados;
-        public clsManejadorEmpleados()
-        {
-            lstEmpleados = new List<clsEmpleado>();
-        }
+
 
         //Recuperar lista de empleados
         public IList<clsEmpleado> ObtenerEmpleados()
         {
             return lstEmpleados;
         }
+
+        //Constructor
+        public clsManejadorEmpleados()
+        {
+            lstEmpleados = new List<clsEmpleado>();
+        }
+
+        #region Modificadores
 
         //Metodos Modificadores de datos en memoria
         public void AgregarEmpleado(clsEmpleado pEmpleado)
@@ -41,8 +47,12 @@ namespace AutoCare_R_J.Controladores
                 empleadoExistente.Apellido = pEmpleado.Apellido;
                 empleadoExistente.Correo = pEmpleado.Correo;
                 empleadoExistente.Telefono = pEmpleado.Telefono;
+                empleadoExistente.Direccion = pEmpleado.Direccion;
             }
         }
+
+        #endregion
+        #region Buscador
 
         //Buscador de Empleado por codgio
         public clsEmpleado BuscarEmpleadoPorCodigo(string pCodigo)
@@ -67,5 +77,7 @@ namespace AutoCare_R_J.Controladores
                 return null;
             }
         }
+
+        #endregion
     }
 }

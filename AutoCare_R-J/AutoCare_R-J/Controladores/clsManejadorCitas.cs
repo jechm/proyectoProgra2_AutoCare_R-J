@@ -5,14 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using AutoCare_R_J.Modelos;
+//using AutoCare_R_J.Modelos;
 
 namespace AutoCare_R_J.Controladores
 {
     internal class clsManejadorCitas
     {
+        //Atributos
         private IList<clsCita> lstCitas;
 
+
+        //constructor de la clase clsManejadorCitas
         public clsManejadorCitas()
         {
             lstCitas = new List<clsCita>();
@@ -25,7 +28,10 @@ namespace AutoCare_R_J.Controladores
         }
 
 
+        #region Modificadores
         //Metodos Modificadores de datos en memoria 
+
+        //Agregar nueva cita a la lista de citas
         public void AgregarCita(clsCita pCita)
         {
             lstCitas.Add(pCita);
@@ -51,6 +57,9 @@ namespace AutoCare_R_J.Controladores
             }
         }
 
+
+        #endregion
+        #region Buscador
         //Buscador de cita por codgio
         public clsCita BuscarCitaPorCodigo(string pCodigo)
         {
@@ -75,5 +84,6 @@ namespace AutoCare_R_J.Controladores
             }
             
         }
+        #endregion
     }
 }
