@@ -48,12 +48,28 @@ namespace AutoCare_R_J.Controladores
             }
         }
 
-        public void BuscarFactura(string strCodigo)
+        public clsFacturas BuscarFactura(string strCodigo)
         {
             //Aqui se agrego la logica para buscar una factura en una base de datos o lista
-            Producto facturaEncontrada = lstFacturas.FirstOrDefault(f => f.Codigo == strCodigo);
+            clsFacturas facturaEncontrada = lstFacturas.FirstOrDefault(f => f.Codigo == strCodigo);
+            if (facturaEncontrada != null)
+            { 
+                return facturaEncontrada;
+            }
+            else
+            {
+                //Aqui se agrego la logica para manejar el caso en que no se encuentre la factura
+                throw new Exception("Factura no encontrada");
+            }
+        }
+
+        public void EliminarFactura(string strCodigo)
+        {
+            //Aqui se agrego la logica para eliminar una factura de una base de datos o lista
+            clsFacturas facturaEncontrada = lstFacturas.FirstOrDefault(f => f.Codigo == strCodigo);
             if (facturaEncontrada != null)
             {
+                lstFacturas.Remove(facturaEncontrada);
             }
             else
             {

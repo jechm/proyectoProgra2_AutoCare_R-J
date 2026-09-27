@@ -42,9 +42,24 @@ namespace AutoCare_R_J.Controladores
         public void BuscarOrdenTrabajo(string strCodigo)
         {
             //Aqui se agrego la logica para buscar una orden de trabajo en una base de datos o lista
-            Producto ordenTrabajoEncontrada = lstOrdenesTrabajo.FirstOrDefault(o => o.Codigo == strCodigo);
+            clsOrdenesDeTrabajo ordenTrabajoEncontrada = lstOrdenesTrabajo.FirstOrDefault(o => o.Codigo == strCodigo);
             if (ordenTrabajoEncontrada != null)
             {
+            }
+            else
+            {
+                //Aqui se agrego la logica para manejar el caso en que no se encuentre la orden de trabajo
+                throw new Exception("Orden de trabajo no encontrada");
+            }
+        }
+
+        public void eliminarOrdenTrabajo(string strCodigo)
+        {
+            //Aqui se agrego la logica para eliminar una orden de trabajo en una base de datos o lista
+            clsOrdenesDeTrabajo ordenTrabajoEncontrada = lstOrdenesTrabajo.FirstOrDefault(o => o.Codigo == strCodigo);
+            if (ordenTrabajoEncontrada != null)
+            {
+                lstOrdenesTrabajo.Remove(ordenTrabajoEncontrada);
             }
             else
             {

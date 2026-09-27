@@ -46,9 +46,24 @@ namespace AutoCare_R_J.Controladores
         public void BuscarServicio(string strCodigo)
         {
             //Aqui se puede agregar la logica para buscar un servicio en una basey si  de datos o lista
-            Producto servicioEncontrado = lstServicios.FirstOrDefault(s => s.Codigo == strCodigo);
+            clsServicios servicioEncontrado = lstServicios.FirstOrDefault(s => s.Codigo == strCodigo);
             if (servicioEncontrado != null)
             {
+            }
+            else
+            {
+                //Aqui se puede agregar la logica para manejar el caso en que no se encuentre el servicio
+                throw new Exception("Servicio no encontrado");
+            }
+        }
+
+        public void eliminarServicio(string strCodigo)
+        {
+            //Aqui se puede agregar la logica para eliminar un servicio en una base de datos o lista
+            clsServicios servicioEncontrado = lstServicios.FirstOrDefault(s => s.Codigo == strCodigo);
+            if (servicioEncontrado != null)
+            {
+                lstServicios.Remove(servicioEncontrado);
             }
             else
             {
