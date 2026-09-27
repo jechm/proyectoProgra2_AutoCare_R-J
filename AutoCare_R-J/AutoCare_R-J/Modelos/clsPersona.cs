@@ -15,6 +15,7 @@ namespace AutoCare_R_J.Modelos
         private string strDPIPersona;
         private string strTelefono;
         private string strCorreoPersona;
+        private string strDireccion;    
         private string strEstado;
 
         //Propiedades de una persona
@@ -52,6 +53,12 @@ namespace AutoCare_R_J.Modelos
             get { return strCorreoPersona; }
             set { strCorreoPersona = value; }
         }
+        
+        public string Direccion
+        {
+            get { return strDireccion; }
+            set { strDireccion = value; }
+        }
 
         public string Estado
         {
@@ -61,7 +68,7 @@ namespace AutoCare_R_J.Modelos
         }
 
         //Constructor
-        public clsPersona(string pCodigo, string pNombre, string pApellido, string pDpi, string pTelefono, string pCorreo, string pEstado) 
+        public clsPersona(string pCodigo, string pNombre, string pApellido, string pDpi, string pTelefono, string pCorreo, string pDireccion, string pEstado) 
         {
             this.strCodigoPersona=pCodigo;
             this.strNombrePersona = pNombre;
@@ -69,6 +76,7 @@ namespace AutoCare_R_J.Modelos
             this.strDPIPersona = pDpi;
             this.strTelefono = pTelefono;
             this.strCorreoPersona = pCorreo;
+            this.strDireccion = pDireccion;
             this.strEstado = pEstado;
     }
 
