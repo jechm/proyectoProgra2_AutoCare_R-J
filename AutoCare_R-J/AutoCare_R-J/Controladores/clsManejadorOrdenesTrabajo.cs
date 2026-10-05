@@ -9,10 +9,13 @@ namespace AutoCare_R_J.Controladores
 {
     internal class clsManejadorOrdenesTrabajo
     {
+<<<<<<< HEAD
         //creacion de la lista de ordenes de trabajo
         List<clsOrdenesDeTrabajo> lstOrdenesTrabajo = new List<clsOrdenesDeTrabajo>();
 
 
+=======
+>>>>>>> origin/Formularios/Richar
         //creacion de objeto de la clase ordenes de trabajo, con el prefijo ob para indicar que es un objeto
         clsOrdenesDeTrabajo obOrdenTrabajo = new clsOrdenesDeTrabajo();
         //creacion de metodo para agregar una orden de trabajo, con el prefijo str para indicar que es una variable de tipo string
@@ -20,6 +23,7 @@ namespace AutoCare_R_J.Controladores
             string strServicio, string strVehiculo, 
             string strEstado, string strRepuestos)
         {
+<<<<<<< HEAD
             try
             {
                 //Aqui se agrego la logica de creacion de una orden de trabajo
@@ -66,6 +70,14 @@ namespace AutoCare_R_J.Controladores
                 //Aqui se agrego la logica para manejar el caso en que no se encuentre la orden de trabajo
                 throw new Exception("Orden de trabajo no encontrada");
             }
+=======
+            obOrdenTrabajo.Codigo = strCodigo;
+            obOrdenTrabajo.FechaRecepción = dtFechaRecepción;
+            obOrdenTrabajo.Servicio = strServicio;
+            obOrdenTrabajo.Vehiculo = strVehiculo;
+            obOrdenTrabajo.Estado = strEstado;
+            obOrdenTrabajo.Repuestos = strRepuestos;
+>>>>>>> origin/Formularios/Richar
         }
     }
 }

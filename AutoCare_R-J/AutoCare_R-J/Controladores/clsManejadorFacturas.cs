@@ -9,9 +9,12 @@ namespace AutoCare_R_J.Controladores
 {
     internal class clsManejadorFacturas
     {
+<<<<<<< HEAD
         //Creacion de la lista de facturas
         List<clsFacturas> lstFacturas = new List<clsFacturas>();
 
+=======
+>>>>>>> origin/Formularios/Richar
         //Creacion de objeto de la clase facturas
         clsFacturas obFactura = new clsFacturas();
 
@@ -23,6 +26,7 @@ namespace AutoCare_R_J.Controladores
             string strFecha, string strRepuesto, 
             double dblPrecioRepuesto)
         {
+<<<<<<< HEAD
             try
             {
                 //Aqui se agrego la logica de creacion de una factura
@@ -76,6 +80,19 @@ namespace AutoCare_R_J.Controladores
                 //Aqui se agrego la logica para manejar el caso en que no se encuentre la factura
                 throw new Exception("Factura no encontrada");
             }
+=======
+            obFactura.Codigo = strCodigo;
+            obFactura.Precio = dblPrecio;
+            obFactura.Descuento = dblDescuento;
+            obFactura.Subtotal = dblSubtotal;
+            obFactura.Total = dblTotal;
+            obFactura.DescripcionServicio = strDescripcionServicio;
+            obFactura.Servicio = strServicio;
+            obFactura.Vehiculo = strVehiculo;
+            obFactura.Fecha = strFecha;
+            obFactura.Repuesto = strRepuesto;
+            obFactura.PrecioRepuesto = dblPrecioRepuesto;
+>>>>>>> origin/Formularios/Richar
         }
     }
 }
