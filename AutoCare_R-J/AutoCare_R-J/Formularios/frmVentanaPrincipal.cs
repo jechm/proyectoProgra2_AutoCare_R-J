@@ -13,6 +13,7 @@ namespace AutoCare_R_J.Formularios
     public partial class frmVentanaPrincipal : Form
     {
         public frmVentanaPrincipal()
+
         {
             InitializeComponent();
         }
