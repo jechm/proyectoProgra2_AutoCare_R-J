@@ -1,6 +1,6 @@
 ﻿namespace AutoCare_R_J
 {
-    partial class Form1
+    partial class frmLogin
     {
         /// <summary>
         /// Variable del diseñador necesaria.
