@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoCare_R_J.Formularios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace AutoCare_R_J
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Servicios());
         }
     }
 }

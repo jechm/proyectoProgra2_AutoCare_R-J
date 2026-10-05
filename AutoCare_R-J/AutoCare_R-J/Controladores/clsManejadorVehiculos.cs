@@ -9,12 +9,16 @@ namespace AutoCare_R_J.Controladores
 {
     internal class clsManejadorVehiculos
     {
+<<<<<<< HEAD
         //creacion de la lista de vehiculos, con el prefijo lst para indicar que es una lista
         List<clsVehiculos> lstVehiculos = new List<clsVehiculos>();
+=======
+>>>>>>> origin/Formularios/Richar
         //creacion de objeto de la clase vehiculos, con el prefijo ob para indicar que es un objeto
         clsVehiculos obVehiculo = new clsVehiculos();
 
         //creacion de metodo para agregar un vehiculo, con el prefijo str para indicar que es una variable de tipo string
+<<<<<<< HEAD
         public void agregarVehiculo(string strCodigo, string strPropietario,
             string strPlaca, string strEstado,
             string strColor, string strMarca,
@@ -74,6 +78,23 @@ namespace AutoCare_R_J.Controladores
                 //Aqui se agrego la logica para manejar el caso en que no se encuentre el vehiculo
                 throw new Exception("Vehiculo no encontrado");
             }
+=======
+        public void agregarVehiculo(string strCodigo, string strPropietario, 
+            string strPlaca, string strEstado, 
+            string strColor, string strMarca, 
+            string strModelo, string strTipo, 
+            string strAño)
+        {
+            obVehiculo.Codigo = strCodigo;
+            obVehiculo.Propietario = strPropietario;
+            obVehiculo.Placa = strPlaca;
+            obVehiculo.Estado = strEstado;
+            obVehiculo.Color = strColor;
+            obVehiculo.Marca = strMarca;
+            obVehiculo.Modelo = strModelo;
+            obVehiculo.Tipo = strTipo;
+            obVehiculo.Año = strAño;
+>>>>>>> origin/Formularios/Richar
         }
     }
 }

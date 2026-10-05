@@ -33,9 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
-    </Reference>
+    <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -51,22 +49,40 @@
     <Compile Include="Controladores\clsManejadorCitas.cs" />
     <Compile Include="Controladores\clsManejadorClientes.cs" />
     <Compile Include="Controladores\clsManejadorEmpleados.cs" />
+    <Compile Include="Controladores\clsManejadorFacturas.cs" />
+    <Compile Include="Controladores\clsManejadorOrdenesTrabajo.cs" />
     <Compile Include="Controladores\clsManejadorRepuestos.cs" />
+    <Compile Include="Controladores\clsManejadorServicios.cs" />
+    <Compile Include="Controladores\clsManejadorVehiculos.cs" />
     <Compile Include="Formularios\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Servicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Servicios.Designer.cs">
+      <DependentUpon>Servicios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modelos\clsCita.cs" />
+    <Compile Include="Modelos\clsCitas.cs" />
     <Compile Include="Modelos\clsCliente.cs" />
     <Compile Include="Modelos\clsEmpleado.cs" />
+    <Compile Include="Modelos\clsFacturas.cs" />
+    <Compile Include="Modelos\clsOrdenesDeTrabajo.cs" />
     <Compile Include="Modelos\clsPersona.cs" />
     <Compile Include="Modelos\clsRepuesto.cs" />
+    <Compile Include="Modelos\clsServicios.cs" />
+    <Compile Include="Modelos\clsVehiculos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Servicios.resx">
+      <DependentUpon>Servicios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -83,15 +99,12 @@
     </None>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
+      <DependentUpon>Settings.Designer.cs</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Servicios\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

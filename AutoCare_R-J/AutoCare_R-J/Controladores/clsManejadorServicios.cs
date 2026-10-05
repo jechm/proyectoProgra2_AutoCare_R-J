@@ -9,14 +9,18 @@ namespace AutoCare_R_J.Controladores
 {
     internal class clsManejadorServicios
     {
+<<<<<<< HEAD
         //creacion de la lista de servicios
         List<clsServicios> lstServicios = new List<clsServicios>();
 
+=======
+>>>>>>> origin/Formularios/Richar
         //Creacion de objeto de la clase servicios
         //Se agrego el prefijo ob para indicar que es un objeto
         clsServicios obServicio = new clsServicios();
 
         //Creacion de metodo para agregar un servicio
+<<<<<<< HEAD
         public void AgregarServicio(string strCodigo, string strNombre,
             string strCategoria, double dblCosto,
             string strDescripcion, string strDuracion)
@@ -70,6 +74,19 @@ namespace AutoCare_R_J.Controladores
                 //Aqui se puede agregar la logica para manejar el caso en que no se encuentre el servicio
                 throw new Exception("Servicio no encontrado");
             }
+=======
+        public void AgregarServicio(string strCodigo, string strNombre, 
+            string strCategoria, double dblCosto, 
+            string strDescripcion, string strDuracion)
+        {
+            obServicio.Codigo = strCodigo;
+            obServicio.Nombre = strNombre;
+            obServicio.Categoria = strCategoria;
+            obServicio.Costo = dblCosto;
+            obServicio.Descripcion = strDescripcion;
+            obServicio.Duracion = strDuracion;
+            //Aqui se puede agregar la logica para guardar el servicio en una base de datos o lista
+>>>>>>> origin/Formularios/Richar
         }
     }
 }
