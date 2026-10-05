@@ -21,5 +21,35 @@ namespace AutoCare_R_J
         {
 
         }
+
+
+        //Cerrar el formulario de login
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        //mover hacia arriba estos atributos
+        private int primerUsuario = 0;
+        private int primerContrasenia = 0;
+
+        private void txtContrasenia_Enter(object sender, EventArgs e)
+        {
+            if(primerContrasenia == 0)
+            {
+                txtContrasenia.Text = "";
+                txtContrasenia.PasswordChar = '*';
+                primerContrasenia++;
+            }
+        }
+
+        private void txtUsuario_Enter(object sender, EventArgs e)
+        {
+            if(primerUsuario == 0)
+            {
+                txtUsuario.Text = "";
+                primerUsuario++;
+            }
+        }
     }
 }
