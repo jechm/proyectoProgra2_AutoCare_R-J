@@ -51,7 +51,18 @@
     <Compile Include="Controladores\clsManejadorCitas.cs" />
     <Compile Include="Controladores\clsManejadorClientes.cs" />
     <Compile Include="Controladores\clsManejadorEmpleados.cs" />
+    <Compile Include="Controladores\clsManejadorFacturas.cs" />
+    <Compile Include="Controladores\clsManejadorOrdenesTrabajo.cs" />
     <Compile Include="Controladores\clsManejadorRepuestos.cs" />
+    <Compile Include="Controladores\clsManejadorServicios.cs" />
+    <Compile Include="Controladores\clsManejadorVehiculos.cs" />
+    <Compile Include="CustomButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <!-- Formularios -->
     <Compile Include="Formularios\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,19 +75,35 @@
     <Compile Include="Formularios\frmVentanaPrincipal.Designer.cs">
       <DependentUpon>frmVentanaPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Servicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Servicios.Designer.cs">
+      <DependentUpon>Servicios.cs</DependentUpon>
+    </Compile>
+    <!-- Modelos -->
     <Compile Include="Modelos\clsCita.cs" />
     <Compile Include="Modelos\clsCliente.cs" />
     <Compile Include="Modelos\clsEmpleado.cs" />
+    <Compile Include="Modelos\clsFacturas.cs" />
+    <Compile Include="Modelos\clsOrdenesDeTrabajo.cs" />
     <Compile Include="Modelos\clsPersona.cs" />
     <Compile Include="Modelos\clsRepuesto.cs" />
+    <Compile Include="Modelos\clsServicios.cs" />
+    <Compile Include="Modelos\clsVehiculos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <!-- Recursos incrustados para Formularios -->
     <EmbeddedResource Include="Formularios\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmVentanaPrincipal.resx">
       <DependentUpon>frmVentanaPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Servicios.resx">
+      <DependentUpon>Servicios.cs</DependentUpon>
+    </EmbeddedResource>
+    <!-- Recursos de Propiedades -->
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -104,21 +131,22 @@
     <Folder Include="Servicios\" />
   </ItemGroup>
   <ItemGroup>
+    <!-- Imagenes e Iconos -->
+    <None Include="Resources\eliminar.png" />
+    <None Include="Resources\editar.png" />
+    <None Include="Resources\salvar.png" />
+    <None Include="Resources\mas.png" />
+    <None Include="Resources\repetir.png" />
+    <None Include="Resources\descripcion-del-trabajo.png" />
+    <None Include="Resources\moneda.png" />
+    <None Include="Resources\categoria.png" />
+    <None Include="Resources\usuario.png" />
+    <None Include="Resources\escanear.png" />
     <None Include="Resources\servicios.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\repuestos.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\empleados.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\vehiculos.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\clientes.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\logoPrincipal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

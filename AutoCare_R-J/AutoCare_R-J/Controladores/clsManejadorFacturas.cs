@@ -13,7 +13,7 @@ namespace AutoCare_R_J.Controladores
         List<clsFacturas> lstFacturas = new List<clsFacturas>();
 
         //Creacion de objeto de la clase facturas
-        clsFacturas obFactura = new clsFacturas();
+        // removed shared instance; create a new instance per call inside AgregarFactura
 
         //Creacion de metodo para agregar una factura
         public void AgregarFactura(string strCodigo, double dblPrecio, 
@@ -26,6 +26,7 @@ namespace AutoCare_R_J.Controladores
             try
             {
                 //Aqui se agrego la logica de creacion de una factura
+                var obFactura = new clsFacturas();
                 obFactura.Codigo = strCodigo;
                 obFactura.Precio = dblPrecio;
                 obFactura.Descuento = dblDescuento;
