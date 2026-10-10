@@ -8,18 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AutoCare_R_J
+namespace AutoCare_R_J.Formularios
 {
-    public partial class Form1 : Form
+    public partial class frmVentanaPrincipal : Form
     {
-        public Form1()
+        public frmVentanaPrincipal()
+
         {
             InitializeComponent();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

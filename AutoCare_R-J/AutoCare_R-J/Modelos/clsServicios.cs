@@ -17,8 +17,8 @@ namespace AutoCare_R_J.Modelos
         string strDuracion;
 
         //creacion de constructor de la clase servicios
-        public clsServicios(string strCodigo, string strNombre, 
-            string strCategoria, double dblCosto, 
+        public clsServicios(string strCodigo, string strNombre,
+            string strCategoria, double dblCosto,
             string strDescripcion, string strDuracion)
         {
             this.strCodigo = strCodigo;

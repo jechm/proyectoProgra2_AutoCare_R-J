@@ -20,10 +20,10 @@ namespace AutoCare_R_J.Modelos
         string strAño;
 
         //creacion de constructor de la clase vehiculos
-        public clsVehiculos(string strCodigo, string strPropietario, 
-            string strPlaca, string strEstado, 
+        public clsVehiculos(string strCodigo, string strPropietario,
+            string strPlaca, string strEstado,
             string strColor, string strMarca,
-            string strModelo, string strTipo, 
+            string strModelo, string strTipo,
             string strAño)
         {
             this.strCodigo = strCodigo;
@@ -38,7 +38,7 @@ namespace AutoCare_R_J.Modelos
         }
 
         //creacion de constructor vacio de la clase vehiculos
-        public clsVehiculos(){}
+        public clsVehiculos() { }
 
         //creacion de metodos get y set de la clase vehiculos
         public string Codigo { get => strCodigo; set => strCodigo = value; }

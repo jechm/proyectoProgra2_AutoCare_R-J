@@ -62,11 +62,18 @@
     <Compile Include="CustomPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Form1.cs">
+    <!-- Formularios -->
+    <Compile Include="Formularios\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Formularios\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmVentanaPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmVentanaPrincipal.Designer.cs">
+      <DependentUpon>frmVentanaPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Servicios.cs">
       <SubType>Form</SubType>
@@ -74,7 +81,8 @@
     <Compile Include="Formularios\Servicios.Designer.cs">
       <DependentUpon>Servicios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modelos\clsCitas.cs" />
+    <!-- Modelos -->
+    <Compile Include="Modelos\clsCita.cs" />
     <Compile Include="Modelos\clsCliente.cs" />
     <Compile Include="Modelos\clsEmpleado.cs" />
     <Compile Include="Modelos\clsFacturas.cs" />
@@ -85,12 +93,17 @@
     <Compile Include="Modelos\clsVehiculos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <!-- Recursos incrustados para Formularios -->
+    <EmbeddedResource Include="Formularios\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmVentanaPrincipal.resx">
+      <DependentUpon>frmVentanaPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Servicios.resx">
       <DependentUpon>Servicios.cs</DependentUpon>
     </EmbeddedResource>
+    <!-- Recursos de Propiedades -->
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -118,34 +131,23 @@
     <Folder Include="Servicios\" />
   </ItemGroup>
   <ItemGroup>
+    <!-- Imagenes e Iconos -->
     <None Include="Resources\eliminar.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\editar.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\salvar.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\mas.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\repetir.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\descripcion-del-trabajo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\moneda.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\categoria.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\usuario.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\escanear.png" />
+    <None Include="Resources\servicios.png" />
+    <None Include="Resources\repuestos.png" />
+    <None Include="Resources\empleados.png" />
+    <None Include="Resources\vehiculos.png" />
+    <None Include="Resources\clientes.png" />
+    <None Include="Resources\logoPrincipal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
