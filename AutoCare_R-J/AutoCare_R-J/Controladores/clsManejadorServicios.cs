@@ -9,57 +9,53 @@ namespace AutoCare_R_J.Controladores
 {
     internal class clsManejadorServicios
     {
-        //creacion de la lista de servicios
-        List<clsServicios> lstServicios = new List<clsServicios>();
+        // Creación de la lista de servicios
+        private List<clsServicios> lstServicios = new List<clsServicios>();
 
-        //Creacion de objeto de la clase servicios
-        //Se agrego el prefijo ob para indicar que es un objeto
-        clsServicios obServicio = new clsServicios();
+        // Método para generar el siguiente código automático (ej. srv-001)
+        public string ObtenerSiguienteCodigo()
+        {
+            int siguienteNumero = lstServicios.Count + 1;
+            return $"SRV-{siguienteNumero:D3}"; // Formatea con ceros a la izquierda: srv-001, srv-002...
+        }
 
-        //Creacion de metodo para agregar un servicio
-        public void AgregarServicio(string strCodigo, string strNombre,
-            string strCategoria, double dblCosto,
-            string strDescripcion, string strDuracion)
+        // Creación de método para agregar un servicio
+        public void AgregarServicio(string strNombre, string strCategoria, double dblCosto, string strDescripcion, string strDuracion)
         {
             try
             {
-                //Aqui se agrego la logica de creacion de un servicio
-                obServicio.Codigo = strCodigo;
-                obServicio.Nombre = strNombre;
-                obServicio.Categoria = strCategoria;
-                obServicio.Costo = dblCosto;
-                obServicio.Descripcion = strDescripcion;
-                obServicio.Duracion = strDuracion;
+                // Creamos una nueva instancia fresca cada vez que se agrega un servicio
+                clsServicios nuevoServicio = new clsServicios();
 
-                //Se agregara el objeto servicio a la lista de servicios
-                lstServicios.Add(obServicio);
+                nuevoServicio.Codigo = ObtenerSiguienteCodigo();
+                nuevoServicio.Nombre = strNombre;
+                nuevoServicio.Categoria = strCategoria;
+                nuevoServicio.Costo = dblCosto;
+                nuevoServicio.Descripcion = strDescripcion;
+                nuevoServicio.Duracion = strDuracion;
+
+                lstServicios.Add(nuevoServicio);
             }
             catch (Exception ex)
             {
-                //Aqui se agrego la logica para manejar la excepcion
                 throw new Exception("Error al agregar el servicio: " + ex.Message);
-
-
             }
         }
 
-        public void BuscarServicio(string strCodigo)
+        public clsServicios BuscarServicio(string strCodigo, string strNombre)
         {
-            //Aqui se puede agregar la logica para buscar un servicio en una basey si  de datos o lista
-            clsServicios servicioEncontrado = lstServicios.FirstOrDefault(s => s.Codigo == strCodigo);
-            if (servicioEncontrado != null)
+            clsServicios servicioEncontrado = lstServicios.FirstOrDefault(s => s.Codigo == strCodigo || s.Nombre == strNombre);
+            if (servicioEncontrado == null)
             {
-            }
-            else
-            {
-                //Aqui se puede agregar la logica para manejar el caso en que no se encuentre el servicio
                 throw new Exception("Servicio no encontrado");
             }
+
+            return servicioEncontrado; // ¡Aquí está la clave para que devuelva el objeto!
         }
 
-        public void eliminarServicio(string strCodigo)
+
+        public void EliminarServicio(string strCodigo)
         {
-            //Aqui se puede agregar la logica para eliminar un servicio en una base de datos o lista
             clsServicios servicioEncontrado = lstServicios.FirstOrDefault(s => s.Codigo == strCodigo);
             if (servicioEncontrado != null)
             {
@@ -67,9 +63,14 @@ namespace AutoCare_R_J.Controladores
             }
             else
             {
-                //Aqui se puede agregar la logica para manejar el caso en que no se encuentre el servicio
                 throw new Exception("Servicio no encontrado");
             }
+        }
+
+        // Método para listar si lo necesitas en tu DataGridView
+        public List<clsServicios> ListarServicios()
+        {
+            return lstServicios;
         }
     }
 }
