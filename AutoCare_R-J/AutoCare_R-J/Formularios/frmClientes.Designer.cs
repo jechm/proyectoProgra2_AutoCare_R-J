@@ -29,342 +29,362 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmClientes));
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnDesc = new System.Windows.Forms.Button();
+            this.btnNombre = new System.Windows.Forms.Button();
+            this.btnCodigo = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dgvColCodigoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvColNombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvColApellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvColDPI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvColCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvColNit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvColDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvColSaldo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvColEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlOpcionesClientes = new System.Windows.Forms.Panel();
-            this.gpbBusquar = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblValorBuscado = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.gpbFiltros = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.clmCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmcategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDuracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customPanel1 = new AutoCare_R_J.CustomPanel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblDatosCliente = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tbxCodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.btnFiltrar = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.tbxNombre = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbxCategoria = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbxDesc = new System.Windows.Forms.TextBox();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.pnlOpcionesClientes.SuspendLayout();
-            this.gpbBusquar.SuspendLayout();
-            this.gpbFiltros.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.customPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnNuevo
+            // groupBox2
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(12, 12);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(156, 35);
-            this.btnNuevo.TabIndex = 0;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.Location = new System.Drawing.Point(93, 50);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(75, 35);
-            this.btnModificar.TabIndex = 1;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
+            this.groupBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox2.Controls.Add(this.btnEliminar);
+            this.groupBox2.Controls.Add(this.btnModificar);
+            this.groupBox2.Controls.Add(this.btnAgregar);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(470, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(244, 305);
+            this.groupBox2.TabIndex = 19;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Acciones";
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(12, 50);
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Location = new System.Drawing.Point(6, 141);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 35);
-            this.btnEliminar.TabIndex = 2;
+            this.btnEliminar.Size = new System.Drawing.Size(232, 49);
+            this.btnEliminar.TabIndex = 21;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             // 
+            // btnModificar
+            // 
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.Location = new System.Drawing.Point(6, 86);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(232, 49);
+            this.btnModificar.TabIndex = 20;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Location = new System.Drawing.Point(6, 31);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(232, 49);
+            this.btnAgregar.TabIndex = 19;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox3.Controls.Add(this.btnDesc);
+            this.groupBox3.Controls.Add(this.btnNombre);
+            this.groupBox3.Controls.Add(this.btnCodigo);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(720, 12);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(244, 305);
+            this.groupBox3.TabIndex = 22;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Busquedas";
+            // 
+            // btnDesc
+            // 
+            this.btnDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDesc.Location = new System.Drawing.Point(6, 141);
+            this.btnDesc.Name = "btnDesc";
+            this.btnDesc.Size = new System.Drawing.Size(232, 49);
+            this.btnDesc.TabIndex = 21;
+            this.btnDesc.Text = "Descripción";
+            this.btnDesc.UseVisualStyleBackColor = true;
+            // 
+            // btnNombre
+            // 
+            this.btnNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNombre.Location = new System.Drawing.Point(6, 86);
+            this.btnNombre.Name = "btnNombre";
+            this.btnNombre.Size = new System.Drawing.Size(232, 49);
+            this.btnNombre.TabIndex = 20;
+            this.btnNombre.Text = "Nombre";
+            this.btnNombre.UseVisualStyleBackColor = true;
+            // 
+            // btnCodigo
+            // 
+            this.btnCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCodigo.Location = new System.Drawing.Point(6, 31);
+            this.btnCodigo.Name = "btnCodigo";
+            this.btnCodigo.Size = new System.Drawing.Size(232, 49);
+            this.btnCodigo.TabIndex = 19;
+            this.btnCodigo.Text = "Código";
+            this.btnCodigo.UseVisualStyleBackColor = true;
+            // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvColCodigoCliente,
-            this.dgvColNombres,
-            this.dgvColApellidos,
-            this.dgvColDPI,
-            this.dgvColCorreo,
-            this.dgvColNit,
-            this.dgvColDireccion,
-            this.dgvColSaldo,
-            this.dgvColEstado});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.clmCodigo,
+            this.clmNombre,
+            this.clmcategoria,
+            this.clmCosto,
+            this.clmDescripcion,
+            this.clmDuracion});
+            this.dataGridView1.Location = new System.Drawing.Point(12, 323);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(858, 427);
-            this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.Size = new System.Drawing.Size(946, 192);
+            this.dataGridView1.TabIndex = 23;
             // 
-            // dgvColCodigoCliente
+            // clmCodigo
             // 
-            this.dgvColCodigoCliente.HeaderText = "Codigo";
-            this.dgvColCodigoCliente.Name = "dgvColCodigoCliente";
-            this.dgvColCodigoCliente.ReadOnly = true;
+            this.clmCodigo.HeaderText = "Código";
+            this.clmCodigo.Name = "clmCodigo";
             // 
-            // dgvColNombres
+            // clmNombre
             // 
-            this.dgvColNombres.HeaderText = "Nombres";
-            this.dgvColNombres.Name = "dgvColNombres";
-            this.dgvColNombres.ReadOnly = true;
+            this.clmNombre.HeaderText = "Nombre";
+            this.clmNombre.Name = "clmNombre";
+            this.clmNombre.Width = 200;
             // 
-            // dgvColApellidos
+            // clmcategoria
             // 
-            this.dgvColApellidos.HeaderText = "Apellidos";
-            this.dgvColApellidos.Name = "dgvColApellidos";
-            this.dgvColApellidos.ReadOnly = true;
+            this.clmcategoria.HeaderText = "Categoria";
+            this.clmcategoria.Name = "clmcategoria";
+            this.clmcategoria.Width = 200;
             // 
-            // dgvColDPI
+            // clmCosto
             // 
-            this.dgvColDPI.HeaderText = "DPI";
-            this.dgvColDPI.Name = "dgvColDPI";
-            this.dgvColDPI.ReadOnly = true;
+            this.clmCosto.HeaderText = "Costo";
+            this.clmCosto.Name = "clmCosto";
             // 
-            // dgvColCorreo
+            // clmDescripcion
             // 
-            this.dgvColCorreo.HeaderText = "Correo";
-            this.dgvColCorreo.Name = "dgvColCorreo";
-            this.dgvColCorreo.ReadOnly = true;
+            this.clmDescripcion.HeaderText = "Descripción";
+            this.clmDescripcion.Name = "clmDescripcion";
+            this.clmDescripcion.Width = 200;
             // 
-            // dgvColNit
+            // clmDuracion
             // 
-            this.dgvColNit.HeaderText = "Nit";
-            this.dgvColNit.Name = "dgvColNit";
-            this.dgvColNit.ReadOnly = true;
+            this.clmDuracion.HeaderText = "Duración";
+            this.clmDuracion.Name = "clmDuracion";
             // 
-            // dgvColDireccion
+            // customPanel1
             // 
-            this.dgvColDireccion.HeaderText = "Dirección";
-            this.dgvColDireccion.Name = "dgvColDireccion";
-            this.dgvColDireccion.ReadOnly = true;
+            this.customPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.customPanel1.BorderRadius = 20;
+            this.customPanel1.Controls.Add(this.pictureBox3);
+            this.customPanel1.Controls.Add(this.pictureBox2);
+            this.customPanel1.Controls.Add(this.lblDatosCliente);
+            this.customPanel1.Controls.Add(this.pictureBox1);
+            this.customPanel1.Controls.Add(this.tbxCodigo);
+            this.customPanel1.Controls.Add(this.label1);
+            this.customPanel1.Controls.Add(this.tbxNombre);
+            this.customPanel1.Controls.Add(this.label2);
+            this.customPanel1.Controls.Add(this.cbxCategoria);
+            this.customPanel1.Controls.Add(this.label3);
+            this.customPanel1.Controls.Add(this.tbxDesc);
+            this.customPanel1.Location = new System.Drawing.Point(12, 3);
+            this.customPanel1.Name = "customPanel1";
+            this.customPanel1.Size = new System.Drawing.Size(444, 314);
+            this.customPanel1.TabIndex = 24;
             // 
-            // dgvColSaldo
+            // pictureBox3
             // 
-            this.dgvColSaldo.HeaderText = "Saldo";
-            this.dgvColSaldo.Name = "dgvColSaldo";
-            this.dgvColSaldo.ReadOnly = true;
+            this.pictureBox3.Image = global::AutoCare_R_J.Properties.Resources.categoria;
+            this.pictureBox3.Location = new System.Drawing.Point(4, 100);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(30, 26);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 27;
+            this.pictureBox3.TabStop = false;
             // 
-            // dgvColEstado
+            // pictureBox2
             // 
-            this.dgvColEstado.HeaderText = "Estado";
-            this.dgvColEstado.Name = "dgvColEstado";
-            this.dgvColEstado.ReadOnly = true;
+            this.pictureBox2.Image = global::AutoCare_R_J.Properties.Resources.usuario;
+            this.pictureBox2.Location = new System.Drawing.Point(4, 68);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(30, 26);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 26;
+            this.pictureBox2.TabStop = false;
             // 
-            // pnlOpcionesClientes
+            // lblDatosCliente
             // 
-            this.pnlOpcionesClientes.AutoScroll = true;
-            this.pnlOpcionesClientes.Controls.Add(this.gpbBusquar);
-            this.pnlOpcionesClientes.Controls.Add(this.gpbFiltros);
-            this.pnlOpcionesClientes.Controls.Add(this.btnNuevo);
-            this.pnlOpcionesClientes.Controls.Add(this.btnModificar);
-            this.pnlOpcionesClientes.Controls.Add(this.btnEliminar);
-            this.pnlOpcionesClientes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlOpcionesClientes.Location = new System.Drawing.Point(0, 0);
-            this.pnlOpcionesClientes.Name = "pnlOpcionesClientes";
-            this.pnlOpcionesClientes.Size = new System.Drawing.Size(858, 100);
-            this.pnlOpcionesClientes.TabIndex = 4;
+            this.lblDatosCliente.AutoSize = true;
+            this.lblDatosCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDatosCliente.Location = new System.Drawing.Point(13, 9);
+            this.lblDatosCliente.Name = "lblDatosCliente";
+            this.lblDatosCliente.Size = new System.Drawing.Size(165, 24);
+            this.lblDatosCliente.TabIndex = 25;
+            this.lblDatosCliente.Text = "Datos del cliente";
             // 
-            // gpbBusquar
+            // pictureBox1
             // 
-            this.gpbBusquar.Controls.Add(this.textBox1);
-            this.gpbBusquar.Controls.Add(this.label4);
-            this.gpbBusquar.Controls.Add(this.lblValorBuscado);
-            this.gpbBusquar.Controls.Add(this.comboBox3);
-            this.gpbBusquar.Controls.Add(this.button1);
-            this.gpbBusquar.Location = new System.Drawing.Point(470, 13);
-            this.gpbBusquar.Name = "gpbBusquar";
-            this.gpbBusquar.Size = new System.Drawing.Size(282, 70);
-            this.gpbBusquar.TabIndex = 7;
-            this.gpbBusquar.TabStop = false;
-            this.gpbBusquar.Text = "Buscar";
-            this.gpbBusquar.Enter += new System.EventHandler(this.gpbBusquar_Enter);
+            this.pictureBox1.Image = global::AutoCare_R_J.Properties.Resources.escanear;
+            this.pictureBox1.Location = new System.Drawing.Point(4, 33);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 26);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
             // 
-            // textBox1
+            // tbxCodigo
             // 
-            this.textBox1.Location = new System.Drawing.Point(73, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(111, 20);
-            this.textBox1.TabIndex = 12;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 13);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Columna";
-            // 
-            // lblValorBuscado
-            // 
-            this.lblValorBuscado.AutoSize = true;
-            this.lblValorBuscado.Location = new System.Drawing.Point(6, 45);
-            this.lblValorBuscado.Name = "lblValorBuscado";
-            this.lblValorBuscado.Size = new System.Drawing.Size(35, 13);
-            this.lblValorBuscado.TabIndex = 6;
-            this.lblValorBuscado.Text = "label3";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "Codigo",
-            "Nombre",
-            "DPI",
-            "NIT"});
-            this.comboBox3.Location = new System.Drawing.Point(63, 12);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 10;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(190, 18);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 46);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // gpbFiltros
-            // 
-            this.gpbFiltros.Controls.Add(this.label2);
-            this.gpbFiltros.Controls.Add(this.label1);
-            this.gpbFiltros.Controls.Add(this.comboBox2);
-            this.gpbFiltros.Controls.Add(this.comboBox1);
-            this.gpbFiltros.Controls.Add(this.btnFiltrar);
-            this.gpbFiltros.Location = new System.Drawing.Point(174, 12);
-            this.gpbFiltros.Name = "gpbFiltros";
-            this.gpbFiltros.Size = new System.Drawing.Size(289, 71);
-            this.gpbFiltros.TabIndex = 5;
-            this.gpbFiltros.TabStop = false;
-            this.gpbFiltros.Text = "Filtros";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 52);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Valor";
+            this.tbxCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxCodigo.Location = new System.Drawing.Point(107, 36);
+            this.tbxCodigo.Name = "tbxCodigo";
+            this.tbxCodigo.Size = new System.Drawing.Size(115, 26);
+            this.tbxCodigo.TabIndex = 1;
+            this.tbxCodigo.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 26);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(31, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Columna";
+            this.label1.Size = new System.Drawing.Size(70, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Código:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // comboBox2
+            // tbxNombre
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(76, 46);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 6;
+            this.tbxNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxNombre.Location = new System.Drawing.Point(107, 68);
+            this.tbxNombre.Name = "tbxNombre";
+            this.tbxNombre.Size = new System.Drawing.Size(225, 26);
+            this.tbxNombre.TabIndex = 3;
             // 
-            // comboBox1
+            // label2
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(75, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 5;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(31, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(76, 20);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Nombre:";
             // 
-            // btnFiltrar
+            // cbxCategoria
             // 
-            this.btnFiltrar.Location = new System.Drawing.Point(203, 19);
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(75, 46);
-            this.btnFiltrar.TabIndex = 4;
-            this.btnFiltrar.Text = "Filtrar";
-            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.cbxCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxCategoria.FormattingEnabled = true;
+            this.cbxCategoria.Location = new System.Drawing.Point(129, 100);
+            this.cbxCategoria.Name = "cbxCategoria";
+            this.cbxCategoria.Size = new System.Drawing.Size(203, 28);
+            this.cbxCategoria.TabIndex = 5;
             // 
-            // panel1
+            // label3
             // 
-            this.panel1.AutoScroll = true;
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 100);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(858, 427);
-            this.panel1.TabIndex = 5;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(31, 103);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 20);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Categoria:";
+            // 
+            // tbxDesc
+            // 
+            this.tbxDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxDesc.Location = new System.Drawing.Point(129, 207);
+            this.tbxDesc.Multiline = true;
+            this.tbxDesc.Name = "tbxDesc";
+            this.tbxDesc.Size = new System.Drawing.Size(272, 90);
+            this.tbxDesc.TabIndex = 9;
             // 
             // frmClientes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(858, 527);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pnlOpcionesClientes);
+            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.ClientSize = new System.Drawing.Size(1688, 527);
+            this.Controls.Add(this.customPanel1);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmClientes";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clientes";
-            this.Load += new System.EventHandler(this.frmClientes_Load);
+            this.Load += new System.EventHandler(this.Servicios_Load);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.pnlOpcionesClientes.ResumeLayout(false);
-            this.gpbBusquar.ResumeLayout(false);
-            this.gpbBusquar.PerformLayout();
-            this.gpbFiltros.ResumeLayout(false);
-            this.gpbFiltros.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.customPanel1.ResumeLayout(false);
+            this.customPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Panel pnlOpcionesClientes;
-        private System.Windows.Forms.Button btnFiltrar;
-        private System.Windows.Forms.GroupBox gpbBusquar;
-        private System.Windows.Forms.Label lblValorBuscado;
-        private System.Windows.Forms.GroupBox gpbFiltros;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvColCodigoCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvColNombres;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvColApellidos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvColDPI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvColCorreo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvColNit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvColDireccion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvColSaldo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvColEstado;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox tbxCodigo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbxNombre;
+        private System.Windows.Forms.ComboBox cbxCategoria;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tbxDesc;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnDesc;
+        private System.Windows.Forms.Button btnNombre;
+        private System.Windows.Forms.Button btnCodigo;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmCodigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmcategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmCosto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDuracion;
+        private CustomPanel customPanel1;
+        private System.Windows.Forms.Label lblDatosCliente;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
