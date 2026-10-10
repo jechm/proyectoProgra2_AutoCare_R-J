@@ -28,49 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnDesc = new System.Windows.Forms.Button();
-            this.btnNombre = new System.Windows.Forms.Button();
-            this.btnCodigo = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.clmCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmcategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDuracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customPanel1 = new AutoCare_R_J.CustomPanel();
+            this.dgvServicios = new System.Windows.Forms.DataGridView();
+            this.cpFiltros = new AutoCare_R_J.CustomPanel();
+            this.cpBusquedas = new AutoCare_R_J.CustomPanel();
+            this.gbBuscName = new System.Windows.Forms.GroupBox();
+            this.tbxBuscNombre = new System.Windows.Forms.TextBox();
+            this.gbBuscCod = new System.Windows.Forms.GroupBox();
+            this.tbxBuscCodigo = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new AutoCare_R_J.CustomButton();
+            this.lblBusquedas = new System.Windows.Forms.Label();
+            this.cpAccionesRapidas = new AutoCare_R_J.CustomPanel();
+            this.btnLimpiarCampos = new AutoCare_R_J.CustomButton();
+            this.btnEliminar = new AutoCare_R_J.CustomButton();
+            this.btnModificar = new AutoCare_R_J.CustomButton();
+            this.btnAgregar = new AutoCare_R_J.CustomButton();
+            this.lblAccionesRapidas = new System.Windows.Forms.Label();
+            this.cpDatosServicio = new AutoCare_R_J.CustomPanel();
+            this.btnAumentarTiempo = new AutoCare_R_J.CustomButton();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblMinutos = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tbxDuracionMinutos = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblDatosServicio = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblHoras = new System.Windows.Forms.Label();
             this.tbxCodigo = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblCodigo = new System.Windows.Forms.Label();
             this.tbxDuracionHoras = new System.Windows.Forms.TextBox();
             this.tbxNombre = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblDuracion = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.cbxCategoria = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbxDesc = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblCategoria = new System.Windows.Forms.Label();
+            this.tbxDescripcion = new System.Windows.Forms.TextBox();
+            this.lblDesc = new System.Windows.Forms.Label();
             this.nmCosto = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
-            this.customButton1 = new AutoCare_R_J.CustomButton();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.customPanel1.SuspendLayout();
+            this.lblCosto = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).BeginInit();
+            this.cpBusquedas.SuspendLayout();
+            this.gbBuscName.SuspendLayout();
+            this.gbBuscCod.SuspendLayout();
+            this.cpAccionesRapidas.SuspendLayout();
+            this.cpDatosServicio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -80,174 +82,264 @@
             ((System.ComponentModel.ISupportInitialize)(this.nmCosto)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox2
+            // dgvServicios
             // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBox2.Controls.Add(this.btnEliminar);
-            this.groupBox2.Controls.Add(this.btnModificar);
-            this.groupBox2.Controls.Add(this.btnAgregar);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(470, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(244, 318);
-            this.groupBox2.TabIndex = 19;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Acciones";
+            this.dgvServicios.AllowUserToAddRows = false;
+            this.dgvServicios.AllowUserToDeleteRows = false;
+            this.dgvServicios.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvServicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvServicios.Location = new System.Drawing.Point(12, 412);
+            this.dgvServicios.MultiSelect = false;
+            this.dgvServicios.Name = "dgvServicios";
+            this.dgvServicios.ReadOnly = true;
+            this.dgvServicios.Size = new System.Drawing.Size(841, 187);
+            this.dgvServicios.TabIndex = 23;
+            // 
+            // cpFiltros
+            // 
+            this.cpFiltros.BackColor = System.Drawing.Color.Transparent;
+            this.cpFiltros.BorderRadius = 20;
+            this.cpFiltros.Location = new System.Drawing.Point(12, 336);
+            this.cpFiltros.Name = "cpFiltros";
+            this.cpFiltros.Size = new System.Drawing.Size(841, 70);
+            this.cpFiltros.TabIndex = 31;
+            // 
+            // cpBusquedas
+            // 
+            this.cpBusquedas.BackColor = System.Drawing.Color.Transparent;
+            this.cpBusquedas.BorderRadius = 20;
+            this.cpBusquedas.Controls.Add(this.gbBuscName);
+            this.cpBusquedas.Controls.Add(this.gbBuscCod);
+            this.cpBusquedas.Controls.Add(this.btnBuscar);
+            this.cpBusquedas.Controls.Add(this.lblBusquedas);
+            this.cpBusquedas.Location = new System.Drawing.Point(470, 155);
+            this.cpBusquedas.Name = "cpBusquedas";
+            this.cpBusquedas.Size = new System.Drawing.Size(383, 175);
+            this.cpBusquedas.TabIndex = 30;
+            // 
+            // gbBuscName
+            // 
+            this.gbBuscName.Controls.Add(this.tbxBuscNombre);
+            this.gbBuscName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbBuscName.Location = new System.Drawing.Point(14, 113);
+            this.gbBuscName.Name = "gbBuscName";
+            this.gbBuscName.Size = new System.Drawing.Size(362, 53);
+            this.gbBuscName.TabIndex = 32;
+            this.gbBuscName.TabStop = false;
+            this.gbBuscName.Text = "Nombre";
+            // 
+            // tbxBuscNombre
+            // 
+            this.tbxBuscNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxBuscNombre.Location = new System.Drawing.Point(16, 21);
+            this.tbxBuscNombre.Name = "tbxBuscNombre";
+            this.tbxBuscNombre.Size = new System.Drawing.Size(340, 26);
+            this.tbxBuscNombre.TabIndex = 29;
+            // 
+            // gbBuscCod
+            // 
+            this.gbBuscCod.Controls.Add(this.tbxBuscCodigo);
+            this.gbBuscCod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbBuscCod.Location = new System.Drawing.Point(14, 51);
+            this.gbBuscCod.Name = "gbBuscCod";
+            this.gbBuscCod.Size = new System.Drawing.Size(362, 53);
+            this.gbBuscCod.TabIndex = 31;
+            this.gbBuscCod.TabStop = false;
+            this.gbBuscCod.Text = "Código";
+            // 
+            // tbxBuscCodigo
+            // 
+            this.tbxBuscCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxBuscCodigo.Location = new System.Drawing.Point(16, 21);
+            this.tbxBuscCodigo.Name = "tbxBuscCodigo";
+            this.tbxBuscCodigo.Size = new System.Drawing.Size(340, 26);
+            this.tbxBuscCodigo.TabIndex = 29;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.BorderRadius = 15;
+            this.btnBuscar.ButtonIcon = global::AutoCare_R_J.Properties.Resources.buscar;
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.CustomBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnBuscar.ForeColor = System.Drawing.Color.White;
+            this.btnBuscar.IconSize = new System.Drawing.Size(20, 20);
+            this.btnBuscar.Location = new System.Drawing.Point(216, 5);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(160, 45);
+            this.btnBuscar.TabIndex = 30;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // lblBusquedas
+            // 
+            this.lblBusquedas.AutoSize = true;
+            this.lblBusquedas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBusquedas.Location = new System.Drawing.Point(10, 13);
+            this.lblBusquedas.Name = "lblBusquedas";
+            this.lblBusquedas.Size = new System.Drawing.Size(114, 24);
+            this.lblBusquedas.TabIndex = 29;
+            this.lblBusquedas.Text = "Busquedas";
+            // 
+            // cpAccionesRapidas
+            // 
+            this.cpAccionesRapidas.BackColor = System.Drawing.Color.Transparent;
+            this.cpAccionesRapidas.BorderRadius = 20;
+            this.cpAccionesRapidas.Controls.Add(this.btnLimpiarCampos);
+            this.cpAccionesRapidas.Controls.Add(this.btnEliminar);
+            this.cpAccionesRapidas.Controls.Add(this.btnModificar);
+            this.cpAccionesRapidas.Controls.Add(this.btnAgregar);
+            this.cpAccionesRapidas.Controls.Add(this.lblAccionesRapidas);
+            this.cpAccionesRapidas.Location = new System.Drawing.Point(470, 3);
+            this.cpAccionesRapidas.Name = "cpAccionesRapidas";
+            this.cpAccionesRapidas.Size = new System.Drawing.Size(383, 146);
+            this.cpAccionesRapidas.TabIndex = 29;
+            // 
+            // btnLimpiarCampos
+            // 
+            this.btnLimpiarCampos.BackColor = System.Drawing.Color.Transparent;
+            this.btnLimpiarCampos.BorderRadius = 15;
+            this.btnLimpiarCampos.ButtonIcon = global::AutoCare_R_J.Properties.Resources.limpiar;
+            this.btnLimpiarCampos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiarCampos.CustomBackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnLimpiarCampos.FlatAppearance.BorderSize = 0;
+            this.btnLimpiarCampos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiarCampos.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnLimpiarCampos.ForeColor = System.Drawing.Color.White;
+            this.btnLimpiarCampos.IconSize = new System.Drawing.Size(20, 20);
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(210, 91);
+            this.btnLimpiarCampos.Name = "btnLimpiarCampos";
+            this.btnLimpiarCampos.Size = new System.Drawing.Size(160, 45);
+            this.btnLimpiarCampos.TabIndex = 29;
+            this.btnLimpiarCampos.Text = "Limpiar campos";
+            this.btnLimpiarCampos.UseVisualStyleBackColor = false;
+            this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(6, 141);
+            this.btnEliminar.BackColor = System.Drawing.Color.Transparent;
+            this.btnEliminar.BorderRadius = 15;
+            this.btnEliminar.ButtonIcon = global::AutoCare_R_J.Properties.Resources.eliminar;
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.CustomBackColor = System.Drawing.Color.Red;
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.IconSize = new System.Drawing.Size(20, 20);
+            this.btnEliminar.Location = new System.Drawing.Point(14, 91);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(232, 49);
-            this.btnEliminar.TabIndex = 21;
+            this.btnEliminar.Size = new System.Drawing.Size(160, 45);
+            this.btnEliminar.TabIndex = 28;
             this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.UseVisualStyleBackColor = false;
             // 
             // btnModificar
             // 
-            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(6, 86);
+            this.btnModificar.BackColor = System.Drawing.Color.Transparent;
+            this.btnModificar.BorderRadius = 15;
+            this.btnModificar.ButtonIcon = global::AutoCare_R_J.Properties.Resources.editar;
+            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar.CustomBackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnModificar.ForeColor = System.Drawing.Color.White;
+            this.btnModificar.IconSize = new System.Drawing.Size(20, 20);
+            this.btnModificar.Location = new System.Drawing.Point(210, 39);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(232, 49);
-            this.btnModificar.TabIndex = 20;
+            this.btnModificar.Size = new System.Drawing.Size(160, 45);
+            this.btnModificar.TabIndex = 27;
             this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(6, 31);
+            this.btnAgregar.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgregar.BorderRadius = 15;
+            this.btnAgregar.ButtonIcon = global::AutoCare_R_J.Properties.Resources.salvar;
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.CustomBackColor = System.Drawing.Color.Green;
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnAgregar.ForeColor = System.Drawing.Color.White;
+            this.btnAgregar.IconSize = new System.Drawing.Size(20, 20);
+            this.btnAgregar.Location = new System.Drawing.Point(14, 39);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(232, 49);
-            this.btnAgregar.TabIndex = 19;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Size = new System.Drawing.Size(160, 45);
+            this.btnAgregar.TabIndex = 26;
+            this.btnAgregar.Text = "Guardar nuevo";
+            this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // groupBox3
+            // lblAccionesRapidas
             // 
-            this.groupBox3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBox3.Controls.Add(this.btnDesc);
-            this.groupBox3.Controls.Add(this.btnNombre);
-            this.groupBox3.Controls.Add(this.btnCodigo);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(720, 12);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(244, 318);
-            this.groupBox3.TabIndex = 22;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Busquedas";
+            this.lblAccionesRapidas.AutoSize = true;
+            this.lblAccionesRapidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccionesRapidas.Location = new System.Drawing.Point(10, 9);
+            this.lblAccionesRapidas.Name = "lblAccionesRapidas";
+            this.lblAccionesRapidas.Size = new System.Drawing.Size(178, 24);
+            this.lblAccionesRapidas.TabIndex = 25;
+            this.lblAccionesRapidas.Text = "Acciones Rapidas";
             // 
-            // btnDesc
+            // cpDatosServicio
             // 
-            this.btnDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDesc.Location = new System.Drawing.Point(6, 141);
-            this.btnDesc.Name = "btnDesc";
-            this.btnDesc.Size = new System.Drawing.Size(232, 49);
-            this.btnDesc.TabIndex = 21;
-            this.btnDesc.Text = "Descripción";
-            this.btnDesc.UseVisualStyleBackColor = true;
+            this.cpDatosServicio.BackColor = System.Drawing.Color.Transparent;
+            this.cpDatosServicio.BorderRadius = 20;
+            this.cpDatosServicio.Controls.Add(this.btnAumentarTiempo);
+            this.cpDatosServicio.Controls.Add(this.pictureBox6);
+            this.cpDatosServicio.Controls.Add(this.pictureBox5);
+            this.cpDatosServicio.Controls.Add(this.pictureBox4);
+            this.cpDatosServicio.Controls.Add(this.lblMinutos);
+            this.cpDatosServicio.Controls.Add(this.pictureBox3);
+            this.cpDatosServicio.Controls.Add(this.pictureBox2);
+            this.cpDatosServicio.Controls.Add(this.tbxDuracionMinutos);
+            this.cpDatosServicio.Controls.Add(this.lblDatosServicio);
+            this.cpDatosServicio.Controls.Add(this.pictureBox1);
+            this.cpDatosServicio.Controls.Add(this.lblHoras);
+            this.cpDatosServicio.Controls.Add(this.tbxCodigo);
+            this.cpDatosServicio.Controls.Add(this.lblCodigo);
+            this.cpDatosServicio.Controls.Add(this.tbxDuracionHoras);
+            this.cpDatosServicio.Controls.Add(this.tbxNombre);
+            this.cpDatosServicio.Controls.Add(this.lblDuracion);
+            this.cpDatosServicio.Controls.Add(this.lblNombre);
+            this.cpDatosServicio.Controls.Add(this.cbxCategoria);
+            this.cpDatosServicio.Controls.Add(this.lblCategoria);
+            this.cpDatosServicio.Controls.Add(this.tbxDescripcion);
+            this.cpDatosServicio.Controls.Add(this.lblDesc);
+            this.cpDatosServicio.Controls.Add(this.nmCosto);
+            this.cpDatosServicio.Controls.Add(this.lblCosto);
+            this.cpDatosServicio.Location = new System.Drawing.Point(12, 3);
+            this.cpDatosServicio.Name = "cpDatosServicio";
+            this.cpDatosServicio.Size = new System.Drawing.Size(452, 327);
+            this.cpDatosServicio.TabIndex = 24;
+            this.cpDatosServicio.Paint += new System.Windows.Forms.PaintEventHandler(this.cpDatosServicio_Paint);
             // 
-            // btnNombre
+            // btnAumentarTiempo
             // 
-            this.btnNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNombre.Location = new System.Drawing.Point(6, 86);
-            this.btnNombre.Name = "btnNombre";
-            this.btnNombre.Size = new System.Drawing.Size(232, 49);
-            this.btnNombre.TabIndex = 20;
-            this.btnNombre.Text = "Nombre";
-            this.btnNombre.UseVisualStyleBackColor = true;
-            // 
-            // btnCodigo
-            // 
-            this.btnCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCodigo.Location = new System.Drawing.Point(6, 31);
-            this.btnCodigo.Name = "btnCodigo";
-            this.btnCodigo.Size = new System.Drawing.Size(232, 49);
-            this.btnCodigo.TabIndex = 19;
-            this.btnCodigo.Text = "Código";
-            this.btnCodigo.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clmCodigo,
-            this.clmNombre,
-            this.clmcategoria,
-            this.clmCosto,
-            this.clmDescripcion,
-            this.clmDuracion});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 336);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(946, 179);
-            this.dataGridView1.TabIndex = 23;
-            // 
-            // clmCodigo
-            // 
-            this.clmCodigo.HeaderText = "Código";
-            this.clmCodigo.Name = "clmCodigo";
-            // 
-            // clmNombre
-            // 
-            this.clmNombre.HeaderText = "Nombre";
-            this.clmNombre.Name = "clmNombre";
-            this.clmNombre.Width = 200;
-            // 
-            // clmcategoria
-            // 
-            this.clmcategoria.HeaderText = "Categoria";
-            this.clmcategoria.Name = "clmcategoria";
-            this.clmcategoria.Width = 200;
-            // 
-            // clmCosto
-            // 
-            this.clmCosto.HeaderText = "Costo";
-            this.clmCosto.Name = "clmCosto";
-            // 
-            // clmDescripcion
-            // 
-            this.clmDescripcion.HeaderText = "Descripción";
-            this.clmDescripcion.Name = "clmDescripcion";
-            this.clmDescripcion.Width = 200;
-            // 
-            // clmDuracion
-            // 
-            this.clmDuracion.HeaderText = "Duración";
-            this.clmDuracion.Name = "clmDuracion";
-            // 
-            // customPanel1
-            // 
-            this.customPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.customPanel1.BorderRadius = 20;
-            this.customPanel1.Controls.Add(this.customButton1);
-            this.customPanel1.Controls.Add(this.pictureBox6);
-            this.customPanel1.Controls.Add(this.pictureBox5);
-            this.customPanel1.Controls.Add(this.pictureBox4);
-            this.customPanel1.Controls.Add(this.label8);
-            this.customPanel1.Controls.Add(this.pictureBox3);
-            this.customPanel1.Controls.Add(this.pictureBox2);
-            this.customPanel1.Controls.Add(this.tbxDuracionMinutos);
-            this.customPanel1.Controls.Add(this.label9);
-            this.customPanel1.Controls.Add(this.pictureBox1);
-            this.customPanel1.Controls.Add(this.label7);
-            this.customPanel1.Controls.Add(this.tbxCodigo);
-            this.customPanel1.Controls.Add(this.label1);
-            this.customPanel1.Controls.Add(this.tbxDuracionHoras);
-            this.customPanel1.Controls.Add(this.tbxNombre);
-            this.customPanel1.Controls.Add(this.label6);
-            this.customPanel1.Controls.Add(this.label2);
-            this.customPanel1.Controls.Add(this.cbxCategoria);
-            this.customPanel1.Controls.Add(this.label3);
-            this.customPanel1.Controls.Add(this.tbxDesc);
-            this.customPanel1.Controls.Add(this.label5);
-            this.customPanel1.Controls.Add(this.nmCosto);
-            this.customPanel1.Controls.Add(this.label4);
-            this.customPanel1.Location = new System.Drawing.Point(12, 3);
-            this.customPanel1.Name = "customPanel1";
-            this.customPanel1.Size = new System.Drawing.Size(444, 314);
-            this.customPanel1.TabIndex = 24;
+            this.btnAumentarTiempo.BackColor = System.Drawing.Color.Transparent;
+            this.btnAumentarTiempo.BorderRadius = 15;
+            this.btnAumentarTiempo.ButtonIcon = global::AutoCare_R_J.Properties.Resources.mas;
+            this.btnAumentarTiempo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAumentarTiempo.CustomBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.btnAumentarTiempo.FlatAppearance.BorderSize = 0;
+            this.btnAumentarTiempo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAumentarTiempo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnAumentarTiempo.ForeColor = System.Drawing.Color.White;
+            this.btnAumentarTiempo.IconSize = new System.Drawing.Size(20, 20);
+            this.btnAumentarTiempo.Location = new System.Drawing.Point(335, 265);
+            this.btnAumentarTiempo.Name = "btnAumentarTiempo";
+            this.btnAumentarTiempo.Size = new System.Drawing.Size(106, 45);
+            this.btnAumentarTiempo.TabIndex = 28;
+            this.btnAumentarTiempo.Text = "Auemtar\r\ntiempo";
+            this.btnAumentarTiempo.UseVisualStyleBackColor = false;
+            this.btnAumentarTiempo.Click += new System.EventHandler(this.btnAumentarTiempo_Click);
             // 
             // pictureBox6
             // 
@@ -279,15 +371,15 @@
             this.pictureBox4.TabIndex = 27;
             this.pictureBox4.TabStop = false;
             // 
-            // label8
+            // lblMinutos
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(272, 271);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 20);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Minutos";
+            this.lblMinutos.AutoSize = true;
+            this.lblMinutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMinutos.Location = new System.Drawing.Point(272, 271);
+            this.lblMinutos.Name = "lblMinutos";
+            this.lblMinutos.Size = new System.Drawing.Size(65, 20);
+            this.lblMinutos.TabIndex = 16;
+            this.lblMinutos.Text = "Minutos";
             // 
             // pictureBox3
             // 
@@ -318,15 +410,15 @@
             this.tbxDuracionMinutos.TabIndex = 15;
             this.tbxDuracionMinutos.Text = "0";
             // 
-            // label9
+            // lblDatosServicio
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(13, 9);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(175, 24);
-            this.label9.TabIndex = 25;
-            this.label9.Text = "Datos del servicio";
+            this.lblDatosServicio.AutoSize = true;
+            this.lblDatosServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDatosServicio.Location = new System.Drawing.Point(13, 9);
+            this.lblDatosServicio.Name = "lblDatosServicio";
+            this.lblDatosServicio.Size = new System.Drawing.Size(175, 24);
+            this.lblDatosServicio.TabIndex = 25;
+            this.lblDatosServicio.Text = "Datos del servicio";
             // 
             // pictureBox1
             // 
@@ -338,36 +430,35 @@
             this.pictureBox1.TabIndex = 25;
             this.pictureBox1.TabStop = false;
             // 
-            // label7
+            // lblHoras
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(175, 268);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 20);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Horas";
+            this.lblHoras.AutoSize = true;
+            this.lblHoras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHoras.Location = new System.Drawing.Point(175, 268);
+            this.lblHoras.Name = "lblHoras";
+            this.lblHoras.Size = new System.Drawing.Size(52, 20);
+            this.lblHoras.TabIndex = 14;
+            this.lblHoras.Text = "Horas";
             // 
             // tbxCodigo
             // 
+            this.tbxCodigo.Enabled = false;
             this.tbxCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxCodigo.Location = new System.Drawing.Point(107, 36);
             this.tbxCodigo.Name = "tbxCodigo";
             this.tbxCodigo.Size = new System.Drawing.Size(115, 26);
             this.tbxCodigo.TabIndex = 1;
-            this.tbxCodigo.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // label1
+            // lblCodigo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(31, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Código:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lblCodigo.AutoSize = true;
+            this.lblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCodigo.Location = new System.Drawing.Point(31, 39);
+            this.lblCodigo.Name = "lblCodigo";
+            this.lblCodigo.Size = new System.Drawing.Size(70, 20);
+            this.lblCodigo.TabIndex = 0;
+            this.lblCodigo.Text = "Código:";
             // 
             // tbxDuracionHoras
             // 
@@ -386,25 +477,25 @@
             this.tbxNombre.Size = new System.Drawing.Size(225, 26);
             this.tbxNombre.TabIndex = 3;
             // 
-            // label6
+            // lblDuracion
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(32, 268);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 20);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Duración:";
+            this.lblDuracion.AutoSize = true;
+            this.lblDuracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDuracion.Location = new System.Drawing.Point(32, 268);
+            this.lblDuracion.Name = "lblDuracion";
+            this.lblDuracion.Size = new System.Drawing.Size(86, 20);
+            this.lblDuracion.TabIndex = 12;
+            this.lblDuracion.Text = "Duración:";
             // 
-            // label2
+            // lblNombre
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(31, 71);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Nombre:";
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(31, 71);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(76, 20);
+            this.lblNombre.TabIndex = 2;
+            this.lblNombre.Text = "Nombre:";
             // 
             // cbxCategoria
             // 
@@ -415,34 +506,34 @@
             this.cbxCategoria.Size = new System.Drawing.Size(203, 28);
             this.cbxCategoria.TabIndex = 5;
             // 
-            // label3
+            // lblCategoria
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(31, 103);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Categoria:";
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoria.Location = new System.Drawing.Point(31, 103);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(92, 20);
+            this.lblCategoria.TabIndex = 4;
+            this.lblCategoria.Text = "Categoria:";
             // 
-            // tbxDesc
+            // tbxDescripcion
             // 
-            this.tbxDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxDesc.Location = new System.Drawing.Point(155, 166);
-            this.tbxDesc.Multiline = true;
-            this.tbxDesc.Name = "tbxDesc";
-            this.tbxDesc.Size = new System.Drawing.Size(272, 90);
-            this.tbxDesc.TabIndex = 9;
+            this.tbxDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxDescripcion.Location = new System.Drawing.Point(155, 166);
+            this.tbxDescripcion.Multiline = true;
+            this.tbxDescripcion.Name = "tbxDescripcion";
+            this.tbxDescripcion.Size = new System.Drawing.Size(272, 90);
+            this.tbxDescripcion.TabIndex = 9;
             // 
-            // label5
+            // lblDesc
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(32, 169);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 20);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Descripción:";
+            this.lblDesc.AutoSize = true;
+            this.lblDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDesc.Location = new System.Drawing.Point(32, 169);
+            this.lblDesc.Name = "lblDesc";
+            this.lblDesc.Size = new System.Drawing.Size(108, 20);
+            this.lblDesc.TabIndex = 8;
+            this.lblDesc.Text = "Descripción:";
             // 
             // nmCosto
             // 
@@ -453,55 +544,43 @@
             this.nmCosto.Size = new System.Drawing.Size(120, 26);
             this.nmCosto.TabIndex = 11;
             // 
-            // label4
+            // lblCosto
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(31, 136);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 20);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Costo:";
-            // 
-            // customButton1
-            // 
-            this.customButton1.BackColor = System.Drawing.Color.Transparent;
-            this.customButton1.BorderRadius = 15;
-            this.customButton1.ButtonIcon = global::AutoCare_R_J.Properties.Resources.mas;
-            this.customButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.customButton1.CustomBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.customButton1.FlatAppearance.BorderSize = 0;
-            this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.customButton1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.customButton1.ForeColor = System.Drawing.Color.White;
-            this.customButton1.IconSize = new System.Drawing.Size(20, 20);
-            this.customButton1.Location = new System.Drawing.Point(335, 265);
-            this.customButton1.Name = "customButton1";
-            this.customButton1.Size = new System.Drawing.Size(106, 45);
-            this.customButton1.TabIndex = 28;
-            this.customButton1.Text = "Auemtar\r\ntiempo";
-            this.customButton1.UseVisualStyleBackColor = false;
+            this.lblCosto.AutoSize = true;
+            this.lblCosto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCosto.Location = new System.Drawing.Point(31, 136);
+            this.lblCosto.Name = "lblCosto";
+            this.lblCosto.Size = new System.Drawing.Size(61, 20);
+            this.lblCosto.TabIndex = 6;
+            this.lblCosto.Text = "Costo:";
             // 
             // Servicios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(1688, 527);
-            this.Controls.Add(this.customPanel1);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
+            this.ClientSize = new System.Drawing.Size(864, 611);
+            this.Controls.Add(this.cpFiltros);
+            this.Controls.Add(this.cpBusquedas);
+            this.Controls.Add(this.cpAccionesRapidas);
+            this.Controls.Add(this.cpDatosServicio);
+            this.Controls.Add(this.dgvServicios);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Servicios";
-            this.Text = "Vehiculo";
+            this.Text = "Servicios";
             this.Load += new System.EventHandler(this.Servicios_Load);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.customPanel1.ResumeLayout(false);
-            this.customPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).EndInit();
+            this.cpBusquedas.ResumeLayout(false);
+            this.cpBusquedas.PerformLayout();
+            this.gbBuscName.ResumeLayout(false);
+            this.gbBuscName.PerformLayout();
+            this.gbBuscCod.ResumeLayout(false);
+            this.gbBuscCod.PerformLayout();
+            this.cpAccionesRapidas.ResumeLayout(false);
+            this.cpAccionesRapidas.PerformLayout();
+            this.cpDatosServicio.ResumeLayout(false);
+            this.cpDatosServicio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -515,44 +594,44 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.TextBox tbxCodigo;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.TextBox tbxNombre;
         private System.Windows.Forms.ComboBox cbxCategoria;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbxDesc;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblCategoria;
+        private System.Windows.Forms.Label lblCosto;
+        private System.Windows.Forms.TextBox tbxDescripcion;
+        private System.Windows.Forms.Label lblDesc;
         private System.Windows.Forms.NumericUpDown nmCosto;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblDuracion;
+        private System.Windows.Forms.Label lblMinutos;
         private System.Windows.Forms.TextBox tbxDuracionMinutos;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblHoras;
         private System.Windows.Forms.TextBox tbxDuracionHoras;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btnDesc;
-        private System.Windows.Forms.Button btnNombre;
-        private System.Windows.Forms.Button btnCodigo;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmCodigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmcategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmCosto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmDuracion;
-        private CustomPanel customPanel1;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridView dgvServicios;
+        private CustomPanel cpDatosServicio;
+        private System.Windows.Forms.Label lblDatosServicio;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private CustomButton customButton1;
+        private CustomButton btnAumentarTiempo;
+        private System.Windows.Forms.Label lblAccionesRapidas;
+        private CustomPanel cpAccionesRapidas;
+        private CustomButton btnAgregar;
+        private CustomButton btnEliminar;
+        private CustomButton btnModificar;
+        private CustomPanel cpBusquedas;
+        private CustomButton btnBuscar;
+        private System.Windows.Forms.Label lblBusquedas;
+        private System.Windows.Forms.GroupBox gbBuscName;
+        private System.Windows.Forms.TextBox tbxBuscNombre;
+        private System.Windows.Forms.GroupBox gbBuscCod;
+        private System.Windows.Forms.TextBox tbxBuscCodigo;
+        private CustomPanel cpFiltros;
+        private CustomButton btnLimpiarCampos;
     }
 }

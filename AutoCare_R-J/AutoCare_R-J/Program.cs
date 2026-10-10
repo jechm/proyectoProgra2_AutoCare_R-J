@@ -1,4 +1,4 @@
-﻿using AutoCare_R_J.Formularios;
+using AutoCare_R_J.Formularios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +17,8 @@ namespace AutoCare_R_J
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            
+            // Mantenemos el flujo seguro del Login que está en main
             using (frmLogin loginForm = new frmLogin())
             {
                 if (loginForm.ShowDialog() == DialogResult.OK)
@@ -24,7 +26,6 @@ namespace AutoCare_R_J
                     Application.Run(new frmVentanaPrincipal());
                 }
             }
-
         }
     }
 }
