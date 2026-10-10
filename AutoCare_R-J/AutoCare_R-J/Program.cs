@@ -16,7 +16,7 @@ namespace AutoCare_R_J
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            Application.Run(new Formularios.Servicios());
         }
     }
 }
