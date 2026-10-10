@@ -18,11 +18,6 @@ namespace AutoCare_R_J
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
         //Cerrar el formulario de login
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -55,6 +50,19 @@ namespace AutoCare_R_J
             {
                 txtUsuario.Text = "";
                 primerUsuario++;
+            }
+        }
+
+        private void btnIniciarSesion_Click(object sender, EventArgs e)
+        {
+            if(txtUsuario.Text == "admin" && txtContrasenia.Text == "admin")
+            {
+                MessageBox.Show("Bienvenido al sistema");
+                this.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                MessageBox.Show("Usuario o contraseña incorrectos");
             }
         }
     }
