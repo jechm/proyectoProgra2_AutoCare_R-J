@@ -38,9 +38,17 @@ namespace AutoCare_R_J.Formularios
             // Obtener los valores de las cajas de texto
             string strDuracionHoras = tbxDuracionHoras.Text;
             string strDuracionMinutos = tbxDuracionMinutos.Text;
-            // Convertir las horas y minutos a enteros
-            int intHoras = int.Parse(strDuracionHoras);
-            int intMinutos = int.Parse(strDuracionMinutos);
+            // Convertir las horas y minutos a enteros, usar TryParse para evitar excepciones en entrada vacía/no numérica
+            int intHoras;
+            if (!int.TryParse((strDuracionHoras ?? "").Trim(), out intHoras))
+            {
+                intHoras = 0;
+            }
+            int intMinutos;
+            if (!int.TryParse((strDuracionMinutos ?? "").Trim(), out intMinutos))
+            {
+                intMinutos = 0;
+            }
             //Sumar los minutos a aumentar
             intMinutos = intMinutos + intMinutosAumentar;
             // Verificar si los minutos superan los 60 y ajustar las horas en consecuencia
@@ -186,7 +194,21 @@ namespace AutoCare_R_J.Formularios
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                manejadorServicios.ModificarServicio(
+                tbxCodigo.Text,
+                tbxNombre.Text,
+                cbxCategoria.Text,
+                Convert.ToDouble(nmCosto.Value),
+                tbxDescripcion.Text,
+                $"{tbxDuracionHoras.Text}h {tbxDuracionMinutos.Text}m"
+            );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void LimpiarCampos()
@@ -228,6 +250,40 @@ namespace AutoCare_R_J.Formularios
             boton.CustomBackColor = colorFondo;
             boton.ForeColor = colorTexto;
             boton.Cursor = cursor;
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            string strCodigoAEliminar = tbxCodigo.Text.Trim();
+
+            if (!string.IsNullOrEmpty(strCodigoAEliminar))
+            {
+                try
+                {
+                    manejadorServicios.EliminarServicio(strCodigoAEliminar);
+                    MessageBox.Show("¡Servicio eliminado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Limpiar los campos después de eliminar
+                    LimpiarCampos();
+                    // Actualizar el DataGridView para reflejar los cambios
+                    ActualizarGrid();
+                    //habilitar el botón de agregar
+                    HabilitarBoton(btnAgregar, Color.Green, Color.White, Cursors.Hand);
+                    // Deshabilitar el botón de limpiar campo
+                    DeshabilitarBoton(btnLimpiarCampos);
+                    // Deshabilitar el botón de eliminar
+                    DeshabilitarBoton(btnEliminar);
+                    // Deshabilitar el botón de modificar
+                    DeshabilitarBoton(btnModificar);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, ingrese un código para eliminar.", "Campo vacío", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

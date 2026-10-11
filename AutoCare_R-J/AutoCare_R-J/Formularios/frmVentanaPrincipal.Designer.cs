@@ -120,7 +120,6 @@
             this.btnClientes.Size = new System.Drawing.Size(100, 100);
             this.btnClientes.TabIndex = 0;
             this.btnClientes.UseVisualStyleBackColor = true;
-            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
             // btnVehiculos
             // 

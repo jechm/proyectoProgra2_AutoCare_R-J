@@ -67,6 +67,23 @@ namespace AutoCare_R_J.Controladores
             }
         }
 
+        public void ModificarServicio(string strCodigo, string strNombre, string strCategoria, double dblCosto, string strDescripcion, string strDuracion)
+        {
+            clsServicios servicioEncontrado = lstServicios.FirstOrDefault(s => s.Codigo == strCodigo);
+            if (servicioEncontrado != null)
+            {
+                servicioEncontrado.Nombre = strNombre;
+                servicioEncontrado.Categoria = strCategoria;
+                servicioEncontrado.Costo = dblCosto;
+                servicioEncontrado.Descripcion = strDescripcion;
+                servicioEncontrado.Duracion = strDuracion;
+            }
+            else
+            {
+                throw new Exception("Servicio no encontrado");
+            }
+        }
+
         // Método para listar si lo necesitas en tu DataGridView
         public List<clsServicios> ListarServicios()
         {
