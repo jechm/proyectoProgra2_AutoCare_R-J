@@ -17,7 +17,7 @@ namespace AutoCare_R_J
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
+
             // Mantenemos el flujo seguro del Login que está en main
             using (frmLogin loginForm = new frmLogin())
             {
@@ -26,6 +26,7 @@ namespace AutoCare_R_J
                     Application.Run(new frmVentanaPrincipal());
                 }
             }
+
         }
     }
 }

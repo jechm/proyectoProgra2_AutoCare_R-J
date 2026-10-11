@@ -23,7 +23,7 @@ namespace AutoCare_R_J.Formularios
         }
 
         
-        private void btnClientes_Click(object sender, EventArgs e)
+        /*private void btnClientes_Click(object sender, EventArgs e)
         {
             if(!FormularioAbierto("frmClientes"))
             {
@@ -31,7 +31,7 @@ namespace AutoCare_R_J.Formularios
                 clientes.MdiParent = this;
                 clientes.Show();
             }
-        }
+        }*/
 
         //determinar si ya existe un formulario abierto
         private bool FormularioAbierto(string pNombreFormulario)

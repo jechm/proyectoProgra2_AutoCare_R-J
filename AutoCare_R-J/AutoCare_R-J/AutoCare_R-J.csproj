@@ -63,11 +63,29 @@
       <SubType>Component</SubType>
     </Compile>
     <!-- Formularios -->
+    <Compile Include="Formularios\frmFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmFacturas.Designer.cs">
+      <DependentUpon>frmFacturas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmOrdenesTrabajo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmOrdenesTrabajo.Designer.cs">
+      <DependentUpon>frmOrdenesTrabajo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmVehiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmVehiculos.Designer.cs">
+      <DependentUpon>frmVehiculos.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frmVentanaPrincipal.cs">
       <SubType>Form</SubType>
@@ -94,8 +112,17 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <!-- Recursos incrustados para Formularios -->
+    <EmbeddedResource Include="Formularios\frmFacturas.resx">
+      <DependentUpon>frmFacturas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmOrdenesTrabajo.resx">
+      <DependentUpon>frmOrdenesTrabajo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmVehiculos.resx">
+      <DependentUpon>frmVehiculos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmVentanaPrincipal.resx">
       <DependentUpon>frmVentanaPrincipal.cs</DependentUpon>
@@ -154,6 +181,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\limpiar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\placa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cambios-de-humor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paleta-de-color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\marca-comercial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\modelado-3d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cliente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nulo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

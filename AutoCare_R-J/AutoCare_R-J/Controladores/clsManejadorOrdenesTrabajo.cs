@@ -1,71 +1,95 @@
 ﻿using System;
-using AutoCare_R_J.Modelos;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AutoCare_R_J.Modelos;
 
 namespace AutoCare_R_J.Controladores
 {
     internal class clsManejadorOrdenesTrabajo
     {
-        //creacion de la lista de ordenes de trabajo
-        List<clsOrdenesDeTrabajo> lstOrdenesTrabajo = new List<clsOrdenesDeTrabajo>();
+        // Creación de la lista de órdenes de trabajo
+        private List<clsOrdenesDeTrabajo> lstOrdenesTrabajo = new List<clsOrdenesDeTrabajo>();
 
+        // Método para generar el siguiente código automático (ej. ORD-001)
+        public string ObtenerSiguienteCodigo()
+        {
+            int siguienteNumero = lstOrdenesTrabajo.Count + 1;
+            return $"ORD-{siguienteNumero:D3}";
+        }
 
-        //creacion de objeto de la clase ordenes de trabajo, con el prefijo ob para indicar que es un objeto
-        clsOrdenesDeTrabajo obOrdenTrabajo = new clsOrdenesDeTrabajo();
-        //creacion de metodo para agregar una orden de trabajo, con el prefijo str para indicar que es una variable de tipo string
-        public void agregarOrdenTrabajo(string strCodigo, DateTime dtFechaRecepción, 
-            string strServicio, string strVehiculo, 
-            string strEstado, string strRepuestos)
+        // Creación de método para agregar una orden de trabajo
+        public void AgregarOrdenTrabajo(DateTime dtFechaRecepcion, string strServicio, string strVehiculo, string strEstado, string strRepuestos)
         {
             try
             {
-                //Aqui se agrego la logica de creacion de una orden de trabajo
-                obOrdenTrabajo.Codigo = strCodigo;
-                obOrdenTrabajo.FechaRecepción = dtFechaRecepción;
-                obOrdenTrabajo.Servicio = strServicio;
-                obOrdenTrabajo.Vehiculo = strVehiculo;
-                obOrdenTrabajo.Estado = strEstado;
-                obOrdenTrabajo.Repuestos = strRepuestos;
+                clsOrdenesDeTrabajo nuevaOrden = new clsOrdenesDeTrabajo();
 
-                //se agregara el objeto orden de trabajo a la lista de ordenes de trabajo
-                lstOrdenesTrabajo.Add(obOrdenTrabajo);
+                nuevaOrden.Codigo = ObtenerSiguienteCodigo();
+                nuevaOrden.FechaRecepción = dtFechaRecepcion;
+                nuevaOrden.Servicio = strServicio;
+                nuevaOrden.Vehiculo = strVehiculo;
+                nuevaOrden.Estado = strEstado;
+                nuevaOrden.Repuestos = strRepuestos;
+
+                lstOrdenesTrabajo.Add(nuevaOrden);
             }
             catch (Exception ex)
             {
-                //Aqui se puede agregar la logica para manejar la excepcion
                 throw new Exception("Error al agregar la orden de trabajo: " + ex.Message);
             }
         }
-        public void BuscarOrdenTrabajo(string strCodigo)
+
+        // Método para buscar una orden de trabajo por código o por vehículo
+        public clsOrdenesDeTrabajo BuscarOrdenTrabajo(string strCodigo, string strVehiculo = "")
         {
-            //Aqui se agrego la logica para buscar una orden de trabajo en una base de datos o lista
-            clsOrdenesDeTrabajo ordenTrabajoEncontrada = lstOrdenesTrabajo.FirstOrDefault(o => o.Codigo == strCodigo);
-            if (ordenTrabajoEncontrada != null)
+            clsOrdenesDeTrabajo ordenEncontrada = lstOrdenesTrabajo.FirstOrDefault(o => o.Codigo == strCodigo || (!string.IsNullOrEmpty(strVehiculo) && o.Vehiculo == strVehiculo));
+
+            if (ordenEncontrada == null)
             {
+                throw new Exception("Orden de trabajo no encontrada");
+            }
+
+            return ordenEncontrada;
+        }
+
+        // Método para eliminar una orden de trabajo
+        public void EliminarOrdenTrabajo(string strCodigo)
+        {
+            clsOrdenesDeTrabajo ordenEncontrada = lstOrdenesTrabajo.FirstOrDefault(o => o.Codigo == strCodigo);
+
+            if (ordenEncontrada != null)
+            {
+                lstOrdenesTrabajo.Remove(ordenEncontrada);
             }
             else
             {
-                //Aqui se agrego la logica para manejar el caso en que no se encuentre la orden de trabajo
                 throw new Exception("Orden de trabajo no encontrada");
             }
         }
 
-        public void eliminarOrdenTrabajo(string strCodigo)
+        // Método para modificar una orden de trabajo
+        public void ModificarOrdenTrabajo(string strCodigo, DateTime dtFechaRecepcion, string strServicio, string strVehiculo, string strEstado, string strRepuestos)
         {
-            //Aqui se agrego la logica para eliminar una orden de trabajo en una base de datos o lista
-            clsOrdenesDeTrabajo ordenTrabajoEncontrada = lstOrdenesTrabajo.FirstOrDefault(o => o.Codigo == strCodigo);
-            if (ordenTrabajoEncontrada != null)
+            clsOrdenesDeTrabajo ordenEncontrada = lstOrdenesTrabajo.FirstOrDefault(o => o.Codigo == strCodigo);
+
+            if (ordenEncontrada != null)
             {
-                lstOrdenesTrabajo.Remove(ordenTrabajoEncontrada);
+                ordenEncontrada.FechaRecepción = dtFechaRecepcion;
+                ordenEncontrada.Servicio = strServicio;
+                ordenEncontrada.Vehiculo = strVehiculo;
+                ordenEncontrada.Estado = strEstado;
+                ordenEncontrada.Repuestos = strRepuestos;
             }
             else
             {
-                //Aqui se agrego la logica para manejar el caso en que no se encuentre la orden de trabajo
                 throw new Exception("Orden de trabajo no encontrada");
             }
+        }
+
+        // Método para listar todas las órdenes de trabajo
+        public List<clsOrdenesDeTrabajo> ListarOrdenesTrabajo()
+        {
+            return lstOrdenesTrabajo;
         }
     }
 }
