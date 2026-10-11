@@ -58,7 +58,7 @@ namespace AutoCare_R_J.Formularios
         private void frmVentanaPrincipal_Load(object sender, EventArgs e)
         {
 
-            
+           
 
         }
 
@@ -79,6 +79,26 @@ namespace AutoCare_R_J.Formularios
                 frmVehiculos vehiculos = new frmVehiculos();
                 vehiculos.MdiParent = this;
                 vehiculos.Show();
+            }
+        }
+
+        private void btnFacturas_Click(object sender, EventArgs e)
+        {
+            if(!FormularioAbierto("frmFacturas"))
+            {
+                frmFacturas facturas = new frmFacturas();
+                facturas.MdiParent = this;
+                facturas.Show();
+            }
+        }
+
+        private void btnOrdenesDeTrabajo_Click(object sender, EventArgs e)
+        {
+            if(!FormularioAbierto("frmOrdenesTrabajo"))
+            {
+                frmOrdenesTrabajo ordenesDeTrabajo = new frmOrdenesTrabajo();
+                ordenesDeTrabajo.MdiParent = this;
+                ordenesDeTrabajo.Show();
             }
         }
     }

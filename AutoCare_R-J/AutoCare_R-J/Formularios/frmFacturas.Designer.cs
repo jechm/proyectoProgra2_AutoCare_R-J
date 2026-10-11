@@ -28,22 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFacturas));
             this.cpBusquedas = new AutoCare_R_J.CustomPanel();
             this.gbBuscName = new System.Windows.Forms.GroupBox();
             this.tbxBuscNombre = new System.Windows.Forms.TextBox();
             this.gbBuscCod = new System.Windows.Forms.GroupBox();
             this.tbxBuscCodigo = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new AutoCare_R_J.CustomButton();
             this.lblBusquedas = new System.Windows.Forms.Label();
             this.cpAccionesRapidas = new AutoCare_R_J.CustomPanel();
+            this.btnLimpiarCampos = new AutoCare_R_J.CustomButton();
+            this.btnEliminar = new AutoCare_R_J.CustomButton();
+            this.btnAgregar = new AutoCare_R_J.CustomButton();
             this.lblAccionesRapidas = new System.Windows.Forms.Label();
             this.customPanel1 = new AutoCare_R_J.CustomPanel();
             this.lblDatosServicio = new System.Windows.Forms.Label();
             this.cpFiltros = new AutoCare_R_J.CustomPanel();
             this.dgvServicios = new System.Windows.Forms.DataGridView();
-            this.btnBuscar = new AutoCare_R_J.CustomButton();
-            this.btnLimpiarCampos = new AutoCare_R_J.CustomButton();
-            this.btnEliminar = new AutoCare_R_J.CustomButton();
-            this.btnAgregar = new AutoCare_R_J.CustomButton();
             this.cpBusquedas.SuspendLayout();
             this.gbBuscName.SuspendLayout();
             this.gbBuscCod.SuspendLayout();
@@ -60,18 +61,21 @@
             this.cpBusquedas.Controls.Add(this.gbBuscCod);
             this.cpBusquedas.Controls.Add(this.btnBuscar);
             this.cpBusquedas.Controls.Add(this.lblBusquedas);
-            this.cpBusquedas.Location = new System.Drawing.Point(469, 155);
+            this.cpBusquedas.Location = new System.Drawing.Point(625, 191);
+            this.cpBusquedas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cpBusquedas.Name = "cpBusquedas";
-            this.cpBusquedas.Size = new System.Drawing.Size(383, 175);
+            this.cpBusquedas.Size = new System.Drawing.Size(511, 215);
             this.cpBusquedas.TabIndex = 32;
             // 
             // gbBuscName
             // 
             this.gbBuscName.Controls.Add(this.tbxBuscNombre);
             this.gbBuscName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbBuscName.Location = new System.Drawing.Point(14, 113);
+            this.gbBuscName.Location = new System.Drawing.Point(19, 139);
+            this.gbBuscName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbBuscName.Name = "gbBuscName";
-            this.gbBuscName.Size = new System.Drawing.Size(362, 53);
+            this.gbBuscName.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbBuscName.Size = new System.Drawing.Size(483, 65);
             this.gbBuscName.TabIndex = 32;
             this.gbBuscName.TabStop = false;
             this.gbBuscName.Text = "Nombre";
@@ -79,18 +83,21 @@
             // tbxBuscNombre
             // 
             this.tbxBuscNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxBuscNombre.Location = new System.Drawing.Point(16, 21);
+            this.tbxBuscNombre.Location = new System.Drawing.Point(21, 26);
+            this.tbxBuscNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbxBuscNombre.Name = "tbxBuscNombre";
-            this.tbxBuscNombre.Size = new System.Drawing.Size(340, 26);
+            this.tbxBuscNombre.Size = new System.Drawing.Size(452, 30);
             this.tbxBuscNombre.TabIndex = 29;
             // 
             // gbBuscCod
             // 
             this.gbBuscCod.Controls.Add(this.tbxBuscCodigo);
             this.gbBuscCod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbBuscCod.Location = new System.Drawing.Point(14, 51);
+            this.gbBuscCod.Location = new System.Drawing.Point(19, 63);
+            this.gbBuscCod.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbBuscCod.Name = "gbBuscCod";
-            this.gbBuscCod.Size = new System.Drawing.Size(362, 53);
+            this.gbBuscCod.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbBuscCod.Size = new System.Drawing.Size(483, 65);
             this.gbBuscCod.TabIndex = 31;
             this.gbBuscCod.TabStop = false;
             this.gbBuscCod.Text = "Código";
@@ -98,85 +105,11 @@
             // tbxBuscCodigo
             // 
             this.tbxBuscCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxBuscCodigo.Location = new System.Drawing.Point(16, 21);
+            this.tbxBuscCodigo.Location = new System.Drawing.Point(21, 26);
+            this.tbxBuscCodigo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbxBuscCodigo.Name = "tbxBuscCodigo";
-            this.tbxBuscCodigo.Size = new System.Drawing.Size(340, 26);
+            this.tbxBuscCodigo.Size = new System.Drawing.Size(452, 30);
             this.tbxBuscCodigo.TabIndex = 29;
-            // 
-            // lblBusquedas
-            // 
-            this.lblBusquedas.AutoSize = true;
-            this.lblBusquedas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBusquedas.Location = new System.Drawing.Point(10, 13);
-            this.lblBusquedas.Name = "lblBusquedas";
-            this.lblBusquedas.Size = new System.Drawing.Size(114, 24);
-            this.lblBusquedas.TabIndex = 29;
-            this.lblBusquedas.Text = "Busquedas";
-            // 
-            // cpAccionesRapidas
-            // 
-            this.cpAccionesRapidas.BackColor = System.Drawing.Color.Transparent;
-            this.cpAccionesRapidas.BorderRadius = 20;
-            this.cpAccionesRapidas.Controls.Add(this.btnLimpiarCampos);
-            this.cpAccionesRapidas.Controls.Add(this.btnEliminar);
-            this.cpAccionesRapidas.Controls.Add(this.btnAgregar);
-            this.cpAccionesRapidas.Controls.Add(this.lblAccionesRapidas);
-            this.cpAccionesRapidas.Location = new System.Drawing.Point(469, 3);
-            this.cpAccionesRapidas.Name = "cpAccionesRapidas";
-            this.cpAccionesRapidas.Size = new System.Drawing.Size(383, 146);
-            this.cpAccionesRapidas.TabIndex = 31;
-            // 
-            // lblAccionesRapidas
-            // 
-            this.lblAccionesRapidas.AutoSize = true;
-            this.lblAccionesRapidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccionesRapidas.Location = new System.Drawing.Point(10, 9);
-            this.lblAccionesRapidas.Name = "lblAccionesRapidas";
-            this.lblAccionesRapidas.Size = new System.Drawing.Size(178, 24);
-            this.lblAccionesRapidas.TabIndex = 25;
-            this.lblAccionesRapidas.Text = "Acciones Rapidas";
-            // 
-            // customPanel1
-            // 
-            this.customPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.customPanel1.BorderRadius = 20;
-            this.customPanel1.Controls.Add(this.lblDatosServicio);
-            this.customPanel1.Location = new System.Drawing.Point(12, 3);
-            this.customPanel1.Name = "customPanel1";
-            this.customPanel1.Size = new System.Drawing.Size(451, 327);
-            this.customPanel1.TabIndex = 33;
-            // 
-            // lblDatosServicio
-            // 
-            this.lblDatosServicio.AutoSize = true;
-            this.lblDatosServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDatosServicio.Location = new System.Drawing.Point(3, 6);
-            this.lblDatosServicio.Name = "lblDatosServicio";
-            this.lblDatosServicio.Size = new System.Drawing.Size(182, 24);
-            this.lblDatosServicio.TabIndex = 26;
-            this.lblDatosServicio.Text = "Datos de la factura";
-            // 
-            // cpFiltros
-            // 
-            this.cpFiltros.BackColor = System.Drawing.Color.Transparent;
-            this.cpFiltros.BorderRadius = 20;
-            this.cpFiltros.Location = new System.Drawing.Point(11, 336);
-            this.cpFiltros.Name = "cpFiltros";
-            this.cpFiltros.Size = new System.Drawing.Size(841, 70);
-            this.cpFiltros.TabIndex = 35;
-            // 
-            // dgvServicios
-            // 
-            this.dgvServicios.AllowUserToAddRows = false;
-            this.dgvServicios.AllowUserToDeleteRows = false;
-            this.dgvServicios.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgvServicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvServicios.Location = new System.Drawing.Point(11, 412);
-            this.dgvServicios.MultiSelect = false;
-            this.dgvServicios.Name = "dgvServicios";
-            this.dgvServicios.ReadOnly = true;
-            this.dgvServicios.Size = new System.Drawing.Size(841, 187);
-            this.dgvServicios.TabIndex = 36;
             // 
             // btnBuscar
             // 
@@ -190,12 +123,38 @@
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.IconSize = new System.Drawing.Size(20, 20);
-            this.btnBuscar.Location = new System.Drawing.Point(194, 3);
+            this.btnBuscar.Location = new System.Drawing.Point(259, 4);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(160, 45);
+            this.btnBuscar.Size = new System.Drawing.Size(213, 55);
             this.btnBuscar.TabIndex = 30;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            // 
+            // lblBusquedas
+            // 
+            this.lblBusquedas.AutoSize = true;
+            this.lblBusquedas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBusquedas.Location = new System.Drawing.Point(13, 16);
+            this.lblBusquedas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBusquedas.Name = "lblBusquedas";
+            this.lblBusquedas.Size = new System.Drawing.Size(143, 29);
+            this.lblBusquedas.TabIndex = 29;
+            this.lblBusquedas.Text = "Busquedas";
+            // 
+            // cpAccionesRapidas
+            // 
+            this.cpAccionesRapidas.BackColor = System.Drawing.Color.Transparent;
+            this.cpAccionesRapidas.BorderRadius = 20;
+            this.cpAccionesRapidas.Controls.Add(this.btnLimpiarCampos);
+            this.cpAccionesRapidas.Controls.Add(this.btnEliminar);
+            this.cpAccionesRapidas.Controls.Add(this.btnAgregar);
+            this.cpAccionesRapidas.Controls.Add(this.lblAccionesRapidas);
+            this.cpAccionesRapidas.Location = new System.Drawing.Point(625, 4);
+            this.cpAccionesRapidas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cpAccionesRapidas.Name = "cpAccionesRapidas";
+            this.cpAccionesRapidas.Size = new System.Drawing.Size(511, 180);
+            this.cpAccionesRapidas.TabIndex = 31;
             // 
             // btnLimpiarCampos
             // 
@@ -209,9 +168,10 @@
             this.btnLimpiarCampos.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnLimpiarCampos.ForeColor = System.Drawing.Color.White;
             this.btnLimpiarCampos.IconSize = new System.Drawing.Size(20, 20);
-            this.btnLimpiarCampos.Location = new System.Drawing.Point(194, 39);
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(259, 48);
+            this.btnLimpiarCampos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLimpiarCampos.Name = "btnLimpiarCampos";
-            this.btnLimpiarCampos.Size = new System.Drawing.Size(160, 45);
+            this.btnLimpiarCampos.Size = new System.Drawing.Size(213, 55);
             this.btnLimpiarCampos.TabIndex = 29;
             this.btnLimpiarCampos.Text = "Limpiar campos";
             this.btnLimpiarCampos.UseVisualStyleBackColor = false;
@@ -228,9 +188,10 @@
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.IconSize = new System.Drawing.Size(20, 20);
-            this.btnEliminar.Location = new System.Drawing.Point(14, 91);
+            this.btnEliminar.Location = new System.Drawing.Point(19, 112);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(160, 45);
+            this.btnEliminar.Size = new System.Drawing.Size(213, 55);
             this.btnEliminar.TabIndex = 28;
             this.btnEliminar.Text = "Anular";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -247,26 +208,87 @@
             this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.IconSize = new System.Drawing.Size(20, 20);
-            this.btnAgregar.Location = new System.Drawing.Point(14, 39);
+            this.btnAgregar.Location = new System.Drawing.Point(19, 48);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(160, 45);
+            this.btnAgregar.Size = new System.Drawing.Size(213, 55);
             this.btnAgregar.TabIndex = 26;
             this.btnAgregar.Text = "Guardar nuevo";
             this.btnAgregar.UseVisualStyleBackColor = false;
             // 
+            // lblAccionesRapidas
+            // 
+            this.lblAccionesRapidas.AutoSize = true;
+            this.lblAccionesRapidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccionesRapidas.Location = new System.Drawing.Point(13, 11);
+            this.lblAccionesRapidas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAccionesRapidas.Name = "lblAccionesRapidas";
+            this.lblAccionesRapidas.Size = new System.Drawing.Size(222, 29);
+            this.lblAccionesRapidas.TabIndex = 25;
+            this.lblAccionesRapidas.Text = "Acciones Rapidas";
+            // 
+            // customPanel1
+            // 
+            this.customPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.customPanel1.BorderRadius = 20;
+            this.customPanel1.Controls.Add(this.lblDatosServicio);
+            this.customPanel1.Location = new System.Drawing.Point(16, 4);
+            this.customPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.customPanel1.Name = "customPanel1";
+            this.customPanel1.Size = new System.Drawing.Size(601, 402);
+            this.customPanel1.TabIndex = 33;
+            // 
+            // lblDatosServicio
+            // 
+            this.lblDatosServicio.AutoSize = true;
+            this.lblDatosServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDatosServicio.Location = new System.Drawing.Point(4, 7);
+            this.lblDatosServicio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDatosServicio.Name = "lblDatosServicio";
+            this.lblDatosServicio.Size = new System.Drawing.Size(230, 29);
+            this.lblDatosServicio.TabIndex = 26;
+            this.lblDatosServicio.Text = "Datos de la factura";
+            // 
+            // cpFiltros
+            // 
+            this.cpFiltros.BackColor = System.Drawing.Color.Transparent;
+            this.cpFiltros.BorderRadius = 20;
+            this.cpFiltros.Location = new System.Drawing.Point(15, 414);
+            this.cpFiltros.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cpFiltros.Name = "cpFiltros";
+            this.cpFiltros.Size = new System.Drawing.Size(1121, 86);
+            this.cpFiltros.TabIndex = 35;
+            // 
+            // dgvServicios
+            // 
+            this.dgvServicios.AllowUserToAddRows = false;
+            this.dgvServicios.AllowUserToDeleteRows = false;
+            this.dgvServicios.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvServicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvServicios.Location = new System.Drawing.Point(15, 507);
+            this.dgvServicios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvServicios.MultiSelect = false;
+            this.dgvServicios.Name = "dgvServicios";
+            this.dgvServicios.ReadOnly = true;
+            this.dgvServicios.RowHeadersWidth = 51;
+            this.dgvServicios.Size = new System.Drawing.Size(1121, 230);
+            this.dgvServicios.TabIndex = 36;
+            // 
             // frmFacturas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.ClientSize = new System.Drawing.Size(864, 611);
+            this.ClientSize = new System.Drawing.Size(1152, 752);
             this.Controls.Add(this.dgvServicios);
             this.Controls.Add(this.cpFiltros);
             this.Controls.Add(this.customPanel1);
             this.Controls.Add(this.cpBusquedas);
             this.Controls.Add(this.cpAccionesRapidas);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmFacturas";
-            this.Text = "Form1";
+            this.Text = "Facturas";
             this.cpBusquedas.ResumeLayout(false);
             this.cpBusquedas.PerformLayout();
             this.gbBuscName.ResumeLayout(false);
