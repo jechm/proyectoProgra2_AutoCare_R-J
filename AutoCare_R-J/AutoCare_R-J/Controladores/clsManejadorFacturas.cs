@@ -1,82 +1,111 @@
 ﻿using System;
-using AutoCare_R_J.Modelos;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AutoCare_R_J.Modelos;
 
 namespace AutoCare_R_J.Controladores
 {
     internal class clsManejadorFacturas
     {
-        //Creacion de la lista de facturas
-        List<clsFacturas> lstFacturas = new List<clsFacturas>();
+        // Creación de la lista de facturas
+        private List<clsFacturas> lstFacturas = new List<clsFacturas>();
 
-        //Creacion de objeto de la clase facturas
-        // removed shared instance; create a new instance per call inside AgregarFactura
+        // Método para generar el siguiente código automático (ej. FAC-001)
+        public string ObtenerSiguienteCodigo()
+        {
+            int siguienteNumero = lstFacturas.Count + 1;
+            return $"FAC-{siguienteNumero:D3}";
+        }
 
-        //Creacion de metodo para agregar una factura
-        public void AgregarFactura(string strCodigo, double dblPrecio, 
-            double dblDescuento, double dblSubtotal, 
-            double dblTotal, string strDescripcionServicio, 
-            string strServicio, string strVehiculo, 
-            string strFecha, string strRepuesto, 
-            double dblPrecioRepuesto)
+        // Creación de método para agregar una factura
+        public void AgregarFactura(double dblPrecio, double dblDescuento,
+            double dblSubtotal, double dblTotal, string strDescripcionServicio,
+            string strServicio, string strVehiculo, string strFecha,
+            string strRepuesto, double dblPrecioRepuesto)
         {
             try
             {
-                //Aqui se agrego la logica de creacion de una factura
-                var obFactura = new clsFacturas();
-                obFactura.Codigo = strCodigo;
-                obFactura.Precio = dblPrecio;
-                obFactura.Descuento = dblDescuento;
-                obFactura.Subtotal = dblSubtotal;
-                obFactura.Total = dblTotal;
-                obFactura.DescripcionServicio = strDescripcionServicio;
-                obFactura.Servicio = strServicio;
-                obFactura.Vehiculo = strVehiculo;
-                obFactura.Fecha = strFecha;
-                obFactura.Repuesto = strRepuesto;
-                obFactura.PrecioRepuesto = dblPrecioRepuesto;
+                clsFacturas nuevaFactura = new clsFacturas();
 
-                //Se agregara el objeto factura a la lista de facturas
-                lstFacturas.Add(obFactura);
+                nuevaFactura.Codigo = ObtenerSiguienteCodigo();
+                nuevaFactura.Precio = dblPrecio;
+                nuevaFactura.Descuento = dblDescuento;
+                nuevaFactura.Subtotal = dblSubtotal;
+                nuevaFactura.Total = dblTotal;
+                nuevaFactura.DescripcionServicio = strDescripcionServicio;
+                nuevaFactura.Servicio = strServicio;
+                nuevaFactura.Vehiculo = strVehiculo;
+                nuevaFactura.Fecha = strFecha;
+                nuevaFactura.Repuesto = strRepuesto;
+                nuevaFactura.PrecioRepuesto = dblPrecioRepuesto;
+
+                lstFacturas.Add(nuevaFactura);
             }
             catch (Exception ex)
             {
-                //Aqui se puede agregar la logica para manejar la excepcion
                 throw new Exception("Error al agregar la factura: " + ex.Message);
             }
         }
 
-        public clsFacturas BuscarFactura(string strCodigo)
+        // Método para buscar una factura por código o por vehículo
+        public clsFacturas BuscarFactura(string strCodigo, string strVehiculo = "")
         {
-            //Aqui se agrego la logica para buscar una factura en una base de datos o lista
-            clsFacturas facturaEncontrada = lstFacturas.FirstOrDefault(f => f.Codigo == strCodigo);
-            if (facturaEncontrada != null)
-            { 
-                return facturaEncontrada;
-            }
-            else
+            clsFacturas facturaEncontrada = lstFacturas.FirstOrDefault(f => f.Codigo == strCodigo || (!string.IsNullOrEmpty(strVehiculo) && f.Vehiculo == strVehiculo));
+
+            if (facturaEncontrada == null)
             {
-                //Aqui se agrego la logica para manejar el caso en que no se encuentre la factura
                 throw new Exception("Factura no encontrada");
             }
+
+            return facturaEncontrada;
         }
 
+        // Método para eliminar una factura por código
         public void EliminarFactura(string strCodigo)
         {
-            //Aqui se agrego la logica para eliminar una factura de una base de datos o lista
             clsFacturas facturaEncontrada = lstFacturas.FirstOrDefault(f => f.Codigo == strCodigo);
+
             if (facturaEncontrada != null)
             {
                 lstFacturas.Remove(facturaEncontrada);
             }
             else
             {
-                //Aqui se agrego la logica para manejar el caso en que no se encuentre la factura
                 throw new Exception("Factura no encontrada");
             }
+        }
+
+        // Método para modificar una factura
+        public void ModificarFactura(string strCodigo, double dblPrecio,
+            double dblDescuento, double dblSubtotal, double dblTotal,
+            string strDescripcionServicio, string strServicio, string strVehiculo,
+            string strFecha, string strRepuesto, double dblPrecioRepuesto)
+        {
+            clsFacturas facturaEncontrada = lstFacturas.FirstOrDefault(f => f.Codigo == strCodigo);
+
+            if (facturaEncontrada != null)
+            {
+                facturaEncontrada.Precio = dblPrecio;
+                facturaEncontrada.Descuento = dblDescuento;
+                facturaEncontrada.Subtotal = dblSubtotal;
+                facturaEncontrada.Total = dblTotal;
+                facturaEncontrada.DescripcionServicio = strDescripcionServicio;
+                facturaEncontrada.Servicio = strServicio;
+                facturaEncontrada.Vehiculo = strVehiculo;
+                facturaEncontrada.Fecha = strFecha;
+                facturaEncontrada.Repuesto = strRepuesto;
+                facturaEncontrada.PrecioRepuesto = dblPrecioRepuesto;
+            }
+            else
+            {
+                throw new Exception("Factura no encontrada");
+            }
+        }
+
+        // Método para listar todas las facturas
+        public List<clsFacturas> ListarFacturas()
+        {
+            return lstFacturas;
         }
     }
 }

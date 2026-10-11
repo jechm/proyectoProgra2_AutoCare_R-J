@@ -1,79 +1,105 @@
-﻿using AutoCare_R_J.Modelos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AutoCare_R_J.Modelos;
 
 namespace AutoCare_R_J.Controladores
 {
     internal class clsManejadorVehiculos
     {
-        //creacion de la lista de vehiculos, con el prefijo lst para indicar que es una lista
-        List<clsVehiculos> lstVehiculos = new List<clsVehiculos>();
-        //creacion de objeto de la clase vehiculos, con el prefijo ob para indicar que es un objeto
-        clsVehiculos obVehiculo = new clsVehiculos();
+        // Creación de la lista de vehículos
+        private List<clsVehiculos> lstVehiculos = new List<clsVehiculos>();
 
-        //creacion de metodo para agregar un vehiculo, con el prefijo str para indicar que es una variable de tipo string
-        public void agregarVehiculo(string strCodigo, string strPropietario,
-            string strPlaca, string strEstado,
-            string strColor, string strMarca,
-            string strModelo, string strTipo,
-            string strAño)
+        // Método para generar el siguiente código automático (ej. VEH-001)
+        public string ObtenerSiguienteCodigo()
         {
-            //Se tomara la precaucion de manejar cualquier excepcion que pueda ocurrir al agregar un vehiculo
+            int siguienteNumero = lstVehiculos.Count + 1;
+            return $"VEH-{siguienteNumero:D3}";
+        }
+
+        // Método para agregar un vehículo
+        public void AgregarVehiculo(string strPropietario, string strPlaca,
+            string strEstado, string strColor, string strMarca,
+            string strModelo, string strTipo, string strAño)
+        {
             try
             {
-                obVehiculo.Codigo = strCodigo;
-                obVehiculo.Propietario = strPropietario;
-                obVehiculo.Placa = strPlaca;
-                obVehiculo.Estado = strEstado;
-                obVehiculo.Color = strColor;
-                obVehiculo.Marca = strMarca;
-                obVehiculo.Modelo = strModelo;
-                obVehiculo.Tipo = strTipo;
-                obVehiculo.Año = strAño;
+                clsVehiculos nuevoVehiculo = new clsVehiculos();
 
-                //Se agregara el objeto vehiculo a la lista de vehiculos
-                lstVehiculos.Add(obVehiculo);
+                nuevoVehiculo.Codigo = ObtenerSiguienteCodigo();
+                nuevoVehiculo.Propietario = strPropietario;
+                nuevoVehiculo.Placa = strPlaca;
+                nuevoVehiculo.Estado = strEstado;
+                nuevoVehiculo.Color = strColor;
+                nuevoVehiculo.Marca = strMarca;
+                nuevoVehiculo.Modelo = strModelo;
+                nuevoVehiculo.Tipo = strTipo;
+                nuevoVehiculo.Año = strAño;
+
+                lstVehiculos.Add(nuevoVehiculo);
             }
             catch (Exception ex)
             {
-                //Aqui se agrego la logica para manejar la excepcion
-                throw new Exception("Error al agregar el vehiculo: " + ex.Message);
-
+                throw new Exception("Error al agregar el vehículo: " + ex.Message);
             }
         }
 
-        public void BuscarVehiculo(string strCodigo)
+        // Método para buscar un vehículo por código o por número de placa
+        public clsVehiculos BuscarVehiculo(string strCodigo, string strPlaca = "")
         {
-            //Aqui se agrego la logica para buscar un vehiculo en una base de datos o lista
-            clsVehiculos vehiculoEncontrado = lstVehiculos.FirstOrDefault(v => v.Codigo == strCodigo);
+            clsVehiculos vehiculoEncontrado = lstVehiculos.FirstOrDefault(v => v.Codigo == strCodigo || (!string.IsNullOrEmpty(strPlaca) && v.Placa == strPlaca));
 
-            if (vehiculoEncontrado != null)
+            if (vehiculoEncontrado == null)
             {
+                throw new Exception("Vehículo no encontrado");
+            }
 
-            }
-            else
-            {
-                //Aqui se agrego la logica para manejar el caso en que no se encuentre el vehiculo
-                throw new Exception("Vehiculo no encontrado");
-            }
+            return vehiculoEncontrado;
         }
 
-        public void eliminarVehiculo(string strCodigo)
+        // Método para eliminar un vehículo por código
+        public void EliminarVehiculo(string strCodigo)
         {
-            //Aqui se agrego la logica para eliminar un vehiculo en una base de datos o lista
             clsVehiculos vehiculoEncontrado = lstVehiculos.FirstOrDefault(v => v.Codigo == strCodigo);
+
             if (vehiculoEncontrado != null)
             {
                 lstVehiculos.Remove(vehiculoEncontrado);
             }
             else
             {
-                //Aqui se agrego la logica para manejar el caso en que no se encuentre el vehiculo
-                throw new Exception("Vehiculo no encontrado");
+                throw new Exception("Vehículo no encontrado");
             }
+        }
+
+        // Método para modificar un vehículo
+        public void ModificarVehiculo(string strCodigo, string strPropietario,
+            string strPlaca, string strEstado, string strColor,
+            string strMarca, string strModelo, string strTipo, string strAño)
+        {
+            clsVehiculos vehiculoEncontrado = lstVehiculos.FirstOrDefault(v => v.Codigo == strCodigo);
+
+            if (vehiculoEncontrado != null)
+            {
+                vehiculoEncontrado.Propietario = strPropietario;
+                vehiculoEncontrado.Placa = strPlaca;
+                vehiculoEncontrado.Estado = strEstado;
+                vehiculoEncontrado.Color = strColor;
+                vehiculoEncontrado.Marca = strMarca;
+                vehiculoEncontrado.Modelo = strModelo;
+                vehiculoEncontrado.Tipo = strTipo;
+                vehiculoEncontrado.Año = strAño;
+            }
+            else
+            {
+                throw new Exception("Vehículo no encontrado");
+            }
+        }
+
+        // Método para listar todos los vehículos
+        public List<clsVehiculos> ListarVehiculos()
+        {
+            return lstVehiculos;
         }
     }
 }

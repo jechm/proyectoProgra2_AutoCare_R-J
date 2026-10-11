@@ -24,7 +24,6 @@ namespace AutoCare_R_J.Controladores
         {
             try
             {
-                // Creamos una nueva instancia fresca cada vez que se agrega un servicio
                 clsServicios nuevoServicio = new clsServicios();
 
                 nuevoServicio.Codigo = ObtenerSiguienteCodigo();
@@ -50,7 +49,7 @@ namespace AutoCare_R_J.Controladores
                 throw new Exception("Servicio no encontrado");
             }
 
-            return servicioEncontrado; // ¡Aquí está la clave para que devuelva el objeto!
+            return servicioEncontrado;
         }
 
 
@@ -84,7 +83,6 @@ namespace AutoCare_R_J.Controladores
             }
         }
 
-        // Método para listar si lo necesitas en tu DataGridView
         public List<clsServicios> ListarServicios()
         {
             return lstServicios;
