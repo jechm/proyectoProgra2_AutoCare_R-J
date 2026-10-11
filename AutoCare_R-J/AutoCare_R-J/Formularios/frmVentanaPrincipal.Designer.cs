@@ -33,13 +33,13 @@
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.tbCtrlCintaDeOpciones = new System.Windows.Forms.TabControl();
             this.tbpConfiguracionYMantenimiento = new System.Windows.Forms.TabPage();
+            this.btnRepuestos = new System.Windows.Forms.Button();
+            this.btnServicios = new System.Windows.Forms.Button();
+            this.btnEmpleados = new System.Windows.Forms.Button();
+            this.btnVehiculos = new System.Windows.Forms.Button();
+            this.btnClientes = new System.Windows.Forms.Button();
             this.tbpCitas = new System.Windows.Forms.TabPage();
             this.tbpConsultasYReportes = new System.Windows.Forms.TabPage();
-            this.btnEmpleados = new System.Windows.Forms.Button();
-            this.btnClientes = new System.Windows.Forms.Button();
-            this.btnVehiculos = new System.Windows.Forms.Button();
-            this.btnServicios = new System.Windows.Forms.Button();
-            this.btnRepuestos = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
             this.tbCtrlCintaDeOpciones.SuspendLayout();
             this.tbpConfiguracionYMantenimiento.SuspendLayout();
@@ -82,6 +82,57 @@
             this.tbpConfiguracionYMantenimiento.Text = "Configuracion y Mantenimiento";
             this.tbpConfiguracionYMantenimiento.UseVisualStyleBackColor = true;
             // 
+            // btnRepuestos
+            // 
+            this.btnRepuestos.BackgroundImage = global::AutoCare_R_J.Properties.Resources.repuestos;
+            this.btnRepuestos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnRepuestos.Location = new System.Drawing.Point(313, 3);
+            this.btnRepuestos.Name = "btnRepuestos";
+            this.btnRepuestos.Size = new System.Drawing.Size(100, 100);
+            this.btnRepuestos.TabIndex = 1;
+            this.btnRepuestos.UseVisualStyleBackColor = true;
+            // 
+            // btnServicios
+            // 
+            this.btnServicios.BackgroundImage = global::AutoCare_R_J.Properties.Resources.servicios;
+            this.btnServicios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnServicios.Location = new System.Drawing.Point(210, 3);
+            this.btnServicios.Name = "btnServicios";
+            this.btnServicios.Size = new System.Drawing.Size(100, 100);
+            this.btnServicios.TabIndex = 1;
+            this.btnServicios.UseVisualStyleBackColor = true;
+            // 
+            // btnEmpleados
+            // 
+            this.btnEmpleados.BackgroundImage = global::AutoCare_R_J.Properties.Resources.empleados;
+            this.btnEmpleados.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEmpleados.Location = new System.Drawing.Point(417, 3);
+            this.btnEmpleados.Name = "btnEmpleados";
+            this.btnEmpleados.Size = new System.Drawing.Size(100, 100);
+            this.btnEmpleados.TabIndex = 1;
+            this.btnEmpleados.UseVisualStyleBackColor = true;
+            // 
+            // btnVehiculos
+            // 
+            this.btnVehiculos.BackgroundImage = global::AutoCare_R_J.Properties.Resources.vehiculos;
+            this.btnVehiculos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnVehiculos.Location = new System.Drawing.Point(106, 3);
+            this.btnVehiculos.Name = "btnVehiculos";
+            this.btnVehiculos.Size = new System.Drawing.Size(100, 100);
+            this.btnVehiculos.TabIndex = 0;
+            this.btnVehiculos.UseVisualStyleBackColor = true;
+            // 
+            // btnClientes
+            // 
+            this.btnClientes.BackgroundImage = global::AutoCare_R_J.Properties.Resources.clientes;
+            this.btnClientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnClientes.Location = new System.Drawing.Point(3, 3);
+            this.btnClientes.Name = "btnClientes";
+            this.btnClientes.Size = new System.Drawing.Size(100, 100);
+            this.btnClientes.TabIndex = 0;
+            this.btnClientes.UseVisualStyleBackColor = true;
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
+            // 
             // tbpCitas
             // 
             this.tbpCitas.Location = new System.Drawing.Point(4, 22);
@@ -101,57 +152,6 @@
             this.tbpConsultasYReportes.Text = "Consultas y Reportes";
             this.tbpConsultasYReportes.UseVisualStyleBackColor = true;
             // 
-            // btnEmpleados
-            // 
-            this.btnEmpleados.BackgroundImage = global::AutoCare_R_J.Properties.Resources.empleados;
-            this.btnEmpleados.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEmpleados.Location = new System.Drawing.Point(417, 3);
-            this.btnEmpleados.Name = "btnEmpleados";
-            this.btnEmpleados.Size = new System.Drawing.Size(100, 100);
-            this.btnEmpleados.TabIndex = 1;
-            this.btnEmpleados.UseVisualStyleBackColor = true;
-            // 
-            // btnClientes
-            // 
-            this.btnClientes.BackgroundImage = global::AutoCare_R_J.Properties.Resources.clientes;
-            this.btnClientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnClientes.Location = new System.Drawing.Point(3, 3);
-            this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(100, 100);
-            this.btnClientes.TabIndex = 0;
-            this.btnClientes.UseVisualStyleBackColor = true;
-            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
-            // 
-            // btnVehiculos
-            // 
-            this.btnVehiculos.BackgroundImage = global::AutoCare_R_J.Properties.Resources.vehiculos;
-            this.btnVehiculos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnVehiculos.Location = new System.Drawing.Point(106, 3);
-            this.btnVehiculos.Name = "btnVehiculos";
-            this.btnVehiculos.Size = new System.Drawing.Size(100, 100);
-            this.btnVehiculos.TabIndex = 0;
-            this.btnVehiculos.UseVisualStyleBackColor = true;
-            // 
-            // btnServicios
-            // 
-            this.btnServicios.BackgroundImage = global::AutoCare_R_J.Properties.Resources.servicios;
-            this.btnServicios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnServicios.Location = new System.Drawing.Point(210, 3);
-            this.btnServicios.Name = "btnServicios";
-            this.btnServicios.Size = new System.Drawing.Size(100, 100);
-            this.btnServicios.TabIndex = 1;
-            this.btnServicios.UseVisualStyleBackColor = true;
-            // 
-            // btnRepuestos
-            // 
-            this.btnRepuestos.BackgroundImage = global::AutoCare_R_J.Properties.Resources.repuestos;
-            this.btnRepuestos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnRepuestos.Location = new System.Drawing.Point(313, 3);
-            this.btnRepuestos.Name = "btnRepuestos";
-            this.btnRepuestos.Size = new System.Drawing.Size(100, 100);
-            this.btnRepuestos.TabIndex = 1;
-            this.btnRepuestos.UseVisualStyleBackColor = true;
-            // 
             // frmVentanaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -163,6 +163,7 @@
             this.Name = "frmVentanaPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AutoCare R-J";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmVentanaPrincipal_Load);
             this.pnlMenu.ResumeLayout(false);
             this.tbCtrlCintaDeOpciones.ResumeLayout(false);

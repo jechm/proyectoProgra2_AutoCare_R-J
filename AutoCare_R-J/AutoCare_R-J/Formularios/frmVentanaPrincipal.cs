@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using AutoCare_R_J.Controladores;
 using AutoCare_R_J.Formularios;
 using AutoCare_R_J.Modelos;
 
@@ -17,9 +17,14 @@ namespace AutoCare_R_J.Formularios
     
     public partial class frmVentanaPrincipal : Form
     {
+
+        private  clsManejadorClientes listaClientes;
+
         public frmVentanaPrincipal()
 
         {
+            listaClientes = new clsManejadorClientes();
+            
             InitializeComponent();
         }
 
@@ -29,6 +34,7 @@ namespace AutoCare_R_J.Formularios
             if(!FormularioAbierto("frmClientes"))
             {
                 frmClientes clientes = new frmClientes();
+                clientes.AsignarListaclientes(ref listaClientes);
                 clientes.MdiParent = this;
                 clientes.Show();
             }
@@ -47,12 +53,12 @@ namespace AutoCare_R_J.Formularios
             return false;
         }
 
-        private List<clsCliente> listaClientes;
+        
 
         private void frmVentanaPrincipal_Load(object sender, EventArgs e)
         {
 
-            listaClientes = new List<clsCliente>();
+            
 
         }
     }
