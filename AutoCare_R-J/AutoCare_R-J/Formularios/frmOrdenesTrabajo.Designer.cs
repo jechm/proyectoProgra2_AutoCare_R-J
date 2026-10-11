@@ -28,23 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrdenesTrabajo));
             this.cpFiltros = new AutoCare_R_J.CustomPanel();
             this.cpBusquedas = new AutoCare_R_J.CustomPanel();
             this.gbBuscName = new System.Windows.Forms.GroupBox();
             this.tbxBuscNombre = new System.Windows.Forms.TextBox();
             this.gbBuscCod = new System.Windows.Forms.GroupBox();
             this.tbxBuscCodigo = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new AutoCare_R_J.CustomButton();
             this.lblBusquedas = new System.Windows.Forms.Label();
             this.cpAccionesRapidas = new AutoCare_R_J.CustomPanel();
-            this.lblAccionesRapidas = new System.Windows.Forms.Label();
-            this.cpDatosServicio = new AutoCare_R_J.CustomPanel();
-            this.lblDatosServicio = new System.Windows.Forms.Label();
-            this.dgvServicios = new System.Windows.Forms.DataGridView();
-            this.btnBuscar = new AutoCare_R_J.CustomButton();
             this.btnLimpiarCampos = new AutoCare_R_J.CustomButton();
             this.btnEliminar = new AutoCare_R_J.CustomButton();
             this.btnModificar = new AutoCare_R_J.CustomButton();
             this.btnAgregar = new AutoCare_R_J.CustomButton();
+            this.lblAccionesRapidas = new System.Windows.Forms.Label();
+            this.cpDatosServicio = new AutoCare_R_J.CustomPanel();
+            this.lblDatosServicio = new System.Windows.Forms.Label();
+            this.dgvServicios = new System.Windows.Forms.DataGridView();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.cpBusquedas.SuspendLayout();
             this.gbBuscName.SuspendLayout();
@@ -114,6 +115,25 @@
             this.tbxBuscCodigo.Size = new System.Drawing.Size(340, 26);
             this.tbxBuscCodigo.TabIndex = 29;
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.BorderRadius = 15;
+            this.btnBuscar.ButtonIcon = global::AutoCare_R_J.Properties.Resources.buscar;
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.CustomBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnBuscar.ForeColor = System.Drawing.Color.White;
+            this.btnBuscar.IconSize = new System.Drawing.Size(20, 20);
+            this.btnBuscar.Location = new System.Drawing.Point(216, 5);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(160, 45);
+            this.btnBuscar.TabIndex = 30;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            // 
             // lblBusquedas
             // 
             this.lblBusquedas.AutoSize = true;
@@ -137,68 +157,6 @@
             this.cpAccionesRapidas.Name = "cpAccionesRapidas";
             this.cpAccionesRapidas.Size = new System.Drawing.Size(383, 146);
             this.cpAccionesRapidas.TabIndex = 34;
-            // 
-            // lblAccionesRapidas
-            // 
-            this.lblAccionesRapidas.AutoSize = true;
-            this.lblAccionesRapidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccionesRapidas.Location = new System.Drawing.Point(10, 9);
-            this.lblAccionesRapidas.Name = "lblAccionesRapidas";
-            this.lblAccionesRapidas.Size = new System.Drawing.Size(178, 24);
-            this.lblAccionesRapidas.TabIndex = 25;
-            this.lblAccionesRapidas.Text = "Acciones Rapidas";
-            // 
-            // cpDatosServicio
-            // 
-            this.cpDatosServicio.BackColor = System.Drawing.Color.Transparent;
-            this.cpDatosServicio.BorderRadius = 20;
-            this.cpDatosServicio.Controls.Add(this.lblDatosServicio);
-            this.cpDatosServicio.Location = new System.Drawing.Point(11, 3);
-            this.cpDatosServicio.Name = "cpDatosServicio";
-            this.cpDatosServicio.Size = new System.Drawing.Size(452, 327);
-            this.cpDatosServicio.TabIndex = 33;
-            // 
-            // lblDatosServicio
-            // 
-            this.lblDatosServicio.AutoSize = true;
-            this.lblDatosServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDatosServicio.Location = new System.Drawing.Point(13, 9);
-            this.lblDatosServicio.Name = "lblDatosServicio";
-            this.lblDatosServicio.Size = new System.Drawing.Size(274, 24);
-            this.lblDatosServicio.TabIndex = 25;
-            this.lblDatosServicio.Text = "Datos de la orden de trabajo";
-            // 
-            // dgvServicios
-            // 
-            this.dgvServicios.AllowUserToAddRows = false;
-            this.dgvServicios.AllowUserToDeleteRows = false;
-            this.dgvServicios.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgvServicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvServicios.Location = new System.Drawing.Point(11, 412);
-            this.dgvServicios.MultiSelect = false;
-            this.dgvServicios.Name = "dgvServicios";
-            this.dgvServicios.ReadOnly = true;
-            this.dgvServicios.Size = new System.Drawing.Size(841, 187);
-            this.dgvServicios.TabIndex = 32;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
-            this.btnBuscar.BorderRadius = 15;
-            this.btnBuscar.ButtonIcon = global::AutoCare_R_J.Properties.Resources.buscar;
-            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscar.CustomBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.IconSize = new System.Drawing.Size(20, 20);
-            this.btnBuscar.Location = new System.Drawing.Point(216, 5);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(160, 45);
-            this.btnBuscar.TabIndex = 30;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
             // 
             // btnLimpiarCampos
             // 
@@ -276,6 +234,49 @@
             this.btnAgregar.Text = "Guardar nuevo";
             this.btnAgregar.UseVisualStyleBackColor = false;
             // 
+            // lblAccionesRapidas
+            // 
+            this.lblAccionesRapidas.AutoSize = true;
+            this.lblAccionesRapidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccionesRapidas.Location = new System.Drawing.Point(10, 9);
+            this.lblAccionesRapidas.Name = "lblAccionesRapidas";
+            this.lblAccionesRapidas.Size = new System.Drawing.Size(178, 24);
+            this.lblAccionesRapidas.TabIndex = 25;
+            this.lblAccionesRapidas.Text = "Acciones Rapidas";
+            // 
+            // cpDatosServicio
+            // 
+            this.cpDatosServicio.BackColor = System.Drawing.Color.Transparent;
+            this.cpDatosServicio.BorderRadius = 20;
+            this.cpDatosServicio.Controls.Add(this.lblDatosServicio);
+            this.cpDatosServicio.Location = new System.Drawing.Point(11, 3);
+            this.cpDatosServicio.Name = "cpDatosServicio";
+            this.cpDatosServicio.Size = new System.Drawing.Size(452, 327);
+            this.cpDatosServicio.TabIndex = 33;
+            // 
+            // lblDatosServicio
+            // 
+            this.lblDatosServicio.AutoSize = true;
+            this.lblDatosServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDatosServicio.Location = new System.Drawing.Point(13, 9);
+            this.lblDatosServicio.Name = "lblDatosServicio";
+            this.lblDatosServicio.Size = new System.Drawing.Size(274, 24);
+            this.lblDatosServicio.TabIndex = 25;
+            this.lblDatosServicio.Text = "Datos de la orden de trabajo";
+            // 
+            // dgvServicios
+            // 
+            this.dgvServicios.AllowUserToAddRows = false;
+            this.dgvServicios.AllowUserToDeleteRows = false;
+            this.dgvServicios.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvServicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvServicios.Location = new System.Drawing.Point(11, 412);
+            this.dgvServicios.MultiSelect = false;
+            this.dgvServicios.Name = "dgvServicios";
+            this.dgvServicios.ReadOnly = true;
+            this.dgvServicios.Size = new System.Drawing.Size(841, 187);
+            this.dgvServicios.TabIndex = 32;
+            // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
@@ -297,6 +298,7 @@
             this.Controls.Add(this.cpAccionesRapidas);
             this.Controls.Add(this.cpDatosServicio);
             this.Controls.Add(this.dgvServicios);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmOrdenesTrabajo";
             this.Text = "frmOrdenesTrabajo";
             this.cpBusquedas.ResumeLayout(false);

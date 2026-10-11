@@ -29,7 +29,7 @@ namespace AutoCare_R_J.Formularios
         }
 
         
-        /*private void btnClientes_Click(object sender, EventArgs e)
+        private void btnClientes_Click(object sender, EventArgs e)
         {
             if(!FormularioAbierto("frmClientes"))
             {
@@ -38,7 +38,7 @@ namespace AutoCare_R_J.Formularios
                 clientes.MdiParent = this;
                 clientes.Show();
             }
-        }*/
+        }
 
         //determinar si ya existe un formulario abierto
         private bool FormularioAbierto(string pNombreFormulario)
@@ -60,6 +60,26 @@ namespace AutoCare_R_J.Formularios
 
             
 
+        }
+
+        private void btnServicios_Click(object sender, EventArgs e)
+        {
+            if(!FormularioAbierto("Servicios"))
+            {
+                Servicios servicios = new Servicios();
+                servicios.MdiParent = this;
+                servicios.Show();
+            }   
+        }
+
+        private void btnVehiculos_Click(object sender, EventArgs e)
+        {
+            if(!FormularioAbierto("frmVehiculos"))
+            {
+                frmVehiculos vehiculos = new frmVehiculos();
+                vehiculos.MdiParent = this;
+                vehiculos.Show();
+            }
         }
     }
 }
