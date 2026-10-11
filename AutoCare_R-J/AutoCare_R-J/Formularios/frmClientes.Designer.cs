@@ -108,7 +108,7 @@
             this.dtGvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtGvDatos.Location = new System.Drawing.Point(0, 0);
             this.dtGvDatos.Name = "dtGvDatos";
-            this.dtGvDatos.Size = new System.Drawing.Size(984, 300);
+            this.dtGvDatos.Size = new System.Drawing.Size(994, 290);
             this.dtGvDatos.TabIndex = 23;
             // 
             // clmCodigo
@@ -173,8 +173,7 @@
             this.cstmPnlDatosCliente.Controls.Add(this.lblTelefono);
             this.cstmPnlDatosCliente.Controls.Add(this.lblDPI);
             this.cstmPnlDatosCliente.Controls.Add(this.lblNombre);
-            this.cstmPnlDatosCliente.Dock = System.Windows.Forms.DockStyle.Left;
-            this.cstmPnlDatosCliente.Location = new System.Drawing.Point(0, 0);
+            this.cstmPnlDatosCliente.Location = new System.Drawing.Point(5, 5);
             this.cstmPnlDatosCliente.Name = "cstmPnlDatosCliente";
             this.cstmPnlDatosCliente.Size = new System.Drawing.Size(685, 261);
             this.cstmPnlDatosCliente.TabIndex = 24;
@@ -419,8 +418,7 @@
             this.customPanel1.BackColor = System.Drawing.Color.Transparent;
             this.customPanel1.BorderRadius = 20;
             this.customPanel1.Controls.Add(this.tbCtrlOpciones);
-            this.customPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.customPanel1.Location = new System.Drawing.Point(691, 0);
+            this.customPanel1.Location = new System.Drawing.Point(696, 5);
             this.customPanel1.Name = "customPanel1";
             this.customPanel1.Size = new System.Drawing.Size(293, 261);
             this.customPanel1.TabIndex = 25;
@@ -463,7 +461,7 @@
             this.btnEliminarCliente.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnEliminarCliente.ForeColor = System.Drawing.Color.White;
             this.btnEliminarCliente.IconSize = new System.Drawing.Size(20, 20);
-            this.btnEliminarCliente.Location = new System.Drawing.Point(40, 153);
+            this.btnEliminarCliente.Location = new System.Drawing.Point(62, 153);
             this.btnEliminarCliente.Name = "btnEliminarCliente";
             this.btnEliminarCliente.Size = new System.Drawing.Size(168, 45);
             this.btnEliminarCliente.TabIndex = 2;
@@ -482,7 +480,7 @@
             this.btnModificarCliente.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnModificarCliente.ForeColor = System.Drawing.Color.White;
             this.btnModificarCliente.IconSize = new System.Drawing.Size(20, 20);
-            this.btnModificarCliente.Location = new System.Drawing.Point(40, 89);
+            this.btnModificarCliente.Location = new System.Drawing.Point(62, 89);
             this.btnModificarCliente.Name = "btnModificarCliente";
             this.btnModificarCliente.Size = new System.Drawing.Size(168, 45);
             this.btnModificarCliente.TabIndex = 1;
@@ -501,7 +499,7 @@
             this.bntNuevoCliente.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.bntNuevoCliente.ForeColor = System.Drawing.Color.White;
             this.bntNuevoCliente.IconSize = new System.Drawing.Size(20, 20);
-            this.bntNuevoCliente.Location = new System.Drawing.Point(40, 20);
+            this.bntNuevoCliente.Location = new System.Drawing.Point(62, 20);
             this.bntNuevoCliente.Name = "bntNuevoCliente";
             this.bntNuevoCliente.Size = new System.Drawing.Size(168, 45);
             this.bntNuevoCliente.TabIndex = 0;
@@ -583,7 +581,7 @@
             this.pnlMenus.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlMenus.Location = new System.Drawing.Point(0, 0);
             this.pnlMenus.Name = "pnlMenus";
-            this.pnlMenus.Size = new System.Drawing.Size(984, 261);
+            this.pnlMenus.Size = new System.Drawing.Size(994, 271);
             this.pnlMenus.TabIndex = 26;
             // 
             // cstmPnlDato
@@ -592,9 +590,9 @@
             this.cstmPnlDato.BorderRadius = 20;
             this.cstmPnlDato.Controls.Add(this.dtGvDatos);
             this.cstmPnlDato.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cstmPnlDato.Location = new System.Drawing.Point(0, 261);
+            this.cstmPnlDato.Location = new System.Drawing.Point(0, 271);
             this.cstmPnlDato.Name = "cstmPnlDato";
-            this.cstmPnlDato.Size = new System.Drawing.Size(984, 300);
+            this.cstmPnlDato.Size = new System.Drawing.Size(994, 290);
             this.cstmPnlDato.TabIndex = 27;
             // 
             // frmClientes
@@ -602,14 +600,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(994, 561);
             this.Controls.Add(this.cstmPnlDato);
             this.Controls.Add(this.pnlMenus);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MaximumSize = new System.Drawing.Size(1000, 1200);
+            this.MaximumSize = new System.Drawing.Size(1010, 900);
+            this.MinimumSize = new System.Drawing.Size(1010, 600);
             this.Name = "frmClientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Clientes";
             ((System.ComponentModel.ISupportInitialize)(this.dtGvDatos)).EndInit();
             this.cstmPnlDatosCliente.ResumeLayout(false);
