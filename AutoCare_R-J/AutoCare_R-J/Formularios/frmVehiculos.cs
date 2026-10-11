@@ -16,5 +16,10 @@ namespace AutoCare_R_J.Formularios
         {
             InitializeComponent();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
