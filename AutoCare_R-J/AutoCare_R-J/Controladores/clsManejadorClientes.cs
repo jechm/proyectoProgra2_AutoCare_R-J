@@ -12,17 +12,25 @@ namespace AutoCare_R_J.Controladores
     {
         //Atributos
         private IList<clsCliente> lstClientes;
+        private int intContadorClientes;
 
         //Recuperar lista de clientes
         public IList<clsCliente> ObtenerClientes()
         {
-            return lstClientes;
+            return new List<clsCliente>(lstClientes);
+        }
+
+        public int TotalClientes
+        {
+            get { return intContadorClientes; }
+            set { intContadorClientes = value; }
         }
 
         //Constructor
         public clsManejadorClientes()
         {
             lstClientes = new List<clsCliente>();
+            TotalClientes = 0;
         }
 
         #region Modificadores

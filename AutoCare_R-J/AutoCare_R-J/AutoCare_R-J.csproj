@@ -93,6 +93,12 @@
     <Compile Include="Formularios\frmVentanaPrincipal.Designer.cs">
       <DependentUpon>frmVentanaPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frmClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmClientes.Designer.cs">
+      <DependentUpon>frmClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Servicios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmVentanaPrincipal.resx">
       <DependentUpon>frmVentanaPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmClientes.resx">
+      <DependentUpon>frmClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Servicios.resx">
       <DependentUpon>Servicios.cs</DependentUpon>
@@ -177,6 +186,7 @@
     <None Include="Resources\logoPrincipal.png" />
   </ItemGroup>
   <ItemGroup>
+
     <None Include="Resources\buscar.png" />
   </ItemGroup>
   <ItemGroup>
@@ -205,6 +215,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\nulo.png" />
+
+    <None Include="Resources\busqueda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\correo-electronico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\telefono.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\direccion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\docIdentificacion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\facturacion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ordenes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\citas.png" />
+
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

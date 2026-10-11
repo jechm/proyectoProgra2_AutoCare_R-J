@@ -29,11 +29,29 @@ namespace AutoCare_R_J.Modelos
 
 
         public clsCliente(string pCodigo, string pNombre, string pApellido, string pDpi, string pTelefono, string pCorreo, string pDireccion, string pEstado, string pNit, decimal pSaldo)
-            : base(pCodigo, pNombre, pApellido, pDpi, pTelefono, pCorreo, pDireccion, pEstado)
+            : base(pCodigo, 
+                  pNombre, 
+                  pApellido, 
+                  pDpi, 
+                  pTelefono, 
+                  pCorreo, 
+                  pDireccion, 
+                  pEstado)
         {
             this.strNit = pNit;
             this.decSaldo = pSaldo;
 
+        }
+
+        public void ActualizarCliente(string pNombre, string pApellido, string pTelefono, string pCorreo, string pDireccion, string pEstado,  decimal pSaldo)
+        {
+            this.Nombre = pNombre;
+            this.Apellido = pApellido;
+            this.Telefono = pTelefono;
+            this.Correo = pCorreo;
+            this.Direccion = pDireccion;
+            this.Estado = pEstado;
+            this.Saldo = pSaldo;
         }
     }
 }
