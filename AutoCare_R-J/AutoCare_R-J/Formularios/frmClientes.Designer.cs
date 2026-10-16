@@ -28,9 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmClientes));
             this.pnlMenus = new System.Windows.Forms.Panel();
+            this.cstmPnlDato = new AutoCare_R_J.CustomPanel();
+            this.dtGvDatos = new System.Windows.Forms.DataGridView();
+            this.cpBusquedas = new AutoCare_R_J.CustomPanel();
+            this.btnBuscarCliente = new AutoCare_R_J.CustomButton();
+            this.gbValorABuscar = new System.Windows.Forms.GroupBox();
+            this.txtValorAbuscar = new System.Windows.Forms.TextBox();
+            this.gbValorDeBusqueda = new System.Windows.Forms.GroupBox();
+            this.cmbValoresDeBusqueda = new System.Windows.Forms.ComboBox();
+            this.lblBusquedas = new System.Windows.Forms.Label();
+            this.cpAccionesRapidas = new AutoCare_R_J.CustomPanel();
+            this.btnEliminarCliente = new AutoCare_R_J.CustomButton();
+            this.btnLimpiar = new AutoCare_R_J.CustomButton();
+            this.btnModificarCliente = new AutoCare_R_J.CustomButton();
+            this.bntNuevoCliente = new AutoCare_R_J.CustomButton();
+            this.lblAccionesRapidas = new System.Windows.Forms.Label();
             this.cstmPnlDatosCliente = new AutoCare_R_J.CustomPanel();
             this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -55,28 +70,18 @@
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtDPI = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblDireccion = new System.Windows.Forms.Label();
             this.lblTelefono = new System.Windows.Forms.Label();
             this.lblDPI = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
-            this.customPanel1 = new AutoCare_R_J.CustomPanel();
-            this.tbCtrlOpciones = new System.Windows.Forms.TabControl();
-            this.tbPgAcciones = new System.Windows.Forms.TabPage();
-            this.btnLimpiar = new AutoCare_R_J.CustomButton();
-            this.btnEliminarCliente = new AutoCare_R_J.CustomButton();
-            this.btnModificarCliente = new AutoCare_R_J.CustomButton();
-            this.bntNuevoCliente = new AutoCare_R_J.CustomButton();
-            this.tbPgBusquedas = new System.Windows.Forms.TabPage();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.lblValorBusqueda = new System.Windows.Forms.Label();
-            this.lblBuscarPor = new System.Windows.Forms.Label();
-            this.btnBuscarCliente = new AutoCare_R_J.CustomButton();
-            this.txtValorAbuscar = new System.Windows.Forms.TextBox();
-            this.cstmPnlDato = new AutoCare_R_J.CustomPanel();
-            this.dtGvDatos = new System.Windows.Forms.DataGridView();
             this.pnlMenus.SuspendLayout();
+            this.cstmPnlDato.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGvDatos)).BeginInit();
+            this.cpBusquedas.SuspendLayout();
+            this.gbValorABuscar.SuspendLayout();
+            this.gbValorDeBusqueda.SuspendLayout();
+            this.cpAccionesRapidas.SuspendLayout();
             this.cstmPnlDatosCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -87,23 +92,245 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.customPanel1.SuspendLayout();
-            this.tbCtrlOpciones.SuspendLayout();
-            this.tbPgAcciones.SuspendLayout();
-            this.tbPgBusquedas.SuspendLayout();
-            this.cstmPnlDato.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGvDatos)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMenus
             // 
+            this.pnlMenus.Controls.Add(this.cpBusquedas);
+            this.pnlMenus.Controls.Add(this.cpAccionesRapidas);
             this.pnlMenus.Controls.Add(this.cstmPnlDatosCliente);
-            this.pnlMenus.Controls.Add(this.customPanel1);
             this.pnlMenus.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlMenus.Location = new System.Drawing.Point(0, 0);
             this.pnlMenus.Name = "pnlMenus";
-            this.pnlMenus.Size = new System.Drawing.Size(994, 271);
+            this.pnlMenus.Size = new System.Drawing.Size(1081, 332);
             this.pnlMenus.TabIndex = 26;
+            // 
+            // cstmPnlDato
+            // 
+            this.cstmPnlDato.BackColor = System.Drawing.Color.Transparent;
+            this.cstmPnlDato.BorderRadius = 20;
+            this.cstmPnlDato.Controls.Add(this.dtGvDatos);
+            this.cstmPnlDato.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cstmPnlDato.Location = new System.Drawing.Point(0, 332);
+            this.cstmPnlDato.Name = "cstmPnlDato";
+            this.cstmPnlDato.Size = new System.Drawing.Size(1081, 312);
+            this.cstmPnlDato.TabIndex = 27;
+            // 
+            // dtGvDatos
+            // 
+            this.dtGvDatos.AllowUserToAddRows = false;
+            this.dtGvDatos.AllowUserToDeleteRows = false;
+            this.dtGvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtGvDatos.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dtGvDatos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dtGvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtGvDatos.Location = new System.Drawing.Point(0, 0);
+            this.dtGvDatos.MultiSelect = false;
+            this.dtGvDatos.Name = "dtGvDatos";
+            this.dtGvDatos.ReadOnly = true;
+            this.dtGvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtGvDatos.Size = new System.Drawing.Size(1081, 312);
+            this.dtGvDatos.TabIndex = 23;
+            this.dtGvDatos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGvDatos_CellClick);
+            this.dtGvDatos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGvDatos_CellDoubleClick);
+            // 
+            // cpBusquedas
+            // 
+            this.cpBusquedas.BackColor = System.Drawing.Color.Transparent;
+            this.cpBusquedas.BorderRadius = 20;
+            this.cpBusquedas.Controls.Add(this.btnBuscarCliente);
+            this.cpBusquedas.Controls.Add(this.gbValorABuscar);
+            this.cpBusquedas.Controls.Add(this.gbValorDeBusqueda);
+            this.cpBusquedas.Controls.Add(this.lblBusquedas);
+            this.cpBusquedas.Location = new System.Drawing.Point(693, 154);
+            this.cpBusquedas.Name = "cpBusquedas";
+            this.cpBusquedas.Size = new System.Drawing.Size(383, 172);
+            this.cpBusquedas.TabIndex = 32;
+            // 
+            // btnBuscarCliente
+            // 
+            this.btnBuscarCliente.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscarCliente.BorderRadius = 15;
+            this.btnBuscarCliente.ButtonIcon = ((System.Drawing.Image)(resources.GetObject("btnBuscarCliente.ButtonIcon")));
+            this.btnBuscarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarCliente.CustomBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.btnBuscarCliente.FlatAppearance.BorderSize = 0;
+            this.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarCliente.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnBuscarCliente.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarCliente.IconSize = new System.Drawing.Size(20, 20);
+            this.btnBuscarCliente.Location = new System.Drawing.Point(188, 4);
+            this.btnBuscarCliente.Name = "btnBuscarCliente";
+            this.btnBuscarCliente.Size = new System.Drawing.Size(182, 45);
+            this.btnBuscarCliente.TabIndex = 15;
+            this.btnBuscarCliente.Text = "Buscar";
+            this.btnBuscarCliente.UseVisualStyleBackColor = false;
+            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
+            // 
+            // gbValorABuscar
+            // 
+            this.gbValorABuscar.Controls.Add(this.txtValorAbuscar);
+            this.gbValorABuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbValorABuscar.Location = new System.Drawing.Point(14, 108);
+            this.gbValorABuscar.Name = "gbValorABuscar";
+            this.gbValorABuscar.Size = new System.Drawing.Size(362, 53);
+            this.gbValorABuscar.TabIndex = 32;
+            this.gbValorABuscar.TabStop = false;
+            this.gbValorABuscar.Text = "Ingrese el Codigo";
+            // 
+            // txtValorAbuscar
+            // 
+            this.txtValorAbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValorAbuscar.Location = new System.Drawing.Point(6, 21);
+            this.txtValorAbuscar.Name = "txtValorAbuscar";
+            this.txtValorAbuscar.Size = new System.Drawing.Size(350, 26);
+            this.txtValorAbuscar.TabIndex = 14;
+            // 
+            // gbValorDeBusqueda
+            // 
+            this.gbValorDeBusqueda.Controls.Add(this.cmbValoresDeBusqueda);
+            this.gbValorDeBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbValorDeBusqueda.Location = new System.Drawing.Point(14, 51);
+            this.gbValorDeBusqueda.Name = "gbValorDeBusqueda";
+            this.gbValorDeBusqueda.Size = new System.Drawing.Size(362, 53);
+            this.gbValorDeBusqueda.TabIndex = 31;
+            this.gbValorDeBusqueda.TabStop = false;
+            this.gbValorDeBusqueda.Text = "Buscar Por:";
+            // 
+            // cmbValoresDeBusqueda
+            // 
+            this.cmbValoresDeBusqueda.FormattingEnabled = true;
+            this.cmbValoresDeBusqueda.Location = new System.Drawing.Point(6, 19);
+            this.cmbValoresDeBusqueda.Name = "cmbValoresDeBusqueda";
+            this.cmbValoresDeBusqueda.Size = new System.Drawing.Size(350, 24);
+            this.cmbValoresDeBusqueda.TabIndex = 13;
+            this.cmbValoresDeBusqueda.Text = "Escoger campo";
+            this.cmbValoresDeBusqueda.SelectedValueChanged += new System.EventHandler(this.cmbValoresDeBusqueda_SelectedValueChanged);
+            // 
+            // lblBusquedas
+            // 
+            this.lblBusquedas.AutoSize = true;
+            this.lblBusquedas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBusquedas.Location = new System.Drawing.Point(10, 13);
+            this.lblBusquedas.Name = "lblBusquedas";
+            this.lblBusquedas.Size = new System.Drawing.Size(114, 24);
+            this.lblBusquedas.TabIndex = 29;
+            this.lblBusquedas.Text = "Busquedas";
+            // 
+            // cpAccionesRapidas
+            // 
+            this.cpAccionesRapidas.BackColor = System.Drawing.Color.Transparent;
+            this.cpAccionesRapidas.BorderRadius = 20;
+            this.cpAccionesRapidas.Controls.Add(this.btnEliminarCliente);
+            this.cpAccionesRapidas.Controls.Add(this.btnLimpiar);
+            this.cpAccionesRapidas.Controls.Add(this.btnModificarCliente);
+            this.cpAccionesRapidas.Controls.Add(this.bntNuevoCliente);
+            this.cpAccionesRapidas.Controls.Add(this.lblAccionesRapidas);
+            this.cpAccionesRapidas.Location = new System.Drawing.Point(693, 5);
+            this.cpAccionesRapidas.Name = "cpAccionesRapidas";
+            this.cpAccionesRapidas.Size = new System.Drawing.Size(383, 146);
+            this.cpAccionesRapidas.TabIndex = 31;
+            // 
+            // btnEliminarCliente
+            // 
+            this.btnEliminarCliente.BackColor = System.Drawing.Color.Transparent;
+            this.btnEliminarCliente.BorderRadius = 15;
+            this.btnEliminarCliente.ButtonIcon = ((System.Drawing.Image)(resources.GetObject("btnEliminarCliente.ButtonIcon")));
+            this.btnEliminarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminarCliente.CustomBackColor = System.Drawing.Color.SlateGray;
+            this.btnEliminarCliente.Enabled = false;
+            this.btnEliminarCliente.FlatAppearance.BorderSize = 0;
+            this.btnEliminarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarCliente.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEliminarCliente.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarCliente.IconSize = new System.Drawing.Size(20, 20);
+            this.btnEliminarCliente.Location = new System.Drawing.Point(14, 91);
+            this.btnEliminarCliente.Name = "btnEliminarCliente";
+            this.btnEliminarCliente.Size = new System.Drawing.Size(168, 45);
+            this.btnEliminarCliente.TabIndex = 13;
+            this.btnEliminarCliente.Text = "Eliminar Cliente";
+            this.btnEliminarCliente.UseVisualStyleBackColor = false;
+            this.btnEliminarCliente.Click += new System.EventHandler(this.btnEliminarCliente_Click);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackColor = System.Drawing.Color.Transparent;
+            this.btnLimpiar.BorderRadius = 15;
+            this.btnLimpiar.ButtonIcon = ((System.Drawing.Image)(resources.GetObject("btnLimpiar.ButtonIcon")));
+            this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiar.CustomBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnLimpiar.FlatAppearance.BorderSize = 0;
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnLimpiar.ForeColor = System.Drawing.Color.White;
+            this.btnLimpiar.IconSize = new System.Drawing.Size(20, 20);
+            this.btnLimpiar.Location = new System.Drawing.Point(188, 91);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(182, 45);
+            this.btnLimpiar.TabIndex = 14;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // btnModificarCliente
+            // 
+            this.btnModificarCliente.BackColor = System.Drawing.Color.Transparent;
+            this.btnModificarCliente.BorderRadius = 15;
+            this.btnModificarCliente.ButtonIcon = ((System.Drawing.Image)(resources.GetObject("btnModificarCliente.ButtonIcon")));
+            this.btnModificarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificarCliente.CustomBackColor = System.Drawing.Color.SlateGray;
+            this.btnModificarCliente.Enabled = false;
+            this.btnModificarCliente.FlatAppearance.BorderSize = 0;
+            this.btnModificarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificarCliente.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnModificarCliente.ForeColor = System.Drawing.Color.White;
+            this.btnModificarCliente.IconSize = new System.Drawing.Size(20, 20);
+            this.btnModificarCliente.Location = new System.Drawing.Point(187, 40);
+            this.btnModificarCliente.Name = "btnModificarCliente";
+            this.btnModificarCliente.Size = new System.Drawing.Size(182, 45);
+            this.btnModificarCliente.TabIndex = 12;
+            this.btnModificarCliente.Text = "Modificar";
+            this.btnModificarCliente.UseVisualStyleBackColor = false;
+            this.btnModificarCliente.Click += new System.EventHandler(this.btnModificarCliente_Click);
+            // 
+            // bntNuevoCliente
+            // 
+            this.bntNuevoCliente.BackColor = System.Drawing.Color.Transparent;
+            this.bntNuevoCliente.BorderRadius = 15;
+            this.bntNuevoCliente.ButtonIcon = ((System.Drawing.Image)(resources.GetObject("bntNuevoCliente.ButtonIcon")));
+            this.bntNuevoCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bntNuevoCliente.CustomBackColor = System.Drawing.Color.Green;
+            this.bntNuevoCliente.FlatAppearance.BorderSize = 0;
+            this.bntNuevoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bntNuevoCliente.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.bntNuevoCliente.ForeColor = System.Drawing.Color.White;
+            this.bntNuevoCliente.IconSize = new System.Drawing.Size(20, 20);
+            this.bntNuevoCliente.Location = new System.Drawing.Point(14, 40);
+            this.bntNuevoCliente.Name = "bntNuevoCliente";
+            this.bntNuevoCliente.Size = new System.Drawing.Size(168, 45);
+            this.bntNuevoCliente.TabIndex = 11;
+            this.bntNuevoCliente.Text = "Guardar Nuevo";
+            this.bntNuevoCliente.UseVisualStyleBackColor = false;
+            this.bntNuevoCliente.Click += new System.EventHandler(this.bntNuevoCliente_Click);
+            // 
+            // lblAccionesRapidas
+            // 
+            this.lblAccionesRapidas.AutoSize = true;
+            this.lblAccionesRapidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccionesRapidas.Location = new System.Drawing.Point(10, 9);
+            this.lblAccionesRapidas.Name = "lblAccionesRapidas";
+            this.lblAccionesRapidas.Size = new System.Drawing.Size(178, 24);
+            this.lblAccionesRapidas.TabIndex = 25;
+            this.lblAccionesRapidas.Text = "Acciones Rapidas";
             // 
             // cstmPnlDatosCliente
             // 
@@ -132,7 +359,6 @@
             this.cstmPnlDatosCliente.Controls.Add(this.txtTelefono);
             this.cstmPnlDatosCliente.Controls.Add(this.txtDPI);
             this.cstmPnlDatosCliente.Controls.Add(this.txtNombre);
-            this.cstmPnlDatosCliente.Controls.Add(this.label2);
             this.cstmPnlDatosCliente.Controls.Add(this.label1);
             this.cstmPnlDatosCliente.Controls.Add(this.lblDireccion);
             this.cstmPnlDatosCliente.Controls.Add(this.lblTelefono);
@@ -140,22 +366,22 @@
             this.cstmPnlDatosCliente.Controls.Add(this.lblNombre);
             this.cstmPnlDatosCliente.Location = new System.Drawing.Point(5, 5);
             this.cstmPnlDatosCliente.Name = "cstmPnlDatosCliente";
-            this.cstmPnlDatosCliente.Size = new System.Drawing.Size(685, 261);
+            this.cstmPnlDatosCliente.Size = new System.Drawing.Size(685, 321);
             this.cstmPnlDatosCliente.TabIndex = 24;
             // 
             // cmbEstado
             // 
             this.cmbEstado.FormattingEnabled = true;
             this.cmbEstado.ItemHeight = 20;
-            this.cmbEstado.Location = new System.Drawing.Point(121, 225);
+            this.cmbEstado.Location = new System.Drawing.Point(121, 253);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(211, 28);
             this.cmbEstado.TabIndex = 9;
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Image = global::AutoCare_R_J.Properties.Resources.correo_electronico;
-            this.pictureBox7.Location = new System.Drawing.Point(343, 153);
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(343, 170);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(30, 26);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -164,8 +390,8 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::AutoCare_R_J.Properties.Resources.nit;
-            this.pictureBox5.Location = new System.Drawing.Point(343, 113);
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(343, 123);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(30, 26);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -174,8 +400,8 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::AutoCare_R_J.Properties.Resources.usuario;
-            this.pictureBox3.Location = new System.Drawing.Point(343, 71);
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(343, 82);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(30, 26);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -184,8 +410,8 @@
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Image = global::AutoCare_R_J.Properties.Resources.descripcion_del_trabajo;
-            this.pictureBox9.Location = new System.Drawing.Point(4, 224);
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.Location = new System.Drawing.Point(4, 252);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(30, 26);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -194,8 +420,8 @@
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Image = global::AutoCare_R_J.Properties.Resources.direccion;
-            this.pictureBox8.Location = new System.Drawing.Point(4, 188);
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(4, 212);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(30, 26);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -205,15 +431,15 @@
             // txtCorreo
             // 
             this.txtCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreo.Location = new System.Drawing.Point(446, 153);
+            this.txtCorreo.Location = new System.Drawing.Point(446, 170);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(225, 26);
             this.txtCorreo.TabIndex = 7;
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Image = global::AutoCare_R_J.Properties.Resources.telefono;
-            this.pictureBox6.Location = new System.Drawing.Point(4, 150);
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(4, 167);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(30, 26);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -222,8 +448,8 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::AutoCare_R_J.Properties.Resources.docIdentificacion;
-            this.pictureBox4.Location = new System.Drawing.Point(4, 110);
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(4, 120);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(30, 26);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -232,8 +458,8 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::AutoCare_R_J.Properties.Resources.usuario;
-            this.pictureBox2.Location = new System.Drawing.Point(4, 68);
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(4, 79);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(30, 26);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -252,7 +478,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::AutoCare_R_J.Properties.Resources.escanear;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(4, 33);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(30, 26);
@@ -262,6 +488,7 @@
             // 
             // txtCodigo
             // 
+            this.txtCodigo.Enabled = false;
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.Location = new System.Drawing.Point(107, 36);
             this.txtCodigo.Name = "txtCodigo";
@@ -282,7 +509,7 @@
             // txtNit
             // 
             this.txtNit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNit.Location = new System.Drawing.Point(446, 113);
+            this.txtNit.Location = new System.Drawing.Point(446, 123);
             this.txtNit.Name = "txtNit";
             this.txtNit.Size = new System.Drawing.Size(225, 26);
             this.txtNit.TabIndex = 5;
@@ -290,7 +517,7 @@
             // txtApellido
             // 
             this.txtApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellido.Location = new System.Drawing.Point(463, 71);
+            this.txtApellido.Location = new System.Drawing.Point(463, 82);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(208, 26);
             this.txtApellido.TabIndex = 3;
@@ -299,7 +526,7 @@
             // 
             this.lblCorreo.AutoSize = true;
             this.lblCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorreo.Location = new System.Drawing.Point(370, 156);
+            this.lblCorreo.Location = new System.Drawing.Point(370, 173);
             this.lblCorreo.Name = "lblCorreo";
             this.lblCorreo.Size = new System.Drawing.Size(68, 20);
             this.lblCorreo.TabIndex = 2;
@@ -309,7 +536,7 @@
             // 
             this.lblNit.AutoSize = true;
             this.lblNit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNit.Location = new System.Drawing.Point(370, 116);
+            this.lblNit.Location = new System.Drawing.Point(370, 126);
             this.lblNit.Name = "lblNit";
             this.lblNit.Size = new System.Drawing.Size(36, 20);
             this.lblNit.TabIndex = 2;
@@ -319,7 +546,7 @@
             // 
             this.lblApellido.AutoSize = true;
             this.lblApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApellido.Location = new System.Drawing.Point(370, 74);
+            this.lblApellido.Location = new System.Drawing.Point(370, 85);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(87, 20);
             this.lblApellido.TabIndex = 2;
@@ -328,7 +555,7 @@
             // txtDireccion
             // 
             this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(121, 188);
+            this.txtDireccion.Location = new System.Drawing.Point(121, 212);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(550, 26);
             this.txtDireccion.TabIndex = 8;
@@ -336,7 +563,7 @@
             // txtTelefono
             // 
             this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(121, 150);
+            this.txtTelefono.Location = new System.Drawing.Point(121, 167);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(211, 26);
             this.txtTelefono.TabIndex = 6;
@@ -344,7 +571,7 @@
             // txtDPI
             // 
             this.txtDPI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDPI.Location = new System.Drawing.Point(107, 110);
+            this.txtDPI.Location = new System.Drawing.Point(107, 120);
             this.txtDPI.Name = "txtDPI";
             this.txtDPI.Size = new System.Drawing.Size(225, 26);
             this.txtDPI.TabIndex = 4;
@@ -352,26 +579,16 @@
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(107, 68);
+            this.txtNombre.Location = new System.Drawing.Point(107, 79);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(225, 26);
             this.txtNombre.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(63, 264);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Estado:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(39, 228);
+            this.label1.Location = new System.Drawing.Point(39, 256);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 20);
             this.label1.TabIndex = 2;
@@ -381,7 +598,7 @@
             // 
             this.lblDireccion.AutoSize = true;
             this.lblDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDireccion.Location = new System.Drawing.Point(31, 191);
+            this.lblDireccion.Location = new System.Drawing.Point(31, 215);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(89, 20);
             this.lblDireccion.TabIndex = 2;
@@ -391,7 +608,7 @@
             // 
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelefono.Location = new System.Drawing.Point(31, 153);
+            this.lblTelefono.Location = new System.Drawing.Point(31, 170);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(84, 20);
             this.lblTelefono.TabIndex = 2;
@@ -401,7 +618,7 @@
             // 
             this.lblDPI.AutoSize = true;
             this.lblDPI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDPI.Location = new System.Drawing.Point(37, 113);
+            this.lblDPI.Location = new System.Drawing.Point(37, 123);
             this.lblDPI.Name = "lblDPI";
             this.lblDPI.Size = new System.Drawing.Size(44, 20);
             this.lblDPI.TabIndex = 2;
@@ -411,255 +628,39 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(31, 71);
+            this.lblNombre.Location = new System.Drawing.Point(31, 82);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(76, 20);
             this.lblNombre.TabIndex = 2;
             this.lblNombre.Text = "Nombre:";
-            // 
-            // customPanel1
-            // 
-            this.customPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.customPanel1.BorderRadius = 20;
-            this.customPanel1.Controls.Add(this.tbCtrlOpciones);
-            this.customPanel1.Location = new System.Drawing.Point(696, 5);
-            this.customPanel1.Name = "customPanel1";
-            this.customPanel1.Size = new System.Drawing.Size(293, 261);
-            this.customPanel1.TabIndex = 25;
-            // 
-            // tbCtrlOpciones
-            // 
-            this.tbCtrlOpciones.Appearance = System.Windows.Forms.TabAppearance.Buttons;
-            this.tbCtrlOpciones.Controls.Add(this.tbPgAcciones);
-            this.tbCtrlOpciones.Controls.Add(this.tbPgBusquedas);
-            this.tbCtrlOpciones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbCtrlOpciones.Location = new System.Drawing.Point(0, 0);
-            this.tbCtrlOpciones.Name = "tbCtrlOpciones";
-            this.tbCtrlOpciones.SelectedIndex = 0;
-            this.tbCtrlOpciones.Size = new System.Drawing.Size(293, 261);
-            this.tbCtrlOpciones.TabIndex = 10;
-            // 
-            // tbPgAcciones
-            // 
-            this.tbPgAcciones.BackColor = System.Drawing.Color.SteelBlue;
-            this.tbPgAcciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.tbPgAcciones.Controls.Add(this.btnLimpiar);
-            this.tbPgAcciones.Controls.Add(this.btnEliminarCliente);
-            this.tbPgAcciones.Controls.Add(this.btnModificarCliente);
-            this.tbPgAcciones.Controls.Add(this.bntNuevoCliente);
-            this.tbPgAcciones.Location = new System.Drawing.Point(4, 32);
-            this.tbPgAcciones.Name = "tbPgAcciones";
-            this.tbPgAcciones.Padding = new System.Windows.Forms.Padding(3);
-            this.tbPgAcciones.Size = new System.Drawing.Size(285, 225);
-            this.tbPgAcciones.TabIndex = 0;
-            this.tbPgAcciones.Text = "ACCIONES";
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.BackColor = System.Drawing.Color.Transparent;
-            this.btnLimpiar.BorderRadius = 15;
-            this.btnLimpiar.ButtonIcon = null;
-            this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLimpiar.CustomBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnLimpiar.FlatAppearance.BorderSize = 0;
-            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.IconSize = new System.Drawing.Size(20, 20);
-            this.btnLimpiar.Location = new System.Drawing.Point(62, 117);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(168, 45);
-            this.btnLimpiar.TabIndex = 14;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = false;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
-            // btnEliminarCliente
-            // 
-            this.btnEliminarCliente.BackColor = System.Drawing.Color.Transparent;
-            this.btnEliminarCliente.BorderRadius = 15;
-            this.btnEliminarCliente.ButtonIcon = global::AutoCare_R_J.Properties.Resources.eliminar;
-            this.btnEliminarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminarCliente.CustomBackColor = System.Drawing.Color.Red;
-            this.btnEliminarCliente.Enabled = false;
-            this.btnEliminarCliente.FlatAppearance.BorderSize = 0;
-            this.btnEliminarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarCliente.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEliminarCliente.ForeColor = System.Drawing.Color.White;
-            this.btnEliminarCliente.IconSize = new System.Drawing.Size(20, 20);
-            this.btnEliminarCliente.Location = new System.Drawing.Point(62, 171);
-            this.btnEliminarCliente.Name = "btnEliminarCliente";
-            this.btnEliminarCliente.Size = new System.Drawing.Size(168, 45);
-            this.btnEliminarCliente.TabIndex = 13;
-            this.btnEliminarCliente.Text = "Eliminar Cliente";
-            this.btnEliminarCliente.UseVisualStyleBackColor = false;
-            this.btnEliminarCliente.Click += new System.EventHandler(this.btnEliminarCliente_Click);
-            // 
-            // btnModificarCliente
-            // 
-            this.btnModificarCliente.BackColor = System.Drawing.Color.Transparent;
-            this.btnModificarCliente.BorderRadius = 15;
-            this.btnModificarCliente.ButtonIcon = global::AutoCare_R_J.Properties.Resources.editar;
-            this.btnModificarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificarCliente.CustomBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.btnModificarCliente.Enabled = false;
-            this.btnModificarCliente.FlatAppearance.BorderSize = 0;
-            this.btnModificarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificarCliente.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnModificarCliente.ForeColor = System.Drawing.Color.White;
-            this.btnModificarCliente.IconSize = new System.Drawing.Size(20, 20);
-            this.btnModificarCliente.Location = new System.Drawing.Point(62, 62);
-            this.btnModificarCliente.Name = "btnModificarCliente";
-            this.btnModificarCliente.Size = new System.Drawing.Size(168, 45);
-            this.btnModificarCliente.TabIndex = 12;
-            this.btnModificarCliente.Text = "Modificar";
-            this.btnModificarCliente.UseVisualStyleBackColor = false;
-            this.btnModificarCliente.Click += new System.EventHandler(this.btnModificarCliente_Click);
-            // 
-            // bntNuevoCliente
-            // 
-            this.bntNuevoCliente.BackColor = System.Drawing.Color.Transparent;
-            this.bntNuevoCliente.BorderRadius = 15;
-            this.bntNuevoCliente.ButtonIcon = global::AutoCare_R_J.Properties.Resources.salvar;
-            this.bntNuevoCliente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bntNuevoCliente.CustomBackColor = System.Drawing.Color.Green;
-            this.bntNuevoCliente.FlatAppearance.BorderSize = 0;
-            this.bntNuevoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bntNuevoCliente.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.bntNuevoCliente.ForeColor = System.Drawing.Color.White;
-            this.bntNuevoCliente.IconSize = new System.Drawing.Size(20, 20);
-            this.bntNuevoCliente.Location = new System.Drawing.Point(62, 10);
-            this.bntNuevoCliente.Name = "bntNuevoCliente";
-            this.bntNuevoCliente.Size = new System.Drawing.Size(168, 45);
-            this.bntNuevoCliente.TabIndex = 11;
-            this.bntNuevoCliente.Text = "Guardar Nuevo";
-            this.bntNuevoCliente.UseVisualStyleBackColor = false;
-            this.bntNuevoCliente.Click += new System.EventHandler(this.bntNuevoCliente_Click);
-            // 
-            // tbPgBusquedas
-            // 
-            this.tbPgBusquedas.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.tbPgBusquedas.Controls.Add(this.comboBox1);
-            this.tbPgBusquedas.Controls.Add(this.lblValorBusqueda);
-            this.tbPgBusquedas.Controls.Add(this.lblBuscarPor);
-            this.tbPgBusquedas.Controls.Add(this.btnBuscarCliente);
-            this.tbPgBusquedas.Controls.Add(this.txtValorAbuscar);
-            this.tbPgBusquedas.Location = new System.Drawing.Point(4, 32);
-            this.tbPgBusquedas.Name = "tbPgBusquedas";
-            this.tbPgBusquedas.Padding = new System.Windows.Forms.Padding(3);
-            this.tbPgBusquedas.Size = new System.Drawing.Size(285, 225);
-            this.tbPgBusquedas.TabIndex = 1;
-            this.tbPgBusquedas.Text = "BUSQUEDAS";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(29, 34);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(202, 28);
-            this.comboBox1.TabIndex = 13;
-            // 
-            // lblValorBusqueda
-            // 
-            this.lblValorBusqueda.AutoSize = true;
-            this.lblValorBusqueda.Location = new System.Drawing.Point(25, 80);
-            this.lblValorBusqueda.Name = "lblValorBusqueda";
-            this.lblValorBusqueda.Size = new System.Drawing.Size(63, 20);
-            this.lblValorBusqueda.TabIndex = 1;
-            this.lblValorBusqueda.Text = "Codigo:";
-            // 
-            // lblBuscarPor
-            // 
-            this.lblBuscarPor.AutoSize = true;
-            this.lblBuscarPor.Location = new System.Drawing.Point(25, 10);
-            this.lblBuscarPor.Name = "lblBuscarPor";
-            this.lblBuscarPor.Size = new System.Drawing.Size(91, 20);
-            this.lblBuscarPor.TabIndex = 1;
-            this.lblBuscarPor.Text = "Buscar Por:";
-            // 
-            // btnBuscarCliente
-            // 
-            this.btnBuscarCliente.BackColor = System.Drawing.Color.Transparent;
-            this.btnBuscarCliente.BorderRadius = 15;
-            this.btnBuscarCliente.ButtonIcon = global::AutoCare_R_J.Properties.Resources.busqueda;
-            this.btnBuscarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscarCliente.CustomBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.btnBuscarCliente.FlatAppearance.BorderSize = 0;
-            this.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarCliente.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnBuscarCliente.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarCliente.IconSize = new System.Drawing.Size(20, 20);
-            this.btnBuscarCliente.Location = new System.Drawing.Point(59, 162);
-            this.btnBuscarCliente.Name = "btnBuscarCliente";
-            this.btnBuscarCliente.Size = new System.Drawing.Size(160, 45);
-            this.btnBuscarCliente.TabIndex = 15;
-            this.btnBuscarCliente.Text = "Buscar";
-            this.btnBuscarCliente.UseVisualStyleBackColor = false;
-            // 
-            // txtValorAbuscar
-            // 
-            this.txtValorAbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValorAbuscar.Location = new System.Drawing.Point(29, 103);
-            this.txtValorAbuscar.Name = "txtValorAbuscar";
-            this.txtValorAbuscar.Size = new System.Drawing.Size(202, 26);
-            this.txtValorAbuscar.TabIndex = 14;
-            // 
-            // cstmPnlDato
-            // 
-            this.cstmPnlDato.BackColor = System.Drawing.Color.Transparent;
-            this.cstmPnlDato.BorderRadius = 20;
-            this.cstmPnlDato.Controls.Add(this.dtGvDatos);
-            this.cstmPnlDato.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cstmPnlDato.Location = new System.Drawing.Point(0, 271);
-            this.cstmPnlDato.Name = "cstmPnlDato";
-            this.cstmPnlDato.Size = new System.Drawing.Size(994, 290);
-            this.cstmPnlDato.TabIndex = 27;
-            // 
-            // dtGvDatos
-            // 
-            this.dtGvDatos.AllowUserToAddRows = false;
-            this.dtGvDatos.AllowUserToDeleteRows = false;
-            this.dtGvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dtGvDatos.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dtGvDatos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtGvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtGvDatos.Location = new System.Drawing.Point(0, 0);
-            this.dtGvDatos.MultiSelect = false;
-            this.dtGvDatos.Name = "dtGvDatos";
-            this.dtGvDatos.ReadOnly = true;
-            this.dtGvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGvDatos.Size = new System.Drawing.Size(994, 290);
-            this.dtGvDatos.TabIndex = 23;
-            this.dtGvDatos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGvDatos_CellClick);
-            this.dtGvDatos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGvDatos_CellDoubleClick);
             // 
             // frmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(994, 561);
+            this.ClientSize = new System.Drawing.Size(1081, 644);
             this.Controls.Add(this.cstmPnlDato);
             this.Controls.Add(this.pnlMenus);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MaximumSize = new System.Drawing.Size(1010, 900);
+            this.MaximumSize = new System.Drawing.Size(1097, 900);
             this.MinimumSize = new System.Drawing.Size(1010, 600);
             this.Name = "frmClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clientes";
             this.Load += new System.EventHandler(this.frmClientes_Load);
             this.pnlMenus.ResumeLayout(false);
+            this.cstmPnlDato.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtGvDatos)).EndInit();
+            this.cpBusquedas.ResumeLayout(false);
+            this.cpBusquedas.PerformLayout();
+            this.gbValorABuscar.ResumeLayout(false);
+            this.gbValorABuscar.PerformLayout();
+            this.gbValorDeBusqueda.ResumeLayout(false);
+            this.cpAccionesRapidas.ResumeLayout(false);
+            this.cpAccionesRapidas.PerformLayout();
             this.cstmPnlDatosCliente.ResumeLayout(false);
             this.cstmPnlDatosCliente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
@@ -671,13 +672,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.customPanel1.ResumeLayout(false);
-            this.tbCtrlOpciones.ResumeLayout(false);
-            this.tbPgAcciones.ResumeLayout(false);
-            this.tbPgBusquedas.ResumeLayout(false);
-            this.tbPgBusquedas.PerformLayout();
-            this.cstmPnlDato.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtGvDatos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -711,24 +705,23 @@
         private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.Label lblDPI;
-        private CustomPanel customPanel1;
-        private System.Windows.Forms.TabControl tbCtrlOpciones;
-        private System.Windows.Forms.TabPage tbPgAcciones;
-        private System.Windows.Forms.TabPage tbPgBusquedas;
         private CustomButton btnEliminarCliente;
         private CustomButton btnModificarCliente;
         private CustomButton bntNuevoCliente;
         private CustomButton btnBuscarCliente;
-        private System.Windows.Forms.Label lblValorBusqueda;
-        private System.Windows.Forms.Label lblBuscarPor;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbValoresDeBusqueda;
         private System.Windows.Forms.Panel pnlMenus;
         private CustomPanel cstmPnlDato;
         private System.Windows.Forms.TextBox txtValorAbuscar;
         private System.Windows.Forms.ComboBox cmbEstado;
         private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private CustomButton btnLimpiar;
+        private CustomPanel cpBusquedas;
+        private System.Windows.Forms.GroupBox gbValorABuscar;
+        private System.Windows.Forms.GroupBox gbValorDeBusqueda;
+        private System.Windows.Forms.Label lblBusquedas;
+        private CustomPanel cpAccionesRapidas;
+        private System.Windows.Forms.Label lblAccionesRapidas;
     }
 }
