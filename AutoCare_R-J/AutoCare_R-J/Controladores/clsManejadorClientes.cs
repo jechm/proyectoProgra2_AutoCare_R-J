@@ -117,7 +117,7 @@ namespace AutoCare_R_J.Controladores
 
         public IList<clsCliente> BuscarClientesPorDireccion(string pDireccion)
         {
-            return lstClientes.Where(cl => cl.Telefono.Equals(pDireccion, StringComparison.OrdinalIgnoreCase)).ToList();
+            return lstClientes.Where(cl => cl.Direccion.Equals(pDireccion, StringComparison.OrdinalIgnoreCase)).ToList();
         }
 
         public IList<clsCliente> BuscarClientesPorEstado(string pEstado)

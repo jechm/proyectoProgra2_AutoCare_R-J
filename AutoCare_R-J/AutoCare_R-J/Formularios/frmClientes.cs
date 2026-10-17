@@ -71,18 +71,91 @@ namespace AutoCare_R_J.Formularios
             if (validarDatos())
             {
                 // Crear el cliente si los datos son válidos
-                if (manejadorClientes.BuscarClientePorCodigo(txtCodigo.Text) != null)
+                if (ValidarClienteExistente())
                 {
-                    MessageBox.Show("Ya existe un cliente con este código.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    CrearCliente();
                 }
-                CrearCliente();
+                
             }
+
         }
 
+        #region Validaciones de datos
+        private bool ValidarClienteExistente()
+        {
+
+            bool clienteExistenteDPI = manejadorClientes.BuscarClientePorDPI(txtDPI.Text) != null;
+            bool clienteExistenteNit = manejadorClientes.BuscarClientePorNit(txtNit.Text) != null && txtNit.Text != "C/F";
+            bool clienteExistenteCorreo = manejadorClientes.BuscarClientePorCorreo(txtCorreo.Text) != null;
+            bool clienteExistenteTelefono = manejadorClientes.BuscarClientePorTelefono(txtTelefono.Text) != null;
+            
+            if (clienteExistenteDPI)
+            {
+                MessageBox.Show("Ya existe un cliente con este DPI.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (clienteExistenteNit)
+            {
+                MessageBox.Show("Ya existe un cliente con este NIT.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (clienteExistenteCorreo)
+            {
+                MessageBox.Show("Ya existe un cliente con este correo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (clienteExistenteTelefono)
+            {
+                MessageBox.Show("Ya existe un cliente con este teléfono.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true; // No hay clientes existentes con los mismos datos
+        }
+
+        private bool validarDatos()
+        {
+            bool elDPIesValido = !string.IsNullOrWhiteSpace(txtDPI.Text) && txtDPI.Text.Length == 13;
+            bool elTelefonoEsValido = !string.IsNullOrWhiteSpace(txtTelefono.Text) && txtTelefono.Text.Length == 8;
+            string correo = txtCorreo.Text;
+
+            if (
+                string.IsNullOrWhiteSpace(txtNombre.Text) ||
+                string.IsNullOrWhiteSpace(txtApellido.Text)
+            )
+            {
+                MessageBox.Show("Por favor, complete todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (elDPIesValido == false)
+            {
+                MessageBox.Show("El DPI debe contener 13 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (elTelefonoEsValido == false)
+            {
+                MessageBox.Show("El teléfono debe contener 8 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (correo.Length > 0 && !correo.Contains("@"))
+            {
+                MessageBox.Show("El correo electrónico no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Si todos los campos están completos, se puede proceder a crear el cliente
+            return true;
+        }
+        #endregion
         private void CrearCliente()
         {
             string codigo = txtCodigo.Text;
+            string direccion = string.IsNullOrWhiteSpace(txtDireccion.Text) ? "Sin especificar" : txtDireccion.Text;
+            string nit = string.IsNullOrWhiteSpace(txtNit.Text) ? "C/F" : txtNit.Text;
+
             clsCliente clienteTemporal = new clsCliente(
                 codigo,
                 txtNombre.Text,
@@ -90,9 +163,9 @@ namespace AutoCare_R_J.Formularios
                 txtDPI.Text,
                 txtTelefono.Text,
                 txtCorreo.Text,
-                txtDireccion.Text,
+                direccion,
                 cmbEstado.SelectedItem.ToString(),
-                txtNit.Text,
+                nit,
                 0
                 );
             manejadorClientes.AgregarCliente(clienteTemporal);
@@ -101,7 +174,7 @@ namespace AutoCare_R_J.Formularios
             MessageBox.Show("Cliente creado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             contadorClientes++;
-            
+
             limpiarFormulario();
         }
 
@@ -118,7 +191,7 @@ namespace AutoCare_R_J.Formularios
 
             txtNombre.Text = "";
             txtApellido.Text = "";
-            
+
             txtDPI.Text = "";
             txtDPI.Enabled = true; // Habilitar el campo DPI para que se pueda modificar
 
@@ -126,31 +199,24 @@ namespace AutoCare_R_J.Formularios
             txtCorreo.Text = "";
             txtDireccion.Text = "";
             cmbEstado.SelectedIndex = 0;
-            
+
             txtNit.Text = "";
             txtNit.Enabled = true; // Habilitar el campo Nit para que se pueda modificar
 
+            txtValorAbuscar.Text = "";
+
+            bloquearBotonesModificadores();
             redibujarTabla();
         }
 
-        private bool validarDatos()
+        private void bloquearBotonesModificadores()
         {
-            if (string.IsNullOrWhiteSpace(txtCodigo.Text) ||
-                string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                string.IsNullOrWhiteSpace(txtApellido.Text) ||
-                string.IsNullOrWhiteSpace(txtDPI.Text) ||
-                string.IsNullOrWhiteSpace(txtTelefono.Text) ||
-                string.IsNullOrWhiteSpace(txtCorreo.Text) ||
-                string.IsNullOrWhiteSpace(txtDireccion.Text) ||
-                string.IsNullOrWhiteSpace(cmbEstado.Text) ||
-                string.IsNullOrWhiteSpace(txtNit.Text))
-            {
-                MessageBox.Show("Por favor, complete todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            // Si todos los campos están completos, se puede proceder a crear el cliente
-            return true;
+            btnModificarCliente.Enabled = false;
+            btnModificarCliente.CustomBackColor = Color.SlateGray; // Cambiar el color del botón a gris
+            btnEliminarCliente.Enabled = false;
+            btnEliminarCliente.CustomBackColor = Color.SlateGray; // Cambiar el color del botón a gris
         }
+
 
         private void frmClientes_Load(object sender, EventArgs e)
         {
@@ -211,11 +277,10 @@ namespace AutoCare_R_J.Formularios
                         cmbEstado.SelectedItem.ToString(),
                         clienteExistente.Saldo // Mantener el saldo actual
                     );
-                   // redibujarTabla();
+                    // redibujarTabla();
                     MessageBox.Show("Cliente modificado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtNit.Enabled = true; // Habilitar el campo Nit para que se pueda modificar
-                    txtDPI.Enabled = true; // Habilitar el campo DPI para que se pueda modificar
                     limpiarFormulario();
+
 
                 }
                 else
@@ -223,30 +288,29 @@ namespace AutoCare_R_J.Formularios
                     MessageBox.Show("No se encontró un cliente con este código.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            btnModificarCliente.Enabled = false;
+
+
+
         }
 
         private void btnEliminarCliente_Click(object sender, EventArgs e)
         {
             string codigoCliente = dtGvDatos.SelectedRows[0].Cells["Codigo"].Value.ToString();
-           bool eliminado = manejadorClientes.EliminarCliente(codigoCliente);
+            bool eliminado = manejadorClientes.EliminarCliente(codigoCliente);
             if (eliminado)
             {
                 redibujarTabla();
                 MessageBox.Show("Cliente eliminado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 limpiarFormulario();
+                contadorClientes--; // Disminuir el contador de clientes
 
-                
+
             }
             else
             {
                 MessageBox.Show("No se encontró un cliente con este código.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            btnEliminarCliente.Enabled = false;
-            btnEliminarCliente.CustomBackColor = Color.SlateGray;
 
-            btnModificarCliente.Enabled = false;
-            btnModificarCliente.CustomBackColor = Color.SlateGray; // Cambiar el color del botón a gris
         }
 
 
@@ -254,6 +318,14 @@ namespace AutoCare_R_J.Formularios
         private void cmbValoresDeBusqueda_SelectedValueChanged(object sender, EventArgs e)
         {
             gbValorABuscar.Text = $"Ingrese {cmbValoresDeBusqueda.SelectedItem.ToString()}";
+            if(cmbValoresDeBusqueda.SelectedItem.ToString() == "Codigo")
+            {
+                txtValorAbuscar.Text = "CL-";
+            }
+            else
+            {
+                txtValorAbuscar.Text = "";
+            }
         }
 
 
@@ -336,6 +408,26 @@ namespace AutoCare_R_J.Formularios
             {
                 MessageBox.Show($"No se encontraron clientes por {strBuscarPor}.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 redibujarTabla();
+            }
+        }
+
+        private void txtDPI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //evitar el ingreso de letras en el campo DPI
+            EvitarLetras(e);
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            EvitarLetras(e);
+        }
+
+        private void EvitarLetras(KeyPressEventArgs e)
+        {
+            //evitar el ingreso de letras en el campo Telefono
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Ignorar el carácter ingresado
             }
         }
     }

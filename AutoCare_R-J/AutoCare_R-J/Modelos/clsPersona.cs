@@ -27,7 +27,7 @@ namespace AutoCare_R_J.Modelos
         public string Nombre
         {
             get { return strNombrePersona; }
-            set{strApellidoPersona = value; }
+            set{strNombrePersona = value; }
         }
 
         public string Apellido
