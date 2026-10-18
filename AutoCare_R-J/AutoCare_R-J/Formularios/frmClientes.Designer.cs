@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmClientes));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlMenus = new System.Windows.Forms.Panel();
-            this.cstmPnlDato = new AutoCare_R_J.CustomPanel();
-            this.dtGvDatos = new System.Windows.Forms.DataGridView();
             this.cpBusquedas = new AutoCare_R_J.CustomPanel();
             this.btnBuscarCliente = new AutoCare_R_J.CustomButton();
             this.gbValorABuscar = new System.Windows.Forms.GroupBox();
@@ -75,9 +73,9 @@
             this.lblTelefono = new System.Windows.Forms.Label();
             this.lblDPI = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
+            this.cstmPnlDato = new AutoCare_R_J.CustomPanel();
+            this.dtGvDatos = new System.Windows.Forms.DataGridView();
             this.pnlMenus.SuspendLayout();
-            this.cstmPnlDato.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGvDatos)).BeginInit();
             this.cpBusquedas.SuspendLayout();
             this.gbValorABuscar.SuspendLayout();
             this.gbValorDeBusqueda.SuspendLayout();
@@ -92,6 +90,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.cstmPnlDato.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGvDatos)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMenus
@@ -104,44 +104,6 @@
             this.pnlMenus.Name = "pnlMenus";
             this.pnlMenus.Size = new System.Drawing.Size(1081, 332);
             this.pnlMenus.TabIndex = 26;
-            // 
-            // cstmPnlDato
-            // 
-            this.cstmPnlDato.BackColor = System.Drawing.Color.Transparent;
-            this.cstmPnlDato.BorderRadius = 20;
-            this.cstmPnlDato.Controls.Add(this.dtGvDatos);
-            this.cstmPnlDato.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cstmPnlDato.Location = new System.Drawing.Point(0, 332);
-            this.cstmPnlDato.Name = "cstmPnlDato";
-            this.cstmPnlDato.Size = new System.Drawing.Size(1081, 312);
-            this.cstmPnlDato.TabIndex = 27;
-            // 
-            // dtGvDatos
-            // 
-            this.dtGvDatos.AllowUserToAddRows = false;
-            this.dtGvDatos.AllowUserToDeleteRows = false;
-            this.dtGvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dtGvDatos.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dtGvDatos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtGvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtGvDatos.Location = new System.Drawing.Point(0, 0);
-            this.dtGvDatos.MultiSelect = false;
-            this.dtGvDatos.Name = "dtGvDatos";
-            this.dtGvDatos.ReadOnly = true;
-            this.dtGvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGvDatos.Size = new System.Drawing.Size(1081, 312);
-            this.dtGvDatos.TabIndex = 23;
-            this.dtGvDatos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGvDatos_CellClick);
-            this.dtGvDatos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGvDatos_CellDoubleClick);
             // 
             // cpBusquedas
             // 
@@ -189,6 +151,7 @@
             // 
             // txtValorAbuscar
             // 
+            this.txtValorAbuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtValorAbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValorAbuscar.Location = new System.Drawing.Point(6, 21);
             this.txtValorAbuscar.Name = "txtValorAbuscar";
@@ -488,6 +451,7 @@
             // 
             // txtCodigo
             // 
+            this.txtCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCodigo.Enabled = false;
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.Location = new System.Drawing.Point(107, 36);
@@ -517,6 +481,7 @@
             // 
             // txtApellido
             // 
+            this.txtApellido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellido.Location = new System.Drawing.Point(463, 82);
             this.txtApellido.Name = "txtApellido";
@@ -555,6 +520,7 @@
             // 
             // txtDireccion
             // 
+            this.txtDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.Location = new System.Drawing.Point(121, 212);
             this.txtDireccion.Name = "txtDireccion";
@@ -583,6 +549,7 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(107, 79);
             this.txtNombre.Name = "txtNombre";
@@ -639,6 +606,44 @@
             this.lblNombre.TabIndex = 2;
             this.lblNombre.Text = "Nombre:";
             // 
+            // cstmPnlDato
+            // 
+            this.cstmPnlDato.BackColor = System.Drawing.Color.Transparent;
+            this.cstmPnlDato.BorderRadius = 20;
+            this.cstmPnlDato.Controls.Add(this.dtGvDatos);
+            this.cstmPnlDato.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cstmPnlDato.Location = new System.Drawing.Point(0, 332);
+            this.cstmPnlDato.Name = "cstmPnlDato";
+            this.cstmPnlDato.Size = new System.Drawing.Size(1081, 312);
+            this.cstmPnlDato.TabIndex = 27;
+            // 
+            // dtGvDatos
+            // 
+            this.dtGvDatos.AllowUserToAddRows = false;
+            this.dtGvDatos.AllowUserToDeleteRows = false;
+            this.dtGvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtGvDatos.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dtGvDatos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtGvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtGvDatos.Location = new System.Drawing.Point(0, 0);
+            this.dtGvDatos.MultiSelect = false;
+            this.dtGvDatos.Name = "dtGvDatos";
+            this.dtGvDatos.ReadOnly = true;
+            this.dtGvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtGvDatos.Size = new System.Drawing.Size(1081, 312);
+            this.dtGvDatos.TabIndex = 23;
+            this.dtGvDatos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGvDatos_CellClick);
+            this.dtGvDatos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGvDatos_CellDoubleClick);
+            // 
             // frmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -657,8 +662,6 @@
             this.Text = "Clientes";
             this.Load += new System.EventHandler(this.frmClientes_Load);
             this.pnlMenus.ResumeLayout(false);
-            this.cstmPnlDato.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtGvDatos)).EndInit();
             this.cpBusquedas.ResumeLayout(false);
             this.cpBusquedas.PerformLayout();
             this.gbValorABuscar.ResumeLayout(false);
@@ -677,6 +680,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.cstmPnlDato.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtGvDatos)).EndInit();
             this.ResumeLayout(false);
 
         }

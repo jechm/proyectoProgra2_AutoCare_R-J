@@ -17,15 +17,20 @@ namespace AutoCare_R_J.Formularios
 
     public partial class frmVentanaPrincipal : Form
     {
-
+        //Cargar informacion de BD en memoria
         private clsManejadorClientes listaClientes;
         private clsManejadorEmpleados listaEmpleados;
+
+        private clsManejadorRepuestos listaRepuestos;
+
+
 
         public frmVentanaPrincipal()
 
         {
             listaClientes = new clsManejadorClientes();
             listaEmpleados = new clsManejadorEmpleados();
+            listaRepuestos = new clsManejadorRepuestos();
 
             InitializeComponent();
         }
@@ -115,6 +120,19 @@ namespace AutoCare_R_J.Formularios
                 frmOrdenesTrabajo ordenesDeTrabajo = new frmOrdenesTrabajo();
                 ordenesDeTrabajo.MdiParent = this;
                 ordenesDeTrabajo.Show();
+            }
+        }
+
+
+
+        private void btnRepuestos_Click(object sender, EventArgs e)
+        {
+            if(!FormularioAbierto("frmRepuestos"))
+            {
+                frmRepuestos repuestos = new frmRepuestos();
+                repuestos.AsignarListaRepuestos(ref listaRepuestos);
+                repuestos.MdiParent = this;
+                repuestos.Show();
             }
         }
 

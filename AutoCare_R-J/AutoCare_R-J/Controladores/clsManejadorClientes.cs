@@ -99,7 +99,7 @@ namespace AutoCare_R_J.Controladores
 
         public clsCliente BuscarClientePorCorreo(string pCorreo)
         {
-            return lstClientes.FirstOrDefault(cl => cl.Correo.Equals(pCorreo, StringComparison.OrdinalIgnoreCase));
+            return lstClientes.FirstOrDefault(cl => cl.Correo.Equals(pCorreo));
         }
 
         #endregion
@@ -107,12 +107,13 @@ namespace AutoCare_R_J.Controladores
         #region Busquedas por valores repetibles
         public IList<clsCliente> BuscarClientesPorNombre(string pNombreCliente)
         {
-            return lstClientes.Where(cl => cl.Nombre.Equals(pNombreCliente, StringComparison.OrdinalIgnoreCase)).ToList();
+            return lstClientes.Where(cl => cl.Nombre.Contains(pNombreCliente)).ToList();
         }
 
         public IList<clsCliente> BuscarClientesPorApellido(string pApellidoCliente)
         {
-            return lstClientes.Where(cl => cl.Apellido.Equals(pApellidoCliente, StringComparison.OrdinalIgnoreCase)).ToList();
+            
+            return lstClientes.Where(cl => cl.Apellido.Contains(pApellidoCliente)).ToList();
         }
 
         public IList<clsCliente> BuscarClientesPorDireccion(string pDireccion)

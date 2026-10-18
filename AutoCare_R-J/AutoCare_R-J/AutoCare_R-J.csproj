@@ -87,6 +87,12 @@
     <Compile Include="Formularios\frmOrdenesTrabajo.Designer.cs">
       <DependentUpon>frmOrdenesTrabajo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frmRepuestos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmRepuestos.Designer.cs">
+      <DependentUpon>frmRepuestos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frmVehiculos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmOrdenesTrabajo.resx">
       <DependentUpon>frmOrdenesTrabajo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmRepuestos.resx">
+      <DependentUpon>frmRepuestos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmVehiculos.resx">
       <DependentUpon>frmVehiculos.cs</DependentUpon>

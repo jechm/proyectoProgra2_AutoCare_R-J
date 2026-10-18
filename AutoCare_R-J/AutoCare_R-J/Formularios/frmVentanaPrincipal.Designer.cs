@@ -80,7 +80,7 @@
             this.tbpConfiguracionYMantenimiento.Location = new System.Drawing.Point(4, 22);
             this.tbpConfiguracionYMantenimiento.Margin = new System.Windows.Forms.Padding(100, 3, 3, 3);
             this.tbpConfiguracionYMantenimiento.Name = "tbpConfiguracionYMantenimiento";
-            this.tbpConfiguracionYMantenimiento.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tbpConfiguracionYMantenimiento.Padding = new System.Windows.Forms.Padding(3);
             this.tbpConfiguracionYMantenimiento.Size = new System.Drawing.Size(921, 104);
             this.tbpConfiguracionYMantenimiento.TabIndex = 0;
             this.tbpConfiguracionYMantenimiento.Text = "Configuracion y Mantenimiento";
@@ -95,6 +95,7 @@
             this.btnRepuestos.Size = new System.Drawing.Size(100, 100);
             this.btnRepuestos.TabIndex = 1;
             this.btnRepuestos.UseVisualStyleBackColor = true;
+            this.btnRepuestos.Click += new System.EventHandler(this.btnRepuestos_Click);
             // 
             // btnServicios
             // 
@@ -147,7 +148,7 @@
             this.tbpCitas.Controls.Add(this.btnCitas);
             this.tbpCitas.Location = new System.Drawing.Point(4, 22);
             this.tbpCitas.Name = "tbpCitas";
-            this.tbpCitas.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tbpCitas.Padding = new System.Windows.Forms.Padding(3);
             this.tbpCitas.Size = new System.Drawing.Size(921, 104);
             this.tbpCitas.TabIndex = 1;
             this.tbpCitas.Text = "Transacciones";
@@ -158,7 +159,7 @@
             this.btnFacturas.BackgroundImage = global::AutoCare_R_J.Properties.Resources.facturacion;
             this.btnFacturas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnFacturas.Location = new System.Drawing.Point(209, 2);
-            this.btnFacturas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnFacturas.Margin = new System.Windows.Forms.Padding(2);
             this.btnFacturas.Name = "btnFacturas";
             this.btnFacturas.Size = new System.Drawing.Size(100, 100);
             this.btnFacturas.TabIndex = 2;
@@ -170,7 +171,7 @@
             this.btnOrdenesDeTrabajo.BackgroundImage = global::AutoCare_R_J.Properties.Resources.ordenes;
             this.btnOrdenesDeTrabajo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnOrdenesDeTrabajo.Location = new System.Drawing.Point(106, 2);
-            this.btnOrdenesDeTrabajo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOrdenesDeTrabajo.Margin = new System.Windows.Forms.Padding(2);
             this.btnOrdenesDeTrabajo.Name = "btnOrdenesDeTrabajo";
             this.btnOrdenesDeTrabajo.Size = new System.Drawing.Size(100, 100);
             this.btnOrdenesDeTrabajo.TabIndex = 1;
@@ -182,7 +183,7 @@
             this.btnCitas.BackgroundImage = global::AutoCare_R_J.Properties.Resources.citas;
             this.btnCitas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnCitas.Location = new System.Drawing.Point(2, 2);
-            this.btnCitas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCitas.Margin = new System.Windows.Forms.Padding(2);
             this.btnCitas.Name = "btnCitas";
             this.btnCitas.Size = new System.Drawing.Size(100, 100);
             this.btnCitas.TabIndex = 0;

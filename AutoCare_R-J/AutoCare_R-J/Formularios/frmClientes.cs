@@ -326,6 +326,16 @@ namespace AutoCare_R_J.Formularios
             {
                 txtValorAbuscar.Text = "";
             }
+
+
+            if(cmbValoresDeBusqueda.SelectedItem.ToString() == "Correo")
+            {
+                txtValorAbuscar.CharacterCasing = CharacterCasing.Normal;
+            }
+            else
+            {
+               txtValorAbuscar.CharacterCasing = CharacterCasing.Upper;
+            }
         }
 
 
