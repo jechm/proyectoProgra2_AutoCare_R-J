@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
         
@@ -12,17 +13,25 @@ namespace AutoCare_R_J.Controladores
     {
         //Atributos
         private IList<clsCliente> lstClientes;
+        private int intContadorClientes;
 
         //Recuperar lista de clientes
         public IList<clsCliente> ObtenerClientes()
         {
-            return lstClientes;
+            return new List<clsCliente>(lstClientes);
+        }
+
+        public int TotalClientes
+        {
+            get { return intContadorClientes; }
+            set { intContadorClientes = value; }
         }
 
         //Constructor
         public clsManejadorClientes()
         {
             lstClientes = new List<clsCliente>();
+            TotalClientes = 0;
         }
 
         #region Modificadores
@@ -34,9 +43,17 @@ namespace AutoCare_R_J.Controladores
         }
 
         //Eliminar cliente de la lista de clientes
-        public void EliminarCliente(clsCliente pCliente)
+        public bool EliminarCliente(string pCodigoCliente)
         {
-            lstClientes.Remove(pCliente);
+            clsCliente clienteAEliminar = BuscarClientePorCodigo(pCodigoCliente);
+            if (clienteAEliminar != null)
+            {
+                lstClientes.Remove(clienteAEliminar);
+                return true;
+            }
+             
+            return false;
+            
         }
 
         //Modificar cliente de la lista de clientes
@@ -55,31 +72,61 @@ namespace AutoCare_R_J.Controladores
 
         #endregion
 
-        #region Buscador
-        //Buscar cliente por codigo
+        #region Buscadores
+        
+        #region Busquedas por Valores Unicos
+
         public clsCliente BuscarClientePorCodigo(string pCodigoCliente)
         {
-            int indice = -1;
-
-            foreach (var cliente in lstClientes)
-            {
-                if (cliente.Codigo == pCodigoCliente)
-                {
-                    indice = lstClientes.IndexOf(cliente);
-                    break;
-                }
-            }
-
-            if (indice != -1)
-            {
-                return lstClientes[indice];
-            }
-            else
-            {
-                return null;
-            }
-
+            return lstClientes.FirstOrDefault(cl => cl.Codigo.Equals(pCodigoCliente, StringComparison.OrdinalIgnoreCase));
         }
+
+
+        public clsCliente BuscarClientePorDPI(string pDPICliente)
+        {
+            return lstClientes.FirstOrDefault(cl => cl.DPI.Equals(pDPICliente));
+        }
+
+        public clsCliente BuscarClientePorNit(string pNitCliente)
+        {
+            return lstClientes.FirstOrDefault(cl => cl.Nit.Equals(pNitCliente));
+        }
+
+        public clsCliente BuscarClientePorTelefono(string pTelefono)
+        {
+            return lstClientes.FirstOrDefault(cl => cl.Telefono.Equals(pTelefono));
+        }
+
+        public clsCliente BuscarClientePorCorreo(string pCorreo)
+        {
+            return lstClientes.FirstOrDefault(cl => cl.Correo.Equals(pCorreo, StringComparison.OrdinalIgnoreCase));
+        }
+
+        #endregion
+
+        #region Busquedas por valores repetibles
+        public IList<clsCliente> BuscarClientesPorNombre(string pNombreCliente)
+        {
+            return lstClientes.Where(cl => cl.Nombre.Equals(pNombreCliente, StringComparison.OrdinalIgnoreCase)).ToList();
+        }
+
+        public IList<clsCliente> BuscarClientesPorApellido(string pApellidoCliente)
+        {
+            return lstClientes.Where(cl => cl.Apellido.Equals(pApellidoCliente, StringComparison.OrdinalIgnoreCase)).ToList();
+        }
+
+        public IList<clsCliente> BuscarClientesPorDireccion(string pDireccion)
+        {
+            return lstClientes.Where(cl => cl.Direccion.Equals(pDireccion, StringComparison.OrdinalIgnoreCase)).ToList();
+        }
+
+        public IList<clsCliente> BuscarClientesPorEstado(string pEstado)
+        {
+            return lstClientes.Where(cl => cl.Estado.Equals(pEstado, StringComparison.OrdinalIgnoreCase)).ToList();
+        }
+
+        #endregion
+
         #endregion
 
     }

@@ -28,11 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFacturas));
             this.cpBusquedas = new AutoCare_R_J.CustomPanel();
             this.gbBuscCod = new System.Windows.Forms.GroupBox();
             this.tbxBuscCodigo = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new AutoCare_R_J.CustomButton();
             this.lblBusquedas = new System.Windows.Forms.Label();
             this.cpAccionesRapidas = new AutoCare_R_J.CustomPanel();
+            this.btnLimpiarCampos = new AutoCare_R_J.CustomButton();
+            this.btnEliminar = new AutoCare_R_J.CustomButton();
+            this.btnAgregar = new AutoCare_R_J.CustomButton();
             this.lblAccionesRapidas = new System.Windows.Forms.Label();
             this.customPanel1 = new AutoCare_R_J.CustomPanel();
             this.lblDatosServicio = new System.Windows.Forms.Label();
@@ -84,18 +89,21 @@
             this.cpBusquedas.Controls.Add(this.gbBuscCod);
             this.cpBusquedas.Controls.Add(this.btnBuscar);
             this.cpBusquedas.Controls.Add(this.lblBusquedas);
-            this.cpBusquedas.Location = new System.Drawing.Point(469, 155);
+            this.cpBusquedas.Location = new System.Drawing.Point(625, 191);
+            this.cpBusquedas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cpBusquedas.Name = "cpBusquedas";
-            this.cpBusquedas.Size = new System.Drawing.Size(383, 175);
+            this.cpBusquedas.Size = new System.Drawing.Size(511, 215);
             this.cpBusquedas.TabIndex = 32;
             // 
             // gbBuscCod
             // 
             this.gbBuscCod.Controls.Add(this.tbxBuscCodigo);
             this.gbBuscCod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbBuscCod.Location = new System.Drawing.Point(14, 51);
+            this.gbBuscCod.Location = new System.Drawing.Point(19, 63);
+            this.gbBuscCod.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbBuscCod.Name = "gbBuscCod";
-            this.gbBuscCod.Size = new System.Drawing.Size(362, 53);
+            this.gbBuscCod.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbBuscCod.Size = new System.Drawing.Size(483, 65);
             this.gbBuscCod.TabIndex = 31;
             this.gbBuscCod.TabStop = false;
             this.gbBuscCod.Text = "Código";
@@ -103,18 +111,40 @@
             // tbxBuscCodigo
             // 
             this.tbxBuscCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxBuscCodigo.Location = new System.Drawing.Point(16, 21);
+            this.tbxBuscCodigo.Location = new System.Drawing.Point(21, 26);
+            this.tbxBuscCodigo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbxBuscCodigo.Name = "tbxBuscCodigo";
-            this.tbxBuscCodigo.Size = new System.Drawing.Size(340, 26);
+            this.tbxBuscCodigo.Size = new System.Drawing.Size(452, 30);
             this.tbxBuscCodigo.TabIndex = 29;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.BorderRadius = 15;
+            this.btnBuscar.ButtonIcon = global::AutoCare_R_J.Properties.Resources.buscar;
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.CustomBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnBuscar.ForeColor = System.Drawing.Color.White;
+            this.btnBuscar.IconSize = new System.Drawing.Size(20, 20);
+            this.btnBuscar.Location = new System.Drawing.Point(259, 4);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(213, 55);
+            this.btnBuscar.TabIndex = 30;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = false;
             // 
             // lblBusquedas
             // 
             this.lblBusquedas.AutoSize = true;
             this.lblBusquedas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBusquedas.Location = new System.Drawing.Point(10, 13);
+            this.lblBusquedas.Location = new System.Drawing.Point(13, 16);
+            this.lblBusquedas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBusquedas.Name = "lblBusquedas";
-            this.lblBusquedas.Size = new System.Drawing.Size(114, 24);
+            this.lblBusquedas.Size = new System.Drawing.Size(143, 29);
             this.lblBusquedas.TabIndex = 29;
             this.lblBusquedas.Text = "Busquedas";
             // 
@@ -126,9 +156,10 @@
             this.cpAccionesRapidas.Controls.Add(this.btnEliminar);
             this.cpAccionesRapidas.Controls.Add(this.btnAgregar);
             this.cpAccionesRapidas.Controls.Add(this.lblAccionesRapidas);
-            this.cpAccionesRapidas.Location = new System.Drawing.Point(469, 3);
+            this.cpAccionesRapidas.Location = new System.Drawing.Point(625, 4);
+            this.cpAccionesRapidas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cpAccionesRapidas.Name = "cpAccionesRapidas";
-            this.cpAccionesRapidas.Size = new System.Drawing.Size(383, 146);
+            this.cpAccionesRapidas.Size = new System.Drawing.Size(511, 180);
             this.cpAccionesRapidas.TabIndex = 31;
             // 
             // lblAccionesRapidas
@@ -419,9 +450,10 @@
             this.btnLimpiarCampos.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnLimpiarCampos.ForeColor = System.Drawing.Color.White;
             this.btnLimpiarCampos.IconSize = new System.Drawing.Size(20, 20);
-            this.btnLimpiarCampos.Location = new System.Drawing.Point(194, 39);
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(259, 48);
+            this.btnLimpiarCampos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLimpiarCampos.Name = "btnLimpiarCampos";
-            this.btnLimpiarCampos.Size = new System.Drawing.Size(160, 45);
+            this.btnLimpiarCampos.Size = new System.Drawing.Size(213, 55);
             this.btnLimpiarCampos.TabIndex = 29;
             this.btnLimpiarCampos.Text = "Limpiar campos";
             this.btnLimpiarCampos.UseVisualStyleBackColor = false;
@@ -438,9 +470,10 @@
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.IconSize = new System.Drawing.Size(20, 20);
-            this.btnEliminar.Location = new System.Drawing.Point(14, 91);
+            this.btnEliminar.Location = new System.Drawing.Point(19, 112);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(160, 45);
+            this.btnEliminar.Size = new System.Drawing.Size(213, 55);
             this.btnEliminar.TabIndex = 28;
             this.btnEliminar.Text = "Anular";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -457,9 +490,10 @@
             this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.IconSize = new System.Drawing.Size(20, 20);
-            this.btnAgregar.Location = new System.Drawing.Point(14, 39);
+            this.btnAgregar.Location = new System.Drawing.Point(19, 48);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(160, 45);
+            this.btnAgregar.Size = new System.Drawing.Size(213, 55);
             this.btnAgregar.TabIndex = 26;
             this.btnAgregar.Text = "Guardar nuevo";
             this.btnAgregar.UseVisualStyleBackColor = false;
@@ -497,17 +531,19 @@
             // 
             // frmFacturas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.ClientSize = new System.Drawing.Size(864, 611);
+            this.ClientSize = new System.Drawing.Size(1152, 752);
             this.Controls.Add(this.dgvServicios);
             this.Controls.Add(this.cpFiltros);
             this.Controls.Add(this.customPanel1);
             this.Controls.Add(this.cpBusquedas);
             this.Controls.Add(this.cpAccionesRapidas);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmFacturas";
-            this.Text = "Form1";
+            this.Text = "Facturas";
             this.cpBusquedas.ResumeLayout(false);
             this.cpBusquedas.PerformLayout();
             this.gbBuscCod.ResumeLayout(false);

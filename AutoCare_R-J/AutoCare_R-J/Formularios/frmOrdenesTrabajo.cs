@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using AutoCare_R_J.Controladores;
-using AutoCare_R_J.Modelos;s
+using AutoCare_R_J.Modelos;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;

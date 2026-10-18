@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Servicios));
             this.dgvServicios = new System.Windows.Forms.DataGridView();
             this.cpFiltros = new AutoCare_R_J.CustomPanel();
             this.cpBusquedas = new AutoCare_R_J.CustomPanel();
@@ -92,6 +93,7 @@
             this.dgvServicios.MultiSelect = false;
             this.dgvServicios.Name = "dgvServicios";
             this.dgvServicios.ReadOnly = true;
+            this.dgvServicios.RowHeadersWidth = 51;
             this.dgvServicios.Size = new System.Drawing.Size(841, 187);
             this.dgvServicios.TabIndex = 23;
             // 
@@ -133,7 +135,7 @@
             this.tbxBuscNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxBuscNombre.Location = new System.Drawing.Point(16, 21);
             this.tbxBuscNombre.Name = "tbxBuscNombre";
-            this.tbxBuscNombre.Size = new System.Drawing.Size(340, 26);
+            this.tbxBuscNombre.Size = new System.Drawing.Size(340, 30);
             this.tbxBuscNombre.TabIndex = 29;
             // 
             // gbBuscCod
@@ -152,7 +154,7 @@
             this.tbxBuscCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxBuscCodigo.Location = new System.Drawing.Point(16, 21);
             this.tbxBuscCodigo.Name = "tbxBuscCodigo";
-            this.tbxBuscCodigo.Size = new System.Drawing.Size(340, 26);
+            this.tbxBuscCodigo.Size = new System.Drawing.Size(340, 30);
             this.tbxBuscCodigo.TabIndex = 29;
             // 
             // btnBuscar
@@ -181,7 +183,7 @@
             this.lblBusquedas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBusquedas.Location = new System.Drawing.Point(10, 13);
             this.lblBusquedas.Name = "lblBusquedas";
-            this.lblBusquedas.Size = new System.Drawing.Size(114, 24);
+            this.lblBusquedas.Size = new System.Drawing.Size(143, 29);
             this.lblBusquedas.TabIndex = 29;
             this.lblBusquedas.Text = "Busquedas";
             // 
@@ -285,7 +287,7 @@
             this.lblAccionesRapidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAccionesRapidas.Location = new System.Drawing.Point(10, 9);
             this.lblAccionesRapidas.Name = "lblAccionesRapidas";
-            this.lblAccionesRapidas.Size = new System.Drawing.Size(178, 24);
+            this.lblAccionesRapidas.Size = new System.Drawing.Size(222, 29);
             this.lblAccionesRapidas.TabIndex = 25;
             this.lblAccionesRapidas.Text = "Acciones Rapidas";
             // 
@@ -378,7 +380,7 @@
             this.lblMinutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMinutos.Location = new System.Drawing.Point(272, 271);
             this.lblMinutos.Name = "lblMinutos";
-            this.lblMinutos.Size = new System.Drawing.Size(65, 20);
+            this.lblMinutos.Size = new System.Drawing.Size(81, 25);
             this.lblMinutos.TabIndex = 16;
             this.lblMinutos.Text = "Minutos";
             // 
@@ -407,7 +409,7 @@
             this.tbxDuracionMinutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxDuracionMinutos.Location = new System.Drawing.Point(227, 265);
             this.tbxDuracionMinutos.Name = "tbxDuracionMinutos";
-            this.tbxDuracionMinutos.Size = new System.Drawing.Size(45, 26);
+            this.tbxDuracionMinutos.Size = new System.Drawing.Size(45, 30);
             this.tbxDuracionMinutos.TabIndex = 15;
             this.tbxDuracionMinutos.Text = "0";
             // 
@@ -417,7 +419,7 @@
             this.lblDatosServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDatosServicio.Location = new System.Drawing.Point(13, 9);
             this.lblDatosServicio.Name = "lblDatosServicio";
-            this.lblDatosServicio.Size = new System.Drawing.Size(175, 24);
+            this.lblDatosServicio.Size = new System.Drawing.Size(222, 29);
             this.lblDatosServicio.TabIndex = 25;
             this.lblDatosServicio.Text = "Datos del servicio";
             // 
@@ -437,7 +439,7 @@
             this.lblHoras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHoras.Location = new System.Drawing.Point(175, 268);
             this.lblHoras.Name = "lblHoras";
-            this.lblHoras.Size = new System.Drawing.Size(52, 20);
+            this.lblHoras.Size = new System.Drawing.Size(64, 25);
             this.lblHoras.TabIndex = 14;
             this.lblHoras.Text = "Horas";
             // 
@@ -447,7 +449,7 @@
             this.tbxCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxCodigo.Location = new System.Drawing.Point(107, 36);
             this.tbxCodigo.Name = "tbxCodigo";
-            this.tbxCodigo.Size = new System.Drawing.Size(115, 26);
+            this.tbxCodigo.Size = new System.Drawing.Size(115, 30);
             this.tbxCodigo.TabIndex = 1;
             // 
             // lblCodigo
@@ -457,7 +459,7 @@
             this.lblCodigo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblCodigo.Location = new System.Drawing.Point(31, 39);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(70, 20);
+            this.lblCodigo.Size = new System.Drawing.Size(88, 25);
             this.lblCodigo.TabIndex = 0;
             this.lblCodigo.Text = "Código:";
             // 
@@ -466,7 +468,7 @@
             this.tbxDuracionHoras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxDuracionHoras.Location = new System.Drawing.Point(130, 265);
             this.tbxDuracionHoras.Name = "tbxDuracionHoras";
-            this.tbxDuracionHoras.Size = new System.Drawing.Size(45, 26);
+            this.tbxDuracionHoras.Size = new System.Drawing.Size(45, 30);
             this.tbxDuracionHoras.TabIndex = 13;
             this.tbxDuracionHoras.Text = "0";
             // 
@@ -475,7 +477,7 @@
             this.tbxNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxNombre.Location = new System.Drawing.Point(107, 68);
             this.tbxNombre.Name = "tbxNombre";
-            this.tbxNombre.Size = new System.Drawing.Size(225, 26);
+            this.tbxNombre.Size = new System.Drawing.Size(225, 30);
             this.tbxNombre.TabIndex = 3;
             // 
             // lblDuracion
@@ -484,7 +486,7 @@
             this.lblDuracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDuracion.Location = new System.Drawing.Point(32, 268);
             this.lblDuracion.Name = "lblDuracion";
-            this.lblDuracion.Size = new System.Drawing.Size(86, 20);
+            this.lblDuracion.Size = new System.Drawing.Size(105, 25);
             this.lblDuracion.TabIndex = 12;
             this.lblDuracion.Text = "Duración:";
             // 
@@ -494,7 +496,7 @@
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.Location = new System.Drawing.Point(31, 71);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(76, 20);
+            this.lblNombre.Size = new System.Drawing.Size(94, 25);
             this.lblNombre.TabIndex = 2;
             this.lblNombre.Text = "Nombre:";
             // 
@@ -504,7 +506,7 @@
             this.cbxCategoria.FormattingEnabled = true;
             this.cbxCategoria.Location = new System.Drawing.Point(129, 100);
             this.cbxCategoria.Name = "cbxCategoria";
-            this.cbxCategoria.Size = new System.Drawing.Size(203, 28);
+            this.cbxCategoria.Size = new System.Drawing.Size(203, 33);
             this.cbxCategoria.TabIndex = 5;
             // 
             // lblCategoria
@@ -513,7 +515,7 @@
             this.lblCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategoria.Location = new System.Drawing.Point(31, 103);
             this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(92, 20);
+            this.lblCategoria.Size = new System.Drawing.Size(113, 25);
             this.lblCategoria.TabIndex = 4;
             this.lblCategoria.Text = "Categoria:";
             // 
@@ -532,7 +534,7 @@
             this.lblDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDesc.Location = new System.Drawing.Point(32, 169);
             this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Size = new System.Drawing.Size(108, 20);
+            this.lblDesc.Size = new System.Drawing.Size(132, 25);
             this.lblDesc.TabIndex = 8;
             this.lblDesc.Text = "Descripción:";
             // 
@@ -542,7 +544,7 @@
             this.nmCosto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nmCosto.Location = new System.Drawing.Point(129, 134);
             this.nmCosto.Name = "nmCosto";
-            this.nmCosto.Size = new System.Drawing.Size(120, 26);
+            this.nmCosto.Size = new System.Drawing.Size(120, 30);
             this.nmCosto.TabIndex = 11;
             // 
             // lblCosto
@@ -551,13 +553,13 @@
             this.lblCosto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCosto.Location = new System.Drawing.Point(31, 136);
             this.lblCosto.Name = "lblCosto";
-            this.lblCosto.Size = new System.Drawing.Size(61, 20);
+            this.lblCosto.Size = new System.Drawing.Size(76, 25);
             this.lblCosto.TabIndex = 6;
             this.lblCosto.Text = "Costo:";
             // 
             // Servicios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(864, 611);
@@ -567,6 +569,7 @@
             this.Controls.Add(this.cpDatosServicio);
             this.Controls.Add(this.dgvServicios);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Servicios";
             this.Text = "Servicios";
