@@ -21,13 +21,13 @@ namespace AutoCare_R_J.Formularios
             InitializeComponent();
 
             //desabilitar el botón de limpiar campo al inicio
-            DeshabilitarBoton(btnLimpiarCampos);
+            MetodosGlobales.DeshabilitarBoton(btnLimpiarCampos);
 
             //desabilitar el botón de eliminar al inicio
-            DeshabilitarBoton(btnEliminar);
+            MetodosGlobales.DeshabilitarBoton(btnEliminar);
 
             //desabilitar el botón de modificar al inicio
-            DeshabilitarBoton(btnModificar);
+            MetodosGlobales.DeshabilitarBoton(btnModificar);
         }
 
 
@@ -115,7 +115,7 @@ namespace AutoCare_R_J.Formularios
                     LimpiarCampos();
 
                     //Actualizar el DataGridView para reflejar los cambios
-                    ActualizarGrid();
+                    MetodosGlobales.CargarGrid(dgvServicios, manejadorServicios.ListarServicios());
 
                 }
                 catch (Exception ex)
@@ -126,17 +126,6 @@ namespace AutoCare_R_J.Formularios
             }
             
 
-        }
-        private void ActualizarGrid()
-        {
-            // Limpia la fuente de datos actual para evitar duplicados
-            dgvServicios.DataSource = null;
-
-            // Asigna la lista actualizada que viene de tu manejador
-            dgvServicios.DataSource = manejadorServicios.ListarServicios();
-
-            // Ajusta el tamaño de las columnas para que se ajusten al contenido
-            dgvServicios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -174,12 +163,12 @@ namespace AutoCare_R_J.Formularios
                     MessageBox.Show("¡Servicio encontrado y cargado en pantalla!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     //Habilitar el botones
-                    HabilitarBoton(btnLimpiarCampos, Color.DeepSkyBlue, Color.White, Cursors.Hand);
-                    HabilitarBoton(btnEliminar, Color.Red, Color.White, Cursors.Hand);
-                    HabilitarBoton(btnModificar, Color.DeepSkyBlue, Color.White, Cursors.Hand);
+                    MetodosGlobales.HabilitarBoton(btnLimpiarCampos, Color.DeepSkyBlue, Color.White, Cursors.Hand);
+                    MetodosGlobales.HabilitarBoton(btnEliminar, Color.Red, Color.White, Cursors.Hand);
+                    MetodosGlobales.HabilitarBoton(btnModificar, Color.DeepSkyBlue, Color.White, Cursors.Hand);
 
                     //Deshabilitar el botón de agregar
-                    DeshabilitarBoton(btnAgregar);
+                    MetodosGlobales.DeshabilitarBoton(btnAgregar);
                 }
                 catch (Exception ex)
                 {
@@ -197,13 +186,25 @@ namespace AutoCare_R_J.Formularios
             try
             {
                 manejadorServicios.ModificarServicio(
-                tbxCodigo.Text,
-                tbxNombre.Text,
-                cbxCategoria.Text,
-                Convert.ToDouble(nmCosto.Value),
-                tbxDescripcion.Text,
-                $"{tbxDuracionHoras.Text}h {tbxDuracionMinutos.Text}m"
-            );
+                    tbxCodigo.Text,
+                    tbxNombre.Text,
+                    cbxCategoria.Text,
+                    Convert.ToDouble(nmCosto.Value),
+                    tbxDescripcion.Text,
+                    $"{tbxDuracionHoras.Text}h {tbxDuracionMinutos.Text}m"
+                );
+
+                MessageBox.Show("¡Servicio modificado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Limpiar campos y actualizar el grid para ver el cambio reflejado
+                LimpiarCampos();
+                MetodosGlobales.CargarGrid(dgvServicios, manejadorServicios.ListarServicios());
+
+                // Restablecer el estado inicial de los botones
+                MetodosGlobales.HabilitarBoton(btnAgregar, Color.Green, Color.White, Cursors.Hand);
+                MetodosGlobales.DeshabilitarBoton(btnLimpiarCampos);
+                MetodosGlobales.DeshabilitarBoton(btnEliminar);
+                MetodosGlobales.DeshabilitarBoton(btnModificar);
             }
             catch (Exception ex)
             {
@@ -230,26 +231,10 @@ namespace AutoCare_R_J.Formularios
             LimpiarCampos();
 
             //habilitar el botón de agregar
-            HabilitarBoton(btnAgregar, Color.Green, Color.White, Cursors.Hand);
+            MetodosGlobales.HabilitarBoton(btnAgregar, Color.Green, Color.White, Cursors.Hand);
 
             // Deshabilitar el botón de limpiar campo
-            DeshabilitarBoton(btnLimpiarCampos);
-        }
-
-        private void DeshabilitarBoton(CustomButton boton) 
-        {
-            boton.Enabled = false;
-            boton.CustomBackColor = Color.Gray;
-            boton.ForeColor = Color.Black;
-            boton.Cursor = Cursors.No;
-        }
-
-        private void HabilitarBoton(CustomButton boton, Color colorFondo, Color colorTexto, Cursor cursor)
-        {
-            boton.Enabled = true;
-            boton.CustomBackColor = colorFondo;
-            boton.ForeColor = colorTexto;
-            boton.Cursor = cursor;
+            MetodosGlobales.DeshabilitarBoton(btnLimpiarCampos);
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -265,15 +250,15 @@ namespace AutoCare_R_J.Formularios
                     // Limpiar los campos después de eliminar
                     LimpiarCampos();
                     // Actualizar el DataGridView para reflejar los cambios
-                    ActualizarGrid();
+                    MetodosGlobales.CargarGrid(dgvServicios, manejadorServicios.ListarServicios());
                     //habilitar el botón de agregar
-                    HabilitarBoton(btnAgregar, Color.Green, Color.White, Cursors.Hand);
+                    MetodosGlobales.HabilitarBoton(btnAgregar, Color.Green, Color.White, Cursors.Hand);
                     // Deshabilitar el botón de limpiar campo
-                    DeshabilitarBoton(btnLimpiarCampos);
+                    MetodosGlobales.DeshabilitarBoton(btnLimpiarCampos);
                     // Deshabilitar el botón de eliminar
-                    DeshabilitarBoton(btnEliminar);
+                    MetodosGlobales.DeshabilitarBoton(btnEliminar);
                     // Deshabilitar el botón de modificar
-                    DeshabilitarBoton(btnModificar);
+                    MetodosGlobales.DeshabilitarBoton(btnModificar);
                 }
                 catch (Exception ex)
                 {
