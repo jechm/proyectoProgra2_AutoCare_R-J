@@ -1,4 +1,5 @@
-﻿namespace AutoCare_R_J.Formularios
+﻿using System.Drawing;
+namespace AutoCare_R_J.Formularios
 {
     partial class frmOrdenesTrabajo
     {
@@ -31,8 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrdenesTrabajo));
             this.cpFiltros = new AutoCare_R_J.CustomPanel();
             this.cpBusquedas = new AutoCare_R_J.CustomPanel();
-            this.gbBuscName = new System.Windows.Forms.GroupBox();
-            this.tbxBuscNombre = new System.Windows.Forms.TextBox();
             this.gbBuscCod = new System.Windows.Forms.GroupBox();
             this.tbxBuscCodigo = new System.Windows.Forms.TextBox();
             this.btnBuscar = new AutoCare_R_J.CustomButton();
@@ -44,15 +43,37 @@
             this.btnAgregar = new AutoCare_R_J.CustomButton();
             this.lblAccionesRapidas = new System.Windows.Forms.Label();
             this.cpDatosServicio = new AutoCare_R_J.CustomPanel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.tbxRepuestos = new System.Windows.Forms.TextBox();
+            this.lnlRepuestos = new System.Windows.Forms.Label();
+            this.cbxEstado = new System.Windows.Forms.ComboBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbxVehiculo = new System.Windows.Forms.ComboBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.lnlVehiculo = new System.Windows.Forms.Label();
+            this.cbxServicio = new System.Windows.Forms.ComboBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.lblServicio = new System.Windows.Forms.Label();
+            this.dtpFechaRecepcion = new System.Windows.Forms.DateTimePicker();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblFechaRecepcion = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tbxCodigo = new System.Windows.Forms.TextBox();
+            this.lblCodigo = new System.Windows.Forms.Label();
             this.lblDatosServicio = new System.Windows.Forms.Label();
-            this.dgvServicios = new System.Windows.Forms.DataGridView();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.dgvOrdenesTrabajo = new System.Windows.Forms.DataGridView();
             this.cpBusquedas.SuspendLayout();
-            this.gbBuscName.SuspendLayout();
             this.gbBuscCod.SuspendLayout();
             this.cpAccionesRapidas.SuspendLayout();
             this.cpDatosServicio.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenesTrabajo)).BeginInit();
             this.SuspendLayout();
             // 
             // cpFiltros
@@ -69,7 +90,6 @@
             // 
             this.cpBusquedas.BackColor = System.Drawing.Color.Transparent;
             this.cpBusquedas.BorderRadius = 20;
-            this.cpBusquedas.Controls.Add(this.gbBuscName);
             this.cpBusquedas.Controls.Add(this.gbBuscCod);
             this.cpBusquedas.Controls.Add(this.btnBuscar);
             this.cpBusquedas.Controls.Add(this.lblBusquedas);
@@ -78,28 +98,6 @@
             this.cpBusquedas.Name = "cpBusquedas";
             this.cpBusquedas.Size = new System.Drawing.Size(511, 215);
             this.cpBusquedas.TabIndex = 35;
-            // 
-            // gbBuscName
-            // 
-            this.gbBuscName.Controls.Add(this.tbxBuscNombre);
-            this.gbBuscName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbBuscName.Location = new System.Drawing.Point(19, 139);
-            this.gbBuscName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gbBuscName.Name = "gbBuscName";
-            this.gbBuscName.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gbBuscName.Size = new System.Drawing.Size(483, 65);
-            this.gbBuscName.TabIndex = 32;
-            this.gbBuscName.TabStop = false;
-            this.gbBuscName.Text = "Nombre";
-            // 
-            // tbxBuscNombre
-            // 
-            this.tbxBuscNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxBuscNombre.Location = new System.Drawing.Point(21, 26);
-            this.tbxBuscNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbxBuscNombre.Name = "tbxBuscNombre";
-            this.tbxBuscNombre.Size = new System.Drawing.Size(452, 30);
-            this.tbxBuscNombre.TabIndex = 29;
             // 
             // gbBuscCod
             // 
@@ -135,10 +133,9 @@
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.IconSize = new System.Drawing.Size(20, 20);
-            this.btnBuscar.Location = new System.Drawing.Point(288, 6);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscar.Location = new System.Drawing.Point(216, 5);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(213, 55);
+            this.btnBuscar.Size = new System.Drawing.Size(160, 45);
             this.btnBuscar.TabIndex = 30;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
@@ -208,6 +205,7 @@
             this.btnEliminar.TabIndex = 28;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnModificar
             // 
@@ -228,6 +226,7 @@
             this.btnModificar.TabIndex = 27;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnAgregar
             // 
@@ -248,15 +247,15 @@
             this.btnAgregar.TabIndex = 26;
             this.btnAgregar.Text = "Guardar nuevo";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // lblAccionesRapidas
             // 
             this.lblAccionesRapidas.AutoSize = true;
             this.lblAccionesRapidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccionesRapidas.Location = new System.Drawing.Point(13, 11);
-            this.lblAccionesRapidas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAccionesRapidas.Location = new System.Drawing.Point(10, 9);
             this.lblAccionesRapidas.Name = "lblAccionesRapidas";
-            this.lblAccionesRapidas.Size = new System.Drawing.Size(222, 29);
+            this.lblAccionesRapidas.Size = new System.Drawing.Size(178, 24);
             this.lblAccionesRapidas.TabIndex = 25;
             this.lblAccionesRapidas.Text = "Acciones Rapidas";
             // 
@@ -264,78 +263,270 @@
             // 
             this.cpDatosServicio.BackColor = System.Drawing.Color.Transparent;
             this.cpDatosServicio.BorderRadius = 20;
+            this.cpDatosServicio.Controls.Add(this.pictureBox6);
+            this.cpDatosServicio.Controls.Add(this.tbxRepuestos);
+            this.cpDatosServicio.Controls.Add(this.lnlRepuestos);
+            this.cpDatosServicio.Controls.Add(this.cbxEstado);
+            this.cpDatosServicio.Controls.Add(this.pictureBox5);
+            this.cpDatosServicio.Controls.Add(this.label2);
+            this.cpDatosServicio.Controls.Add(this.cbxVehiculo);
+            this.cpDatosServicio.Controls.Add(this.pictureBox4);
+            this.cpDatosServicio.Controls.Add(this.lnlVehiculo);
+            this.cpDatosServicio.Controls.Add(this.cbxServicio);
+            this.cpDatosServicio.Controls.Add(this.pictureBox3);
+            this.cpDatosServicio.Controls.Add(this.lblServicio);
+            this.cpDatosServicio.Controls.Add(this.dtpFechaRecepcion);
+            this.cpDatosServicio.Controls.Add(this.pictureBox2);
+            this.cpDatosServicio.Controls.Add(this.lblFechaRecepcion);
+            this.cpDatosServicio.Controls.Add(this.pictureBox1);
+            this.cpDatosServicio.Controls.Add(this.tbxCodigo);
+            this.cpDatosServicio.Controls.Add(this.lblCodigo);
             this.cpDatosServicio.Controls.Add(this.lblDatosServicio);
-            this.cpDatosServicio.Location = new System.Drawing.Point(15, 4);
-            this.cpDatosServicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cpDatosServicio.Location = new System.Drawing.Point(11, 3);
             this.cpDatosServicio.Name = "cpDatosServicio";
-            this.cpDatosServicio.Size = new System.Drawing.Size(603, 402);
+            this.cpDatosServicio.Size = new System.Drawing.Size(452, 327);
             this.cpDatosServicio.TabIndex = 33;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::AutoCare_R_J.Properties.Resources.escanear;
+            this.pictureBox6.Location = new System.Drawing.Point(14, 200);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(30, 26);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 45;
+            this.pictureBox6.TabStop = false;
+            // 
+            // tbxRepuestos
+            // 
+            this.tbxRepuestos.Enabled = false;
+            this.tbxRepuestos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxRepuestos.Location = new System.Drawing.Point(148, 203);
+            this.tbxRepuestos.Multiline = true;
+            this.tbxRepuestos.Name = "tbxRepuestos";
+            this.tbxRepuestos.Size = new System.Drawing.Size(272, 109);
+            this.tbxRepuestos.TabIndex = 44;
+            // 
+            // lnlRepuestos
+            // 
+            this.lnlRepuestos.AutoSize = true;
+            this.lnlRepuestos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnlRepuestos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lnlRepuestos.Location = new System.Drawing.Point(41, 206);
+            this.lnlRepuestos.Name = "lnlRepuestos";
+            this.lnlRepuestos.Size = new System.Drawing.Size(101, 20);
+            this.lnlRepuestos.TabIndex = 43;
+            this.lnlRepuestos.Text = "Repuestos:";
+            // 
+            // cbxEstado
+            // 
+            this.cbxEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxEstado.FormattingEnabled = true;
+            this.cbxEstado.Items.AddRange(new object[] {
+            "Pendiente / Recepcionado",
+            "En Diagnóstico / En Revisión",
+            "En Proceso / En Reparación",
+            "En Espera de Repuestos",
+            "Finalizado / Listo para Entrega",
+            "Entregado",
+            "Cancelado"});
+            this.cbxEstado.Location = new System.Drawing.Point(130, 167);
+            this.cbxEstado.Name = "cbxEstado";
+            this.cbxEstado.Size = new System.Drawing.Size(290, 26);
+            this.cbxEstado.TabIndex = 42;
+            this.cbxEstado.UseWaitCursor = true;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::AutoCare_R_J.Properties.Resources.descripcion_del_trabajo;
+            this.pictureBox5.Location = new System.Drawing.Point(14, 163);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(30, 26);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 41;
+            this.pictureBox5.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Location = new System.Drawing.Point(41, 169);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 20);
+            this.label2.TabIndex = 40;
+            this.label2.Text = "Estado:";
+            // 
+            // cbxVehiculo
+            // 
+            this.cbxVehiculo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxVehiculo.FormattingEnabled = true;
+            this.cbxVehiculo.Location = new System.Drawing.Point(130, 133);
+            this.cbxVehiculo.Name = "cbxVehiculo";
+            this.cbxVehiculo.Size = new System.Drawing.Size(290, 26);
+            this.cbxVehiculo.TabIndex = 39;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::AutoCare_R_J.Properties.Resources.coche;
+            this.pictureBox4.Location = new System.Drawing.Point(14, 129);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(30, 26);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 38;
+            this.pictureBox4.TabStop = false;
+            // 
+            // lnlVehiculo
+            // 
+            this.lnlVehiculo.AutoSize = true;
+            this.lnlVehiculo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnlVehiculo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lnlVehiculo.Location = new System.Drawing.Point(41, 135);
+            this.lnlVehiculo.Name = "lnlVehiculo";
+            this.lnlVehiculo.Size = new System.Drawing.Size(83, 20);
+            this.lnlVehiculo.TabIndex = 37;
+            this.lnlVehiculo.Text = "Vehiculo:";
+            // 
+            // cbxServicio
+            // 
+            this.cbxServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxServicio.FormattingEnabled = true;
+            this.cbxServicio.Location = new System.Drawing.Point(130, 101);
+            this.cbxServicio.Name = "cbxServicio";
+            this.cbxServicio.Size = new System.Drawing.Size(290, 26);
+            this.cbxServicio.TabIndex = 36;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::AutoCare_R_J.Properties.Resources.servicio;
+            this.pictureBox3.Location = new System.Drawing.Point(14, 97);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(30, 26);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 35;
+            this.pictureBox3.TabStop = false;
+            // 
+            // lblServicio
+            // 
+            this.lblServicio.AutoSize = true;
+            this.lblServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblServicio.Location = new System.Drawing.Point(41, 103);
+            this.lblServicio.Name = "lblServicio";
+            this.lblServicio.Size = new System.Drawing.Size(77, 20);
+            this.lblServicio.TabIndex = 33;
+            this.lblServicio.Text = "Servicio:";
+            // 
+            // dtpFechaRecepcion
+            // 
+            this.dtpFechaRecepcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaRecepcion.Location = new System.Drawing.Point(220, 70);
+            this.dtpFechaRecepcion.Name = "dtpFechaRecepcion";
+            this.dtpFechaRecepcion.Size = new System.Drawing.Size(200, 24);
+            this.dtpFechaRecepcion.TabIndex = 32;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::AutoCare_R_J.Properties.Resources.calendario;
+            this.pictureBox2.Location = new System.Drawing.Point(14, 65);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(30, 26);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 31;
+            this.pictureBox2.TabStop = false;
+            // 
+            // lblFechaRecepcion
+            // 
+            this.lblFechaRecepcion.AutoSize = true;
+            this.lblFechaRecepcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaRecepcion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblFechaRecepcion.Location = new System.Drawing.Point(41, 71);
+            this.lblFechaRecepcion.Name = "lblFechaRecepcion";
+            this.lblFechaRecepcion.Size = new System.Drawing.Size(172, 20);
+            this.lblFechaRecepcion.TabIndex = 29;
+            this.lblFechaRecepcion.Text = "Fecha de recepción:";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AutoCare_R_J.Properties.Resources.escanear;
+            this.pictureBox1.Location = new System.Drawing.Point(14, 33);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 26);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 28;
+            this.pictureBox1.TabStop = false;
+            // 
+            // tbxCodigo
+            // 
+            this.tbxCodigo.Enabled = false;
+            this.tbxCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxCodigo.Location = new System.Drawing.Point(117, 36);
+            this.tbxCodigo.Name = "tbxCodigo";
+            this.tbxCodigo.Size = new System.Drawing.Size(115, 26);
+            this.tbxCodigo.TabIndex = 27;
+            // 
+            // lblCodigo
+            // 
+            this.lblCodigo.AutoSize = true;
+            this.lblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCodigo.Location = new System.Drawing.Point(41, 39);
+            this.lblCodigo.Name = "lblCodigo";
+            this.lblCodigo.Size = new System.Drawing.Size(70, 20);
+            this.lblCodigo.TabIndex = 26;
+            this.lblCodigo.Text = "Código:";
             // 
             // lblDatosServicio
             // 
             this.lblDatosServicio.AutoSize = true;
             this.lblDatosServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDatosServicio.Location = new System.Drawing.Point(17, 11);
-            this.lblDatosServicio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDatosServicio.Location = new System.Drawing.Point(13, 9);
             this.lblDatosServicio.Name = "lblDatosServicio";
-            this.lblDatosServicio.Size = new System.Drawing.Size(345, 29);
+            this.lblDatosServicio.Size = new System.Drawing.Size(274, 24);
             this.lblDatosServicio.TabIndex = 25;
             this.lblDatosServicio.Text = "Datos de la orden de trabajo";
             // 
-            // dgvServicios
+            // dgvOrdenesTrabajo
             // 
-            this.dgvServicios.AllowUserToAddRows = false;
-            this.dgvServicios.AllowUserToDeleteRows = false;
-            this.dgvServicios.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgvServicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvServicios.Location = new System.Drawing.Point(15, 507);
-            this.dgvServicios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dgvServicios.MultiSelect = false;
-            this.dgvServicios.Name = "dgvServicios";
-            this.dgvServicios.ReadOnly = true;
-            this.dgvServicios.RowHeadersWidth = 51;
-            this.dgvServicios.Size = new System.Drawing.Size(1121, 230);
-            this.dgvServicios.TabIndex = 32;
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(805, 695);
-            this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(68, 16);
-            this.linkLabel1.TabIndex = 37;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "linkLabel1";
+            this.dgvOrdenesTrabajo.AllowUserToAddRows = false;
+            this.dgvOrdenesTrabajo.AllowUserToDeleteRows = false;
+            this.dgvOrdenesTrabajo.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvOrdenesTrabajo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrdenesTrabajo.Location = new System.Drawing.Point(11, 412);
+            this.dgvOrdenesTrabajo.MultiSelect = false;
+            this.dgvOrdenesTrabajo.Name = "dgvOrdenesTrabajo";
+            this.dgvOrdenesTrabajo.ReadOnly = true;
+            this.dgvOrdenesTrabajo.Size = new System.Drawing.Size(841, 187);
+            this.dgvOrdenesTrabajo.TabIndex = 32;
             // 
             // frmOrdenesTrabajo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1152, 752);
-            this.Controls.Add(this.linkLabel1);
+            this.ClientSize = new System.Drawing.Size(864, 611);
             this.Controls.Add(this.cpFiltros);
             this.Controls.Add(this.cpBusquedas);
             this.Controls.Add(this.cpAccionesRapidas);
             this.Controls.Add(this.cpDatosServicio);
-            this.Controls.Add(this.dgvServicios);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Controls.Add(this.dgvOrdenesTrabajo);
             this.Name = "frmOrdenesTrabajo";
             this.Text = "Ordenes De Trabajo";
             this.cpBusquedas.ResumeLayout(false);
             this.cpBusquedas.PerformLayout();
-            this.gbBuscName.ResumeLayout(false);
-            this.gbBuscName.PerformLayout();
             this.gbBuscCod.ResumeLayout(false);
             this.gbBuscCod.PerformLayout();
             this.cpAccionesRapidas.ResumeLayout(false);
             this.cpAccionesRapidas.PerformLayout();
             this.cpDatosServicio.ResumeLayout(false);
             this.cpDatosServicio.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenesTrabajo)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -343,8 +534,6 @@
 
         private CustomPanel cpFiltros;
         private CustomPanel cpBusquedas;
-        private System.Windows.Forms.GroupBox gbBuscName;
-        private System.Windows.Forms.TextBox tbxBuscNombre;
         private System.Windows.Forms.GroupBox gbBuscCod;
         private System.Windows.Forms.TextBox tbxBuscCodigo;
         private CustomButton btnBuscar;
@@ -357,7 +546,24 @@
         private System.Windows.Forms.Label lblAccionesRapidas;
         private CustomPanel cpDatosServicio;
         private System.Windows.Forms.Label lblDatosServicio;
-        private System.Windows.Forms.DataGridView dgvServicios;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.DataGridView dgvOrdenesTrabajo;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label lblFechaRecepcion;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox tbxCodigo;
+        private System.Windows.Forms.Label lblCodigo;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label lblServicio;
+        private System.Windows.Forms.DateTimePicker dtpFechaRecepcion;
+        private System.Windows.Forms.ComboBox cbxVehiculo;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label lnlVehiculo;
+        private System.Windows.Forms.ComboBox cbxServicio;
+        private System.Windows.Forms.ComboBox cbxEstado;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.TextBox tbxRepuestos;
+        private System.Windows.Forms.Label lnlRepuestos;
     }
 }

@@ -31,28 +31,26 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVehiculos));
             this.customPanel1 = new AutoCare_R_J.CustomPanel();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.tbxAnio = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.tbxModelo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tbxMarca = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbxColor = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbxPlaca = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxPropietario = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblDatosVehiculo = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -72,7 +70,9 @@
             this.btnBuscar = new AutoCare_R_J.CustomButton();
             this.lblBusquedas = new System.Windows.Forms.Label();
             this.customPanel2 = new AutoCare_R_J.CustomPanel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvVehiculos = new System.Windows.Forms.DataGridView();
+            this.cbxTipo = new System.Windows.Forms.ComboBox();
+            this.cbxEstado = new System.Windows.Forms.ComboBox();
             this.customPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -87,36 +87,36 @@
             this.cpBusquedas.SuspendLayout();
             this.gbBuscName.SuspendLayout();
             this.gbBuscCod.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVehiculos)).BeginInit();
             this.SuspendLayout();
             // 
             // customPanel1
             // 
             this.customPanel1.BackColor = System.Drawing.Color.Transparent;
             this.customPanel1.BorderRadius = 20;
+            this.customPanel1.Controls.Add(this.cbxEstado);
+            this.customPanel1.Controls.Add(this.cbxTipo);
             this.customPanel1.Controls.Add(this.pictureBox9);
-            this.customPanel1.Controls.Add(this.textBox8);
+            this.customPanel1.Controls.Add(this.tbxAnio);
             this.customPanel1.Controls.Add(this.label8);
             this.customPanel1.Controls.Add(this.pictureBox8);
-            this.customPanel1.Controls.Add(this.textBox7);
             this.customPanel1.Controls.Add(this.label7);
             this.customPanel1.Controls.Add(this.pictureBox7);
-            this.customPanel1.Controls.Add(this.textBox6);
+            this.customPanel1.Controls.Add(this.tbxModelo);
             this.customPanel1.Controls.Add(this.label6);
             this.customPanel1.Controls.Add(this.pictureBox6);
-            this.customPanel1.Controls.Add(this.textBox5);
+            this.customPanel1.Controls.Add(this.tbxMarca);
             this.customPanel1.Controls.Add(this.label5);
             this.customPanel1.Controls.Add(this.pictureBox5);
-            this.customPanel1.Controls.Add(this.textBox4);
+            this.customPanel1.Controls.Add(this.tbxColor);
             this.customPanel1.Controls.Add(this.label4);
             this.customPanel1.Controls.Add(this.pictureBox4);
-            this.customPanel1.Controls.Add(this.textBox3);
             this.customPanel1.Controls.Add(this.label3);
             this.customPanel1.Controls.Add(this.pictureBox3);
-            this.customPanel1.Controls.Add(this.textBox2);
+            this.customPanel1.Controls.Add(this.tbxPlaca);
             this.customPanel1.Controls.Add(this.label2);
             this.customPanel1.Controls.Add(this.pictureBox2);
-            this.customPanel1.Controls.Add(this.textBox1);
+            this.customPanel1.Controls.Add(this.tbxPropietario);
             this.customPanel1.Controls.Add(this.label1);
             this.customPanel1.Controls.Add(this.lblDatosVehiculo);
             this.customPanel1.Controls.Add(this.pictureBox1);
@@ -131,23 +131,21 @@
             // pictureBox9
             // 
             this.pictureBox9.Image = global::AutoCare_R_J.Properties.Resources.calendario;
-            this.pictureBox9.Location = new System.Drawing.Point(7, 356);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox9.Location = new System.Drawing.Point(5, 289);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(40, 32);
+            this.pictureBox9.Size = new System.Drawing.Size(30, 26);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox9.TabIndex = 53;
             this.pictureBox9.TabStop = false;
             // 
-            // textBox8
+            // tbxAnio
             // 
-            this.textBox8.Enabled = false;
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(144, 356);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(152, 30);
-            this.textBox8.TabIndex = 52;
+            this.tbxAnio.Enabled = false;
+            this.tbxAnio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxAnio.Location = new System.Drawing.Point(108, 289);
+            this.tbxAnio.Name = "tbxAnio";
+            this.tbxAnio.Size = new System.Drawing.Size(115, 26);
+            this.tbxAnio.TabIndex = 52;
             // 
             // label8
             // 
@@ -172,25 +170,14 @@
             this.pictureBox8.TabIndex = 50;
             this.pictureBox8.TabStop = false;
             // 
-            // textBox7
-            // 
-            this.textBox7.Enabled = false;
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(144, 316);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(152, 30);
-            this.textBox7.TabIndex = 49;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label7.Location = new System.Drawing.Point(43, 320);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(32, 260);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 25);
+            this.label7.Size = new System.Drawing.Size(48, 20);
             this.label7.TabIndex = 48;
             this.label7.Text = "Tipo:";
             // 
@@ -205,25 +192,23 @@
             this.pictureBox7.TabIndex = 47;
             this.pictureBox7.TabStop = false;
             // 
-            // textBox6
+            // tbxModelo
             // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(144, 277);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(152, 30);
-            this.textBox6.TabIndex = 46;
+            this.tbxModelo.Enabled = false;
+            this.tbxModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxModelo.Location = new System.Drawing.Point(108, 225);
+            this.tbxModelo.Name = "tbxModelo";
+            this.tbxModelo.Size = new System.Drawing.Size(115, 26);
+            this.tbxModelo.TabIndex = 46;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label6.Location = new System.Drawing.Point(43, 281);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(32, 228);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 25);
+            this.label6.Size = new System.Drawing.Size(72, 20);
             this.label6.TabIndex = 45;
             this.label6.Text = "Modelo:";
             // 
@@ -238,25 +223,23 @@
             this.pictureBox6.TabIndex = 44;
             this.pictureBox6.TabStop = false;
             // 
-            // textBox5
+            // tbxMarca
             // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(144, 238);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(152, 30);
-            this.textBox5.TabIndex = 43;
+            this.tbxMarca.Enabled = false;
+            this.tbxMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxMarca.Location = new System.Drawing.Point(108, 193);
+            this.tbxMarca.Name = "tbxMarca";
+            this.tbxMarca.Size = new System.Drawing.Size(115, 26);
+            this.tbxMarca.TabIndex = 43;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Location = new System.Drawing.Point(43, 241);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(32, 196);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 25);
+            this.label5.Size = new System.Drawing.Size(63, 20);
             this.label5.TabIndex = 42;
             this.label5.Text = "Marca:";
             // 
@@ -271,25 +254,23 @@
             this.pictureBox5.TabIndex = 41;
             this.pictureBox5.TabStop = false;
             // 
-            // textBox4
+            // tbxColor
             // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(144, 198);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(152, 30);
-            this.textBox4.TabIndex = 40;
+            this.tbxColor.Enabled = false;
+            this.tbxColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxColor.Location = new System.Drawing.Point(108, 161);
+            this.tbxColor.Name = "tbxColor";
+            this.tbxColor.Size = new System.Drawing.Size(115, 26);
+            this.tbxColor.TabIndex = 40;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label4.Location = new System.Drawing.Point(43, 202);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(32, 164);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 25);
+            this.label4.Size = new System.Drawing.Size(56, 20);
             this.label4.TabIndex = 39;
             this.label4.Text = "Color:";
             // 
@@ -304,25 +285,14 @@
             this.pictureBox4.TabIndex = 38;
             this.pictureBox4.TabStop = false;
             // 
-            // textBox3
-            // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(144, 159);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(152, 30);
-            this.textBox3.TabIndex = 37;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(43, 162);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(32, 132);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 25);
+            this.label3.Size = new System.Drawing.Size(71, 20);
             this.label3.TabIndex = 36;
             this.label3.Text = "Estado:";
             // 
@@ -337,25 +307,23 @@
             this.pictureBox3.TabIndex = 35;
             this.pictureBox3.TabStop = false;
             // 
-            // textBox2
+            // tbxPlaca
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(128, 116);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(152, 30);
-            this.textBox2.TabIndex = 34;
+            this.tbxPlaca.Enabled = false;
+            this.tbxPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxPlaca.Location = new System.Drawing.Point(96, 94);
+            this.tbxPlaca.Name = "tbxPlaca";
+            this.tbxPlaca.Size = new System.Drawing.Size(115, 26);
+            this.tbxPlaca.TabIndex = 34;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(43, 119);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(32, 97);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 25);
+            this.label2.Size = new System.Drawing.Size(58, 20);
             this.label2.TabIndex = 33;
             this.label2.Text = "Placa:";
             // 
@@ -370,26 +338,24 @@
             this.pictureBox2.TabIndex = 32;
             this.pictureBox2.TabStop = false;
             // 
-            // textBox1
+            // tbxPropietario
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(173, 80);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(152, 30);
-            this.textBox1.TabIndex = 31;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.tbxPropietario.Enabled = false;
+            this.tbxPropietario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxPropietario.Location = new System.Drawing.Point(130, 65);
+            this.tbxPropietario.Name = "tbxPropietario";
+            this.tbxPropietario.Size = new System.Drawing.Size(225, 26);
+            this.tbxPropietario.TabIndex = 31;
+            this.tbxPropietario.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(43, 84);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(32, 68);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 25);
+            this.label1.Size = new System.Drawing.Size(101, 20);
             this.label1.TabIndex = 30;
             this.label1.Text = "Propietario:";
             // 
@@ -397,10 +363,9 @@
             // 
             this.lblDatosVehiculo.AutoSize = true;
             this.lblDatosVehiculo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDatosVehiculo.Location = new System.Drawing.Point(19, 7);
-            this.lblDatosVehiculo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDatosVehiculo.Location = new System.Drawing.Point(14, 6);
             this.lblDatosVehiculo.Name = "lblDatosVehiculo";
-            this.lblDatosVehiculo.Size = new System.Drawing.Size(232, 29);
+            this.lblDatosVehiculo.Size = new System.Drawing.Size(186, 24);
             this.lblDatosVehiculo.TabIndex = 28;
             this.lblDatosVehiculo.Text = "Datos del Vehiculo";
             // 
@@ -419,10 +384,9 @@
             // 
             this.tbxCodigo.Enabled = false;
             this.tbxCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxCodigo.Location = new System.Drawing.Point(144, 41);
-            this.tbxCodigo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxCodigo.Location = new System.Drawing.Point(108, 33);
             this.tbxCodigo.Name = "tbxCodigo";
-            this.tbxCodigo.Size = new System.Drawing.Size(152, 30);
+            this.tbxCodigo.Size = new System.Drawing.Size(115, 26);
             this.tbxCodigo.TabIndex = 27;
             // 
             // lblCodigo
@@ -430,10 +394,9 @@
             this.lblCodigo.AutoSize = true;
             this.lblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodigo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblCodigo.Location = new System.Drawing.Point(43, 44);
-            this.lblCodigo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCodigo.Location = new System.Drawing.Point(32, 36);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(88, 25);
+            this.lblCodigo.Size = new System.Drawing.Size(70, 20);
             this.lblCodigo.TabIndex = 26;
             this.lblCodigo.Text = "Código:";
             // 
@@ -467,6 +430,7 @@
             this.btnAgregar.TabIndex = 26;
             this.btnAgregar.Text = "Guardar nuevo";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
@@ -487,6 +451,7 @@
             this.btnModificar.TabIndex = 27;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -507,6 +472,7 @@
             this.btnEliminar.TabIndex = 28;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnLimpiarCampos
             // 
@@ -642,23 +608,67 @@
             this.customPanel2.Size = new System.Drawing.Size(1120, 73);
             this.customPanel2.TabIndex = 57;
             // 
-            // dataGridView1
+            // dgvVehiculos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 507);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1120, 230);
-            this.dataGridView1.TabIndex = 59;
+            this.dgvVehiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVehiculos.Location = new System.Drawing.Point(12, 412);
+            this.dgvVehiculos.Name = "dgvVehiculos";
+            this.dgvVehiculos.Size = new System.Drawing.Size(840, 187);
+            this.dgvVehiculos.TabIndex = 59;
+            // 
+            // cbxTipo
+            // 
+            this.cbxTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxTipo.FormattingEnabled = true;
+            this.cbxTipo.Items.AddRange(new object[] {
+            "Motocicleta",
+            "Auto",
+            "Camion",
+            "camioneta",
+            "Motoneta",
+            "Bicicleta",
+            "Patin",
+            "Mono patin",
+            "Avion",
+            "Helicoptero",
+            "Tanque",
+            "Ovni",
+            "Submarino"});
+            this.cbxTipo.Location = new System.Drawing.Point(108, 257);
+            this.cbxTipo.Name = "cbxTipo";
+            this.cbxTipo.Size = new System.Drawing.Size(121, 28);
+            this.cbxTipo.TabIndex = 54;
+            // 
+            // cbxEstado
+            // 
+            this.cbxEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxEstado.FormattingEnabled = true;
+            this.cbxEstado.Items.AddRange(new object[] {
+            "Motocicleta",
+            "Auto",
+            "Camion",
+            "camioneta",
+            "Motoneta",
+            "Bicicleta",
+            "Patin",
+            "Mono patin",
+            "Avion",
+            "Helicoptero",
+            "Tanque",
+            "Ovni",
+            "Submarino"});
+            this.cbxEstado.Location = new System.Drawing.Point(108, 129);
+            this.cbxEstado.Name = "cbxEstado";
+            this.cbxEstado.Size = new System.Drawing.Size(121, 28);
+            this.cbxEstado.TabIndex = 55;
             // 
             // frmVehiculos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(1152, 752);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(864, 611);
+            this.Controls.Add(this.dgvVehiculos);
             this.Controls.Add(this.customPanel2);
             this.Controls.Add(this.cpBusquedas);
             this.Controls.Add(this.cpAccionesRapidas);
@@ -686,7 +696,7 @@
             this.gbBuscName.PerformLayout();
             this.gbBuscCod.ResumeLayout(false);
             this.gbBuscCod.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVehiculos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -699,28 +709,26 @@
         private System.Windows.Forms.TextBox tbxCodigo;
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxPropietario;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbxPlaca;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbxColor;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tbxMarca;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox tbxModelo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox tbxAnio;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblAccionesRapidas;
         private CustomButton btnAgregar;
@@ -736,6 +744,8 @@
         private CustomButton btnBuscar;
         private System.Windows.Forms.Label lblBusquedas;
         private CustomPanel customPanel2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvVehiculos;
+        private System.Windows.Forms.ComboBox cbxTipo;
+        private System.Windows.Forms.ComboBox cbxEstado;
     }
 }

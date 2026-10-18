@@ -163,6 +163,16 @@ namespace AutoCare_R_J.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap coche {
+            get {
+                object obj = ResourceManager.GetObject("coche", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap descripcion_del_trabajo {
             get {
                 object obj = ResourceManager.GetObject("descripcion_del_trabajo", resourceCulture);
@@ -192,6 +202,16 @@ namespace AutoCare_R_J.Properties {
         
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap descuento {
+            get {
+                object obj = ResourceManager.GetObject("descuento", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap editar {
             get {
@@ -353,6 +373,16 @@ namespace AutoCare_R_J.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap repuesto {
+            get {
+                object obj = ResourceManager.GetObject("repuesto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap repuestos {
             get {
                 object obj = ResourceManager.GetObject("repuestos", resourceCulture);
@@ -372,6 +402,16 @@ namespace AutoCare_R_J.Properties {
         
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap servicio {
+            get {
+                object obj = ResourceManager.GetObject("servicio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap servicios {
             get {
