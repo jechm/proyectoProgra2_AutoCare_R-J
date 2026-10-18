@@ -63,6 +63,12 @@
       <SubType>Component</SubType>
     </Compile>
     <!-- Formularios -->
+    <Compile Include="Formularios\frmEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmEmpleados.Designer.cs">
+      <DependentUpon>frmEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frmFacturas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <!-- Recursos incrustados para Formularios -->
+    <EmbeddedResource Include="Formularios\frmEmpleados.resx">
+      <DependentUpon>frmEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmFacturas.resx">
       <DependentUpon>frmFacturas.cs</DependentUpon>
     </EmbeddedResource>
@@ -186,7 +195,6 @@
     <None Include="Resources\logoPrincipal.png" />
   </ItemGroup>
   <ItemGroup>
-
     <None Include="Resources\buscar.png" />
   </ItemGroup>
   <ItemGroup>
@@ -215,7 +223,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\nulo.png" />
-
     <None Include="Resources\busqueda.png" />
   </ItemGroup>
   <ItemGroup>
@@ -241,7 +248,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\citas.png" />
-
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

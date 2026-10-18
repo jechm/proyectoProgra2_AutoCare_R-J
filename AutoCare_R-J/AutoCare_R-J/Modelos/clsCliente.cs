@@ -35,8 +35,9 @@ namespace AutoCare_R_J.Modelos
                   pDpi, 
                   pTelefono, 
                   pCorreo, 
-                  pDireccion, 
-                  pEstado)
+                  pDireccion,
+                  pEstado
+                  )
         {
             this.strNit = pNit;
             this.decSaldo = pSaldo;

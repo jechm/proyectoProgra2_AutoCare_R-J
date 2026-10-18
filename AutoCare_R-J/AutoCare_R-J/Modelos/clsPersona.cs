@@ -68,7 +68,7 @@ namespace AutoCare_R_J.Modelos
         }
 
         //Constructor
-        public clsPersona(string pCodigo, string pNombre, string pApellido, string pDpi, string pTelefono, string pCorreo, string pDireccion, string pEstado) 
+        public clsPersona(string pCodigo, string pNombre, string pApellido, string pDpi, string pTelefono, string pCorreo, string pDireccion, string pEStado) 
         {
             this.strCodigoPersona=pCodigo;
             this.strNombrePersona = pNombre;
@@ -77,8 +77,9 @@ namespace AutoCare_R_J.Modelos
             this.strTelefono = pTelefono;
             this.strCorreoPersona = pCorreo;
             this.strDireccion = pDireccion;
-            this.strEstado = pEstado;
-    }
+            this.strEstado = pEStado;
+
+        }
 
     }
 }
