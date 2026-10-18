@@ -35,13 +35,18 @@ namespace AutoCare_R_J.Controladores
         }
 
         //Eliminar repuesto de la lista de repuestos
-        public void EliminarRepuesto(clsRepuesto pRepuesto)
+        public bool EliminarRepuesto(string pCodigo)
         {
-            lstRepuestos.Remove(pRepuesto);
+            clsRepuesto repuestoExistente = BuscarRepuestoPorCodigo(pCodigo);
+            if (repuestoExistente != null)
+            {
+                return lstRepuestos.Remove(repuestoExistente);
+            }
+            return false;
         }
 
         //Modificar repuesto de la lista de repuestos
-        public void ModificarRepuesto(clsRepuesto pRepuesto)
+        public bool ModificarRepuesto(clsRepuesto pRepuesto)
         {
             clsRepuesto repuestoExistente = BuscarRepuestoPorCodigo(pRepuesto.Codigo);
             if (repuestoExistente != null)
@@ -53,7 +58,9 @@ namespace AutoCare_R_J.Controladores
                 repuestoExistente.Existencias = pRepuesto.Existencias;
                 repuestoExistente.Estado = pRepuesto.Estado;
                 repuestoExistente.Descripcion = pRepuesto.Descripcion;
+                return true;
             }
+            return false;
         }
 
         #endregion
@@ -64,6 +71,7 @@ namespace AutoCare_R_J.Controladores
             return lstRepuestos.FirstOrDefault(r => r.Codigo == pCodigo);
         }
         #endregion
+
     }
 }
 

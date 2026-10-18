@@ -87,5 +87,43 @@ namespace AutoCare_R_J.Formularios
 
             gbValorABuscar.Text = $"Buscar por {cmbValoresDeBusqueda.SelectedItem.ToString()}";
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (!listaRepuestos.EliminarRepuesto(txtCodigo.Text))
+            {
+                MessageBox.Show("No se pudo eliminar el repuesto, verifique que el código sea correcto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                contadorRepuestos--;
+                DibujarTabla();
+            }
+        }
+
+        private void btnModificarCliente_Click(object sender, EventArgs e)
+        {
+            clsRepuesto repuestoTemporal = new clsRepuesto
+            (
+                txtCodigo.Text,
+                txtNombre.Text,
+                txtDescripcion.Text,
+                txtCategoria.Text,
+                txtMarca.Text,
+                Convert.ToDecimal(txtPrecio.Text),
+                (int)nudExistencias.Value,
+                cmbEstado.SelectedItem.ToString()
+            );
+
+            if (!listaRepuestos.ModificarRepuesto(repuestoTemporal))
+            {
+                MessageBox.Show("No se pudo modificar el repuesto, verifique que el código sea correcto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Repuesto modificado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DibujarTabla();
+            }
+        }
     }
 }
