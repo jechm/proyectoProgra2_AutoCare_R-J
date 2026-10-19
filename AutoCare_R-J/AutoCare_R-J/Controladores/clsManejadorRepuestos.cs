@@ -53,11 +53,12 @@ namespace AutoCare_R_J.Controladores
             {
                 repuestoExistente.Nombre= pRepuesto.Nombre;
                 repuestoExistente.Precio= pRepuesto.Precio;
+                repuestoExistente.Costo = pRepuesto.Costo;
                 repuestoExistente.Categoria = pRepuesto.Categoria;
                 repuestoExistente.Marca = pRepuesto.Marca;
                 repuestoExistente.Existencias = pRepuesto.Existencias;
                 repuestoExistente.Estado = pRepuesto.Estado;
-                repuestoExistente.Descripcion = pRepuesto.Descripcion;
+                
                 return true;
             }
             return false;
@@ -69,6 +70,20 @@ namespace AutoCare_R_J.Controladores
         public clsRepuesto BuscarRepuestoPorCodigo(string pCodigo)
         {
             return lstRepuestos.FirstOrDefault(r => r.Codigo == pCodigo);
+        }
+
+        public IList<clsRepuesto> BuscarRepuestosPorNombre(string pNombre)
+        {
+            return lstRepuestos.Where(r => r.Nombre.Contains(pNombre)).ToList();
+        }
+
+        public IList<clsRepuesto> BuscarRepuestosPorCategoria(string pCategoria)
+        {
+            return lstRepuestos.Where(r => r.Categoria.Contains(pCategoria)).ToList();
+        }
+        public IList<clsRepuesto> BuscarRepuestosPorMarca(string pMarca)
+        {
+            return lstRepuestos.Where(r => r.Marca.Contains(pMarca)).ToList();
         }
         #endregion
 
