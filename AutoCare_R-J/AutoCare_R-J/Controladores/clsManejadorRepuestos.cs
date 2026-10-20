@@ -12,6 +12,7 @@ namespace AutoCare_R_J.Controladores
     {
         //Atributos
         private IList<clsRepuesto> lstRepuestos;
+        private int intContadorRepuestos;
 
         //Recuperar lista de repuestos
         public IList<clsRepuesto> ObtenerRepuestos()
@@ -34,25 +35,33 @@ namespace AutoCare_R_J.Controladores
         }
 
         //Eliminar repuesto de la lista de repuestos
-        public void EliminarRepuesto(clsRepuesto pRepuesto)
+        public bool EliminarRepuesto(string pCodigo)
         {
-            lstRepuestos.Remove(pRepuesto);
+            clsRepuesto repuestoExistente = BuscarRepuestoPorCodigo(pCodigo);
+            if (repuestoExistente != null)
+            {
+                return lstRepuestos.Remove(repuestoExistente);
+            }
+            return false;
         }
 
         //Modificar repuesto de la lista de repuestos
-        public void ModificarRepuesto(clsRepuesto pRepuesto)
+        public bool ModificarRepuesto(clsRepuesto pRepuesto)
         {
-            clsRepuesto repuestoExistente = BuscarRepuestoPorCodigo(pRepuesto.CodigoRepuesto);
+            clsRepuesto repuestoExistente = BuscarRepuestoPorCodigo(pRepuesto.Codigo);
             if (repuestoExistente != null)
             {
-                repuestoExistente.NombreRepuesto = pRepuesto.NombreRepuesto;
+                repuestoExistente.Nombre= pRepuesto.Nombre;
                 repuestoExistente.Precio= pRepuesto.Precio;
+                repuestoExistente.Costo = pRepuesto.Costo;
                 repuestoExistente.Categoria = pRepuesto.Categoria;
                 repuestoExistente.Marca = pRepuesto.Marca;
                 repuestoExistente.Existencias = pRepuesto.Existencias;
                 repuestoExistente.Estado = pRepuesto.Estado;
-                repuestoExistente.Descripcion = pRepuesto.Descripcion;
+                
+                return true;
             }
+            return false;
         }
 
         #endregion
@@ -60,25 +69,24 @@ namespace AutoCare_R_J.Controladores
         //Buscador de repuesto por codigo
         public clsRepuesto BuscarRepuestoPorCodigo(string pCodigo)
         {
-            int indice = -1;
-            for (int i = 0; i < lstRepuestos.Count; i++)
-            {
-                if (lstRepuestos[i].CodigoRepuesto == pCodigo)
-                {
-                    indice = i;
-                    break;
-                }
-            }
-            if (indice != -1)
-            {
-                return lstRepuestos[indice];
-            }
-            else
-            {
-                return null;
-            }
+            return lstRepuestos.FirstOrDefault(r => r.Codigo == pCodigo);
+        }
+
+        public IList<clsRepuesto> BuscarRepuestosPorNombre(string pNombre)
+        {
+            return lstRepuestos.Where(r => r.Nombre.Contains(pNombre)).ToList();
+        }
+
+        public IList<clsRepuesto> BuscarRepuestosPorCategoria(string pCategoria)
+        {
+            return lstRepuestos.Where(r => r.Categoria.Contains(pCategoria)).ToList();
+        }
+        public IList<clsRepuesto> BuscarRepuestosPorMarca(string pMarca)
+        {
+            return lstRepuestos.Where(r => r.Marca.Contains(pMarca)).ToList();
         }
         #endregion
+
     }
 }
 

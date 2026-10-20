@@ -17,22 +17,29 @@ namespace AutoCare_R_J.Formularios
 
     public partial class frmVentanaPrincipal : Form
     {
-
+        //Cargar informacion de BD en memoria
         private clsManejadorClientes listaClientes;
         private clsManejadorEmpleados listaEmpleados;
 
 
-        //Formularios de Richar
         private clsManejadorServicios listaServicios;
         private clsManejadorVehiculos listaVehiculos;
 
         private clsManejadorFacturas listaFacturas;
+
+        private clsManejadorRepuestos listaRepuestos;
+        private clsManejadorCitas listaCitas;
+
+
+
 
         public frmVentanaPrincipal()
 
         {
             listaClientes = new clsManejadorClientes();
             listaEmpleados = new clsManejadorEmpleados();
+            listaRepuestos = new clsManejadorRepuestos();
+            listaCitas = new clsManejadorCitas();
 
             //Formularios de Richar
             listaServicios = new clsManejadorServicios();
@@ -129,6 +136,33 @@ namespace AutoCare_R_J.Formularios
             }
         }
 
+
+
+        private void btnRepuestos_Click(object sender, EventArgs e)
+        {
+            if(!FormularioAbierto("frmRepuestos"))
+            {
+                frmRepuestos repuestos = new frmRepuestos();
+                repuestos.AsignarListaRepuestos(ref listaRepuestos);
+                repuestos.MdiParent = this;
+                repuestos.Show();
+            }
+        }
+
+        private void btnCitas_Click(object sender, EventArgs e)
+        {
+            if (!FormularioAbierto("frmCitas"))
+            {
+                clsManejadorVehiculos listaVehiculos = new clsManejadorVehiculos(); //linea temporal hay que borrarla
+                frmCitas ventanaCitas = new frmCitas();
+                ventanaCitas.asignarListas(ref listaCitas, ref listaClientes, ref listaVehiculos, ref listaEmpleados);
+                ventanaCitas.MdiParent = this;
+                ventanaCitas.Show();
+            }
+        }
+
         #endregion
+
+
     }
 }
