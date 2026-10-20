@@ -26,5 +26,10 @@ namespace AutoCare_R_J.Formularios
         {
 
         }
+
+        private void customPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

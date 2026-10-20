@@ -160,5 +160,10 @@ namespace AutoCare_R_J.Formularios
                 MetodosGlobales.CargarGrid(dgvVehiculos, manejadorVehiculo.ListarVehiculos());
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
