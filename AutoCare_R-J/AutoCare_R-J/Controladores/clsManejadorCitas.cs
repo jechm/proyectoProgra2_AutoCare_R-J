@@ -12,6 +12,7 @@ namespace AutoCare_R_J.Controladores
     internal class clsManejadorCitas
     {
         //Atributos
+
         private IList<clsCita> lstCitas;
 
 
@@ -63,27 +64,10 @@ namespace AutoCare_R_J.Controladores
         //Buscador de cita por codgio
         public clsCita BuscarCitaPorCodigo(string pCodigo)
         {
-            int indice = -1;
-
-            foreach (var cita in lstCitas)
-            {
-                if (cita.CodigoCita == pCodigo)
-                {
-                    indice = lstCitas.IndexOf(cita);
-                    break;
-                }
-            }
-
-            if (indice !=-1)
-            {
-                return lstCitas[indice];
-            }
-            else
-            {
-                return null;
-            }
-            
+            return lstCitas.FirstOrDefault(cita => cita.CodigoCita.Equals(pCodigo, StringComparison.OrdinalIgnoreCase));
         }
         #endregion
     }
+
 }
+
