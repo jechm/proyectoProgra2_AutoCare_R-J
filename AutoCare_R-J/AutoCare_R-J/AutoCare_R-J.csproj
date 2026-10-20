@@ -63,12 +63,6 @@
       <SubType>Component</SubType>
     </Compile>
     <!-- Formularios -->
-    <Compile Include="Formularios\frmCitas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\frmCitas.Designer.cs">
-      <DependentUpon>frmCitas.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\frmEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,12 +86,6 @@
     </Compile>
     <Compile Include="Formularios\frmOrdenesTrabajo.Designer.cs">
       <DependentUpon>frmOrdenesTrabajo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\frmRepuestos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\frmRepuestos.Designer.cs">
-      <DependentUpon>frmRepuestos.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frmVehiculos.cs">
       <SubType>Form</SubType>
@@ -137,9 +125,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <!-- Recursos incrustados para Formularios -->
-    <EmbeddedResource Include="Formularios\frmCitas.resx">
-      <DependentUpon>frmCitas.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmEmpleados.resx">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,9 +136,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmOrdenesTrabajo.resx">
       <DependentUpon>frmOrdenesTrabajo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmRepuestos.resx">
-      <DependentUpon>frmRepuestos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmVehiculos.resx">
       <DependentUpon>frmVehiculos.cs</DependentUpon>

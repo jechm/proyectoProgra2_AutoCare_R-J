@@ -10,15 +10,13 @@ namespace AutoCare_R_J.Modelos
     {
         //Atributos cita
         private string strCodigoCita;
-        private string strCodigoCliente; //cliente
-        private string strCodigoVehiculo; //vehiculo del cliente
-        private DateTime dtFechaCita; //fehca de la cita
-        private IList<string> strCodigoServiciosolicitado; //servicio solicitado
-
-        private DateTime dtHoraCita; //hora de la cita
-        private string strCodigoTecnico; //tecnico solo de ser necesario
-        private string strObservaciones;
-        private string strEstadoCita; // abierta, en proceso, cerrada, cancelada
+        private string strCodigoCliente;
+        private string strCodigoVehiculo;
+        private string strCodigoTecnico;
+        private DateTime dtFechaCita;
+        private DateTime dtHoraCita;
+        private string strCodigoServiciosolicitado;
+        private string strEstadoCita;
 
         //Propiedades Cita
         public string CodigoCita
@@ -38,17 +36,6 @@ namespace AutoCare_R_J.Modelos
             set { strCodigoVehiculo = value; }
         }
 
-        public IList<string> CodigoServiciosolicitado
-        {
-            get { return strCodigoServiciosolicitado; }
-            set { strCodigoServiciosolicitado = value; }
-        }
-        
-        public string Observaciones
-        {
-            get { return strObservaciones; }
-            set { strObservaciones = value; }
-        }
         public string CodigoTecnico
         {
             get { return strCodigoTecnico; }
@@ -67,7 +54,11 @@ namespace AutoCare_R_J.Modelos
             set { dtHoraCita = value; }
         }
 
-
+        public string CodigoServiciosolicitado
+        {
+            get { return strCodigoServiciosolicitado; }
+            set { strCodigoServiciosolicitado = value; }
+        }
         public string EstadoCita
         {
             get { return strEstadoCita; }
@@ -79,7 +70,7 @@ namespace AutoCare_R_J.Modelos
             string pCodigoCliente, string pCodigoVehiculo,
             string pCodigoTecnico,
             DateTime pFecha, DateTime pHora,
-            IList <string> pCodigoServiciosolicitado,
+            string pCodigoServiciosolicitado,
             string pEstado
             )
         {
@@ -94,7 +85,5 @@ namespace AutoCare_R_J.Modelos
             this.strEstadoCita=pEstado;
    
         }
-
-
     }
 }

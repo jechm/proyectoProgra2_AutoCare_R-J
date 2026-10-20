@@ -10,31 +10,33 @@ namespace AutoCare_R_J.Modelos
     {
         private string strCodigoRepuesto;
         private string strNombreRepuesto;
+        private string strEstado;
+        private string strDescripcion;
         private string strCategoria;
         private string strMarca;
         private decimal decPrecio;
-        private decimal decCosto;
         private int intExistencias;
-        private string strEstado;
 
-
-
-
-
-        public string Codigo
+        public string CodigoRepuesto 
         { 
             get { return strCodigoRepuesto; } 
         }
-        public string Nombre
+        public string NombreRepuesto 
         {
             get { return strNombreRepuesto; } 
             set { strNombreRepuesto = value; }
         }
 
-        public decimal Costo 
+        public string Estado
         {
-            get { return decCosto; }
-            set { decCosto = value; }
+            get { return strEstado; }
+            set { strEstado = value; }  
+        }
+
+        public string Descripcion
+        {
+            get { return strDescripcion; }
+            set { strDescripcion = value; }
         }
 
         public string Categoria 
@@ -59,22 +61,15 @@ namespace AutoCare_R_J.Modelos
             set {intExistencias = value; }
         }
 
-        public string Estado
-        {
-            get { return strEstado; }
-            set { strEstado = value; }
-        }
-
-
-        public clsRepuesto(string pCodigo,string pNombre, string pCategoria, string pMarca, decimal pPrecio, decimal pCosto, int PExistencias, string pEstado)
+        public clsRepuesto(string pCodigo,string pNombre,string pEstado,string pDescripcion, string pCategoria, string pMarca, decimal pPrecio, int PExistencias)
         {
             this.strCodigoRepuesto = pCodigo;
             this.strNombreRepuesto= pNombre;
             this.strEstado=pEstado;
+            this.strDescripcion=pDescripcion;
             this.strCategoria=pCategoria;
             this.strMarca=pMarca;
             this.decPrecio=pPrecio;
-            this.decCosto = pCosto;
             this.intExistencias=PExistencias;
 
     }

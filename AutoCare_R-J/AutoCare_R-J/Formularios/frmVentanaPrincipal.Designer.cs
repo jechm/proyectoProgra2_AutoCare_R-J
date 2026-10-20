@@ -113,7 +113,6 @@
             this.btnRepuestos.Size = new System.Drawing.Size(100, 100);
             this.btnRepuestos.TabIndex = 1;
             this.btnRepuestos.UseVisualStyleBackColor = true;
-            this.btnRepuestos.Click += new System.EventHandler(this.btnRepuestos_Click);
             // 
             // btnServicios
             // 
@@ -161,7 +160,6 @@
             // 
             // button1
             // 
-/*<<<<<<< HEAD
             this.button1.BackgroundImage = global::AutoCare_R_J.Properties.Resources.Botón_de_Facturas_Aprobadas1;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.Location = new System.Drawing.Point(3, 3);
@@ -169,63 +167,6 @@
             this.button1.Size = new System.Drawing.Size(100, 100);
             this.button1.TabIndex = 3;
             this.button1.UseVisualStyleBackColor = true;
-=======*/
-            this.tbpCitas.Controls.Add(this.btnFacturas);
-            this.tbpCitas.Controls.Add(this.btnOrdenesDeTrabajo);
-            this.tbpCitas.Controls.Add(this.btnCitas);
-            this.tbpCitas.Location = new System.Drawing.Point(4, 22);
-            this.tbpCitas.Name = "tbpCitas";
-            this.tbpCitas.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpCitas.Size = new System.Drawing.Size(921, 104);
-            this.tbpCitas.TabIndex = 1;
-            this.tbpCitas.Text = "Transacciones";
-            this.tbpCitas.UseVisualStyleBackColor = true;
-            // 
-            // btnFacturas
-            // 
-            this.btnFacturas.BackgroundImage = global::AutoCare_R_J.Properties.Resources.facturacion;
-            this.btnFacturas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnFacturas.Location = new System.Drawing.Point(209, 2);
-            this.btnFacturas.Margin = new System.Windows.Forms.Padding(2);
-            this.btnFacturas.Name = "btnFacturas";
-            this.btnFacturas.Size = new System.Drawing.Size(100, 100);
-            this.btnFacturas.TabIndex = 2;
-            this.btnFacturas.UseVisualStyleBackColor = true;
-            this.btnFacturas.Click += new System.EventHandler(this.btnFacturas_Click);
-            // 
-            // btnOrdenesDeTrabajo
-            // 
-            this.btnOrdenesDeTrabajo.BackgroundImage = global::AutoCare_R_J.Properties.Resources.ordenes;
-            this.btnOrdenesDeTrabajo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnOrdenesDeTrabajo.Location = new System.Drawing.Point(106, 2);
-            this.btnOrdenesDeTrabajo.Margin = new System.Windows.Forms.Padding(2);
-            this.btnOrdenesDeTrabajo.Name = "btnOrdenesDeTrabajo";
-            this.btnOrdenesDeTrabajo.Size = new System.Drawing.Size(100, 100);
-            this.btnOrdenesDeTrabajo.TabIndex = 1;
-            this.btnOrdenesDeTrabajo.UseVisualStyleBackColor = true;
-            this.btnOrdenesDeTrabajo.Click += new System.EventHandler(this.btnOrdenesDeTrabajo_Click);
-            // 
-            // btnCitas
-            // 
-            this.btnCitas.BackgroundImage = global::AutoCare_R_J.Properties.Resources.citas;
-            this.btnCitas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnCitas.Location = new System.Drawing.Point(2, 2);
-            this.btnCitas.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCitas.Name = "btnCitas";
-            this.btnCitas.Size = new System.Drawing.Size(100, 100);
-            this.btnCitas.TabIndex = 0;
-            this.btnCitas.UseVisualStyleBackColor = true;
-            this.btnCitas.Click += new System.EventHandler(this.btnCitas_Click);
-            // 
-            // tbpConsultasYReportes
-            // 
-            this.tbpConsultasYReportes.Location = new System.Drawing.Point(4, 22);
-            this.tbpConsultasYReportes.Name = "tbpConsultasYReportes";
-            this.tbpConsultasYReportes.Size = new System.Drawing.Size(921, 104);
-            this.tbpConsultasYReportes.TabIndex = 2;
-            this.tbpConsultasYReportes.Text = "Consultas y Reportes";
-            this.tbpConsultasYReportes.UseVisualStyleBackColor = true;
-//>>>>>>> Formularios/Emilio
             // 
             // frmVentanaPrincipal
             // 

@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 //using AutoCare_R_J.Modelos;
 
@@ -10,7 +12,6 @@ namespace AutoCare_R_J.Controladores
     internal class clsManejadorCitas
     {
         //Atributos
-
         private IList<clsCita> lstCitas;
 
 
@@ -62,10 +63,27 @@ namespace AutoCare_R_J.Controladores
         //Buscador de cita por codgio
         public clsCita BuscarCitaPorCodigo(string pCodigo)
         {
-            return lstCitas.FirstOrDefault(cita => cita.CodigoCita.Equals(pCodigo, StringComparison.OrdinalIgnoreCase));
+            int indice = -1;
+
+            foreach (var cita in lstCitas)
+            {
+                if (cita.CodigoCita == pCodigo)
+                {
+                    indice = lstCitas.IndexOf(cita);
+                    break;
+                }
+            }
+
+            if (indice !=-1)
+            {
+                return lstCitas[indice];
+            }
+            else
+            {
+                return null;
+            }
+            
         }
         #endregion
     }
-
 }
-
