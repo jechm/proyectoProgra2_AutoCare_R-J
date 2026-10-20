@@ -21,14 +21,20 @@ namespace AutoCare_R_J.Formularios
         private clsManejadorClientes listaClientes;
         private clsManejadorEmpleados listaEmpleados;
 
+
+        //Formularios de Richar
         private clsManejadorServicios listaServicios;
+        private clsManejadorVehiculos listaVehiculos;
 
         public frmVentanaPrincipal()
 
         {
             listaClientes = new clsManejadorClientes();
             listaEmpleados = new clsManejadorEmpleados();
+
+            //Formularios de Richar
             listaServicios = new clsManejadorServicios();
+            listaVehiculos = new clsManejadorVehiculos();
 
             InitializeComponent();
         }
@@ -88,7 +94,7 @@ namespace AutoCare_R_J.Formularios
                 Servicios servicios = new Servicios();
                 servicios.MdiParent = this;
 
-                // ¡Aquí le inyectas el manejador compartido de la ventana principal!
+                // Inyeccion del manejador compartido
                 servicios.CargarManejador(listaServicios);
 
                 servicios.Show();
@@ -101,6 +107,10 @@ namespace AutoCare_R_J.Formularios
             {
                 frmVehiculos vehiculos = new frmVehiculos();
                 vehiculos.MdiParent = this;
+
+                // Inyeccion del manejador compartido
+                vehiculos.CargarManejador(listaVehiculos);
+
                 vehiculos.Show();
             }
         }

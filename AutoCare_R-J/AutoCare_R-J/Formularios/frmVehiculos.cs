@@ -14,7 +14,7 @@ namespace AutoCare_R_J.Formularios
 {
     public partial class frmVehiculos : Form
     {
-        private readonly clsManejadorVehiculos manejadorVehiculo = new clsManejadorVehiculos();
+        private clsManejadorVehiculos manejadorVehiculo;
 
         public frmVehiculos()
         {
@@ -27,11 +27,28 @@ namespace AutoCare_R_J.Formularios
 
             //desactivar el botón de modificar al iniciar el formulario
             MetodosGlobales.DeshabilitarBoton(btnModificar);
+
+            //
+            manejadorVehiculo = new clsManejadorVehiculos();
+            MetodosGlobales.CargarGrid(dgvVehiculos, manejadorVehiculo.ListarVehiculos());
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        //metodo para cargar el manejador de vehiculos desde la ventana principal
+        internal void CargarManejador(clsManejadorVehiculos pManejador)
+        {
+            //Asignar el manjador que viene desde la ventana principal
+            manejadorVehiculo = pManejador;
+
+            //actualizar el DataGridView con la lista de vehículos
+            MetodosGlobales.CargarGrid(dgvVehiculos, manejadorVehiculo.ListarVehiculos());
+
+            //Actualiza el siguiente código disponible para un nuevo vehículo
+            tbxCodigo.Text = manejadorVehiculo.ObtenerSiguienteCodigo();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -70,48 +87,48 @@ namespace AutoCare_R_J.Formularios
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            //obtener el código del vehículo a eliminar
             string strCodigo = tbxCodigo.Text.Trim();
-
-            //obtener el propietario del vehículo a eliminar
             string strPropietario = tbxPropietario.Text.Trim();
 
-            //validar que los campos no esten vacios
-            if (string.IsNullOrEmpty(strCodigo) || string.IsNullOrEmpty(strPropietario))
+            if (string.IsNullOrEmpty(strCodigo) && string.IsNullOrEmpty(strPropietario))
             {
-                MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, ingrese un código o propietario para eliminar.", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            else
+
+            try
             {
-                //verificar si es busqueda por código o por propietario
                 if (!string.IsNullOrEmpty(strCodigo))
                 {
-                    //eliminar el vehículo por código
                     manejadorVehiculo.EliminarVehiculo(strCodigo);
                     MessageBox.Show("¡Vehículo eliminado exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // Limpiar los campos después de eliminar el vehículo
                     LimpiarCampos();
                 }
-                else if (!string.IsNullOrEmpty(strPropietario))
+                else
                 {
-                    //eliminar el vehículo por propietario
                     clsVehiculos vehiculoEncontrado = manejadorVehiculo.BuscarVehiculo("", strPropietario);
                     if (vehiculoEncontrado != null)
                     {
                         manejadorVehiculo.EliminarVehiculo(vehiculoEncontrado.Codigo);
                         MessageBox.Show("¡Vehículo eliminado exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        // Limpiar los campos después de eliminar el vehículo
                         LimpiarCampos();
                     }
+                    else
+                    {
+                        MessageBox.Show("No se encontró ningún vehículo con ese propietario.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
+
                 MetodosGlobales.CargarGrid(dgvVehiculos, manejadorVehiculo.ListarVehiculos());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar: " + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void LimpiarCampos()
         {
-            tbxCodigo.Clear();
             tbxPropietario.Clear();
             tbxPlaca.Clear();
             cbxEstado.SelectedIndex = -1;
@@ -120,48 +137,62 @@ namespace AutoCare_R_J.Formularios
             tbxModelo.Clear();
             cbxTipo.SelectedIndex = -1;
             tbxAnio.Clear();
+
+            // Vuelve a asignar el código automático para que no quede vacío ni busque ""
+            if (manejadorVehiculo != null)
+            {
+                tbxCodigo.Text = manejadorVehiculo.ObtenerSiguienteCodigo();
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            //optener los valores de los campos de entrada
             string strCodigo = tbxCodigo.Text.Trim();
             string strPropietario = tbxPropietario.Text.Trim();
 
-            //validar que los campos no esten vacios
-            if (string.IsNullOrEmpty(strCodigo) || string.IsNullOrEmpty(strPropietario))
+            if (string.IsNullOrEmpty(strCodigo) && string.IsNullOrEmpty(strPropietario))
             {
-                MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, complete los campos necesarios para modificar.", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            else
+
+            try
             {
-                //veroficar si es busqueda por código o por propietario
                 if (!string.IsNullOrEmpty(strCodigo))
                 {
-                    //modificar el vehículo por código
                     manejadorVehiculo.ModificarVehiculo(strCodigo, strPropietario, tbxPlaca.Text.Trim(), cbxEstado.Text.Trim(), tbxColor.Text.Trim(), tbxMarca.Text.Trim(), tbxModelo.Text.Trim(), cbxTipo.Text.Trim(), tbxAnio.Text.Trim());
                     MessageBox.Show("¡Vehículo modificado exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // Limpiar los campos después de modificar el vehículo
                     LimpiarCampos();
                 }
-                else if (!string.IsNullOrEmpty(strPropietario))
+                else
                 {
-                    //modificar el vehículo por propietario
                     clsVehiculos vehiculoEncontrado = manejadorVehiculo.BuscarVehiculo("", strPropietario);
                     if (vehiculoEncontrado != null)
                     {
                         manejadorVehiculo.ModificarVehiculo(vehiculoEncontrado.Codigo, strPropietario, tbxPlaca.Text.Trim(), cbxEstado.Text.Trim(), tbxColor.Text.Trim(), tbxMarca.Text.Trim(), tbxModelo.Text.Trim(), cbxTipo.Text.Trim(), tbxAnio.Text.Trim());
                         MessageBox.Show("¡Vehículo modificado exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        // Limpiar los campos después de modificar el vehículo
                         LimpiarCampos();
                     }
+                    else
+                    {
+                        MessageBox.Show("No se encontró el vehículo para modificar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
+
                 MetodosGlobales.CargarGrid(dgvVehiculos, manejadorVehiculo.ListarVehiculos());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al modificar: " + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmVehiculos_Load(object sender, EventArgs e)
         {
 
         }
