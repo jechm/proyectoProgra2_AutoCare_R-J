@@ -26,6 +26,8 @@ namespace AutoCare_R_J.Formularios
         private clsManejadorServicios listaServicios;
         private clsManejadorVehiculos listaVehiculos;
 
+        private clsManejadorFacturas listaFacturas;
+
         public frmVentanaPrincipal()
 
         {
@@ -35,6 +37,7 @@ namespace AutoCare_R_J.Formularios
             //Formularios de Richar
             listaServicios = new clsManejadorServicios();
             listaVehiculos = new clsManejadorVehiculos();
+            listaFacturas = new clsManejadorFacturas();
 
             InitializeComponent();
         }
@@ -115,15 +118,6 @@ namespace AutoCare_R_J.Formularios
             }
         }
 
-        private void btnFacturas_Click(object sender, EventArgs e)
-        {
-            if (!FormularioAbierto("frmFacturas"))
-            {
-                frmFacturas facturas = new frmFacturas();
-                facturas.MdiParent = this;
-                facturas.Show();
-            }
-        }
 
         private void btnOrdenesDeTrabajo_Click(object sender, EventArgs e)
         {
