@@ -31,74 +31,74 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCitas));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlMenus = new System.Windows.Forms.Panel();
+            this.customPanel1 = new AutoCare_R_J.CustomPanel();
+            this.btnEliminarServicio = new System.Windows.Forms.Button();
+            this.dtgServiciosAgregados = new System.Windows.Forms.DataGridView();
+            this.lblResumen = new System.Windows.Forms.Label();
             this.cpBusquedas = new AutoCare_R_J.CustomPanel();
-            this.btnBuscarCliente = new AutoCare_R_J.CustomButton();
+            this.btnBuscar = new AutoCare_R_J.CustomButton();
             this.gbValorABuscar = new System.Windows.Forms.GroupBox();
             this.txtValorAbuscar = new System.Windows.Forms.TextBox();
             this.gbValorDeBusqueda = new System.Windows.Forms.GroupBox();
             this.cmbValoresDeBusqueda = new System.Windows.Forms.ComboBox();
             this.lblBusquedas = new System.Windows.Forms.Label();
             this.cpAccionesRapidas = new AutoCare_R_J.CustomPanel();
-            this.btnEliminarCliente = new AutoCare_R_J.CustomButton();
+            this.btnEliminar = new AutoCare_R_J.CustomButton();
             this.btnLimpiar = new AutoCare_R_J.CustomButton();
-            this.btnModificarCliente = new AutoCare_R_J.CustomButton();
-            this.bntNuevoCliente = new AutoCare_R_J.CustomButton();
+            this.btnModificar = new AutoCare_R_J.CustomButton();
+            this.bntNuevo = new AutoCare_R_J.CustomButton();
             this.lblAccionesRapidas = new System.Windows.Forms.Label();
             this.cstmPnlDatosCliente = new AutoCare_R_J.CustomPanel();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btnAgregarServicio = new System.Windows.Forms.Button();
+            this.cmbServicio = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbTecnico = new System.Windows.Forms.ComboBox();
+            this.cmbCliente = new System.Windows.Forms.ComboBox();
             this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblDatosCliente = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
+            this.lblServicio = new System.Windows.Forms.Label();
             this.lblCorreo = new System.Windows.Forms.Label();
             this.lblVehiculo = new System.Windows.Forms.Label();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblObservaciones = new System.Windows.Forms.Label();
+            this.lblTecnico = new System.Windows.Forms.Label();
             this.lblTelefono = new System.Windows.Forms.Label();
             this.lblCliente = new System.Windows.Forms.Label();
             this.cstmPnlDato = new AutoCare_R_J.CustomPanel();
             this.dtGvDatos = new System.Windows.Forms.DataGridView();
-            this.cmbCliente = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.lblTecnico = new System.Windows.Forms.Label();
-            this.lblServicio = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.cmbTecnico = new System.Windows.Forms.ComboBox();
-            this.cmbServicio = new System.Windows.Forms.ComboBox();
-            this.btnAgregarServicio = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.customPanel1 = new AutoCare_R_J.CustomPanel();
-            this.lblResumen = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnEliminarServicio = new System.Windows.Forms.Button();
             this.pnlMenus.SuspendLayout();
+            this.customPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgServiciosAgregados)).BeginInit();
             this.cpBusquedas.SuspendLayout();
             this.gbValorABuscar.SuspendLayout();
             this.gbValorDeBusqueda.SuspendLayout();
             this.cpAccionesRapidas.SuspendLayout();
             this.cstmPnlDatosCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.cstmPnlDato.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGvDatos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.customPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMenus
@@ -114,11 +114,62 @@
             this.pnlMenus.Size = new System.Drawing.Size(1332, 332);
             this.pnlMenus.TabIndex = 27;
             // 
+            // customPanel1
+            // 
+            this.customPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.customPanel1.BorderRadius = 20;
+            this.customPanel1.Controls.Add(this.btnEliminarServicio);
+            this.customPanel1.Controls.Add(this.dtgServiciosAgregados);
+            this.customPanel1.Controls.Add(this.lblResumen);
+            this.customPanel1.Location = new System.Drawing.Point(1078, 5);
+            this.customPanel1.Name = "customPanel1";
+            this.customPanel1.Size = new System.Drawing.Size(251, 321);
+            this.customPanel1.TabIndex = 33;
+            // 
+            // btnEliminarServicio
+            // 
+            this.btnEliminarServicio.BackColor = System.Drawing.Color.IndianRed;
+            this.btnEliminarServicio.FlatAppearance.BorderColor = System.Drawing.Color.IndianRed;
+            this.btnEliminarServicio.FlatAppearance.BorderSize = 2;
+            this.btnEliminarServicio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RosyBrown;
+            this.btnEliminarServicio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnEliminarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarServicio.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnEliminarServicio.Location = new System.Drawing.Point(3, 107);
+            this.btnEliminarServicio.Name = "btnEliminarServicio";
+            this.btnEliminarServicio.Size = new System.Drawing.Size(239, 29);
+            this.btnEliminarServicio.TabIndex = 2;
+            this.btnEliminarServicio.Text = "Eliminar Servicio Seleccionado";
+            this.btnEliminarServicio.UseVisualStyleBackColor = false;
+            // 
+            // dtgServiciosAgregados
+            // 
+            this.dtgServiciosAgregados.AllowUserToAddRows = false;
+            this.dtgServiciosAgregados.AllowUserToDeleteRows = false;
+            this.dtgServiciosAgregados.AllowUserToOrderColumns = true;
+            this.dtgServiciosAgregados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgServiciosAgregados.Location = new System.Drawing.Point(3, 142);
+            this.dtgServiciosAgregados.Name = "dtgServiciosAgregados";
+            this.dtgServiciosAgregados.ReadOnly = true;
+            this.dtgServiciosAgregados.Size = new System.Drawing.Size(245, 168);
+            this.dtgServiciosAgregados.TabIndex = 1;
+            // 
+            // lblResumen
+            // 
+            this.lblResumen.AutoSize = true;
+            this.lblResumen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResumen.Location = new System.Drawing.Point(19, 19);
+            this.lblResumen.Name = "lblResumen";
+            this.lblResumen.Size = new System.Drawing.Size(82, 20);
+            this.lblResumen.TabIndex = 0;
+            this.lblResumen.Text = "Resumen:";
+            // 
             // cpBusquedas
             // 
             this.cpBusquedas.BackColor = System.Drawing.Color.Transparent;
             this.cpBusquedas.BorderRadius = 20;
-            this.cpBusquedas.Controls.Add(this.btnBuscarCliente);
+            this.cpBusquedas.Controls.Add(this.btnBuscar);
             this.cpBusquedas.Controls.Add(this.gbValorABuscar);
             this.cpBusquedas.Controls.Add(this.gbValorDeBusqueda);
             this.cpBusquedas.Controls.Add(this.lblBusquedas);
@@ -127,24 +178,24 @@
             this.cpBusquedas.Size = new System.Drawing.Size(383, 172);
             this.cpBusquedas.TabIndex = 32;
             // 
-            // btnBuscarCliente
+            // btnBuscar
             // 
-            this.btnBuscarCliente.BackColor = System.Drawing.Color.Transparent;
-            this.btnBuscarCliente.BorderRadius = 15;
-            this.btnBuscarCliente.ButtonIcon = ((System.Drawing.Image)(resources.GetObject("btnBuscarCliente.ButtonIcon")));
-            this.btnBuscarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscarCliente.CustomBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.btnBuscarCliente.FlatAppearance.BorderSize = 0;
-            this.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarCliente.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnBuscarCliente.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarCliente.IconSize = new System.Drawing.Size(20, 20);
-            this.btnBuscarCliente.Location = new System.Drawing.Point(188, 4);
-            this.btnBuscarCliente.Name = "btnBuscarCliente";
-            this.btnBuscarCliente.Size = new System.Drawing.Size(182, 45);
-            this.btnBuscarCliente.TabIndex = 15;
-            this.btnBuscarCliente.Text = "Buscar";
-            this.btnBuscarCliente.UseVisualStyleBackColor = false;
+            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.BorderRadius = 15;
+            this.btnBuscar.ButtonIcon = ((System.Drawing.Image)(resources.GetObject("btnBuscar.ButtonIcon")));
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.CustomBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnBuscar.ForeColor = System.Drawing.Color.White;
+            this.btnBuscar.IconSize = new System.Drawing.Size(20, 20);
+            this.btnBuscar.Location = new System.Drawing.Point(188, 4);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(182, 45);
+            this.btnBuscar.TabIndex = 15;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = false;
             // 
             // gbValorABuscar
             // 
@@ -200,35 +251,35 @@
             // 
             this.cpAccionesRapidas.BackColor = System.Drawing.Color.Transparent;
             this.cpAccionesRapidas.BorderRadius = 20;
-            this.cpAccionesRapidas.Controls.Add(this.btnEliminarCliente);
+            this.cpAccionesRapidas.Controls.Add(this.btnEliminar);
             this.cpAccionesRapidas.Controls.Add(this.btnLimpiar);
-            this.cpAccionesRapidas.Controls.Add(this.btnModificarCliente);
-            this.cpAccionesRapidas.Controls.Add(this.bntNuevoCliente);
+            this.cpAccionesRapidas.Controls.Add(this.btnModificar);
+            this.cpAccionesRapidas.Controls.Add(this.bntNuevo);
             this.cpAccionesRapidas.Controls.Add(this.lblAccionesRapidas);
             this.cpAccionesRapidas.Location = new System.Drawing.Point(692, 5);
             this.cpAccionesRapidas.Name = "cpAccionesRapidas";
             this.cpAccionesRapidas.Size = new System.Drawing.Size(383, 146);
             this.cpAccionesRapidas.TabIndex = 31;
             // 
-            // btnEliminarCliente
+            // btnEliminar
             // 
-            this.btnEliminarCliente.BackColor = System.Drawing.Color.Transparent;
-            this.btnEliminarCliente.BorderRadius = 15;
-            this.btnEliminarCliente.ButtonIcon = ((System.Drawing.Image)(resources.GetObject("btnEliminarCliente.ButtonIcon")));
-            this.btnEliminarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminarCliente.CustomBackColor = System.Drawing.Color.SlateGray;
-            this.btnEliminarCliente.Enabled = false;
-            this.btnEliminarCliente.FlatAppearance.BorderSize = 0;
-            this.btnEliminarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarCliente.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEliminarCliente.ForeColor = System.Drawing.Color.White;
-            this.btnEliminarCliente.IconSize = new System.Drawing.Size(20, 20);
-            this.btnEliminarCliente.Location = new System.Drawing.Point(14, 91);
-            this.btnEliminarCliente.Name = "btnEliminarCliente";
-            this.btnEliminarCliente.Size = new System.Drawing.Size(168, 45);
-            this.btnEliminarCliente.TabIndex = 13;
-            this.btnEliminarCliente.Text = "Eliminar";
-            this.btnEliminarCliente.UseVisualStyleBackColor = false;
+            this.btnEliminar.BackColor = System.Drawing.Color.Transparent;
+            this.btnEliminar.BorderRadius = 15;
+            this.btnEliminar.ButtonIcon = ((System.Drawing.Image)(resources.GetObject("btnEliminar.ButtonIcon")));
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.CustomBackColor = System.Drawing.Color.SlateGray;
+            this.btnEliminar.Enabled = false;
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.IconSize = new System.Drawing.Size(20, 20);
+            this.btnEliminar.Location = new System.Drawing.Point(14, 91);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(168, 45);
+            this.btnEliminar.TabIndex = 13;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
             // 
             // btnLimpiar
             // 
@@ -249,44 +300,44 @@
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
             // 
-            // btnModificarCliente
+            // btnModificar
             // 
-            this.btnModificarCliente.BackColor = System.Drawing.Color.Transparent;
-            this.btnModificarCliente.BorderRadius = 15;
-            this.btnModificarCliente.ButtonIcon = ((System.Drawing.Image)(resources.GetObject("btnModificarCliente.ButtonIcon")));
-            this.btnModificarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificarCliente.CustomBackColor = System.Drawing.Color.SlateGray;
-            this.btnModificarCliente.Enabled = false;
-            this.btnModificarCliente.FlatAppearance.BorderSize = 0;
-            this.btnModificarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificarCliente.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnModificarCliente.ForeColor = System.Drawing.Color.White;
-            this.btnModificarCliente.IconSize = new System.Drawing.Size(20, 20);
-            this.btnModificarCliente.Location = new System.Drawing.Point(187, 40);
-            this.btnModificarCliente.Name = "btnModificarCliente";
-            this.btnModificarCliente.Size = new System.Drawing.Size(182, 45);
-            this.btnModificarCliente.TabIndex = 12;
-            this.btnModificarCliente.Text = "Modificar";
-            this.btnModificarCliente.UseVisualStyleBackColor = false;
+            this.btnModificar.BackColor = System.Drawing.Color.Transparent;
+            this.btnModificar.BorderRadius = 15;
+            this.btnModificar.ButtonIcon = ((System.Drawing.Image)(resources.GetObject("btnModificar.ButtonIcon")));
+            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar.CustomBackColor = System.Drawing.Color.SlateGray;
+            this.btnModificar.Enabled = false;
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnModificar.ForeColor = System.Drawing.Color.White;
+            this.btnModificar.IconSize = new System.Drawing.Size(20, 20);
+            this.btnModificar.Location = new System.Drawing.Point(187, 40);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(182, 45);
+            this.btnModificar.TabIndex = 12;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = false;
             // 
-            // bntNuevoCliente
+            // bntNuevo
             // 
-            this.bntNuevoCliente.BackColor = System.Drawing.Color.Transparent;
-            this.bntNuevoCliente.BorderRadius = 15;
-            this.bntNuevoCliente.ButtonIcon = ((System.Drawing.Image)(resources.GetObject("bntNuevoCliente.ButtonIcon")));
-            this.bntNuevoCliente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bntNuevoCliente.CustomBackColor = System.Drawing.Color.Green;
-            this.bntNuevoCliente.FlatAppearance.BorderSize = 0;
-            this.bntNuevoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bntNuevoCliente.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.bntNuevoCliente.ForeColor = System.Drawing.Color.White;
-            this.bntNuevoCliente.IconSize = new System.Drawing.Size(20, 20);
-            this.bntNuevoCliente.Location = new System.Drawing.Point(14, 40);
-            this.bntNuevoCliente.Name = "bntNuevoCliente";
-            this.bntNuevoCliente.Size = new System.Drawing.Size(168, 45);
-            this.bntNuevoCliente.TabIndex = 11;
-            this.bntNuevoCliente.Text = "Guardar Nuevo";
-            this.bntNuevoCliente.UseVisualStyleBackColor = false;
+            this.bntNuevo.BackColor = System.Drawing.Color.Transparent;
+            this.bntNuevo.BorderRadius = 15;
+            this.bntNuevo.ButtonIcon = ((System.Drawing.Image)(resources.GetObject("bntNuevo.ButtonIcon")));
+            this.bntNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bntNuevo.CustomBackColor = System.Drawing.Color.Green;
+            this.bntNuevo.FlatAppearance.BorderSize = 0;
+            this.bntNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bntNuevo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.bntNuevo.ForeColor = System.Drawing.Color.White;
+            this.bntNuevo.IconSize = new System.Drawing.Size(20, 20);
+            this.bntNuevo.Location = new System.Drawing.Point(14, 40);
+            this.bntNuevo.Name = "bntNuevo";
+            this.bntNuevo.Size = new System.Drawing.Size(168, 45);
+            this.bntNuevo.TabIndex = 11;
+            this.bntNuevo.Text = "Guardar Nuevo";
+            this.bntNuevo.UseVisualStyleBackColor = false;
             // 
             // lblAccionesRapidas
             // 
@@ -336,6 +387,77 @@
             this.cstmPnlDatosCliente.Size = new System.Drawing.Size(685, 321);
             this.cstmPnlDatosCliente.TabIndex = 24;
             // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePicker2.Location = new System.Drawing.Point(462, 171);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(209, 26);
+            this.dateTimePicker2.TabIndex = 29;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(107, 170);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePicker1.TabIndex = 28;
+            // 
+            // btnAgregarServicio
+            // 
+            this.btnAgregarServicio.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAgregarServicio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAgregarServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)), true);
+            this.btnAgregarServicio.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnAgregarServicio.Location = new System.Drawing.Point(625, 120);
+            this.btnAgregarServicio.Name = "btnAgregarServicio";
+            this.btnAgregarServicio.Size = new System.Drawing.Size(46, 35);
+            this.btnAgregarServicio.TabIndex = 27;
+            this.btnAgregarServicio.Text = "+";
+            this.btnAgregarServicio.UseVisualStyleBackColor = false;
+            // 
+            // cmbServicio
+            // 
+            this.cmbServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbServicio.FormattingEnabled = true;
+            this.cmbServicio.ItemHeight = 20;
+            this.cmbServicio.Location = new System.Drawing.Point(463, 125);
+            this.cmbServicio.Name = "cmbServicio";
+            this.cmbServicio.Size = new System.Drawing.Size(156, 28);
+            this.cmbServicio.TabIndex = 9;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.ItemHeight = 20;
+            this.comboBox2.Location = new System.Drawing.Point(460, 79);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(211, 28);
+            this.comboBox2.TabIndex = 9;
+            // 
+            // cmbTecnico
+            // 
+            this.cmbTecnico.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTecnico.FormattingEnabled = true;
+            this.cmbTecnico.ItemHeight = 20;
+            this.cmbTecnico.Location = new System.Drawing.Point(107, 122);
+            this.cmbTecnico.Name = "cmbTecnico";
+            this.cmbTecnico.Size = new System.Drawing.Size(211, 28);
+            this.cmbTecnico.TabIndex = 9;
+            // 
+            // cmbCliente
+            // 
+            this.cmbCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCliente.FormattingEnabled = true;
+            this.cmbCliente.ItemHeight = 20;
+            this.cmbCliente.Location = new System.Drawing.Point(107, 77);
+            this.cmbCliente.Name = "cmbCliente";
+            this.cmbCliente.Size = new System.Drawing.Size(211, 28);
+            this.cmbCliente.TabIndex = 9;
+            // 
             // cmbEstado
             // 
             this.cmbEstado.FormattingEnabled = true;
@@ -354,6 +476,16 @@
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox7.TabIndex = 26;
             this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(343, 123);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(30, 26);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 26;
+            this.pictureBox5.TabStop = false;
             // 
             // pictureBox3
             // 
@@ -394,6 +526,16 @@
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 26;
             this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(4, 120);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(30, 26);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 26;
+            this.pictureBox4.TabStop = false;
             // 
             // pictureBox2
             // 
@@ -446,6 +588,16 @@
             this.lblCodigo.TabIndex = 0;
             this.lblCodigo.Text = "Código:";
             // 
+            // lblServicio
+            // 
+            this.lblServicio.AutoSize = true;
+            this.lblServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblServicio.Location = new System.Drawing.Point(370, 126);
+            this.lblServicio.Name = "lblServicio";
+            this.lblServicio.Size = new System.Drawing.Size(72, 20);
+            this.lblServicio.TabIndex = 2;
+            this.lblServicio.Text = "Servicio";
+            // 
             // lblCorreo
             // 
             this.lblCorreo.AutoSize = true;
@@ -495,6 +647,16 @@
             this.lblObservaciones.Size = new System.Drawing.Size(127, 20);
             this.lblObservaciones.TabIndex = 2;
             this.lblObservaciones.Text = "Observaciones";
+            // 
+            // lblTecnico
+            // 
+            this.lblTecnico.AutoSize = true;
+            this.lblTecnico.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTecnico.Location = new System.Drawing.Point(31, 123);
+            this.lblTecnico.Name = "lblTecnico";
+            this.lblTecnico.Size = new System.Drawing.Size(76, 20);
+            this.lblTecnico.TabIndex = 2;
+            this.lblTecnico.Text = "Tecnico:";
             // 
             // lblTelefono
             // 
@@ -553,161 +715,6 @@
             this.dtGvDatos.Size = new System.Drawing.Size(1332, 271);
             this.dtGvDatos.TabIndex = 23;
             // 
-            // cmbCliente
-            // 
-            this.cmbCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCliente.FormattingEnabled = true;
-            this.cmbCliente.ItemHeight = 20;
-            this.cmbCliente.Location = new System.Drawing.Point(107, 77);
-            this.cmbCliente.Name = "cmbCliente";
-            this.cmbCliente.Size = new System.Drawing.Size(211, 28);
-            this.cmbCliente.TabIndex = 9;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.ItemHeight = 20;
-            this.comboBox2.Location = new System.Drawing.Point(460, 79);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(211, 28);
-            this.comboBox2.TabIndex = 9;
-            // 
-            // lblTecnico
-            // 
-            this.lblTecnico.AutoSize = true;
-            this.lblTecnico.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTecnico.Location = new System.Drawing.Point(31, 123);
-            this.lblTecnico.Name = "lblTecnico";
-            this.lblTecnico.Size = new System.Drawing.Size(76, 20);
-            this.lblTecnico.TabIndex = 2;
-            this.lblTecnico.Text = "Tecnico:";
-            // 
-            // lblServicio
-            // 
-            this.lblServicio.AutoSize = true;
-            this.lblServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblServicio.Location = new System.Drawing.Point(370, 126);
-            this.lblServicio.Name = "lblServicio";
-            this.lblServicio.Size = new System.Drawing.Size(72, 20);
-            this.lblServicio.TabIndex = 2;
-            this.lblServicio.Text = "Servicio";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(4, 120);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(30, 26);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 26;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(343, 123);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(30, 26);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 26;
-            this.pictureBox5.TabStop = false;
-            // 
-            // cmbTecnico
-            // 
-            this.cmbTecnico.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbTecnico.FormattingEnabled = true;
-            this.cmbTecnico.ItemHeight = 20;
-            this.cmbTecnico.Location = new System.Drawing.Point(107, 122);
-            this.cmbTecnico.Name = "cmbTecnico";
-            this.cmbTecnico.Size = new System.Drawing.Size(211, 28);
-            this.cmbTecnico.TabIndex = 9;
-            // 
-            // cmbServicio
-            // 
-            this.cmbServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbServicio.FormattingEnabled = true;
-            this.cmbServicio.ItemHeight = 20;
-            this.cmbServicio.Location = new System.Drawing.Point(463, 125);
-            this.cmbServicio.Name = "cmbServicio";
-            this.cmbServicio.Size = new System.Drawing.Size(156, 28);
-            this.cmbServicio.TabIndex = 9;
-            // 
-            // btnAgregarServicio
-            // 
-            this.btnAgregarServicio.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnAgregarServicio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAgregarServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)), true);
-            this.btnAgregarServicio.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnAgregarServicio.Location = new System.Drawing.Point(625, 120);
-            this.btnAgregarServicio.Name = "btnAgregarServicio";
-            this.btnAgregarServicio.Size = new System.Drawing.Size(46, 35);
-            this.btnAgregarServicio.TabIndex = 27;
-            this.btnAgregarServicio.Text = "+";
-            this.btnAgregarServicio.UseVisualStyleBackColor = false;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(107, 170);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 26);
-            this.dateTimePicker1.TabIndex = 28;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(462, 171);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(209, 26);
-            this.dateTimePicker2.TabIndex = 29;
-            // 
-            // customPanel1
-            // 
-            this.customPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.customPanel1.BorderRadius = 20;
-            this.customPanel1.Controls.Add(this.btnEliminarServicio);
-            this.customPanel1.Controls.Add(this.dataGridView1);
-            this.customPanel1.Controls.Add(this.lblResumen);
-            this.customPanel1.Location = new System.Drawing.Point(1078, 5);
-            this.customPanel1.Name = "customPanel1";
-            this.customPanel1.Size = new System.Drawing.Size(251, 321);
-            this.customPanel1.TabIndex = 33;
-            // 
-            // lblResumen
-            // 
-            this.lblResumen.AutoSize = true;
-            this.lblResumen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResumen.Location = new System.Drawing.Point(19, 19);
-            this.lblResumen.Name = "lblResumen";
-            this.lblResumen.Size = new System.Drawing.Size(82, 20);
-            this.lblResumen.TabIndex = 0;
-            this.lblResumen.Text = "Resumen:";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 142);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(245, 168);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // btnEliminarServicio
-            // 
-            this.btnEliminarServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarServicio.Location = new System.Drawing.Point(3, 107);
-            this.btnEliminarServicio.Name = "btnEliminarServicio";
-            this.btnEliminarServicio.Size = new System.Drawing.Size(239, 29);
-            this.btnEliminarServicio.TabIndex = 2;
-            this.btnEliminarServicio.Text = "Eliminar Servicio Seleccionado";
-            this.btnEliminarServicio.UseVisualStyleBackColor = true;
-            // 
             // frmCitas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -716,10 +723,15 @@
             this.Controls.Add(this.cstmPnlDato);
             this.Controls.Add(this.pnlMenus);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(1348, 642);
             this.MinimumSize = new System.Drawing.Size(1348, 642);
             this.Name = "frmCitas";
-            this.Text = "frmCitas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Citas";
             this.pnlMenus.ResumeLayout(false);
+            this.customPanel1.ResumeLayout(false);
+            this.customPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgServiciosAgregados)).EndInit();
             this.cpBusquedas.ResumeLayout(false);
             this.cpBusquedas.PerformLayout();
             this.gbValorABuscar.ResumeLayout(false);
@@ -730,19 +742,16 @@
             this.cstmPnlDatosCliente.ResumeLayout(false);
             this.cstmPnlDatosCliente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.cstmPnlDato.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtGvDatos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.customPanel1.ResumeLayout(false);
-            this.customPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -751,17 +760,17 @@
 
         private System.Windows.Forms.Panel pnlMenus;
         private CustomPanel cpBusquedas;
-        private CustomButton btnBuscarCliente;
+        private CustomButton btnBuscar;
         private System.Windows.Forms.GroupBox gbValorABuscar;
         private System.Windows.Forms.TextBox txtValorAbuscar;
         private System.Windows.Forms.GroupBox gbValorDeBusqueda;
         private System.Windows.Forms.ComboBox cmbValoresDeBusqueda;
         private System.Windows.Forms.Label lblBusquedas;
         private CustomPanel cpAccionesRapidas;
-        private CustomButton btnEliminarCliente;
+        private CustomButton btnEliminar;
         private CustomButton btnLimpiar;
-        private CustomButton btnModificarCliente;
-        private CustomButton bntNuevoCliente;
+        private CustomButton btnModificar;
+        private CustomButton bntNuevo;
         private System.Windows.Forms.Label lblAccionesRapidas;
         private CustomPanel cstmPnlDatosCliente;
         private System.Windows.Forms.ComboBox cmbEstado;
@@ -796,7 +805,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private CustomPanel customPanel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgServiciosAgregados;
         private System.Windows.Forms.Label lblResumen;
         private System.Windows.Forms.Button btnEliminarServicio;
     }

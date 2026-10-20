@@ -22,6 +22,7 @@ namespace AutoCare_R_J.Formularios
         private clsManejadorEmpleados listaEmpleados;
 
         private clsManejadorRepuestos listaRepuestos;
+        private clsManejadorCitas listaCitas;
 
 
 
@@ -31,6 +32,7 @@ namespace AutoCare_R_J.Formularios
             listaClientes = new clsManejadorClientes();
             listaEmpleados = new clsManejadorEmpleados();
             listaRepuestos = new clsManejadorRepuestos();
+            listaCitas = new clsManejadorCitas();
 
             InitializeComponent();
         }
@@ -136,6 +138,20 @@ namespace AutoCare_R_J.Formularios
             }
         }
 
+        private void btnCitas_Click(object sender, EventArgs e)
+        {
+            if (!FormularioAbierto("frmCitas"))
+            {
+                clsManejadorVehiculos listaVehiculos = new clsManejadorVehiculos(); //linea temporal hay que borrarla
+                frmCitas ventanaCitas = new frmCitas();
+                ventanaCitas.asignarListas(ref listaCitas, ref listaClientes, ref listaVehiculos, ref listaEmpleados);
+                ventanaCitas.MdiParent = this;
+                ventanaCitas.Show();
+            }
+        }
+
         #endregion
+
+
     }
 }

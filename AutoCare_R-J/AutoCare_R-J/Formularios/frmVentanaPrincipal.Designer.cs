@@ -188,6 +188,7 @@
             this.btnCitas.Size = new System.Drawing.Size(100, 100);
             this.btnCitas.TabIndex = 0;
             this.btnCitas.UseVisualStyleBackColor = true;
+            this.btnCitas.Click += new System.EventHandler(this.btnCitas_Click);
             // 
             // tbpConsultasYReportes
             // 
