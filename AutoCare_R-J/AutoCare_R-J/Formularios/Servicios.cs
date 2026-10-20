@@ -11,23 +11,51 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AutoCare_R_J.Formularios
+
 {
+
     public partial class Servicios : Form
+
     {
-        private readonly clsManejadorServicios manejadorServicios = new clsManejadorServicios();
+
+        private clsManejadorServicios manejadorServicios;
+
 
         public Servicios()
+
         {
+
             InitializeComponent();
 
+            manejadorServicios = new clsManejadorServicios();
+            MetodosGlobales.CargarGrid(dgvServicios, manejadorServicios.ListarServicios());
+
+
             //desabilitar el botón de limpiar campo al inicio
+
             MetodosGlobales.DeshabilitarBoton(btnLimpiarCampos);
 
+
             //desabilitar el botón de eliminar al inicio
+
             MetodosGlobales.DeshabilitarBoton(btnEliminar);
 
+
             //desabilitar el botón de modificar al inicio
+
             MetodosGlobales.DeshabilitarBoton(btnModificar);
+
+        }
+
+        internal void CargarManejador(clsManejadorServicios pManejador)
+        {
+            manejadorServicios = pManejador; // Asigna el manejador que viene desde la ventana principal por referencia
+
+            // Carga el grid con la lista compartida de la ventana principal
+            MetodosGlobales.CargarGrid(dgvServicios, manejadorServicios.ListarServicios());
+
+            // Actualiza el siguiente código
+            tbxCodigo.Text = manejadorServicios.ObtenerSiguienteCodigo();
         }
 
 

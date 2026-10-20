@@ -154,39 +154,15 @@
             this.tbpCitas.UseVisualStyleBackColor = true;
             // 
             // btnFacturas
-            // 
-            this.btnFacturas.BackgroundImage = global::AutoCare_R_J.Properties.Resources.facturacion;
-            this.btnFacturas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnFacturas.Location = new System.Drawing.Point(209, 2);
-            this.btnFacturas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnFacturas.Name = "btnFacturas";
-            this.btnFacturas.Size = new System.Drawing.Size(100, 100);
-            this.btnFacturas.TabIndex = 2;
-            this.btnFacturas.UseVisualStyleBackColor = true;
+
             this.btnFacturas.Click += new System.EventHandler(this.btnFacturas_Click);
             // 
             // btnOrdenesDeTrabajo
-            // 
-            this.btnOrdenesDeTrabajo.BackgroundImage = global::AutoCare_R_J.Properties.Resources.ordenes;
-            this.btnOrdenesDeTrabajo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnOrdenesDeTrabajo.Location = new System.Drawing.Point(106, 2);
-            this.btnOrdenesDeTrabajo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnOrdenesDeTrabajo.Name = "btnOrdenesDeTrabajo";
-            this.btnOrdenesDeTrabajo.Size = new System.Drawing.Size(100, 100);
-            this.btnOrdenesDeTrabajo.TabIndex = 1;
-            this.btnOrdenesDeTrabajo.UseVisualStyleBackColor = true;
-            this.btnOrdenesDeTrabajo.Click += new System.EventHandler(this.btnOrdenesDeTrabajo_Click);
+
             // 
             // btnCitas
             // 
-            this.btnCitas.BackgroundImage = global::AutoCare_R_J.Properties.Resources.citas;
-            this.btnCitas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnCitas.Location = new System.Drawing.Point(2, 2);
-            this.btnCitas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnCitas.Name = "btnCitas";
-            this.btnCitas.Size = new System.Drawing.Size(100, 100);
-            this.btnCitas.TabIndex = 0;
-            this.btnCitas.UseVisualStyleBackColor = true;
+
             // 
             // tbpConsultasYReportes
             // 

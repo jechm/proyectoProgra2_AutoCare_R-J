@@ -93,9 +93,7 @@
     <Compile Include="Formularios\frmVehiculos.Designer.cs">
       <DependentUpon>frmVehiculos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frmVentanaPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Formularios\frmVentanaPrincipal.cs" />
     <Compile Include="Formularios\frmVentanaPrincipal.Designer.cs">
       <DependentUpon>frmVentanaPrincipal.cs</DependentUpon>
     </Compile>
