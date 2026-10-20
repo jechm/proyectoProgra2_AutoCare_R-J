@@ -33,16 +33,14 @@
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.tbCtrlCintaDeOpciones = new System.Windows.Forms.TabControl();
             this.tbpConfiguracionYMantenimiento = new System.Windows.Forms.TabPage();
+            this.tbpCitas = new System.Windows.Forms.TabPage();
+            this.tbpConsultasYReportes = new System.Windows.Forms.TabPage();
             this.btnRepuestos = new System.Windows.Forms.Button();
             this.btnServicios = new System.Windows.Forms.Button();
             this.btnEmpleados = new System.Windows.Forms.Button();
             this.btnVehiculos = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
-            this.tbpCitas = new System.Windows.Forms.TabPage();
-            this.btnFacturas = new System.Windows.Forms.Button();
-            this.btnOrdenesDeTrabajo = new System.Windows.Forms.Button();
-            this.btnCitas = new System.Windows.Forms.Button();
-            this.tbpConsultasYReportes = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
             this.tbCtrlCintaDeOpciones.SuspendLayout();
             this.tbpConfiguracionYMantenimiento.SuspendLayout();
@@ -80,11 +78,31 @@
             this.tbpConfiguracionYMantenimiento.Location = new System.Drawing.Point(4, 22);
             this.tbpConfiguracionYMantenimiento.Margin = new System.Windows.Forms.Padding(100, 3, 3, 3);
             this.tbpConfiguracionYMantenimiento.Name = "tbpConfiguracionYMantenimiento";
-            this.tbpConfiguracionYMantenimiento.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tbpConfiguracionYMantenimiento.Padding = new System.Windows.Forms.Padding(3);
             this.tbpConfiguracionYMantenimiento.Size = new System.Drawing.Size(921, 104);
             this.tbpConfiguracionYMantenimiento.TabIndex = 0;
             this.tbpConfiguracionYMantenimiento.Text = "Configuracion y Mantenimiento";
             this.tbpConfiguracionYMantenimiento.UseVisualStyleBackColor = true;
+            // 
+            // tbpCitas
+            // 
+            this.tbpCitas.Controls.Add(this.button1);
+            this.tbpCitas.Location = new System.Drawing.Point(4, 22);
+            this.tbpCitas.Name = "tbpCitas";
+            this.tbpCitas.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpCitas.Size = new System.Drawing.Size(921, 104);
+            this.tbpCitas.TabIndex = 1;
+            this.tbpCitas.Text = "Transacciones";
+            this.tbpCitas.UseVisualStyleBackColor = true;
+            // 
+            // tbpConsultasYReportes
+            // 
+            this.tbpConsultasYReportes.Location = new System.Drawing.Point(4, 22);
+            this.tbpConsultasYReportes.Name = "tbpConsultasYReportes";
+            this.tbpConsultasYReportes.Size = new System.Drawing.Size(921, 104);
+            this.tbpConsultasYReportes.TabIndex = 2;
+            this.tbpConsultasYReportes.Text = "Consultas y Reportes";
+            this.tbpConsultasYReportes.UseVisualStyleBackColor = true;
             // 
             // btnRepuestos
             // 
@@ -140,38 +158,15 @@
             this.btnClientes.UseVisualStyleBackColor = true;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
-            // tbpCitas
+            // button1
             // 
-            this.tbpCitas.Controls.Add(this.btnFacturas);
-            this.tbpCitas.Controls.Add(this.btnOrdenesDeTrabajo);
-            this.tbpCitas.Controls.Add(this.btnCitas);
-            this.tbpCitas.Location = new System.Drawing.Point(4, 22);
-            this.tbpCitas.Name = "tbpCitas";
-            this.tbpCitas.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tbpCitas.Size = new System.Drawing.Size(921, 104);
-            this.tbpCitas.TabIndex = 1;
-            this.tbpCitas.Text = "Transacciones";
-            this.tbpCitas.UseVisualStyleBackColor = true;
-            // 
-            // btnFacturas
-
-            this.btnFacturas.Click += new System.EventHandler(this.btnFacturas_Click);
-            // 
-            // btnOrdenesDeTrabajo
-
-            // 
-            // btnCitas
-            // 
-
-            // 
-            // tbpConsultasYReportes
-            // 
-            this.tbpConsultasYReportes.Location = new System.Drawing.Point(4, 22);
-            this.tbpConsultasYReportes.Name = "tbpConsultasYReportes";
-            this.tbpConsultasYReportes.Size = new System.Drawing.Size(921, 104);
-            this.tbpConsultasYReportes.TabIndex = 2;
-            this.tbpConsultasYReportes.Text = "Consultas y Reportes";
-            this.tbpConsultasYReportes.UseVisualStyleBackColor = true;
+            this.button1.BackgroundImage = global::AutoCare_R_J.Properties.Resources.Botón_de_Facturas_Aprobadas1;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 100);
+            this.button1.TabIndex = 3;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // frmVentanaPrincipal
             // 
@@ -206,8 +201,6 @@
         private System.Windows.Forms.Button btnServicios;
         private System.Windows.Forms.Button btnVehiculos;
         private System.Windows.Forms.Button btnRepuestos;
-        private System.Windows.Forms.Button btnFacturas;
-        private System.Windows.Forms.Button btnOrdenesDeTrabajo;
-        private System.Windows.Forms.Button btnCitas;
+        private System.Windows.Forms.Button button1;
     }
 }

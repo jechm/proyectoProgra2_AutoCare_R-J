@@ -40,30 +40,30 @@
             this.btnAgregar = new AutoCare_R_J.CustomButton();
             this.lblAccionesRapidas = new System.Windows.Forms.Label();
             this.customPanel1 = new AutoCare_R_J.CustomPanel();
+            this.cbxServicio = new System.Windows.Forms.ComboBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbxDescripcion = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cbxRepuesto = new System.Windows.Forms.ComboBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbxVehiculo = new System.Windows.Forms.ComboBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxDescuento = new System.Windows.Forms.ComboBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblDescuento = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tbxCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.lblDatosServicio = new System.Windows.Forms.Label();
             this.cpFiltros = new AutoCare_R_J.CustomPanel();
-            this.dgvServicios = new System.Windows.Forms.DataGridView();
+            this.dgvFacturas = new System.Windows.Forms.DataGridView();
             this.cpBusquedas.SuspendLayout();
             this.gbBuscCod.SuspendLayout();
             this.cpAccionesRapidas.SuspendLayout();
@@ -75,7 +75,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFacturas)).BeginInit();
             this.SuspendLayout();
             // 
             // cpBusquedas
@@ -223,56 +223,66 @@
             // 
             this.customPanel1.BackColor = System.Drawing.Color.Transparent;
             this.customPanel1.BorderRadius = 20;
+            this.customPanel1.Controls.Add(this.cbxServicio);
             this.customPanel1.Controls.Add(this.pictureBox7);
-            this.customPanel1.Controls.Add(this.textBox2);
+            this.customPanel1.Controls.Add(this.tbxDescripcion);
             this.customPanel1.Controls.Add(this.label5);
-            this.customPanel1.Controls.Add(this.comboBox3);
+            this.customPanel1.Controls.Add(this.cbxRepuesto);
             this.customPanel1.Controls.Add(this.pictureBox5);
             this.customPanel1.Controls.Add(this.label4);
-            this.customPanel1.Controls.Add(this.comboBox2);
+            this.customPanel1.Controls.Add(this.cbxVehiculo);
             this.customPanel1.Controls.Add(this.pictureBox4);
             this.customPanel1.Controls.Add(this.label3);
-            this.customPanel1.Controls.Add(this.dateTimePicker1);
+            this.customPanel1.Controls.Add(this.dtpFecha);
             this.customPanel1.Controls.Add(this.pictureBox3);
             this.customPanel1.Controls.Add(this.label2);
-            this.customPanel1.Controls.Add(this.comboBox1);
+            this.customPanel1.Controls.Add(this.cbxDescuento);
             this.customPanel1.Controls.Add(this.pictureBox2);
             this.customPanel1.Controls.Add(this.lblDescuento);
             this.customPanel1.Controls.Add(this.pictureBox6);
-            this.customPanel1.Controls.Add(this.textBox1);
             this.customPanel1.Controls.Add(this.label1);
             this.customPanel1.Controls.Add(this.pictureBox1);
             this.customPanel1.Controls.Add(this.tbxCodigo);
             this.customPanel1.Controls.Add(this.lblCodigo);
             this.customPanel1.Controls.Add(this.lblDatosServicio);
             this.customPanel1.Location = new System.Drawing.Point(9, 2);
-            this.customPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.customPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.customPanel1.Name = "customPanel1";
             this.customPanel1.Size = new System.Drawing.Size(455, 328);
             this.customPanel1.TabIndex = 33;
             this.customPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.customPanel1_Paint);
             // 
+            // cbxServicio
+            // 
+            this.cbxServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxServicio.FormattingEnabled = true;
+            this.cbxServicio.Location = new System.Drawing.Point(125, 59);
+            this.cbxServicio.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxServicio.Name = "cbxServicio";
+            this.cbxServicio.Size = new System.Drawing.Size(272, 28);
+            this.cbxServicio.TabIndex = 51;
+            // 
             // pictureBox7
             // 
             this.pictureBox7.Image = global::AutoCare_R_J.Properties.Resources.servicio;
             this.pictureBox7.Location = new System.Drawing.Point(6, 225);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(22, 21);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox7.TabIndex = 50;
             this.pictureBox7.TabStop = false;
             // 
-            // textBox2
+            // tbxDescripcion
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(144, 222);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(295, 92);
-            this.textBox2.TabIndex = 49;
+            this.tbxDescripcion.Enabled = false;
+            this.tbxDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxDescripcion.Location = new System.Drawing.Point(144, 222);
+            this.tbxDescripcion.Margin = new System.Windows.Forms.Padding(2);
+            this.tbxDescripcion.Multiline = true;
+            this.tbxDescripcion.Name = "tbxDescripcion";
+            this.tbxDescripcion.Size = new System.Drawing.Size(295, 92);
+            this.tbxDescripcion.TabIndex = 49;
             // 
             // label5
             // 
@@ -286,21 +296,21 @@
             this.label5.TabIndex = 48;
             this.label5.Text = "Descripción:";
             // 
-            // comboBox3
+            // cbxRepuesto
             // 
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(125, 188);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(257, 28);
-            this.comboBox3.TabIndex = 47;
+            this.cbxRepuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxRepuesto.FormattingEnabled = true;
+            this.cbxRepuesto.Location = new System.Drawing.Point(125, 188);
+            this.cbxRepuesto.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxRepuesto.Name = "cbxRepuesto";
+            this.cbxRepuesto.Size = new System.Drawing.Size(257, 28);
+            this.cbxRepuesto.TabIndex = 47;
             // 
             // pictureBox5
             // 
             this.pictureBox5.Image = global::AutoCare_R_J.Properties.Resources.repuesto;
             this.pictureBox5.Location = new System.Drawing.Point(6, 195);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(22, 21);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -319,21 +329,21 @@
             this.label4.TabIndex = 45;
             this.label4.Text = "Repuesto:";
             // 
-            // comboBox2
+            // cbxVehiculo
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(110, 153);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(272, 28);
-            this.comboBox2.TabIndex = 44;
+            this.cbxVehiculo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxVehiculo.FormattingEnabled = true;
+            this.cbxVehiculo.Location = new System.Drawing.Point(110, 153);
+            this.cbxVehiculo.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxVehiculo.Name = "cbxVehiculo";
+            this.cbxVehiculo.Size = new System.Drawing.Size(272, 28);
+            this.cbxVehiculo.TabIndex = 44;
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = global::AutoCare_R_J.Properties.Resources.coche;
             this.pictureBox4.Location = new System.Drawing.Point(6, 160);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(22, 21);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -352,20 +362,20 @@
             this.label3.TabIndex = 42;
             this.label3.Text = "Vehiculo:";
             // 
-            // dateTimePicker1
+            // dtpFecha
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(100, 122);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(282, 26);
-            this.dateTimePicker1.TabIndex = 41;
+            this.dtpFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFecha.Location = new System.Drawing.Point(100, 122);
+            this.dtpFecha.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(282, 26);
+            this.dtpFecha.TabIndex = 41;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::AutoCare_R_J.Properties.Resources.calendario;
             this.pictureBox3.Location = new System.Drawing.Point(6, 126);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(22, 21);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -384,26 +394,26 @@
             this.label2.TabIndex = 37;
             this.label2.Text = "Fecha:";
             // 
-            // comboBox1
+            // cbxDescuento
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbxDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxDescuento.FormattingEnabled = true;
+            this.cbxDescuento.Items.AddRange(new object[] {
             "5%",
             "10%",
             "15%",
             "20%"});
-            this.comboBox1.Location = new System.Drawing.Point(136, 90);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(64, 28);
-            this.comboBox1.TabIndex = 36;
+            this.cbxDescuento.Location = new System.Drawing.Point(136, 90);
+            this.cbxDescuento.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxDescuento.Name = "cbxDescuento";
+            this.cbxDescuento.Size = new System.Drawing.Size(64, 28);
+            this.cbxDescuento.TabIndex = 36;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::AutoCare_R_J.Properties.Resources.descuento;
             this.pictureBox2.Location = new System.Drawing.Point(6, 92);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(22, 21);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -426,22 +436,12 @@
             // 
             this.pictureBox6.Image = global::AutoCare_R_J.Properties.Resources.servicio;
             this.pictureBox6.Location = new System.Drawing.Point(6, 64);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(22, 21);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 32;
             this.pictureBox6.TabStop = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(113, 60);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(269, 26);
-            this.textBox1.TabIndex = 31;
             // 
             // label1
             // 
@@ -459,7 +459,7 @@
             // 
             this.pictureBox1.Image = global::AutoCare_R_J.Properties.Resources.escanear;
             this.pictureBox1.Location = new System.Drawing.Point(6, 35);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(22, 21);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -471,7 +471,7 @@
             this.tbxCodigo.Enabled = false;
             this.tbxCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxCodigo.Location = new System.Drawing.Point(100, 30);
-            this.tbxCodigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxCodigo.Margin = new System.Windows.Forms.Padding(2);
             this.tbxCodigo.Name = "tbxCodigo";
             this.tbxCodigo.Size = new System.Drawing.Size(87, 26);
             this.tbxCodigo.TabIndex = 28;
@@ -504,24 +504,24 @@
             this.cpFiltros.BackColor = System.Drawing.Color.Transparent;
             this.cpFiltros.BorderRadius = 20;
             this.cpFiltros.Location = new System.Drawing.Point(7, 334);
-            this.cpFiltros.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cpFiltros.Margin = new System.Windows.Forms.Padding(2);
             this.cpFiltros.Name = "cpFiltros";
             this.cpFiltros.Size = new System.Drawing.Size(845, 57);
             this.cpFiltros.TabIndex = 35;
             // 
-            // dgvServicios
+            // dgvFacturas
             // 
-            this.dgvServicios.AllowUserToAddRows = false;
-            this.dgvServicios.AllowUserToDeleteRows = false;
-            this.dgvServicios.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgvServicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvServicios.Location = new System.Drawing.Point(8, 395);
-            this.dgvServicios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dgvServicios.MultiSelect = false;
-            this.dgvServicios.Name = "dgvServicios";
-            this.dgvServicios.ReadOnly = true;
-            this.dgvServicios.Size = new System.Drawing.Size(845, 205);
-            this.dgvServicios.TabIndex = 36;
+            this.dgvFacturas.AllowUserToAddRows = false;
+            this.dgvFacturas.AllowUserToDeleteRows = false;
+            this.dgvFacturas.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFacturas.Location = new System.Drawing.Point(8, 395);
+            this.dgvFacturas.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvFacturas.MultiSelect = false;
+            this.dgvFacturas.Name = "dgvFacturas";
+            this.dgvFacturas.ReadOnly = true;
+            this.dgvFacturas.Size = new System.Drawing.Size(845, 205);
+            this.dgvFacturas.TabIndex = 36;
             // 
             // frmFacturas
             // 
@@ -529,7 +529,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(864, 611);
-            this.Controls.Add(this.dgvServicios);
+            this.Controls.Add(this.dgvFacturas);
             this.Controls.Add(this.cpFiltros);
             this.Controls.Add(this.customPanel1);
             this.Controls.Add(this.cpBusquedas);
@@ -537,6 +537,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmFacturas";
             this.Text = "Facturas";
+            this.Load += new System.EventHandler(this.frmFacturas_Load);
             this.cpBusquedas.ResumeLayout(false);
             this.cpBusquedas.PerformLayout();
             this.gbBuscCod.ResumeLayout(false);
@@ -552,7 +553,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFacturas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -572,27 +573,27 @@
         private CustomPanel customPanel1;
         private System.Windows.Forms.Label lblDatosServicio;
         private CustomPanel cpFiltros;
-        private System.Windows.Forms.DataGridView dgvServicios;
+        private System.Windows.Forms.DataGridView dgvFacturas;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox tbxCodigo;
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblDescuento;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbxVehiculo;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cbxDescuento;
+        private System.Windows.Forms.ComboBox cbxRepuesto;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbxDescripcion;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbxServicio;
     }
 }
