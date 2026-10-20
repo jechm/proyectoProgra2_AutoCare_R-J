@@ -34,26 +34,26 @@
             this.cbxTipo = new System.Windows.Forms.ComboBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.tbxAnio = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.tbxModelo = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.tbxMarca = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.tbxColor = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tbxPlaca = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tbxPropietario = new System.Windows.Forms.TextBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblDatosVehiculo = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tbxCodigo = new System.Windows.Forms.TextBox();
@@ -77,11 +77,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.cpAccionesRapidas.SuspendLayout();
             this.cpBusquedas.SuspendLayout();
@@ -132,21 +132,12 @@
             this.cbxEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxEstado.FormattingEnabled = true;
             this.cbxEstado.Items.AddRange(new object[] {
-            "Motocicleta",
-            "Auto",
-            "Camion",
-            "camioneta",
-            "Motoneta",
-            "Bicicleta",
-            "Patin",
-            "Mono patin",
-            "Avion",
-            "Helicoptero",
-            "Tanque",
-            "Ovni",
-            "Submarino"});
+            "Activo",
+            "En Mantenimiento",
+            "Fuera de Servicio",
+            "De Baja"});
             this.cbxEstado.Location = new System.Drawing.Point(134, 132);
-            this.cbxEstado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxEstado.Margin = new System.Windows.Forms.Padding(2);
             this.cbxEstado.Name = "cbxEstado";
             this.cbxEstado.Size = new System.Drawing.Size(118, 28);
             this.cbxEstado.TabIndex = 55;
@@ -170,7 +161,7 @@
             "Ovni",
             "Submarino"});
             this.cbxTipo.Location = new System.Drawing.Point(134, 260);
-            this.cbxTipo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxTipo.Margin = new System.Windows.Forms.Padding(2);
             this.cbxTipo.Name = "cbxTipo";
             this.cbxTipo.Size = new System.Drawing.Size(118, 28);
             this.cbxTipo.TabIndex = 54;
@@ -179,7 +170,7 @@
             // 
             this.pictureBox9.Image = global::AutoCare_R_J.Properties.Resources.calendario;
             this.pictureBox9.Location = new System.Drawing.Point(16, 293);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(30, 26);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -188,13 +179,21 @@
             // 
             // tbxAnio
             // 
-            this.tbxAnio.Enabled = false;
             this.tbxAnio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxAnio.Location = new System.Drawing.Point(134, 293);
-            this.tbxAnio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxAnio.Margin = new System.Windows.Forms.Padding(2);
             this.tbxAnio.Name = "tbxAnio";
             this.tbxAnio.Size = new System.Drawing.Size(113, 26);
             this.tbxAnio.TabIndex = 52;
+            // 
+            // tbxModelo
+            // 
+            this.tbxModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxModelo.Location = new System.Drawing.Point(134, 230);
+            this.tbxModelo.Margin = new System.Windows.Forms.Padding(2);
+            this.tbxModelo.Name = "tbxModelo";
+            this.tbxModelo.Size = new System.Drawing.Size(113, 26);
+            this.tbxModelo.TabIndex = 46;
             // 
             // label8
             // 
@@ -207,15 +206,32 @@
             this.label8.TabIndex = 51;
             this.label8.Text = "Año:";
             // 
-            // pictureBox8
+            // tbxMarca
             // 
-            this.pictureBox8.Image = global::AutoCare_R_J.Properties.Resources.cliente;
-            this.pictureBox8.Location = new System.Drawing.Point(16, 230);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(30, 26);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 50;
-            this.pictureBox8.TabStop = false;
+            this.tbxMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxMarca.Location = new System.Drawing.Point(134, 198);
+            this.tbxMarca.Margin = new System.Windows.Forms.Padding(2);
+            this.tbxMarca.Name = "tbxMarca";
+            this.tbxMarca.Size = new System.Drawing.Size(113, 26);
+            this.tbxMarca.TabIndex = 43;
+            // 
+            // tbxColor
+            // 
+            this.tbxColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxColor.Location = new System.Drawing.Point(134, 166);
+            this.tbxColor.Margin = new System.Windows.Forms.Padding(2);
+            this.tbxColor.Name = "tbxColor";
+            this.tbxColor.Size = new System.Drawing.Size(113, 26);
+            this.tbxColor.TabIndex = 40;
+            // 
+            // tbxPlaca
+            // 
+            this.tbxPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxPlaca.Location = new System.Drawing.Point(134, 102);
+            this.tbxPlaca.Margin = new System.Windows.Forms.Padding(2);
+            this.tbxPlaca.Name = "tbxPlaca";
+            this.tbxPlaca.Size = new System.Drawing.Size(113, 26);
+            this.tbxPlaca.TabIndex = 34;
             // 
             // label7
             // 
@@ -229,6 +245,16 @@
             this.label7.TabIndex = 48;
             this.label7.Text = "Tipo:";
             // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::AutoCare_R_J.Properties.Resources.cliente;
+            this.pictureBox8.Location = new System.Drawing.Point(16, 230);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(30, 26);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 50;
+            this.pictureBox8.TabStop = false;
+            // 
             // pictureBox7
             // 
             this.pictureBox7.Image = global::AutoCare_R_J.Properties.Resources.modelado_3d;
@@ -239,15 +265,15 @@
             this.pictureBox7.TabIndex = 47;
             this.pictureBox7.TabStop = false;
             // 
-            // tbxModelo
+            // pictureBox2
             // 
-            this.tbxModelo.Enabled = false;
-            this.tbxModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxModelo.Location = new System.Drawing.Point(134, 230);
-            this.tbxModelo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbxModelo.Name = "tbxModelo";
-            this.tbxModelo.Size = new System.Drawing.Size(113, 26);
-            this.tbxModelo.TabIndex = 46;
+            this.pictureBox2.Image = global::AutoCare_R_J.Properties.Resources.usuario;
+            this.pictureBox2.Location = new System.Drawing.Point(16, 70);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(30, 26);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 32;
+            this.pictureBox2.TabStop = false;
             // 
             // label6
             // 
@@ -261,25 +287,35 @@
             this.label6.TabIndex = 45;
             this.label6.Text = "Modelo:";
             // 
-            // pictureBox6
+            // pictureBox3
             // 
-            this.pictureBox6.Image = global::AutoCare_R_J.Properties.Resources.marca_comercial;
-            this.pictureBox6.Location = new System.Drawing.Point(16, 198);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(30, 26);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 44;
-            this.pictureBox6.TabStop = false;
+            this.pictureBox3.Image = global::AutoCare_R_J.Properties.Resources.placa;
+            this.pictureBox3.Location = new System.Drawing.Point(16, 102);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(30, 26);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 35;
+            this.pictureBox3.TabStop = false;
             // 
-            // tbxMarca
+            // tbxPropietario
             // 
-            this.tbxMarca.Enabled = false;
-            this.tbxMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxMarca.Location = new System.Drawing.Point(134, 198);
-            this.tbxMarca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbxMarca.Name = "tbxMarca";
-            this.tbxMarca.Size = new System.Drawing.Size(113, 26);
-            this.tbxMarca.TabIndex = 43;
+            this.tbxPropietario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxPropietario.Location = new System.Drawing.Point(156, 70);
+            this.tbxPropietario.Margin = new System.Windows.Forms.Padding(2);
+            this.tbxPropietario.Name = "tbxPropietario";
+            this.tbxPropietario.Size = new System.Drawing.Size(196, 26);
+            this.tbxPropietario.TabIndex = 31;
+            this.tbxPropietario.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::AutoCare_R_J.Properties.Resources.cambios_de_humor;
+            this.pictureBox4.Location = new System.Drawing.Point(16, 134);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(30, 26);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 38;
+            this.pictureBox4.TabStop = false;
             // 
             // label5
             // 
@@ -293,25 +329,15 @@
             this.label5.TabIndex = 42;
             this.label5.Text = "Marca:";
             // 
-            // pictureBox5
+            // pictureBox6
             // 
-            this.pictureBox5.Image = global::AutoCare_R_J.Properties.Resources.paleta_de_color;
-            this.pictureBox5.Location = new System.Drawing.Point(16, 166);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(30, 26);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 41;
-            this.pictureBox5.TabStop = false;
-            // 
-            // tbxColor
-            // 
-            this.tbxColor.Enabled = false;
-            this.tbxColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxColor.Location = new System.Drawing.Point(134, 166);
-            this.tbxColor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbxColor.Name = "tbxColor";
-            this.tbxColor.Size = new System.Drawing.Size(113, 26);
-            this.tbxColor.TabIndex = 40;
+            this.pictureBox6.Image = global::AutoCare_R_J.Properties.Resources.marca_comercial;
+            this.pictureBox6.Location = new System.Drawing.Point(16, 198);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(30, 26);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 44;
+            this.pictureBox6.TabStop = false;
             // 
             // label4
             // 
@@ -325,16 +351,6 @@
             this.label4.TabIndex = 39;
             this.label4.Text = "Color:";
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::AutoCare_R_J.Properties.Resources.cambios_de_humor;
-            this.pictureBox4.Location = new System.Drawing.Point(16, 134);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(30, 26);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 38;
-            this.pictureBox4.TabStop = false;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -346,59 +362,6 @@
             this.label3.Size = new System.Drawing.Size(71, 20);
             this.label3.TabIndex = 36;
             this.label3.Text = "Estado:";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::AutoCare_R_J.Properties.Resources.placa;
-            this.pictureBox3.Location = new System.Drawing.Point(16, 102);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(30, 26);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 35;
-            this.pictureBox3.TabStop = false;
-            // 
-            // tbxPlaca
-            // 
-            this.tbxPlaca.Enabled = false;
-            this.tbxPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxPlaca.Location = new System.Drawing.Point(134, 102);
-            this.tbxPlaca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbxPlaca.Name = "tbxPlaca";
-            this.tbxPlaca.Size = new System.Drawing.Size(113, 26);
-            this.tbxPlaca.TabIndex = 34;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(51, 108);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 20);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "Placa:";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::AutoCare_R_J.Properties.Resources.usuario;
-            this.pictureBox2.Location = new System.Drawing.Point(16, 70);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(30, 26);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 32;
-            this.pictureBox2.TabStop = false;
-            // 
-            // tbxPropietario
-            // 
-            this.tbxPropietario.Enabled = false;
-            this.tbxPropietario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxPropietario.Location = new System.Drawing.Point(156, 70);
-            this.tbxPropietario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbxPropietario.Name = "tbxPropietario";
-            this.tbxPropietario.Size = new System.Drawing.Size(196, 26);
-            this.tbxPropietario.TabIndex = 31;
-            this.tbxPropietario.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -412,6 +375,28 @@
             this.label1.TabIndex = 30;
             this.label1.Text = "Propietario:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::AutoCare_R_J.Properties.Resources.paleta_de_color;
+            this.pictureBox5.Location = new System.Drawing.Point(16, 166);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(30, 26);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 41;
+            this.pictureBox5.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Location = new System.Drawing.Point(51, 108);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 20);
+            this.label2.TabIndex = 33;
+            this.label2.Text = "Placa:";
             // 
             // lblDatosVehiculo
             // 
@@ -439,7 +424,7 @@
             this.tbxCodigo.Enabled = false;
             this.tbxCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxCodigo.Location = new System.Drawing.Point(134, 41);
-            this.tbxCodigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxCodigo.Margin = new System.Windows.Forms.Padding(2);
             this.tbxCodigo.Name = "tbxCodigo";
             this.tbxCodigo.Size = new System.Drawing.Size(87, 26);
             this.tbxCodigo.TabIndex = 27;
@@ -651,8 +636,8 @@
             // dgvVehiculos
             // 
             this.dgvVehiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVehiculos.Location = new System.Drawing.Point(365, 410);
-            this.dgvVehiculos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvVehiculos.Location = new System.Drawing.Point(10, 410);
+            this.dgvVehiculos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvVehiculos.Name = "dgvVehiculos";
             this.dgvVehiculos.Size = new System.Drawing.Size(842, 190);
             this.dgvVehiculos.TabIndex = 59;
@@ -671,16 +656,17 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmVehiculos";
             this.Text = "Vehículos";
+            this.Load += new System.EventHandler(this.frmVehiculos_Load);
             this.customPanel1.ResumeLayout(false);
             this.customPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.cpAccionesRapidas.ResumeLayout(false);
             this.cpAccionesRapidas.PerformLayout();

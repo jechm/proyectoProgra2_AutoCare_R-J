@@ -25,7 +25,7 @@ namespace AutoCare_R_J.Controladores
                 clsOrdenesDeTrabajo nuevaOrden = new clsOrdenesDeTrabajo();
 
                 nuevaOrden.Codigo = ObtenerSiguienteCodigo();
-                nuevaOrden.FechaRecepción = dtFechaRecepcion;
+                nuevaOrden.FechaRecepcion = dtFechaRecepcion;
                 nuevaOrden.Servicio = strServicio;
                 nuevaOrden.Vehiculo = strVehiculo;
                 nuevaOrden.Estado = strEstado;
@@ -74,7 +74,7 @@ namespace AutoCare_R_J.Controladores
 
             if (ordenEncontrada != null)
             {
-                ordenEncontrada.FechaRecepción = dtFechaRecepcion;
+                ordenEncontrada.FechaRecepcion = dtFechaRecepcion;
                 ordenEncontrada.Servicio = strServicio;
                 ordenEncontrada.Vehiculo = strVehiculo;
                 ordenEncontrada.Estado = strEstado;

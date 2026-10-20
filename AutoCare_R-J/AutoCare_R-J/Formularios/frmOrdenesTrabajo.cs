@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using AutoCare_R_J.Controladores;
-using AutoCare_R_J.Modelos;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using AutoCare_R_J.Controladores;
-using AutoCare_R_J.Modelos;
 
 namespace AutoCare_R_J.Formularios
 {
@@ -32,7 +22,6 @@ namespace AutoCare_R_J.Formularios
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             // obtener los valores de los campos de entrada
-            string strCodigo = tbxCodigo.Text.Trim();
             string dateFechaRecepcion = dtpFechaRecepcion.Value.ToString("yyyy-MM-dd");
             string strServicio = cbxServicio.Text.Trim();
             string strVehiculo = cbxVehiculo.Text.Trim();
@@ -40,15 +29,14 @@ namespace AutoCare_R_J.Formularios
             string strRepuestos = tbxRepuestos.Text.Trim();
 
             //validar que los campos no esten vacios
-            if (string.IsNullOrEmpty(strCodigo) || string.IsNullOrEmpty(strServicio) || string.IsNullOrEmpty(strVehiculo) || string.IsNullOrEmpty(strEstado))
+            if (string.IsNullOrEmpty(strServicio) || string.IsNullOrEmpty(strVehiculo) || string.IsNullOrEmpty(strEstado))
             {
                 MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             else
             {
-                // Crear una instancia de clsOrdenesDeTrabajo con los valores obtenidos
-                clsOrdenesDeTrabajo nuevaOrden = new clsOrdenesDeTrabajo(strCodigo, DateTime.Parse(dateFechaRecepcion), strServicio, strVehiculo, strEstado, strRepuestos);
+                manejadorOrdenes.AgregarOrdenTrabajo(DateTime.Parse(dateFechaRecepcion), strServicio, strVehiculo, strEstado, strRepuestos);
                 MessageBox.Show("¡Orden de trabajo agregada exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // Limpiar los campos después de agregar la orden
                 LimpiarCampos();
