@@ -38,7 +38,7 @@
             this.btnEmpleados = new System.Windows.Forms.Button();
             this.btnVehiculos = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
-            this.tbpCitas = new System.Windows.Forms.TabPage();
+            this.tbpTransacciones = new System.Windows.Forms.TabPage();
             this.btnFacturas = new System.Windows.Forms.Button();
             this.btnOrdenesDeTrabajo = new System.Windows.Forms.Button();
             this.btnCitas = new System.Windows.Forms.Button();
@@ -46,7 +46,7 @@
             this.pnlMenu.SuspendLayout();
             this.tbCtrlCintaDeOpciones.SuspendLayout();
             this.tbpConfiguracionYMantenimiento.SuspendLayout();
-            this.tbpCitas.SuspendLayout();
+            this.tbpTransacciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -61,7 +61,7 @@
             // tbCtrlCintaDeOpciones
             // 
             this.tbCtrlCintaDeOpciones.Controls.Add(this.tbpConfiguracionYMantenimiento);
-            this.tbCtrlCintaDeOpciones.Controls.Add(this.tbpCitas);
+            this.tbCtrlCintaDeOpciones.Controls.Add(this.tbpTransacciones);
             this.tbCtrlCintaDeOpciones.Controls.Add(this.tbpConsultasYReportes);
             this.tbCtrlCintaDeOpciones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbCtrlCintaDeOpciones.Location = new System.Drawing.Point(0, 0);
@@ -93,7 +93,7 @@
             this.btnRepuestos.Location = new System.Drawing.Point(313, 3);
             this.btnRepuestos.Name = "btnRepuestos";
             this.btnRepuestos.Size = new System.Drawing.Size(100, 100);
-            this.btnRepuestos.TabIndex = 1;
+            this.btnRepuestos.TabIndex = 4;
             this.btnRepuestos.UseVisualStyleBackColor = true;
             this.btnRepuestos.Click += new System.EventHandler(this.btnRepuestos_Click);
             // 
@@ -104,7 +104,7 @@
             this.btnServicios.Location = new System.Drawing.Point(210, 3);
             this.btnServicios.Name = "btnServicios";
             this.btnServicios.Size = new System.Drawing.Size(100, 100);
-            this.btnServicios.TabIndex = 1;
+            this.btnServicios.TabIndex = 3;
             this.btnServicios.UseVisualStyleBackColor = true;
             this.btnServicios.Click += new System.EventHandler(this.btnServicios_Click);
             // 
@@ -115,7 +115,7 @@
             this.btnEmpleados.Location = new System.Drawing.Point(417, 3);
             this.btnEmpleados.Name = "btnEmpleados";
             this.btnEmpleados.Size = new System.Drawing.Size(100, 100);
-            this.btnEmpleados.TabIndex = 1;
+            this.btnEmpleados.TabIndex = 5;
             this.btnEmpleados.UseVisualStyleBackColor = true;
             this.btnEmpleados.Click += new System.EventHandler(this.btnEmpleados_Click);
             // 
@@ -126,7 +126,7 @@
             this.btnVehiculos.Location = new System.Drawing.Point(106, 3);
             this.btnVehiculos.Name = "btnVehiculos";
             this.btnVehiculos.Size = new System.Drawing.Size(100, 100);
-            this.btnVehiculos.TabIndex = 0;
+            this.btnVehiculos.TabIndex = 2;
             this.btnVehiculos.UseVisualStyleBackColor = true;
             this.btnVehiculos.Click += new System.EventHandler(this.btnVehiculos_Click);
             // 
@@ -137,22 +137,22 @@
             this.btnClientes.Location = new System.Drawing.Point(3, 3);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(100, 100);
-            this.btnClientes.TabIndex = 0;
+            this.btnClientes.TabIndex = 1;
             this.btnClientes.UseVisualStyleBackColor = true;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
-            // tbpCitas
+            // tbpTransacciones
             // 
-            this.tbpCitas.Controls.Add(this.btnFacturas);
-            this.tbpCitas.Controls.Add(this.btnOrdenesDeTrabajo);
-            this.tbpCitas.Controls.Add(this.btnCitas);
-            this.tbpCitas.Location = new System.Drawing.Point(4, 22);
-            this.tbpCitas.Name = "tbpCitas";
-            this.tbpCitas.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpCitas.Size = new System.Drawing.Size(921, 104);
-            this.tbpCitas.TabIndex = 1;
-            this.tbpCitas.Text = "Transacciones";
-            this.tbpCitas.UseVisualStyleBackColor = true;
+            this.tbpTransacciones.Controls.Add(this.btnFacturas);
+            this.tbpTransacciones.Controls.Add(this.btnOrdenesDeTrabajo);
+            this.tbpTransacciones.Controls.Add(this.btnCitas);
+            this.tbpTransacciones.Location = new System.Drawing.Point(4, 22);
+            this.tbpTransacciones.Name = "tbpTransacciones";
+            this.tbpTransacciones.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpTransacciones.Size = new System.Drawing.Size(921, 104);
+            this.tbpTransacciones.TabIndex = 1;
+            this.tbpTransacciones.Text = "Transacciones";
+            this.tbpTransacciones.UseVisualStyleBackColor = true;
             // 
             // btnFacturas
             // 
@@ -162,7 +162,7 @@
             this.btnFacturas.Margin = new System.Windows.Forms.Padding(2);
             this.btnFacturas.Name = "btnFacturas";
             this.btnFacturas.Size = new System.Drawing.Size(100, 100);
-            this.btnFacturas.TabIndex = 2;
+            this.btnFacturas.TabIndex = 3;
             this.btnFacturas.UseVisualStyleBackColor = true;
             this.btnFacturas.Click += new System.EventHandler(this.btnFacturas_Click);
             // 
@@ -174,7 +174,7 @@
             this.btnOrdenesDeTrabajo.Margin = new System.Windows.Forms.Padding(2);
             this.btnOrdenesDeTrabajo.Name = "btnOrdenesDeTrabajo";
             this.btnOrdenesDeTrabajo.Size = new System.Drawing.Size(100, 100);
-            this.btnOrdenesDeTrabajo.TabIndex = 1;
+            this.btnOrdenesDeTrabajo.TabIndex = 2;
             this.btnOrdenesDeTrabajo.UseVisualStyleBackColor = true;
             this.btnOrdenesDeTrabajo.Click += new System.EventHandler(this.btnOrdenesDeTrabajo_Click);
             // 
@@ -186,7 +186,7 @@
             this.btnCitas.Margin = new System.Windows.Forms.Padding(2);
             this.btnCitas.Name = "btnCitas";
             this.btnCitas.Size = new System.Drawing.Size(100, 100);
-            this.btnCitas.TabIndex = 0;
+            this.btnCitas.TabIndex = 1;
             this.btnCitas.UseVisualStyleBackColor = true;
             this.btnCitas.Click += new System.EventHandler(this.btnCitas_Click);
             // 
@@ -215,7 +215,7 @@
             this.pnlMenu.ResumeLayout(false);
             this.tbCtrlCintaDeOpciones.ResumeLayout(false);
             this.tbpConfiguracionYMantenimiento.ResumeLayout(false);
-            this.tbpCitas.ResumeLayout(false);
+            this.tbpTransacciones.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -226,7 +226,7 @@
         private System.Windows.Forms.TabControl tbCtrlCintaDeOpciones;
         private System.Windows.Forms.TabPage tbpConfiguracionYMantenimiento;
         private System.Windows.Forms.Button btnClientes;
-        private System.Windows.Forms.TabPage tbpCitas;
+        private System.Windows.Forms.TabPage tbpTransacciones;
         private System.Windows.Forms.TabPage tbpConsultasYReportes;
         private System.Windows.Forms.Button btnEmpleados;
         private System.Windows.Forms.Button btnServicios;
