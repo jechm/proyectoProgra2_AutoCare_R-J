@@ -22,7 +22,7 @@ namespace AutoCare_R_J.Formularios
         private clsManejadorEmpleados listaEmpleados;
 
         private clsManejadorRepuestos listaRepuestos;
-        private clsManejadorCitas listaCitas;
+        private clsManejadorCitas listaCitas; //otro marcador
 
 
 
