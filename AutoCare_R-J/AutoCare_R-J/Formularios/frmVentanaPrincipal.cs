@@ -137,9 +137,9 @@ namespace AutoCare_R_J.Formularios
         {
             if (!FormularioAbierto("frmFacturas"))
             {
-                frmOrdenesTrabajo ordenesDeTrabajo = new frmOrdenesTrabajo();
-                ordenesDeTrabajo.MdiParent = this;
-                ordenesDeTrabajo.Show();
+                frmFacturas vFacturas = new frmFacturas();
+                vFacturas.MdiParent = this;
+                vFacturas.Show();
             }
         }
 
