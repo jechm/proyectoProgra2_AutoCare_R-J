@@ -1,6 +1,7 @@
 ﻿namespace AutoCare_R_J.Formularios
 {
-    partial class frmEmpleados
+    partial class frmEmpleados     //borrar este comentario del 231026
+
     {
         /// <summary>
         /// Required designer variable.

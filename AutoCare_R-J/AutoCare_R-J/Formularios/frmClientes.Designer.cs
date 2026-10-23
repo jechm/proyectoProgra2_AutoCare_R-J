@@ -1,6 +1,7 @@
 ﻿namespace AutoCare_R_J.Formularios
 {
-    partial class frmClientes
+    partial class frmClientes     //borrar este comentario del 231026
+
     {
         /// <summary>
         /// Required designer variable.
