@@ -1,5 +1,6 @@
 ﻿namespace AutoCare_R_J.Formularios
 {
+    //borrar este comentario del 231026
     partial class frmRepuestos
     {
         /// <summary>

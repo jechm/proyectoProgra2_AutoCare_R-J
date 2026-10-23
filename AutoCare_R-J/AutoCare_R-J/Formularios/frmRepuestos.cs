@@ -10,8 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AutoCare_R_J.Formularios
-{
+namespace AutoCare_R_J.Formularios  //borrar este comentario dle 231026
+{ 
     public partial class frmRepuestos : Form
     {
 

@@ -2,6 +2,10 @@
 {
     partial class frmCitas
     {
+
+        //borrar este comentario del 231026
+
+
         /// <summary>
         /// Required designer variable.
         /// </summary>

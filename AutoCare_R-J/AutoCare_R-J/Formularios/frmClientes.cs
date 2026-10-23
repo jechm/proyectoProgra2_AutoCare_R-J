@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using AutoCare_R_J.Controladores;
+using AutoCare_R_J.Controladores;     //borrar este comentario del 231026
+
 using AutoCare_R_J.Modelos;
 
 namespace AutoCare_R_J.Formularios
