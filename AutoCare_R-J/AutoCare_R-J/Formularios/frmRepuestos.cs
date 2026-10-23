@@ -174,29 +174,6 @@ namespace AutoCare_R_J.Formularios
             }
         }
 
-        private void bntNuevoCliente_Click(object sender, EventArgs e)
-        {
-            if (validarDatos())
-            {
-                clsRepuesto nuevoRepuesto = new clsRepuesto
-                (
-                    txtCodigo.Text,
-                    txtNombre.Text,
-                    txtCategoria.Text,
-                    txtMarca.Text,
-                    nudPrecio.Value,
-                    nudCosto.Value,
-                    (int)nudExistencias.Value,
-                    cmbEstado.SelectedItem.ToString()
-                );
-                listaRepuestos.AgregarRepuesto(nuevoRepuesto);
-                contadorRepuestos++;
-                DibujarTabla();
-
-            }
-
-        }
-
         private bool validarDatos()
         {
             // Campos obligatorios
@@ -287,6 +264,35 @@ namespace AutoCare_R_J.Formularios
                 MessageBox.Show($"No se encontraron repuestos por {strBuscarPor}.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DibujarTabla();
             }
+        }
+
+        private void bntNuevo_Click(object sender, EventArgs e)
+        {
+            if (listaRepuestos.BuscarRepuestoPorCodigo(txtCodigo.Text)!=null)
+            {
+                MessageBox.Show("Este codigo ya existe");
+                return;
+
+            }
+
+                if (validarDatos())
+                {
+                    clsRepuesto nuevoRepuesto = new clsRepuesto
+                    (
+                        txtCodigo.Text,
+                        txtNombre.Text,
+                        txtCategoria.Text,
+                        txtMarca.Text,
+                        nudPrecio.Value,
+                        nudCosto.Value,
+                        (int)nudExistencias.Value,
+                        cmbEstado.SelectedItem.ToString()
+                    );
+                    listaRepuestos.AgregarRepuesto(nuevoRepuesto);
+                    contadorRepuestos++;
+                    DibujarTabla();
+
+                }
         }
     }
 }

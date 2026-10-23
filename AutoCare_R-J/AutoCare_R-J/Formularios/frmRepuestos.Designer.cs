@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRepuestos));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlMenus = new System.Windows.Forms.Panel();
-            this.dtGvDatos = new System.Windows.Forms.DataGridView();
             this.cpBusquedas = new AutoCare_R_J.CustomPanel();
             this.btnBuscar = new AutoCare_R_J.CustomButton();
             this.gbValorABuscar = new System.Windows.Forms.GroupBox();
@@ -43,7 +42,7 @@
             this.btnEliminar = new AutoCare_R_J.CustomButton();
             this.btnLimpiar = new AutoCare_R_J.CustomButton();
             this.btnModificar = new AutoCare_R_J.CustomButton();
-            this.bntNuevoCliente = new AutoCare_R_J.CustomButton();
+            this.bntNuevo = new AutoCare_R_J.CustomButton();
             this.lblAccionesRapidas = new System.Windows.Forms.Label();
             this.cstmPnlDatosCliente = new AutoCare_R_J.CustomPanel();
             this.nudCosto = new System.Windows.Forms.NumericUpDown();
@@ -71,8 +70,8 @@
             this.lblCosto = new System.Windows.Forms.Label();
             this.lblPrecio = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
+            this.dtGvDatos = new System.Windows.Forms.DataGridView();
             this.pnlMenus.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGvDatos)).BeginInit();
             this.cpBusquedas.SuspendLayout();
             this.gbValorABuscar.SuspendLayout();
             this.gbValorDeBusqueda.SuspendLayout();
@@ -89,6 +88,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGvDatos)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMenus
@@ -102,34 +102,6 @@
             this.pnlMenus.Name = "pnlMenus";
             this.pnlMenus.Size = new System.Drawing.Size(1081, 332);
             this.pnlMenus.TabIndex = 27;
-            // 
-            // dtGvDatos
-            // 
-            this.dtGvDatos.AllowUserToAddRows = false;
-            this.dtGvDatos.AllowUserToDeleteRows = false;
-            this.dtGvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dtGvDatos.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dtGvDatos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtGvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtGvDatos.Location = new System.Drawing.Point(0, 332);
-            this.dtGvDatos.MultiSelect = false;
-            this.dtGvDatos.Name = "dtGvDatos";
-            this.dtGvDatos.ReadOnly = true;
-            this.dtGvDatos.RowHeadersWidth = 51;
-            this.dtGvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGvDatos.Size = new System.Drawing.Size(1081, 312);
-            this.dtGvDatos.TabIndex = 28;
-            this.dtGvDatos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGvDatos_CellClick);
-            this.dtGvDatos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGvDatos_CellDoubleClick);
             // 
             // cpBusquedas
             // 
@@ -222,7 +194,7 @@
             this.cpAccionesRapidas.Controls.Add(this.btnEliminar);
             this.cpAccionesRapidas.Controls.Add(this.btnLimpiar);
             this.cpAccionesRapidas.Controls.Add(this.btnModificar);
-            this.cpAccionesRapidas.Controls.Add(this.bntNuevoCliente);
+            this.cpAccionesRapidas.Controls.Add(this.bntNuevo);
             this.cpAccionesRapidas.Controls.Add(this.lblAccionesRapidas);
             this.cpAccionesRapidas.Location = new System.Drawing.Point(693, 5);
             this.cpAccionesRapidas.Name = "cpAccionesRapidas";
@@ -291,25 +263,25 @@
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificarCliente_Click);
             // 
-            // bntNuevoCliente
+            // bntNuevo
             // 
-            this.bntNuevoCliente.BackColor = System.Drawing.Color.Transparent;
-            this.bntNuevoCliente.BorderRadius = 15;
-            this.bntNuevoCliente.ButtonIcon = ((System.Drawing.Image)(resources.GetObject("bntNuevoCliente.ButtonIcon")));
-            this.bntNuevoCliente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bntNuevoCliente.CustomBackColor = System.Drawing.Color.Green;
-            this.bntNuevoCliente.FlatAppearance.BorderSize = 0;
-            this.bntNuevoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bntNuevoCliente.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.bntNuevoCliente.ForeColor = System.Drawing.Color.White;
-            this.bntNuevoCliente.IconSize = new System.Drawing.Size(20, 20);
-            this.bntNuevoCliente.Location = new System.Drawing.Point(14, 40);
-            this.bntNuevoCliente.Name = "bntNuevoCliente";
-            this.bntNuevoCliente.Size = new System.Drawing.Size(168, 45);
-            this.bntNuevoCliente.TabIndex = 11;
-            this.bntNuevoCliente.Text = "Guardar Nuevo";
-            this.bntNuevoCliente.UseVisualStyleBackColor = false;
-            this.bntNuevoCliente.Click += new System.EventHandler(this.bntNuevoCliente_Click);
+            this.bntNuevo.BackColor = System.Drawing.Color.Transparent;
+            this.bntNuevo.BorderRadius = 15;
+            this.bntNuevo.ButtonIcon = ((System.Drawing.Image)(resources.GetObject("bntNuevo.ButtonIcon")));
+            this.bntNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bntNuevo.CustomBackColor = System.Drawing.Color.Green;
+            this.bntNuevo.FlatAppearance.BorderSize = 0;
+            this.bntNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bntNuevo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.bntNuevo.ForeColor = System.Drawing.Color.White;
+            this.bntNuevo.IconSize = new System.Drawing.Size(20, 20);
+            this.bntNuevo.Location = new System.Drawing.Point(14, 40);
+            this.bntNuevo.Name = "bntNuevo";
+            this.bntNuevo.Size = new System.Drawing.Size(168, 45);
+            this.bntNuevo.TabIndex = 11;
+            this.bntNuevo.Text = "Guardar Nuevo";
+            this.bntNuevo.UseVisualStyleBackColor = false;
+            this.bntNuevo.Click += new System.EventHandler(this.bntNuevo_Click);
             // 
             // lblAccionesRapidas
             // 
@@ -618,6 +590,34 @@
             this.lblNombre.TabIndex = 2;
             this.lblNombre.Text = "Nombre:";
             // 
+            // dtGvDatos
+            // 
+            this.dtGvDatos.AllowUserToAddRows = false;
+            this.dtGvDatos.AllowUserToDeleteRows = false;
+            this.dtGvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtGvDatos.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dtGvDatos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtGvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtGvDatos.Location = new System.Drawing.Point(0, 332);
+            this.dtGvDatos.MultiSelect = false;
+            this.dtGvDatos.Name = "dtGvDatos";
+            this.dtGvDatos.ReadOnly = true;
+            this.dtGvDatos.RowHeadersWidth = 51;
+            this.dtGvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtGvDatos.Size = new System.Drawing.Size(1081, 312);
+            this.dtGvDatos.TabIndex = 28;
+            this.dtGvDatos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGvDatos_CellClick);
+            this.dtGvDatos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGvDatos_CellDoubleClick);
+            // 
             // frmRepuestos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -630,7 +630,6 @@
             this.Name = "frmRepuestos";
             this.Text = "Repuestos";
             this.pnlMenus.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtGvDatos)).EndInit();
             this.cpBusquedas.ResumeLayout(false);
             this.cpBusquedas.PerformLayout();
             this.gbValorABuscar.ResumeLayout(false);
@@ -651,6 +650,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGvDatos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -669,7 +669,7 @@
         private CustomButton btnEliminar;
         private CustomButton btnLimpiar;
         private CustomButton btnModificar;
-        private CustomButton bntNuevoCliente;
+        private CustomButton bntNuevo;
         private System.Windows.Forms.Label lblAccionesRapidas;
         private CustomPanel cstmPnlDatosCliente;
         private System.Windows.Forms.ComboBox cmbEstado;
