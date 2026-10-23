@@ -133,6 +133,25 @@ namespace AutoCare_R_J.Formularios
             }
         }
 
+        private void btnFacturas_Click(object sender, EventArgs e)
+        {
+            if (!FormularioAbierto("frmFacturas"))
+            {
+                frmOrdenesTrabajo ordenesDeTrabajo = new frmOrdenesTrabajo();
+                ordenesDeTrabajo.MdiParent = this;
+                ordenesDeTrabajo.Show();
+            }
+        }
+
+        private void btnCitas_Click(object sender, EventArgs e)
+        {
+            if (!FormularioAbierto("frmCitas"))
+            {
+                frmOrdenesTrabajo ordenesDeTrabajo = new frmOrdenesTrabajo();
+                ordenesDeTrabajo.MdiParent = this;
+                ordenesDeTrabajo.Show();
+            }
+        }
         #endregion
     }
 }

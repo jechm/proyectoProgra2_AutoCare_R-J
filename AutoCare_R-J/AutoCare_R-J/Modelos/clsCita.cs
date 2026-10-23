@@ -12,8 +12,9 @@ namespace AutoCare_R_J.Modelos
         private string strCodigoTecnico;
         private DateTime dtFechaCita;
         private DateTime dtHoraCita;
-        private string strCodigoServiciosolicitado;
+        private IList<string> strCodigoServiciosolicitado;
         private string strEstadoCita;
+        private string strObservaciones;
 
         //Propiedades Cita
         public string CodigoCita
@@ -64,11 +65,7 @@ namespace AutoCare_R_J.Modelos
             set { dtHoraCita = value; }
         }
 
-        public string CodigoServiciosolicitado
-        {
-            get { return strCodigoServiciosolicitado; }
-            set { strCodigoServiciosolicitado = value; }
-        }
+
         public string EstadoCita
         {
             get { return strEstadoCita; }

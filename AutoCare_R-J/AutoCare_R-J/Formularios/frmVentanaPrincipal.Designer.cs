@@ -1,4 +1,6 @@
-﻿namespace AutoCare_R_J.Formularios
+﻿using System.Windows.Forms;
+
+namespace AutoCare_R_J.Formularios
 {
     partial class frmVentanaPrincipal
     {
@@ -40,9 +42,9 @@
             this.btnClientes = new System.Windows.Forms.Button();
 
             this.tbpTransacciones = new System.Windows.Forms.TabPage();
-            this.btnFacturas = new System.Windows.Forms.Button();
-            this.btnOrdenesDeTrabajo = new System.Windows.Forms.Button();
-            this.btnCitas = new System.Windows.Forms.Button();
+            this.btnFacturas = new System.Windows.Forms.Button();           //a para revision
+            this.btnOrdenesDeTrabajo = new System.Windows.Forms.Button();   //b
+            this.btnCitas = new System.Windows.Forms.Button();              //c
 
             this.tbpConsultasYReportes = new System.Windows.Forms.TabPage();
             this.pnlMenu.SuspendLayout();
@@ -159,7 +161,7 @@
             // 
             // btnFacturas
             // 
-            this.btnFacturas.BackgroundImage = global::AutoCare_R_J.Properties.Resources.facturacion;
+//            this.btnFacturas.BackgroundImage = global::AutoCare_R_J.Properties.Resources.facturacion;
             this.btnFacturas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnFacturas.Location = new System.Drawing.Point(226, 2);
             this.btnFacturas.Margin = new System.Windows.Forms.Padding(2);
@@ -171,7 +173,7 @@
             // 
             // btnOrdenesDeTrabajo
             // 
-            this.btnOrdenesDeTrabajo.BackgroundImage = global::AutoCare_R_J.Properties.Resources.ordenes;
+//            this.btnOrdenesDeTrabajo.BackgroundImage = global::AutoCare_R_J.Properties.Resources.ordenes;
             this.btnOrdenesDeTrabajo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnOrdenesDeTrabajo.Location = new System.Drawing.Point(123, 2);
             this.btnOrdenesDeTrabajo.Margin = new System.Windows.Forms.Padding(2);
@@ -183,7 +185,7 @@
             // 
             // btnCitas
             // 
-            this.btnCitas.BackgroundImage = global::AutoCare_R_J.Properties.Resources.citas;
+//            this.btnCitas.BackgroundImage = global::AutoCare_R_J.Properties.Resources.citas;
             this.btnCitas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnCitas.Location = new System.Drawing.Point(19, 2);
             this.btnCitas.Margin = new System.Windows.Forms.Padding(2);
@@ -232,6 +234,9 @@
         private System.Windows.Forms.TabPage tbpConfiguracionYMantenimiento;
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.TabPage tbpTransacciones;
+        private Button btnFacturas;
+        private Button btnOrdenesDeTrabajo;
+        private Button btnCitas;
         private System.Windows.Forms.TabPage tbpConsultasYReportes;
         private System.Windows.Forms.Button btnEmpleados;
         private System.Windows.Forms.Button btnServicios;
