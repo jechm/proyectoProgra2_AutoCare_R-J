@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AutoCare_R_J.Modelos
 {
@@ -15,13 +12,14 @@ namespace AutoCare_R_J.Modelos
         private string strCodigoTecnico;
         private DateTime dtFechaCita;
         private DateTime dtHoraCita;
-        private string strCodigoServiciosolicitado;
+        private IList<string> strCodigoServiciosolicitado;
         private string strEstadoCita;
+        private string strObservaciones;
 
         //Propiedades Cita
         public string CodigoCita
         {
-            get {  return strCodigoCita; }
+            get { return strCodigoCita; }
         }
 
         public string CodigoCliente
@@ -36,6 +34,19 @@ namespace AutoCare_R_J.Modelos
             set { strCodigoVehiculo = value; }
         }
 
+
+        public IList<string> CodigoServiciosolicitado
+        {
+            get { return strCodigoServiciosolicitado; }
+            set { strCodigoServiciosolicitado = value; }
+        }
+
+        public string Observaciones
+        {
+            get { return strObservaciones; }
+            set { strObservaciones = value; }
+        }
+
         public string CodigoTecnico
         {
             get { return strCodigoTecnico; }
@@ -45,7 +56,7 @@ namespace AutoCare_R_J.Modelos
         public DateTime FechaCita
         {
             get { return dtFechaCita; }
-            set {  dtFechaCita = value; }
+            set { dtFechaCita = value; }
         }
 
         public DateTime HoraCita
@@ -54,15 +65,11 @@ namespace AutoCare_R_J.Modelos
             set { dtHoraCita = value; }
         }
 
-        public string CodigoServiciosolicitado
-        {
-            get { return strCodigoServiciosolicitado; }
-            set { strCodigoServiciosolicitado = value; }
-        }
+
         public string EstadoCita
         {
             get { return strEstadoCita; }
-            set{ strEstadoCita = value; }
+            set { strEstadoCita = value; }
         }
 
         //Constructor de Citas
@@ -70,20 +77,22 @@ namespace AutoCare_R_J.Modelos
             string pCodigoCliente, string pCodigoVehiculo,
             string pCodigoTecnico,
             DateTime pFecha, DateTime pHora,
-            string pCodigoServiciosolicitado,
+
+            IList<string> pCodigoServiciosolicitado,
+
             string pEstado
             )
         {
 
-            this.strCodigoCita=pCodigoCita;
-            this.strCodigoCliente=pCodigoCliente;
-            this.strCodigoVehiculo=pCodigoVehiculo;
-            this.strCodigoTecnico=pCodigoTecnico;
-            this.dtFechaCita=pFecha;
-            this.dtHoraCita=pHora;
+            this.strCodigoCita = pCodigoCita;
+            this.strCodigoCliente = pCodigoCliente;
+            this.strCodigoVehiculo = pCodigoVehiculo;
+            this.strCodigoTecnico = pCodigoTecnico;
+            this.dtFechaCita = pFecha;
+            this.dtHoraCita = pHora;
             this.strCodigoServiciosolicitado = pCodigoServiciosolicitado;
-            this.strEstadoCita=pEstado;
-   
+            this.strEstadoCita = pEstado;
+
         }
     }
 }

@@ -149,7 +149,20 @@ namespace AutoCare_R_J.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
+
+
+        internal static System.Drawing.Bitmap citas
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("citas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -209,7 +222,33 @@ namespace AutoCare_R_J.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
+        //---------------------------------
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap facturacion
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("facturacion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ordenes
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("ordenes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        //---------------------------------
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>

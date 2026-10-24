@@ -1,4 +1,6 @@
-﻿namespace AutoCare_R_J.Formularios
+﻿using System.Windows.Forms;
+
+namespace AutoCare_R_J.Formularios
 {
     partial class frmVentanaPrincipal
     {
@@ -33,18 +35,24 @@
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.tbCtrlCintaDeOpciones = new System.Windows.Forms.TabControl();
             this.tbpConfiguracionYMantenimiento = new System.Windows.Forms.TabPage();
-            this.tbpCitas = new System.Windows.Forms.TabPage();
-            this.tbpConsultasYReportes = new System.Windows.Forms.TabPage();
             this.btnRepuestos = new System.Windows.Forms.Button();
             this.btnServicios = new System.Windows.Forms.Button();
             this.btnEmpleados = new System.Windows.Forms.Button();
             this.btnVehiculos = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+
+            this.tbpTransacciones = new System.Windows.Forms.TabPage();
+            this.btnFacturas = new System.Windows.Forms.Button();           //a para revision
+            this.btnOrdenesDeTrabajo = new System.Windows.Forms.Button();   //b
+            this.btnCitas = new System.Windows.Forms.Button();              //c
+
+            this.tbpConsultasYReportes = new System.Windows.Forms.TabPage();
             this.pnlMenu.SuspendLayout();
             this.tbCtrlCintaDeOpciones.SuspendLayout();
             this.tbpConfiguracionYMantenimiento.SuspendLayout();
-            this.tbpCitas.SuspendLayout();
+
+            this.tbpTransacciones.SuspendLayout();
+
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -59,7 +67,7 @@
             // tbCtrlCintaDeOpciones
             // 
             this.tbCtrlCintaDeOpciones.Controls.Add(this.tbpConfiguracionYMantenimiento);
-            this.tbCtrlCintaDeOpciones.Controls.Add(this.tbpCitas);
+            this.tbCtrlCintaDeOpciones.Controls.Add(this.tbpTransacciones);
             this.tbCtrlCintaDeOpciones.Controls.Add(this.tbpConsultasYReportes);
             this.tbCtrlCintaDeOpciones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbCtrlCintaDeOpciones.Location = new System.Drawing.Point(0, 0);
@@ -84,16 +92,108 @@
             this.tbpConfiguracionYMantenimiento.Text = "Configuracion y Mantenimiento";
             this.tbpConfiguracionYMantenimiento.UseVisualStyleBackColor = true;
             // 
-            // tbpCitas
+            // btnRepuestos
             // 
-            this.tbpCitas.Controls.Add(this.button1);
-            this.tbpCitas.Location = new System.Drawing.Point(4, 22);
-            this.tbpCitas.Name = "tbpCitas";
-            this.tbpCitas.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpCitas.Size = new System.Drawing.Size(921, 104);
-            this.tbpCitas.TabIndex = 1;
-            this.tbpCitas.Text = "Transacciones";
-            this.tbpCitas.UseVisualStyleBackColor = true;
+            this.btnRepuestos.BackgroundImage = global::AutoCare_R_J.Properties.Resources.repuestos;
+            this.btnRepuestos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnRepuestos.Location = new System.Drawing.Point(335, 3);
+            this.btnRepuestos.Name = "btnRepuestos";
+            this.btnRepuestos.Size = new System.Drawing.Size(100, 100);
+            this.btnRepuestos.TabIndex = 4;
+            this.btnRepuestos.UseVisualStyleBackColor = true;
+            // 
+            // btnServicios
+            // 
+            this.btnServicios.BackgroundImage = global::AutoCare_R_J.Properties.Resources.servicios;
+            this.btnServicios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnServicios.Location = new System.Drawing.Point(232, 3);
+            this.btnServicios.Name = "btnServicios";
+            this.btnServicios.Size = new System.Drawing.Size(100, 100);
+            this.btnServicios.TabIndex = 3;
+            this.btnServicios.UseVisualStyleBackColor = true;
+            this.btnServicios.Click += new System.EventHandler(this.btnServicios_Click);
+            // 
+            // btnEmpleados
+            // 
+            this.btnEmpleados.BackgroundImage = global::AutoCare_R_J.Properties.Resources.empleados;
+            this.btnEmpleados.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEmpleados.Location = new System.Drawing.Point(439, 3);
+            this.btnEmpleados.Name = "btnEmpleados";
+            this.btnEmpleados.Size = new System.Drawing.Size(100, 100);
+            this.btnEmpleados.TabIndex = 5;
+            this.btnEmpleados.UseVisualStyleBackColor = true;
+            this.btnEmpleados.Click += new System.EventHandler(this.btnEmpleados_Click);
+            // 
+            // btnVehiculos
+            // 
+            this.btnVehiculos.BackgroundImage = global::AutoCare_R_J.Properties.Resources.vehiculos;
+            this.btnVehiculos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnVehiculos.Location = new System.Drawing.Point(128, 3);
+            this.btnVehiculos.Name = "btnVehiculos";
+            this.btnVehiculos.Size = new System.Drawing.Size(100, 100);
+            this.btnVehiculos.TabIndex = 2;
+            this.btnVehiculos.UseVisualStyleBackColor = true;
+            this.btnVehiculos.Click += new System.EventHandler(this.btnVehiculos_Click);
+            // 
+            // btnClientes
+            // 
+            this.btnClientes.BackgroundImage = global::AutoCare_R_J.Properties.Resources.clientes;
+            this.btnClientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnClientes.Location = new System.Drawing.Point(25, 3);
+            this.btnClientes.Name = "btnClientes";
+            this.btnClientes.Size = new System.Drawing.Size(100, 100);
+            this.btnClientes.TabIndex = 1;
+            this.btnClientes.UseVisualStyleBackColor = true;
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
+            // 
+            // tbpTransacciones
+            // 
+            this.tbpTransacciones.Controls.Add(this.btnFacturas);
+            this.tbpTransacciones.Controls.Add(this.btnOrdenesDeTrabajo);
+            this.tbpTransacciones.Controls.Add(this.btnCitas);
+            this.tbpTransacciones.Location = new System.Drawing.Point(4, 22);
+            this.tbpTransacciones.Name = "tbpTransacciones";
+            this.tbpTransacciones.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpTransacciones.Size = new System.Drawing.Size(921, 104);
+            this.tbpTransacciones.TabIndex = 1;
+            this.tbpTransacciones.Text = "Transacciones";
+            this.tbpTransacciones.UseVisualStyleBackColor = true;
+            // 
+            // btnFacturas
+            // 
+//            this.btnFacturas.BackgroundImage = global::AutoCare_R_J.Properties.Resources.facturacion;
+            this.btnFacturas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnFacturas.Location = new System.Drawing.Point(226, 2);
+            this.btnFacturas.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFacturas.Name = "btnFacturas";
+            this.btnFacturas.Size = new System.Drawing.Size(100, 100);
+            this.btnFacturas.TabIndex = 3;
+            this.btnFacturas.UseVisualStyleBackColor = true;
+            this.btnFacturas.Click += new System.EventHandler(this.btnFacturas_Click);
+            // 
+            // btnOrdenesDeTrabajo
+            // 
+//            this.btnOrdenesDeTrabajo.BackgroundImage = global::AutoCare_R_J.Properties.Resources.ordenes;
+            this.btnOrdenesDeTrabajo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnOrdenesDeTrabajo.Location = new System.Drawing.Point(123, 2);
+            this.btnOrdenesDeTrabajo.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOrdenesDeTrabajo.Name = "btnOrdenesDeTrabajo";
+            this.btnOrdenesDeTrabajo.Size = new System.Drawing.Size(100, 100);
+            this.btnOrdenesDeTrabajo.TabIndex = 2;
+            this.btnOrdenesDeTrabajo.UseVisualStyleBackColor = true;
+            this.btnOrdenesDeTrabajo.Click += new System.EventHandler(this.btnOrdenesDeTrabajo_Click);
+            // 
+            // btnCitas
+            // 
+//            this.btnCitas.BackgroundImage = global::AutoCare_R_J.Properties.Resources.citas;
+            this.btnCitas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCitas.Location = new System.Drawing.Point(19, 2);
+            this.btnCitas.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCitas.Name = "btnCitas";
+            this.btnCitas.Size = new System.Drawing.Size(100, 100);
+            this.btnCitas.TabIndex = 1;
+            this.btnCitas.UseVisualStyleBackColor = true;
+            this.btnCitas.Click += new System.EventHandler(this.btnCitas_Click);
             // 
             // tbpConsultasYReportes
             // 
@@ -103,70 +203,6 @@
             this.tbpConsultasYReportes.TabIndex = 2;
             this.tbpConsultasYReportes.Text = "Consultas y Reportes";
             this.tbpConsultasYReportes.UseVisualStyleBackColor = true;
-            // 
-            // btnRepuestos
-            // 
-            this.btnRepuestos.BackgroundImage = global::AutoCare_R_J.Properties.Resources.repuestos;
-            this.btnRepuestos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnRepuestos.Location = new System.Drawing.Point(313, 3);
-            this.btnRepuestos.Name = "btnRepuestos";
-            this.btnRepuestos.Size = new System.Drawing.Size(100, 100);
-            this.btnRepuestos.TabIndex = 1;
-            this.btnRepuestos.UseVisualStyleBackColor = true;
-            // 
-            // btnServicios
-            // 
-            this.btnServicios.BackgroundImage = global::AutoCare_R_J.Properties.Resources.servicios;
-            this.btnServicios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnServicios.Location = new System.Drawing.Point(210, 3);
-            this.btnServicios.Name = "btnServicios";
-            this.btnServicios.Size = new System.Drawing.Size(100, 100);
-            this.btnServicios.TabIndex = 1;
-            this.btnServicios.UseVisualStyleBackColor = true;
-            this.btnServicios.Click += new System.EventHandler(this.btnServicios_Click);
-            // 
-            // btnEmpleados
-            // 
-            this.btnEmpleados.BackgroundImage = global::AutoCare_R_J.Properties.Resources.empleados;
-            this.btnEmpleados.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEmpleados.Location = new System.Drawing.Point(417, 3);
-            this.btnEmpleados.Name = "btnEmpleados";
-            this.btnEmpleados.Size = new System.Drawing.Size(100, 100);
-            this.btnEmpleados.TabIndex = 1;
-            this.btnEmpleados.UseVisualStyleBackColor = true;
-            this.btnEmpleados.Click += new System.EventHandler(this.btnEmpleados_Click);
-            // 
-            // btnVehiculos
-            // 
-            this.btnVehiculos.BackgroundImage = global::AutoCare_R_J.Properties.Resources.vehiculos;
-            this.btnVehiculos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnVehiculos.Location = new System.Drawing.Point(106, 3);
-            this.btnVehiculos.Name = "btnVehiculos";
-            this.btnVehiculos.Size = new System.Drawing.Size(100, 100);
-            this.btnVehiculos.TabIndex = 0;
-            this.btnVehiculos.UseVisualStyleBackColor = true;
-            this.btnVehiculos.Click += new System.EventHandler(this.btnVehiculos_Click);
-            // 
-            // btnClientes
-            // 
-            this.btnClientes.BackgroundImage = global::AutoCare_R_J.Properties.Resources.clientes;
-            this.btnClientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnClientes.Location = new System.Drawing.Point(3, 3);
-            this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(100, 100);
-            this.btnClientes.TabIndex = 0;
-            this.btnClientes.UseVisualStyleBackColor = true;
-            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::AutoCare_R_J.Properties.Resources.Botón_de_Facturas_Aprobadas1;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 100);
-            this.button1.TabIndex = 3;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // frmVentanaPrincipal
             // 
@@ -184,7 +220,9 @@
             this.pnlMenu.ResumeLayout(false);
             this.tbCtrlCintaDeOpciones.ResumeLayout(false);
             this.tbpConfiguracionYMantenimiento.ResumeLayout(false);
-            this.tbpCitas.ResumeLayout(false);
+
+            this.tbpTransacciones.ResumeLayout(false);
+
             this.ResumeLayout(false);
 
         }
@@ -195,12 +233,14 @@
         private System.Windows.Forms.TabControl tbCtrlCintaDeOpciones;
         private System.Windows.Forms.TabPage tbpConfiguracionYMantenimiento;
         private System.Windows.Forms.Button btnClientes;
-        private System.Windows.Forms.TabPage tbpCitas;
+        private System.Windows.Forms.TabPage tbpTransacciones;
+        private Button btnFacturas;
+        private Button btnOrdenesDeTrabajo;
+        private Button btnCitas;
         private System.Windows.Forms.TabPage tbpConsultasYReportes;
         private System.Windows.Forms.Button btnEmpleados;
         private System.Windows.Forms.Button btnServicios;
         private System.Windows.Forms.Button btnVehiculos;
         private System.Windows.Forms.Button btnRepuestos;
-        private System.Windows.Forms.Button button1;
     }
 }
