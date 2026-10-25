@@ -16,29 +16,26 @@ namespace AutoCare_R_J.Formularios  //borrar este comentario dle 231026
     {
 
         private clsManejadorRepuestos listaRepuestos;
-        private int contadorRepuestos;
+        private int totalRepuestos;
         private string[] estados = { "Nuevo", "Usado", "Reacondicionado" };
 
-        public frmRepuestos()
+        public frmRepuestos(clsManejadorRepuestos pListaRepuestos)
         {
             InitializeComponent();
-            listaRepuestos = new clsManejadorRepuestos();
-            contadorRepuestos = listaRepuestos.ObtenerRepuestos().Count;
+            listaRepuestos = pListaRepuestos;
+
+            totalRepuestos = listaRepuestos.ObtenerRepuestos().Count+1;
 
             cmbEstado.DataSource = estados;
             cmbValoresDeBusqueda.DataSource = new string[] { "Codigo", "Nombre", "Categoria", "Marca" };
             DibujarTabla();
         }
 
-        internal void AsignarListaRepuestos(ref clsManejadorRepuestos listaRepuestos)
-        {
-            this.listaRepuestos = listaRepuestos;
-        }
-
 
         #region Metodos para dibujar la tabla de repuestos
         private void DibujarTabla()
         {
+            
             dtGvDatos.DataSource = null;
             dtGvDatos.DataSource = listaRepuestos.ObtenerRepuestos();
             limpiarFormulario();
@@ -53,7 +50,8 @@ namespace AutoCare_R_J.Formularios  //borrar este comentario dle 231026
 
         private void limpiarFormulario()
         {
-            txtCodigo.Text = $"RP-{contadorRepuestos + 1:000}";
+            totalRepuestos = listaRepuestos.ObtenerRepuestos().Count;
+            txtCodigo.Text = $"RP-{totalRepuestos + 1:000}";
 
             txtNombre.Text = "";
             txtCategoria.Text = "";
@@ -75,14 +73,7 @@ namespace AutoCare_R_J.Formularios  //borrar este comentario dle 231026
         }
         #endregion
 
-        private void dtGvDatos_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0)
-            {
-                return;
-            }
 
-        }
 
         private void cmbValoresDeBusqueda_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -104,7 +95,7 @@ namespace AutoCare_R_J.Formularios  //borrar este comentario dle 231026
             string codigoRepuesto = dtGvDatos.SelectedRows[0].Cells["Codigo"].Value.ToString();
             if (listaRepuestos.EliminarRepuesto(codigoRepuesto))
             {
-                contadorRepuestos--;
+                totalRepuestos--;
                 limpiarFormulario();
                 DibujarTabla();
                 MessageBox.Show("Repuesto eliminado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -230,6 +221,7 @@ namespace AutoCare_R_J.Formularios  //borrar este comentario dle 231026
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string strBuscarPor = cmbValoresDeBusqueda.SelectedItem.ToString();
+           
 
             IList<clsRepuesto> repuestosEncontrados = new List<clsRepuesto>();
 
@@ -268,15 +260,10 @@ namespace AutoCare_R_J.Formularios  //borrar este comentario dle 231026
 
         private void bntNuevo_Click(object sender, EventArgs e)
         {
-            if (listaRepuestos.BuscarRepuestoPorCodigo(txtCodigo.Text)!=null)
-            {
-                MessageBox.Show("Este codigo ya existe");
-                return;
-
-            }
 
                 if (validarDatos())
                 {
+                    
                     clsRepuesto nuevoRepuesto = new clsRepuesto
                     (
                         txtCodigo.Text,
@@ -288,11 +275,22 @@ namespace AutoCare_R_J.Formularios  //borrar este comentario dle 231026
                         (int)nudExistencias.Value,
                         cmbEstado.SelectedItem.ToString()
                     );
+
                     listaRepuestos.AgregarRepuesto(nuevoRepuesto);
-                    contadorRepuestos++;
+                    totalRepuestos++;
                     DibujarTabla();
 
                 }
+        }
+
+
+
+        private void dtGvDatos_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
         }
     }
 }

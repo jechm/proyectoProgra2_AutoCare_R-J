@@ -97,6 +97,7 @@ namespace AutoCare_R_J.Formularios
             this.btnRepuestos.Size = new System.Drawing.Size(100, 100);
             this.btnRepuestos.TabIndex = 4;
             this.btnRepuestos.UseVisualStyleBackColor = true;
+            this.btnRepuestos.Click += new System.EventHandler(this.btnRepuestos_Click);
             // 
             // btnServicios
             // 

@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-using AutoCare_R_J.Controladores;     //borrar este comentario del 231026
-
+﻿using AutoCare_R_J.Controladores;     //borrar este comentario del 231026
 using AutoCare_R_J.Modelos;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace AutoCare_R_J.Formularios
 {
@@ -76,7 +69,7 @@ namespace AutoCare_R_J.Formularios
                 {
                     CrearCliente();
                 }
-                
+
             }
 
         }
@@ -89,7 +82,7 @@ namespace AutoCare_R_J.Formularios
             bool clienteExistenteNit = manejadorClientes.BuscarClientePorNit(txtNit.Text) != null && txtNit.Text != "C/F";
             bool clienteExistenteCorreo = manejadorClientes.BuscarClientePorCorreo(txtCorreo.Text) != null;
             bool clienteExistenteTelefono = manejadorClientes.BuscarClientePorTelefono(txtTelefono.Text) != null;
-            
+
             if (clienteExistenteDPI)
             {
                 MessageBox.Show("Ya existe un cliente con este DPI.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -319,7 +312,7 @@ namespace AutoCare_R_J.Formularios
         private void cmbValoresDeBusqueda_SelectedValueChanged(object sender, EventArgs e)
         {
             gbValorABuscar.Text = $"Ingrese {cmbValoresDeBusqueda.SelectedItem.ToString()}";
-            if(cmbValoresDeBusqueda.SelectedItem.ToString() == "Codigo")
+            if (cmbValoresDeBusqueda.SelectedItem.ToString() == "Codigo")
             {
                 txtValorAbuscar.Text = "CL-";
             }
@@ -430,6 +423,11 @@ namespace AutoCare_R_J.Formularios
             {
                 e.Handled = true; // Ignorar el carácter ingresado
             }
+        }
+
+        private void dtGvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

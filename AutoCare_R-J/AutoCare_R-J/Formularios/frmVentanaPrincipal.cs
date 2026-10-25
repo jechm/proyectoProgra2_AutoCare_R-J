@@ -38,6 +38,7 @@ namespace AutoCare_R_J.Formularios     //borrar este comentario del 231026
         {
             listaClientes = new clsManejadorClientes();
             listaEmpleados = new clsManejadorEmpleados();
+            listaRepuestos = new clsManejadorRepuestos();
 
             //Formularios de Richar
             listaServicios = new clsManejadorServicios();
@@ -148,11 +149,25 @@ namespace AutoCare_R_J.Formularios     //borrar este comentario del 231026
         {
             if (!FormularioAbierto("frmCitas"))
             {
-                frmOrdenesTrabajo ordenesDeTrabajo = new frmOrdenesTrabajo();
-                ordenesDeTrabajo.MdiParent = this;
-                ordenesDeTrabajo.Show();
+                
+                frmCitas vCitas= new frmCitas();
+                vCitas.MdiParent = this;
+                vCitas.Show();
             }
         }
+
+        private void btnRepuestos_Click(object sender, EventArgs e)
+        {
+            if (!FormularioAbierto("frmRepuestos"))
+            {
+                frmRepuestos vRepuestos = new frmRepuestos(listaRepuestos);
+                vRepuestos.MdiParent = this;
+                vRepuestos.Show();
+            }
+        }
+
         #endregion
+
+
     }
 }

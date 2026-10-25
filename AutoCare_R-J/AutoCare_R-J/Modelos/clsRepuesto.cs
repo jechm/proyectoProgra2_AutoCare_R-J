@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace AutoCare_R_J.Modelos
 {
-    internal class clsRepuesto
+    public class clsRepuesto
     {
         private string strCodigoRepuesto;
         private string strNombreRepuesto;
         private string strEstado;
-        private string strDescripcion;
         private string strCategoria;
         private string strMarca;
         private decimal decPrecio;
+        private decimal decCosto;
         private int intExistencias;
 
         public string CodigoRepuesto 
@@ -33,12 +33,6 @@ namespace AutoCare_R_J.Modelos
             set { strEstado = value; }  
         }
 
-        public string Descripcion
-        {
-            get { return strDescripcion; }
-            set { strDescripcion = value; }
-        }
-
         public string Categoria 
         {
             get { return strCategoria; } 
@@ -55,21 +49,27 @@ namespace AutoCare_R_J.Modelos
             get {return decPrecio; }
             set {decPrecio = value; }
         }
+
+        public decimal Costo
+        {
+            get { return decCosto; }
+            set { decCosto = value; }
+        }
         public int Existencias 
         { 
             get {return intExistencias; }
             set {intExistencias = value; }
         }
 
-        public clsRepuesto(string pCodigo,string pNombre,string pEstado,string pDescripcion, string pCategoria, string pMarca, decimal pPrecio, int PExistencias)
+        public clsRepuesto(string pCodigo,string pNombre, string pCategoria, string pMarca, decimal pPrecio, decimal pCosto, int PExistencias, string pEstado)
         {
             this.strCodigoRepuesto = pCodigo;
             this.strNombreRepuesto= pNombre;
             this.strEstado=pEstado;
-            this.strDescripcion=pDescripcion;
             this.strCategoria=pCategoria;
             this.strMarca=pMarca;
             this.decPrecio=pPrecio;
+            this.Costo = pCosto;
             this.intExistencias=PExistencias;
 
     }
