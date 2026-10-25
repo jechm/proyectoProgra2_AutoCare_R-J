@@ -1,6 +1,7 @@
 ﻿using AutoCare_R_J.Controladores;
 using AutoCare_R_J.Modelos;
 using System;
+using AutoCare_R_J.MetodosGlobales;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,33 +29,35 @@ namespace AutoCare_R_J.Formularios
             InitializeComponent();
 
             manejadorServicios = new clsManejadorServicios();
-            MetodosGlobales.CargarGrid(dgvServicios, manejadorServicios.ListarServicios());
+            manejadorServicios.CargarServiciosDesdeSql();
+            clsMetodosGlobales.CargarGrid(dgvServicios, manejadorServicios.ListarServicios());
 
 
             //desabilitar el botón de limpiar campo al inicio
 
-            MetodosGlobales.DeshabilitarBoton(btnLimpiarCampos);
+            clsMetodosGlobales.DeshabilitarBoton(btnLimpiarCampos);
 
 
             //desabilitar el botón de eliminar al inicio
 
-            MetodosGlobales.DeshabilitarBoton(btnEliminar);
+            clsMetodosGlobales.DeshabilitarBoton(btnEliminar);
 
 
             //desabilitar el botón de modificar al inicio
 
-            MetodosGlobales.DeshabilitarBoton(btnModificar);
+            clsMetodosGlobales.DeshabilitarBoton(btnModificar);
 
         }
 
         internal void CargarManejador(clsManejadorServicios pManejador)
         {
-            manejadorServicios = pManejador; // Asigna el manejador que viene desde la ventana principal por referencia
+            manejadorServicios = pManejador;
 
-            // Carga el grid con la lista compartida de la ventana principal
-            MetodosGlobales.CargarGrid(dgvServicios, manejadorServicios.ListarServicios());
+            // Llena la lista desde SQLite (antes estaba vacía al abrir el programa)
+            manejadorServicios.CargarServiciosDesdeSql();
 
-            // Actualiza el siguiente código
+            clsMetodosGlobales.CargarGrid(dgvServicios, manejadorServicios.ListarServicios());
+
             tbxCodigo.Text = manejadorServicios.ObtenerSiguienteCodigo();
         }
 
@@ -143,7 +146,7 @@ namespace AutoCare_R_J.Formularios
                     LimpiarCampos();
 
                     //Actualizar el DataGridView para reflejar los cambios
-                    MetodosGlobales.CargarGrid(dgvServicios, manejadorServicios.ListarServicios());
+                    clsMetodosGlobales.CargarGrid(dgvServicios, manejadorServicios.ListarServicios());
 
                 }
                 catch (Exception ex)
@@ -191,12 +194,16 @@ namespace AutoCare_R_J.Formularios
                     MessageBox.Show("¡Servicio encontrado y cargado en pantalla!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     //Habilitar el botones
-                    MetodosGlobales.HabilitarBoton(btnLimpiarCampos, Color.DeepSkyBlue, Color.White, Cursors.Hand);
-                    MetodosGlobales.HabilitarBoton(btnEliminar, Color.Red, Color.White, Cursors.Hand);
-                    MetodosGlobales.HabilitarBoton(btnModificar, Color.DeepSkyBlue, Color.White, Cursors.Hand);
+                    clsMetodosGlobales.HabilitarBoton(btnLimpiarCampos, Color.DeepSkyBlue, Color.White, Cursors.Hand);
+                    clsMetodosGlobales.HabilitarBoton(btnEliminar, Color.Red, Color.White, Cursors.Hand);
+                    clsMetodosGlobales.HabilitarBoton(btnModificar, Color.DeepSkyBlue, Color.White, Cursors.Hand);
 
                     //Deshabilitar el botón de agregar
-                    MetodosGlobales.DeshabilitarBoton(btnAgregar);
+                    clsMetodosGlobales.DeshabilitarBoton(btnAgregar);
+
+                    // Limpiar los campos de búsqueda después de la búsqueda
+                    tbxBuscCodigo.Clear();
+                    tbxBuscNombre.Clear();
                 }
                 catch (Exception ex)
                 {
@@ -226,13 +233,13 @@ namespace AutoCare_R_J.Formularios
 
                 // Limpiar campos y actualizar el grid para ver el cambio reflejado
                 LimpiarCampos();
-                MetodosGlobales.CargarGrid(dgvServicios, manejadorServicios.ListarServicios());
+                clsMetodosGlobales.CargarGrid(dgvServicios, manejadorServicios.ListarServicios());
 
                 // Restablecer el estado inicial de los botones
-                MetodosGlobales.HabilitarBoton(btnAgregar, Color.Green, Color.White, Cursors.Hand);
-                MetodosGlobales.DeshabilitarBoton(btnLimpiarCampos);
-                MetodosGlobales.DeshabilitarBoton(btnEliminar);
-                MetodosGlobales.DeshabilitarBoton(btnModificar);
+                clsMetodosGlobales.HabilitarBoton(btnAgregar, Color.Green, Color.White, Cursors.Hand);
+                clsMetodosGlobales.DeshabilitarBoton(btnLimpiarCampos);
+                clsMetodosGlobales.DeshabilitarBoton(btnEliminar);
+                clsMetodosGlobales.DeshabilitarBoton(btnModificar);
             }
             catch (Exception ex)
             {
@@ -259,10 +266,10 @@ namespace AutoCare_R_J.Formularios
             LimpiarCampos();
 
             //habilitar el botón de agregar
-            MetodosGlobales.HabilitarBoton(btnAgregar, Color.Green, Color.White, Cursors.Hand);
+            clsMetodosGlobales.HabilitarBoton(btnAgregar, Color.Green, Color.White, Cursors.Hand);
 
             // Deshabilitar el botón de limpiar campo
-            MetodosGlobales.DeshabilitarBoton(btnLimpiarCampos);
+            clsMetodosGlobales.DeshabilitarBoton(btnLimpiarCampos);
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -278,15 +285,15 @@ namespace AutoCare_R_J.Formularios
                     // Limpiar los campos después de eliminar
                     LimpiarCampos();
                     // Actualizar el DataGridView para reflejar los cambios
-                    MetodosGlobales.CargarGrid(dgvServicios, manejadorServicios.ListarServicios());
+                    clsMetodosGlobales.CargarGrid(dgvServicios, manejadorServicios.ListarServicios());
                     //habilitar el botón de agregar
-                    MetodosGlobales.HabilitarBoton(btnAgregar, Color.Green, Color.White, Cursors.Hand);
+                    clsMetodosGlobales.HabilitarBoton(btnAgregar, Color.Green, Color.White, Cursors.Hand);
                     // Deshabilitar el botón de limpiar campo
-                    MetodosGlobales.DeshabilitarBoton(btnLimpiarCampos);
+                    clsMetodosGlobales.DeshabilitarBoton(btnLimpiarCampos);
                     // Deshabilitar el botón de eliminar
-                    MetodosGlobales.DeshabilitarBoton(btnEliminar);
+                    clsMetodosGlobales.DeshabilitarBoton(btnEliminar);
                     // Deshabilitar el botón de modificar
-                    MetodosGlobales.DeshabilitarBoton(btnModificar);
+                    clsMetodosGlobales.DeshabilitarBoton(btnModificar);
                 }
                 catch (Exception ex)
                 {

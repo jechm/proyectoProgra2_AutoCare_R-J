@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AutoCare_R_J
+namespace AutoCare_R_J.MetodosGlobales
 {
-    internal class MetodosGlobales
+    internal class clsMetodosGlobales
     {
         public static void DeshabilitarBoton(CustomButton boton)
         {

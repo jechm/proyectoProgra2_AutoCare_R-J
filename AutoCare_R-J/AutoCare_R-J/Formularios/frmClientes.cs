@@ -430,6 +430,11 @@ namespace AutoCare_R_J.Formularios
                 e.Handled = true; // Ignorar el carácter ingresado
             }
         }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

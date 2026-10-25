@@ -1,5 +1,6 @@
 ﻿using System;
 using AutoCare_R_J.Controladores;
+using AutoCare_R_J.MetodosGlobales;
 using System.Windows.Forms;
 
 namespace AutoCare_R_J.Formularios
@@ -12,10 +13,10 @@ namespace AutoCare_R_J.Formularios
         {
             InitializeComponent();
             //desabilitar el botón de eliminar al inicio
-            MetodosGlobales.DeshabilitarBoton(btnEliminar);
+            clsMetodosGlobales.DeshabilitarBoton(btnEliminar);
 
             //desabilitar el botón de modificar al inicio
-            MetodosGlobales.DeshabilitarBoton(btnModificar);
+            clsMetodosGlobales.DeshabilitarBoton(btnModificar);
 
         }
       
@@ -40,7 +41,7 @@ namespace AutoCare_R_J.Formularios
                 MessageBox.Show("¡Orden de trabajo agregada exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // Limpiar los campos después de agregar la orden
                 LimpiarCampos();
-                MetodosGlobales.CargarGrid(dgvOrdenesTrabajo, manejadorOrdenes.ListarOrdenesTrabajo());
+                clsMetodosGlobales.CargarGrid(dgvOrdenesTrabajo, manejadorOrdenes.ListarOrdenesTrabajo());
             }
         }
 
@@ -74,7 +75,7 @@ namespace AutoCare_R_J.Formularios
                 //Llamar al método ModificarOrdenTrabajo del manejador de órdenes de trabajo
                 manejadorOrdenes.ModificarOrdenTrabajo(strCodigo, DateTime.Parse(dateFechaRecepcion), strServicio, strVehiculo, strEstado, strRepuestos);
                 MessageBox.Show("¡Orden de trabajo modificada exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                MetodosGlobales.CargarGrid(dgvOrdenesTrabajo, manejadorOrdenes.ListarOrdenesTrabajo());
+                clsMetodosGlobales.CargarGrid(dgvOrdenesTrabajo, manejadorOrdenes.ListarOrdenesTrabajo());
             }
             ;
 
@@ -101,7 +102,7 @@ namespace AutoCare_R_J.Formularios
                 LimpiarCampos();
             }
 
-            MetodosGlobales.CargarGrid(dgvOrdenesTrabajo, manejadorOrdenes.ListarOrdenesTrabajo());
+            clsMetodosGlobales.CargarGrid(dgvOrdenesTrabajo, manejadorOrdenes.ListarOrdenesTrabajo());
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoCare_R_J.Controladores;
 using AutoCare_R_J.Modelos;
+using AutoCare_R_J.MetodosGlobales;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,14 +24,14 @@ namespace AutoCare_R_J.Formularios
             InitializeComponent();
 
             //desactivar el botón de eliminar al iniciar el formulario
-            MetodosGlobales.DeshabilitarBoton(btnEliminar);
+            clsMetodosGlobales.DeshabilitarBoton(btnEliminar);
 
             //desactivar el botón de modificar al iniciar el formulario
-            MetodosGlobales.DeshabilitarBoton(btnModificar);
+            clsMetodosGlobales.DeshabilitarBoton(btnModificar);
 
             //
             manejadorVehiculo = new clsManejadorVehiculos();
-            MetodosGlobales.CargarGrid(dgvVehiculos, manejadorVehiculo.ListarVehiculos());
+            clsMetodosGlobales.CargarGrid(dgvVehiculos, manejadorVehiculo.ListarVehiculos());
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -45,7 +46,7 @@ namespace AutoCare_R_J.Formularios
             manejadorVehiculo = pManejador;
 
             //actualizar el DataGridView con la lista de vehículos
-            MetodosGlobales.CargarGrid(dgvVehiculos, manejadorVehiculo.ListarVehiculos());
+            clsMetodosGlobales.CargarGrid(dgvVehiculos, manejadorVehiculo.ListarVehiculos());
 
             //Actualiza el siguiente código disponible para un nuevo vehículo
             tbxCodigo.Text = manejadorVehiculo.ObtenerSiguienteCodigo();
@@ -80,7 +81,7 @@ namespace AutoCare_R_J.Formularios
                 LimpiarCampos();
 
                 //actualizar el DataGridView con la lista de vehículos
-                MetodosGlobales.CargarGrid(dgvVehiculos, manejadorVehiculo.ListarVehiculos());
+                clsMetodosGlobales.CargarGrid(dgvVehiculos, manejadorVehiculo.ListarVehiculos());
             }
 
         }
@@ -119,7 +120,7 @@ namespace AutoCare_R_J.Formularios
                     }
                 }
 
-                MetodosGlobales.CargarGrid(dgvVehiculos, manejadorVehiculo.ListarVehiculos());
+                clsMetodosGlobales.CargarGrid(dgvVehiculos, manejadorVehiculo.ListarVehiculos());
             }
             catch (Exception ex)
             {
@@ -179,7 +180,7 @@ namespace AutoCare_R_J.Formularios
                     }
                 }
 
-                MetodosGlobales.CargarGrid(dgvVehiculos, manejadorVehiculo.ListarVehiculos());
+                clsMetodosGlobales.CargarGrid(dgvVehiculos, manejadorVehiculo.ListarVehiculos());
             }
             catch (Exception ex)
             {
