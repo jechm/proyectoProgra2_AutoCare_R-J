@@ -11,7 +11,8 @@ using System.Windows.Forms;
 using AutoCare_R_J.Controladores;
 using AutoCare_R_J.Modelos;
 
-namespace AutoCare_R_J.Formularios
+namespace AutoCare_R_J.Formularios     //borrar este comentario del 231026
+
 {
     public partial class frmEmpleados : Form
     {

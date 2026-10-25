@@ -40,19 +40,15 @@ namespace AutoCare_R_J.Formularios
             this.btnEmpleados = new System.Windows.Forms.Button();
             this.btnVehiculos = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
-
             this.tbpTransacciones = new System.Windows.Forms.TabPage();
-            this.btnFacturas = new System.Windows.Forms.Button();           //a para revision
-            this.btnOrdenesDeTrabajo = new System.Windows.Forms.Button();   //b
-            this.btnCitas = new System.Windows.Forms.Button();              //c
-
+            this.btnFacturas = new System.Windows.Forms.Button();
+            this.btnOrdenesDeTrabajo = new System.Windows.Forms.Button();
+            this.btnCitas = new System.Windows.Forms.Button();
             this.tbpConsultasYReportes = new System.Windows.Forms.TabPage();
             this.pnlMenu.SuspendLayout();
             this.tbCtrlCintaDeOpciones.SuspendLayout();
             this.tbpConfiguracionYMantenimiento.SuspendLayout();
-
             this.tbpTransacciones.SuspendLayout();
-
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -96,17 +92,18 @@ namespace AutoCare_R_J.Formularios
             // 
             this.btnRepuestos.BackgroundImage = global::AutoCare_R_J.Properties.Resources.repuestos;
             this.btnRepuestos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnRepuestos.Location = new System.Drawing.Point(335, 3);
+            this.btnRepuestos.Location = new System.Drawing.Point(313, 3);
             this.btnRepuestos.Name = "btnRepuestos";
             this.btnRepuestos.Size = new System.Drawing.Size(100, 100);
             this.btnRepuestos.TabIndex = 4;
             this.btnRepuestos.UseVisualStyleBackColor = true;
+            this.btnRepuestos.Click += new System.EventHandler(this.btnRepuestos_Click);
             // 
             // btnServicios
             // 
             this.btnServicios.BackgroundImage = global::AutoCare_R_J.Properties.Resources.servicios;
             this.btnServicios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnServicios.Location = new System.Drawing.Point(232, 3);
+            this.btnServicios.Location = new System.Drawing.Point(210, 3);
             this.btnServicios.Name = "btnServicios";
             this.btnServicios.Size = new System.Drawing.Size(100, 100);
             this.btnServicios.TabIndex = 3;
@@ -117,7 +114,7 @@ namespace AutoCare_R_J.Formularios
             // 
             this.btnEmpleados.BackgroundImage = global::AutoCare_R_J.Properties.Resources.empleados;
             this.btnEmpleados.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEmpleados.Location = new System.Drawing.Point(439, 3);
+            this.btnEmpleados.Location = new System.Drawing.Point(417, 3);
             this.btnEmpleados.Name = "btnEmpleados";
             this.btnEmpleados.Size = new System.Drawing.Size(100, 100);
             this.btnEmpleados.TabIndex = 5;
@@ -128,7 +125,7 @@ namespace AutoCare_R_J.Formularios
             // 
             this.btnVehiculos.BackgroundImage = global::AutoCare_R_J.Properties.Resources.vehiculos;
             this.btnVehiculos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnVehiculos.Location = new System.Drawing.Point(128, 3);
+            this.btnVehiculos.Location = new System.Drawing.Point(106, 3);
             this.btnVehiculos.Name = "btnVehiculos";
             this.btnVehiculos.Size = new System.Drawing.Size(100, 100);
             this.btnVehiculos.TabIndex = 2;
@@ -139,7 +136,7 @@ namespace AutoCare_R_J.Formularios
             // 
             this.btnClientes.BackgroundImage = global::AutoCare_R_J.Properties.Resources.clientes;
             this.btnClientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnClientes.Location = new System.Drawing.Point(25, 3);
+            this.btnClientes.Location = new System.Drawing.Point(3, 3);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(100, 100);
             this.btnClientes.TabIndex = 1;
@@ -161,9 +158,9 @@ namespace AutoCare_R_J.Formularios
             // 
             // btnFacturas
             // 
-//            this.btnFacturas.BackgroundImage = global::AutoCare_R_J.Properties.Resources.facturacion;
+            this.btnFacturas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFacturas.BackgroundImage")));
             this.btnFacturas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnFacturas.Location = new System.Drawing.Point(226, 2);
+            this.btnFacturas.Location = new System.Drawing.Point(211, 2);
             this.btnFacturas.Margin = new System.Windows.Forms.Padding(2);
             this.btnFacturas.Name = "btnFacturas";
             this.btnFacturas.Size = new System.Drawing.Size(100, 100);
@@ -173,9 +170,9 @@ namespace AutoCare_R_J.Formularios
             // 
             // btnOrdenesDeTrabajo
             // 
-//            this.btnOrdenesDeTrabajo.BackgroundImage = global::AutoCare_R_J.Properties.Resources.ordenes;
+            this.btnOrdenesDeTrabajo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnOrdenesDeTrabajo.BackgroundImage")));
             this.btnOrdenesDeTrabajo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnOrdenesDeTrabajo.Location = new System.Drawing.Point(123, 2);
+            this.btnOrdenesDeTrabajo.Location = new System.Drawing.Point(108, 2);
             this.btnOrdenesDeTrabajo.Margin = new System.Windows.Forms.Padding(2);
             this.btnOrdenesDeTrabajo.Name = "btnOrdenesDeTrabajo";
             this.btnOrdenesDeTrabajo.Size = new System.Drawing.Size(100, 100);
@@ -185,9 +182,9 @@ namespace AutoCare_R_J.Formularios
             // 
             // btnCitas
             // 
-//            this.btnCitas.BackgroundImage = global::AutoCare_R_J.Properties.Resources.citas;
+            this.btnCitas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCitas.BackgroundImage")));
             this.btnCitas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnCitas.Location = new System.Drawing.Point(19, 2);
+            this.btnCitas.Location = new System.Drawing.Point(4, 2);
             this.btnCitas.Margin = new System.Windows.Forms.Padding(2);
             this.btnCitas.Name = "btnCitas";
             this.btnCitas.Size = new System.Drawing.Size(100, 100);
@@ -220,9 +217,7 @@ namespace AutoCare_R_J.Formularios
             this.pnlMenu.ResumeLayout(false);
             this.tbCtrlCintaDeOpciones.ResumeLayout(false);
             this.tbpConfiguracionYMantenimiento.ResumeLayout(false);
-
             this.tbpTransacciones.ResumeLayout(false);
-
             this.ResumeLayout(false);
 
         }
