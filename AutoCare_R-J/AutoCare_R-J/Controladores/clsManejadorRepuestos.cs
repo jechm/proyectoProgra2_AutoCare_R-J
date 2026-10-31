@@ -5,7 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AutoCare_R_J.MetodosGlobales;
 using AutoCare_R_J.Modelos;
+using Microsoft.Data.Sqlite;
 
 namespace AutoCare_R_J.Controladores
 {
@@ -26,76 +28,86 @@ namespace AutoCare_R_J.Controladores
             lstRepuestos = new List<clsRepuesto>();
         }
 
-        #region Modificadores
-        //Metodos Modificadores de datos en memoria
-        //Agregar nuevo repuesto a la lista de repuestos
-        public void AgregarRepuesto(clsRepuesto pRepuesto)
+        #region Metodos Varios
+        private bool ValidarDatos()
         {
-            lstRepuestos.Add(pRepuesto);
-        }
-
-        //Eliminar repuesto de la lista de repuestos
-        public bool EliminarRepuesto(string pRepuesto)
-        {
-            clsRepuesto tempRepuesto = BuscarRepuestoPorCodigo(pRepuesto);
-            if (tempRepuesto==null)
-            {
-                return false;
-            }
-            else
-            {
-                lstRepuestos.Remove(tempRepuesto);
-                return true;
-            }
             
-        }
+            return true;
 
-        //Modificar repuesto de la lista de repuestos
-        public bool ModificarRepuesto(clsRepuesto pRepuesto)
+        }
+        #endregion
+
+        /*
+ * 1. codigo
+ * 2. nombre
+ * 3. marca
+ * 4. categoria
+ * 5. costo
+ * 6. precio
+ * 7. existencia
+ * 8. estado
+ */
+
+        #region Traer Todos Los Repuestos
+        public IList<clsRepuesto> ObtenerRegsitros()
         {
-            clsRepuesto repuestoExistente = BuscarRepuestoPorCodigo(pRepuesto.CodigoRepuesto);
-            if (repuestoExistente != null)
+            //crear solicitud sql
+            string sql = @"SELECT codigo_repuesto, nombre, marca, categoria, costo, precio, existencia, estado 
+FROM repuesto
+ORDER BY codigo_repuesto";
+
+
+            //hacer la conexion
+            using(var con = clsConexion.ObtenerConexion())
+            using(var cmd = new SqliteCommand(sql, con))
+            using(var r= cmd.ExecuteReader())
             {
-                repuestoExistente.NombreRepuesto = pRepuesto.NombreRepuesto;
-                repuestoExistente.Precio= pRepuesto.Precio;
-                repuestoExistente.Categoria = pRepuesto.Categoria;
-                repuestoExistente.Marca = pRepuesto.Marca;
-                repuestoExistente.Existencias = pRepuesto.Existencias;
-                repuestoExistente.Estado = pRepuesto.Estado;
-                return true;
+                while (r.Read())
+                {
+                    clsRepuesto repuestoTemporal = new clsRepuesto(
+                        r.GetString(0),
+                        r.GetString(1),
+                        r.GetString(2),
+                        r.GetString(3),
+                        Convert.ToDecimal(r.GetString(4)),
+                        Convert.ToDecimal(r.GetString(5)),
+                        Convert.ToInt32(r.GetString(6)),
+                        r.GetString(7)
+                        );
+                    lstRepuestos.Add(repuestoTemporal);
+                }
             }
-            else
-            {
-                return false;
-            }
+
+            return lstRepuestos;
         }
 
         #endregion
-        #region Buscador
-        //Buscador de repuesto por codigo
-        public clsRepuesto BuscarRepuestoPorCodigo(string pCodigo)
+
+        #region Nuevos Registros y Actualizacioens
+
+        #region Nuevo Registro
+        private void nuevoRepuesto(string pCodigo,
+ string pNombre,
+ string pMarca,
+ string pCategoria,
+ decimal pCosto,
+ decimal pPrecio,
+ int pExistencia,
+ string pEstado)
         {
-            return lstRepuestos.FirstOrDefault(rp => rp.CodigoRepuesto.Equals(pCodigo, StringComparison.OrdinalIgnoreCase));
-        }
 
-        //public bool
-        public List<clsRepuesto> BuscarRepuestosPorNombre(string pNombre)
-        {
-            return lstRepuestos.Where(rp => rp.NombreRepuesto.Contains(pNombre)).ToList();
-        }
+            string sql = @"INSERT INTO repuesto
+(codigo_repuesto, nombre, marca, categoria, costo, precio, existencia, estado)
+VALUES (@codigo, @nombre, @marca, @categoria, @costo, @precio, @existencia, @estado)";
 
-        public List<clsRepuesto> BuscarRepuestosPorCategoria(string pCategoria)
-        {
-            return lstRepuestos.Where(rp => rp.Categoria.Contains(pCategoria)).ToList();
+            using(var con = clsConexion.ObtenerConexion())
+            using(var cmd = new SqliteCommand(sql, con))
+            {
+                cmd.Parameters.AddWithValue("@codigo", )
+            }
 
-        }
-
-        public List<clsRepuesto> BuscarRepuestosPorMarca(string pMarca)
-        {
-            return lstRepuestos.Where(rp => rp.Marca.Contains(pMarca)).ToList();
 
         }
-
 
 
         #endregion
