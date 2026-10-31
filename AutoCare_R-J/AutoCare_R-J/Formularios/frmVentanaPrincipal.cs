@@ -160,7 +160,7 @@ namespace AutoCare_R_J.Formularios     //borrar este comentario del 231026
         {
             if (!FormularioAbierto("frmRepuestos"))
             {
-                frmRepuestos vRepuestos = new frmRepuestos(listaRepuestos);
+                frmRepuestos vRepuestos = new frmRepuestos();
                 vRepuestos.MdiParent = this;
                 vRepuestos.Show();
             }

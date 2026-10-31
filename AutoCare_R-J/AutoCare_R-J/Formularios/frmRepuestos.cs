@@ -16,42 +16,154 @@ namespace AutoCare_R_J.Formularios  //borrar este comentario dle 231026
     {
 
         private clsManejadorRepuestos listaRepuestos;
-        private int totalRepuestos;
         private string[] estados = { "Nuevo", "Usado", "Reacondicionado" };
+        private string[] parametrosDeBusqueda = { "Codigo", "Nombre", "Categoria", "Marca" };
 
-        public frmRepuestos(clsManejadorRepuestos pListaRepuestos)
+        public frmRepuestos()
         {
             InitializeComponent();
-            listaRepuestos = pListaRepuestos;
-
-            totalRepuestos = listaRepuestos.ObtenerRepuestos().Count+1;
+            listaRepuestos = new clsManejadorRepuestos();
 
             cmbEstado.DataSource = estados;
-            cmbValoresDeBusqueda.DataSource = new string[] { "Codigo", "Nombre", "Categoria", "Marca" };
+            cmbValoresDeBusqueda.DataSource = parametrosDeBusqueda ;
             DibujarTabla();
         }
 
 
-        #region Metodos para dibujar la tabla de repuestos
-        private void DibujarTabla()
+        #region Botones del CRUD
+
+        //Create
+        private void bntNuevo_Click(object sender, EventArgs e)
         {
-            
-            dtGvDatos.DataSource = null;
-            dtGvDatos.DataSource = listaRepuestos.ObtenerRepuestos();
-            limpiarFormulario();
+
+            if (listaRepuestos.nuevoRepuesto(txtCodigo.Text, txtNombre.Text, txtMarca.Text, txtCategoria.Text, nudCosto.Value, nudPrecio.Value, Convert.ToInt32(nudExistencias.Value), cmbEstado.SelectedItem.ToString()))
+            {
+                MessageBox.Show("Repuesto Agregado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DibujarTabla();
+                
+            }
+
         }
 
-        private void DibujarTabla(IList<clsRepuesto> repuestosFiltrados)
+        //Read
+
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
-            dtGvDatos.DataSource = null;
-            dtGvDatos.DataSource = repuestosFiltrados;
+            string strBuscarPor = cmbValoresDeBusqueda.SelectedItem.ToString();
+
+
+            IList<clsRepuesto> repuestosEncontrados = new List<clsRepuesto>();
+
+            if (strBuscarPor.Equals("Codigo"))
+            {
+                clsRepuesto repuestoTemporal = listaRepuestos.BuscarRepuestoPorCodigo(txtValorAbuscar.Text.Trim());
+                if (repuestoTemporal != null)
+                {
+                    repuestosEncontrados.Add(repuestoTemporal);
+                }
+
+            }
+            else if (!string.IsNullOrWhiteSpace(strBuscarPor))
+            {
+                repuestosEncontrados = listaRepuestos.BuscarRepuestos(strBuscarPor.ToLower(), txtValorAbuscar.Text.Trim());
+            }
+
+            if (repuestosEncontrados.Count > 0)
+            {
+                DibujarTabla(repuestosEncontrados);
+            }
+            else
+            {
+                MessageBox.Show($"No se encontraron repuestos por {strBuscarPor}.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DibujarTabla();
+            }
+        }
+
+
+        //Update
+        private void btnModificarCliente_Click(object sender, EventArgs e)
+        {
+
+            if (listaRepuestos.ActualizarRegistro(txtCodigo.Text, txtNombre.Text, txtMarca.Text, txtCategoria.Text, nudCosto.Value, nudPrecio.Value, Convert.ToInt32(nudExistencias.Value), cmbEstado.SelectedItem.ToString()))
+            {
+
+                MessageBox.Show("Repuesto modificado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            DibujarTabla();
+
+        }
+
+
+        //Delete
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+            if (listaRepuestos.EliminarProductos(txtCodigo.Text))
+            {
+                limpiarFormulario();
+                DibujarTabla();
+                MessageBox.Show("Repuesto eliminado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            else
+            {
+                MessageBox.Show("Repuesto no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+
+        #endregion
+
+        #region Control de la Tabla
+        //Evita que el programa cierre al hacer clic en la tabla
+        private void dtGvDatos_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+        }
+
+        //Carga en el formulario los datos de un repuesto al hacer doble clic en una fila de la tabla
+        private void dtGvDatos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+
+
+            txtCodigo.Text = dtGvDatos.Rows[e.RowIndex].Cells["CodigoRepuesto"].Value.ToString();
+            txtNombre.Text = dtGvDatos.Rows[e.RowIndex].Cells["NombreRepuesto"].Value.ToString();
+            txtMarca.Text = dtGvDatos.Rows[e.RowIndex].Cells["Marca"].Value.ToString();
+            txtCategoria.Text = dtGvDatos.Rows[e.RowIndex].Cells["Categoria"].Value.ToString();
+            nudPrecio.Value = Convert.ToDecimal(dtGvDatos.Rows[e.RowIndex].Cells["Precio"].Value);
+            nudCosto.Value = Convert.ToDecimal(dtGvDatos.Rows[e.RowIndex].Cells["Costo"].Value);
+            nudExistencias.Value = Convert.ToInt32(dtGvDatos.Rows[e.RowIndex].Cells["Existencias"].Value);
+            cmbEstado.SelectedItem = dtGvDatos.Rows[e.RowIndex].Cells["Estado"].Value.ToString();
+
+
+            btnModificar.Enabled = true;
+            btnModificar.CustomBackColor = Color.DeepSkyBlue; // Cambiar el color del botón a azul
+            btnEliminar.Enabled = true;
+            btnEliminar.CustomBackColor = Color.Red; // Cambiar el color del botón a rojo
+        }
+
+        #endregion
+
+        #region Metodos modificadores de formulario (no DB)
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
             limpiarFormulario();
         }
 
         private void limpiarFormulario()
         {
-            totalRepuestos = listaRepuestos.ObtenerRepuestos().Count;
-            txtCodigo.Text = $"RP-{totalRepuestos + 1:000}";
+
+            txtCodigo.Text = listaRepuestos.ObtenerSiguienteCodigo();
 
             txtNombre.Text = "";
             txtCategoria.Text = "";
@@ -64,6 +176,22 @@ namespace AutoCare_R_J.Formularios  //borrar este comentario dle 231026
             bloquearBotonesModificadores();
         }
 
+        #region Metodos para dibujar la tabla de repuestos
+        private void DibujarTabla()
+        {
+
+            dtGvDatos.DataSource = null;
+            dtGvDatos.DataSource = listaRepuestos.ObtenerRegsitros();
+            limpiarFormulario();
+        }
+
+        private void DibujarTabla(IList<clsRepuesto> repuestosFiltrados)
+        {
+            dtGvDatos.DataSource = null;
+            dtGvDatos.DataSource = repuestosFiltrados;
+            limpiarFormulario();
+        }
+
         private void bloquearBotonesModificadores()
         {
             btnModificar.Enabled = false;
@@ -73,8 +201,7 @@ namespace AutoCare_R_J.Formularios  //borrar este comentario dle 231026
         }
         #endregion
 
-
-
+        //cambiar el parametro de busqueda
         private void cmbValoresDeBusqueda_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbValoresDeBusqueda.SelectedItem.ToString() == "Codigo")
@@ -90,207 +217,6 @@ namespace AutoCare_R_J.Formularios  //borrar este comentario dle 231026
             gbValorABuscar.Text = $"Buscar por {cmbValoresDeBusqueda.SelectedItem.ToString()}";
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            string codigoRepuesto = dtGvDatos.SelectedRows[0].Cells["Codigo"].Value.ToString();
-            if (listaRepuestos.EliminarRepuesto(codigoRepuesto))
-            {
-                totalRepuestos--;
-                limpiarFormulario();
-                DibujarTabla();
-                MessageBox.Show("Repuesto eliminado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
-            }
-            else
-            {
-                MessageBox.Show("No se pudo eliminar el repuesto, verifique que el código sea correcto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnModificarCliente_Click(object sender, EventArgs e)
-        {
-            if (!validarDatos())
-            {
-                return;
-            }
-
-            clsRepuesto repuestoTemporal = new clsRepuesto
-            (
-                txtCodigo.Text,
-                txtNombre.Text,
-                txtCategoria.Text,
-                txtMarca.Text,
-                nudPrecio.Value,
-                nudCosto.Value,
-                (int)nudExistencias.Value,
-                cmbEstado.SelectedItem.ToString()
-            );
-
-            if (!listaRepuestos.ModificarRepuesto(repuestoTemporal))
-            {
-                MessageBox.Show("No se pudo modificar el repuesto, verifique que el código sea correcto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                MessageBox.Show("Repuesto modificado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
-            }
-            DibujarTabla();
-
-        }
-
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            limpiarFormulario();
-        }
-
-        private void cstmPnlDatosCliente_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtCosto_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if(!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if(!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private bool validarDatos()
-        {
-            // Campos obligatorios
-            if (string.IsNullOrWhiteSpace(txtNombre.Text))
-            {
-                MessageBox.Show("El campo Nombre es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (string.IsNullOrWhiteSpace(txtCategoria.Text))
-            {
-                MessageBox.Show("El campo Categoría es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (string.IsNullOrWhiteSpace(txtMarca.Text))
-            {
-                MessageBox.Show("El campo Marca es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            // Precio y costo deben ser decimales válidos y no negativos
-            if (nudPrecio.Value == 0m)
-            {
-                MessageBox.Show("El precio indicado no es valido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            return true;
-        }
-
-        private void dtGvDatos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0)
-            {
-                return;
-            }
-
-
-            txtCodigo.Text = dtGvDatos.Rows[e.RowIndex].Cells["Codigo"].Value.ToString();
-            txtNombre.Text = dtGvDatos.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
-            txtMarca.Text = dtGvDatos.Rows[e.RowIndex].Cells["Marca"].Value.ToString();
-            txtCategoria.Text = dtGvDatos.Rows[e.RowIndex].Cells["Categoria"].Value.ToString();
-            nudPrecio.Value = Convert.ToDecimal(dtGvDatos.Rows[e.RowIndex].Cells["Precio"].Value);
-            nudCosto.Value = Convert.ToDecimal(dtGvDatos.Rows[e.RowIndex].Cells["Costo"].Value);
-            nudExistencias.Value = Convert.ToInt32(dtGvDatos.Rows[e.RowIndex].Cells["Existencias"].Value);
-            cmbEstado.SelectedItem = dtGvDatos.Rows[e.RowIndex].Cells["Estado"].Value.ToString();
-
-
-            btnModificar.Enabled = true;
-            btnModificar.CustomBackColor = Color.DeepSkyBlue; // Cambiar el color del botón a azul
-            btnEliminar.Enabled = true;
-            btnEliminar.CustomBackColor = Color.Red; // Cambiar el color del botón a rojo
-        }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            string strBuscarPor = cmbValoresDeBusqueda.SelectedItem.ToString();
-           
-
-            IList<clsRepuesto> repuestosEncontrados = new List<clsRepuesto>();
-
-            if (strBuscarPor.Equals("Codigo"))
-            {
-                clsRepuesto repuestoTemporal = listaRepuestos.BuscarRepuestoPorCodigo(txtValorAbuscar.Text.Trim());
-                if (repuestoTemporal != null)
-                {
-                    repuestosEncontrados.Add(repuestoTemporal);
-                }
-
-            }
-            else if (strBuscarPor.Equals("Nombre"))
-            {
-                repuestosEncontrados = listaRepuestos.BuscarRepuestosPorNombre(txtValorAbuscar.Text.Trim());
-            }
-            else if (strBuscarPor.Equals("Categoria"))
-            {
-                repuestosEncontrados = listaRepuestos.BuscarRepuestosPorCategoria(txtValorAbuscar.Text.Trim());
-            }
-            else if (strBuscarPor.Equals("Marca"))
-            {
-                repuestosEncontrados = listaRepuestos.BuscarRepuestosPorMarca(txtValorAbuscar.Text.Trim());
-            }
-
-            if (repuestosEncontrados.Count > 0)
-            {
-                DibujarTabla(repuestosEncontrados);
-            }
-            else
-            {
-                MessageBox.Show($"No se encontraron repuestos por {strBuscarPor}.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                DibujarTabla();
-            }
-        }
-
-        private void bntNuevo_Click(object sender, EventArgs e)
-        {
-
-                if (validarDatos())
-                {
-                    
-                    clsRepuesto nuevoRepuesto = new clsRepuesto
-                    (
-                        txtCodigo.Text,
-                        txtNombre.Text,
-                        txtCategoria.Text,
-                        txtMarca.Text,
-                        nudPrecio.Value,
-                        nudCosto.Value,
-                        (int)nudExistencias.Value,
-                        cmbEstado.SelectedItem.ToString()
-                    );
-
-                    listaRepuestos.AgregarRepuesto(nuevoRepuesto);
-                    totalRepuestos++;
-                    DibujarTabla();
-
-                }
-        }
-
-
-
-        private void dtGvDatos_CellClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0)
-            {
-                return;
-            }
-        }
+        #endregion
     }
 }
