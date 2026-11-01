@@ -79,7 +79,6 @@ namespace AutoCare_R_J.Formularios     //borrar este comentario del 231026
             if (!FormularioAbierto("frmClientes"))
             {
                 frmClientes clientes = new frmClientes();
-                clientes.AsignarListaclientes(ref listaClientes);
                 clientes.MdiParent = this;
                 clientes.Show();
             }

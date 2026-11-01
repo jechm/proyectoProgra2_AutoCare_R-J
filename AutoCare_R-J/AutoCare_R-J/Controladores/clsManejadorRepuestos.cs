@@ -406,7 +406,7 @@ FROM repuesto WHERE {columnaDeBusqueda} LIKE @datoBusqueda";
                     if (resultado == null || resultado == DBNull.Value)
                         return "RP-001";
 
-                    int numero = int.Parse(resultado.ToString().Substring(4)) + 1;
+                    int numero = int.Parse(resultado.ToString().Substring(3)) + 1;
                     return $"RP-{numero:000}";
                 }
             }

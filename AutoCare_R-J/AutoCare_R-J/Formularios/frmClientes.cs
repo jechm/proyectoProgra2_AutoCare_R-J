@@ -9,37 +9,31 @@ namespace AutoCare_R_J.Formularios
 {
     public partial class frmClientes : Form
     {
-        private clsManejadorClientes manejadorClientes;
+        private clsManejadorClientes listaClientes;
         private string[] strEstadosCliente = { "Activo", "Inactivo", "En Mora" };
-        private string[] strValoresDeBusqueda = { "Codigo", "Nombre", "Apellido", "DPI", "Telefono", "Correo", "Direccion", "Estado", "Nit" };
-        private int contadorClientes;
+        private string[] strValoresDeBusqueda = { "Codigo", "Nombres", "Apellidos", "DPI", "Telefono", "Correo", "Direccion", "Estado", "Nit" };
+
         public frmClientes()
         {
 
             InitializeComponent();
-            manejadorClientes = new clsManejadorClientes();
+            listaClientes = new clsManejadorClientes();
+
             cmbEstado.DataSource = strEstadosCliente;
-            cmbEstado.SelectedIndex = 0; // Selecciona Activo estado por defecto
             cmbValoresDeBusqueda.DataSource = strValoresDeBusqueda;
-            dtGvDatos.DataSource = manejadorClientes.ObtenerClientes();
-        }
 
-        internal void AsignarListaclientes(ref clsManejadorClientes pManejadorClientes)
-        {
-            manejadorClientes = pManejadorClientes;
-            contadorClientes = manejadorClientes.TotalClientes + 1;
-            txtCodigo.Text = $"CL-{contadorClientes:000}";
             redibujarTabla();
-
-
         }
+
 
         #region Metodos de redibujado y limpieza de formulario
         private void redibujarTabla()
         {
+            limpiarFormulario();
             dtGvDatos.DataSource = null;
-            dtGvDatos.DataSource = manejadorClientes.ObtenerClientes();
+            dtGvDatos.DataSource = listaClientes.ObtenerClientes();
             reordenarColumnas();
+            
         }
 
         private void redibujarTabla(IList<clsCliente> pClientesEncontrados)
@@ -62,126 +56,33 @@ namespace AutoCare_R_J.Formularios
 
         private void bntNuevoCliente_Click(object sender, EventArgs e)
         {
-            if (validarDatos())
-            {
-                // Crear el cliente si los datos son válidos
-                if (ValidarClienteExistente())
-                {
-                    CrearCliente();
-                }
 
-            }
+                    CrearCliente();
 
         }
 
         #region Validaciones de datos
-        private bool ValidarClienteExistente()
-        {
+        
 
-            bool clienteExistenteDPI = manejadorClientes.BuscarClientePorDPI(txtDPI.Text) != null;
-            bool clienteExistenteNit = manejadorClientes.BuscarClientePorNit(txtNit.Text) != null && txtNit.Text != "C/F";
-            bool clienteExistenteCorreo = manejadorClientes.BuscarClientePorCorreo(txtCorreo.Text) != null;
-            bool clienteExistenteTelefono = manejadorClientes.BuscarClientePorTelefono(txtTelefono.Text) != null;
-
-            if (clienteExistenteDPI)
-            {
-                MessageBox.Show("Ya existe un cliente con este DPI.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (clienteExistenteNit)
-            {
-                MessageBox.Show("Ya existe un cliente con este NIT.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (clienteExistenteCorreo)
-            {
-                MessageBox.Show("Ya existe un cliente con este correo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (clienteExistenteTelefono)
-            {
-                MessageBox.Show("Ya existe un cliente con este teléfono.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            return true; // No hay clientes existentes con los mismos datos
-        }
-
-        private bool validarDatos()
-        {
-            bool elDPIesValido = !string.IsNullOrWhiteSpace(txtDPI.Text) && txtDPI.Text.Length == 13;
-            bool elTelefonoEsValido = !string.IsNullOrWhiteSpace(txtTelefono.Text) && txtTelefono.Text.Length == 8;
-            string correo = txtCorreo.Text;
-
-            if (
-                string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                string.IsNullOrWhiteSpace(txtApellido.Text)
-            )
-            {
-                MessageBox.Show("Por favor, complete todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            if (elDPIesValido == false)
-            {
-                MessageBox.Show("El DPI debe contener 13 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            if (elTelefonoEsValido == false)
-            {
-                MessageBox.Show("El teléfono debe contener 8 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            if (correo.Length > 0 && !correo.Contains("@"))
-            {
-                MessageBox.Show("El correo electrónico no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            // Si todos los campos están completos, se puede proceder a crear el cliente
-            return true;
-        }
         #endregion
         private void CrearCliente()
         {
-            string codigo = txtCodigo.Text;
-            string direccion = string.IsNullOrWhiteSpace(txtDireccion.Text) ? "Sin especificar" : txtDireccion.Text;
-            string nit = string.IsNullOrWhiteSpace(txtNit.Text) ? "C/F" : txtNit.Text;
-
-            clsCliente clienteTemporal = new clsCliente(
-                codigo,
-                txtNombre.Text,
-                txtApellido.Text,
-                txtDPI.Text,
-                txtTelefono.Text,
-                txtCorreo.Text,
-                direccion,
-                cmbEstado.SelectedItem.ToString(),
-                nit,
-                0
-                );
-            manejadorClientes.AgregarCliente(clienteTemporal);
-            redibujarTabla();
-
-            MessageBox.Show("Cliente creado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            contadorClientes++;
-
-            limpiarFormulario();
+            if(listaClientes.AgregarCliente(txtCodigo.Text, txtNombre.Text, txtApellido.Text, txtDPI.Text, txtTelefono.Text, txtCorreo.Text, txtDireccion.Text, cmbEstado.SelectedItem.ToString(), txtNit.Text, 0))
+            {
+                redibujarTabla();
+            }
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            limpiarFormulario();
+            redibujarTabla();
 
         }
 
         private void limpiarFormulario()
         {
 
-            txtCodigo.Text = $"CL-{contadorClientes:000}";
+            txtCodigo.Text = listaClientes.ObtenerSiguienteCodigo();
 
             txtNombre.Text = "";
             txtApellido.Text = "";
@@ -192,15 +93,18 @@ namespace AutoCare_R_J.Formularios
             txtTelefono.Text = "";
             txtCorreo.Text = "";
             txtDireccion.Text = "";
-            cmbEstado.SelectedIndex = 0;
+
 
             txtNit.Text = "";
             txtNit.Enabled = true; // Habilitar el campo Nit para que se pueda modificar
 
-            txtValorAbuscar.Text = "";
+            
+            cmbEstado.SelectedIndex = 0; // Selecciona Activo estado por defecto
+            cmbValoresDeBusqueda.SelectedIndex = 0; // Selecciona Codigo por defecto
+            txtValorAbuscar.Text = "CL-";
 
             bloquearBotonesModificadores();
-            redibujarTabla();
+    
         }
 
         private void bloquearBotonesModificadores()
@@ -256,55 +160,41 @@ namespace AutoCare_R_J.Formularios
         private void btnModificarCliente_Click(object sender, EventArgs e)
 
         {
-            if (validarDatos())
-            {
-                clsCliente clienteExistente = manejadorClientes.BuscarClientePorCodigo(txtCodigo.Text);
-
-                if (clienteExistente != null)
-                {
-                    clienteExistente.ActualizarCliente(
-                        txtNombre.Text,
-                        txtApellido.Text,
-                        txtTelefono.Text,
-                        txtCorreo.Text,
-                        txtDireccion.Text,
-                        cmbEstado.SelectedItem.ToString(),
-                        clienteExistente.Saldo // Mantener el saldo actual
-                    );
-                    // redibujarTabla();
-                    MessageBox.Show("Cliente modificado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    limpiarFormulario();
-
-
-                }
-                else
-                {
-                    MessageBox.Show("No se encontró un cliente con este código.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-
+            ModificarCliente();
 
 
         }
 
+        private void ModificarCliente()
+        {
+             
+
+            if (listaClientes.ActualizarCliente(txtCodigo.Text, txtNombre.Text, txtApellido.Text, txtDPI.Text, txtTelefono.Text, txtCorreo.Text, 
+                txtDireccion.Text, cmbEstado.SelectedItem.ToString(), txtNit.Text))
+            {
+                
+                redibujarTabla();
+                MessageBox.Show("Cliente modificado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                limpiarFormulario();
+            }
+        }
+
         private void btnEliminarCliente_Click(object sender, EventArgs e)
         {
-            string codigoCliente = dtGvDatos.SelectedRows[0].Cells["Codigo"].Value.ToString();
-            bool eliminado = manejadorClientes.EliminarCliente(codigoCliente);
-            if (eliminado)
+            if(MessageBox.Show("¿Está seguro de que desea eliminar este cliente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
+                EliminarCliente();
                 redibujarTabla();
-                MessageBox.Show("Cliente eliminado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 limpiarFormulario();
-                contadorClientes--; // Disminuir el contador de clientes
-
-
             }
-            else
+        }
+
+        private void EliminarCliente()
+        {
+            if(listaClientes.EliminarCliente(txtCodigo.Text))
             {
-                MessageBox.Show("No se encontró un cliente con este código.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Cliente eliminado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
         }
 
 
@@ -326,73 +216,25 @@ namespace AutoCare_R_J.Formularios
         //Buscar clientes por el valor ingresado en el textbox y el valor seleccionado en el combobox
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
-            string strBuscarPor = cmbValoresDeBusqueda.SelectedItem.ToString();
+            string strBuscarPor = cmbValoresDeBusqueda.SelectedItem.ToString().ToLower();
+            string parametroBusqueda = txtValorAbuscar.Text.Trim();
 
             IList<clsCliente> clientesEncontrados = new List<clsCliente>();
 
-            if (strBuscarPor.Equals("Codigo"))
+            if (strBuscarPor.Equals("codigo") || strBuscarPor.Equals("dpi") || strBuscarPor.Equals("nit") || strBuscarPor.Equals("correo") || strBuscarPor.Equals("telefono"))//
             {
-                clsCliente clienteTemporal = manejadorClientes.BuscarClientePorCodigo(txtValorAbuscar.Text.Trim());
+                clsCliente clienteTemporal = listaClientes.BuscarClientePorParametroUnico(strBuscarPor, parametroBusqueda);
                 if (clienteTemporal != null)
                 {
                     clientesEncontrados.Add(clienteTemporal);
                 }
 
             }
-            else if (strBuscarPor.Equals("Nombre"))
+            else 
             {
-                clientesEncontrados = manejadorClientes.BuscarClientesPorNombre(txtValorAbuscar.Text.Trim());
+                clientesEncontrados = listaClientes.BuscarClientePorParametroRepetibles(strBuscarPor, parametroBusqueda);
 
             }
-            else if (strBuscarPor.Equals("Apellido"))
-            {
-                clientesEncontrados = manejadorClientes.BuscarClientesPorApellido(txtValorAbuscar.Text.Trim());
-
-            }
-            else if (strBuscarPor.Equals("DPI"))
-            {
-
-                clsCliente clienteTemporal = manejadorClientes.BuscarClientePorDPI(txtValorAbuscar.Text.Trim());
-                if (clienteTemporal != null)
-                {
-                    clientesEncontrados.Add(clienteTemporal);
-                }
-
-            }
-            else if (strBuscarPor.Equals("Telefono"))
-            {
-
-                clsCliente clienteTemporal = manejadorClientes.BuscarClientePorTelefono(txtValorAbuscar.Text.Trim());
-                if (clienteTemporal != null)
-                {
-                    clientesEncontrados.Add(clienteTemporal);
-                }
-            }
-            else if (strBuscarPor.Equals("Correo"))
-            {
-                clsCliente clienteTemporal = manejadorClientes.BuscarClientePorCorreo(txtValorAbuscar.Text.Trim());
-                if (clienteTemporal != null)
-                {
-                    clientesEncontrados.Add(clienteTemporal);
-                }
-            }
-            else if (strBuscarPor.Equals("Direccion"))
-            {
-                clientesEncontrados = manejadorClientes.BuscarClientesPorDireccion(txtValorAbuscar.Text.Trim());
-            }
-            else if (strBuscarPor.Equals("Estado"))
-            {
-                clientesEncontrados = manejadorClientes.BuscarClientesPorEstado(txtValorAbuscar.Text.Trim());
-            }
-            else if (strBuscarPor.Equals("Nit"))
-            {
-                clsCliente clienteTemporal = manejadorClientes.BuscarClientePorNit(txtValorAbuscar.Text.Trim());
-                if (clienteTemporal != null)
-                {
-                    clientesEncontrados.Add(clienteTemporal);
-                }
-            }
-
 
             if (clientesEncontrados.Count > 0)
             {
@@ -400,7 +242,7 @@ namespace AutoCare_R_J.Formularios
             }
             else
             {
-                MessageBox.Show($"No se encontraron clientes por {strBuscarPor}.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"No se encontraron clientes con {strBuscarPor} = {parametroBusqueda}.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 redibujarTabla();
             }
         }

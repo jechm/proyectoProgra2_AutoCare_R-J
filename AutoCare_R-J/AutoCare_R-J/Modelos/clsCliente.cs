@@ -28,7 +28,7 @@ namespace AutoCare_R_J.Modelos
         }
 
 
-        public clsCliente(string pCodigo, string pNombre, string pApellido, string pDpi, string pTelefono, string pCorreo, string pDireccion, string pEstado, string pNit, decimal pSaldo)
+        public clsCliente(string pCodigo, string pNombre, string pApellido, string pDpi, string pTelefono, string pCorreo, string pDireccion, string pEstado, string pNit)
             : base(pCodigo, 
                   pNombre, 
                   pApellido, 
@@ -40,7 +40,7 @@ namespace AutoCare_R_J.Modelos
                   )
         {
             this.strNit = pNit;
-            this.decSaldo = pSaldo;
+            this.decSaldo = 0;
 
         }
 
