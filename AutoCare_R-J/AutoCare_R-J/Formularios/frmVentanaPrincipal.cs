@@ -89,7 +89,6 @@ namespace AutoCare_R_J.Formularios     //borrar este comentario del 231026
             if (!FormularioAbierto("frmEmpleados"))
             {
                 frmEmpleados empleados = new frmEmpleados();
-                empleados.AsignarListaEmpleados(ref listaEmpleados);
                 empleados.MdiParent = this;
                 empleados.Show();
             }

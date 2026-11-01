@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AutoCare_R_J.Modelos
 {
@@ -14,15 +15,11 @@ namespace AutoCare_R_J.Modelos
         private string strRol;  //permite habilitar distindos permisos dentro del sistema
         private decimal decSueldo;
         private string strUsuario;
-        private string strContraseña;
+        private string strContrasenia;
 
 
         //Propiedades de un especificos de un empleado
-        /*public string Puesto
-        {
-            get { return strPuesto; }
-            set { strPuesto = value; }
-        }*/
+
 
         public string Rol
         {
@@ -41,9 +38,10 @@ namespace AutoCare_R_J.Modelos
             get { return strUsuario; }
         }
 
-        public string Contraseña
+        public string Contrasenia
         {
-            get { return strContraseña; }
+            get { return strContrasenia; }
+            set { strContrasenia = value; }
         }
 
 
@@ -59,11 +57,32 @@ namespace AutoCare_R_J.Modelos
                   pEstado
                   )
         {
-            this.Rol = pRol;
-            this.Sueldo = pSueldo;
-            this.strUsuario=pUsuario;
-            this.strContraseña = pContraseña;
+            
+            
+            validarYAsignarDatos(pUsuario, pContraseña, pRol, pSueldo);
                         
+        }
+
+        private void validarYAsignarDatos(string pUsuario, string pContraseña, string pRol, decimal pSueldo)
+        {
+            this.Rol = string.IsNullOrWhiteSpace(pRol) ? "Empleado" : pRol;
+            this.Sueldo = pSueldo <= 0 ? 4200 : pSueldo; // Asignar 4200 si el sueldo es menor o igual a 0
+
+            if(string.IsNullOrWhiteSpace(pUsuario))
+            {
+                throw new ArgumentException("El usuario no debe de estar vacío.");
+                
+            }
+
+            if(string.IsNullOrWhiteSpace(pContraseña))
+            {
+                throw new ArgumentException("La contraseña no debe de estar vacía.");
+               
+            }
+
+            this.strUsuario = pUsuario;
+            this.Contrasenia = pContraseña;
+
         }
 
         public void actualizarEmpleado(string pNombre, string pApellido, string pTelefono, string pCorreo, string pDireccion, string pEstado, string pRol, decimal pSueldo, string pUsuario, string pContraseña)
@@ -77,7 +96,7 @@ namespace AutoCare_R_J.Modelos
             this.strRol = pRol;
             this.decSueldo = pSueldo;
             this.strUsuario = pUsuario;
-            this.strContraseña = pContraseña;
+            this.strContrasenia = pContraseña;
         }
 
         /*

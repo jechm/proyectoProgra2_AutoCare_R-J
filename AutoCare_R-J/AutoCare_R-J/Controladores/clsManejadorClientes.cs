@@ -352,34 +352,24 @@ VALUES (@Codigo, @Nombres, @Apellidos, @Dpi, @Telefono, @Correo, @Direccion, @Es
             if (!ValidarDatos(pCodigo, pNombres, pApellidos, pDpi, pTelefono, pCorreo, pEstado, pNit))
                 return false;
 
-            clsCliente clienteTemporal = new clsCliente(pCodigo, pNombres, pApellidos, pDpi, pTelefono, pCorreo, pDireccion, pEstado, pNit);
-
-            if (clienteTemporal == null)
-            {
-                MessageBox.Show("No se encontró el cliente con el código proporcionado.");
-                return false;
-            }
-
             using (var con = clsConexion.ObtenerConexion())
             {
                 if (con.State != System.Data.ConnectionState.Open)
                     con.Open();
 
                 //Crear sentencia sql para actualizar registro
-                string sql = @"UPDATE clientes SET nombres = @Nombres, apellidos = @Apellidos, telefono = @Telefono, correo = @Correo, direccion = @Direccion, estado = @Estado, saldo = @Saldo WHERE codigo = @Codigo";
+                string sql = @"UPDATE clientes 
+SET nombres = @Nombres, apellidos = @Apellidos, telefono = @Telefono, correo = @Correo, direccion = @Direccion, estado = @Estado WHERE codigo = @Codigo";
 
                 using (var cmd = new SqliteCommand(sql, con))
                 {
-                    cmd.Parameters.AddWithValue("@Codigo", clienteTemporal.Codigo);
-                    cmd.Parameters.AddWithValue("@Nombres", clienteTemporal.Nombre);
-                    cmd.Parameters.AddWithValue("@Apellidos", clienteTemporal.Apellido);
-                    //  cmd.Parameters.AddWithValue("@Dpi", clienteTemporal.DPI); no se cambia
-                    cmd.Parameters.AddWithValue("@Telefono", clienteTemporal.Telefono);
-                    cmd.Parameters.AddWithValue("@Correo", clienteTemporal.Correo);
-                    cmd.Parameters.AddWithValue("@Direccion", clienteTemporal.Direccion);
-                    cmd.Parameters.AddWithValue("@Estado", clienteTemporal.Estado);
-                    //  cmd.Parameters.AddWithValue("@Nit", clienteTemporal.Nit); no se cambia
-                    cmd.Parameters.AddWithValue("@Saldo", clienteTemporal.Saldo);
+                    cmd.Parameters.AddWithValue("@Codigo", pCodigo); //el codigo no se modifica, solo para busqueda
+                    cmd.Parameters.AddWithValue("@Nombres", pNombres);
+                    cmd.Parameters.AddWithValue("@Apellidos", pApellidos);
+                    cmd.Parameters.AddWithValue("@Telefono", pTelefono);
+                    cmd.Parameters.AddWithValue("@Correo", pCorreo);
+                    cmd.Parameters.AddWithValue("@Direccion", pDireccion);
+                    cmd.Parameters.AddWithValue("@Estado", pEstado);
 
                     return cmd.ExecuteNonQuery() > 0;
                 }

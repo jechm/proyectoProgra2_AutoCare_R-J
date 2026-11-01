@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,7 +20,7 @@ namespace AutoCare_R_J.Formularios     //borrar este comentario del 231026
         private clsManejadorEmpleados manejadorEmpleados;
         private string[] strEstadosEmpleado = { "Activo", "Inactivo" };
         private string[] strValoresDeBusqueda = { "Codigo", "Nombre", "Apellido", "DPI","Usuario", "Telefono", "Correo", "Direccion","Puesto", "Estado" };
-        private int contadorEmpleados;
+
         public frmEmpleados()
         {
 
@@ -28,18 +29,10 @@ namespace AutoCare_R_J.Formularios     //borrar este comentario del 231026
             cmbEstado.DataSource = strEstadosEmpleado;
             cmbEstado.SelectedIndex = 0; // Selecciona Activo estado por defecto
             cmbValoresDeBusqueda.DataSource = strValoresDeBusqueda;
-            dtGvDatos.DataSource = manejadorEmpleados.ObtenerEmpleados();
-        }
-
-        internal void AsignarListaEmpleados(ref clsManejadorEmpleados pManejadorEmpleados)
-        {
-            manejadorEmpleados = pManejadorEmpleados;
-            contadorEmpleados = manejadorEmpleados.TotalEmpleados + 1;
-            txtCodigo.Text = $"EM-{contadorEmpleados:000}";
             redibujarTabla();
-
-
+            txtCodigo.Text = manejadorEmpleados.ObtenerSiguienteCodigo();
         }
+
 
         #region Metodos de redibujado y limpieza de formulario
         private void redibujarTabla()
@@ -65,7 +58,7 @@ namespace AutoCare_R_J.Formularios     //borrar este comentario del 231026
             dtGvDatos.Columns["Sueldo"].DisplayIndex = ultimo;
             
             
-            dtGvDatos.Columns["Contraseña"].Visible = false;
+            dtGvDatos.Columns["Contrasenia"].Visible = false;
         }
 
         #endregion
@@ -73,118 +66,43 @@ namespace AutoCare_R_J.Formularios     //borrar este comentario del 231026
 
         private void bntNuevoCliente_Click(object sender, EventArgs e)
         {
-            if (validarDatos())
-            {
-                // Crear el cliente si los datos son válidos
-                if (ValidarEmpleadoExistente())
-                {
+
                     CrearEmpleado();
-                }
-                
-            }
 
         }
 
-        #region Validaciones de datos
-        private bool ValidarEmpleadoExistente()
-        {
-
-            bool empleadoExistenteDPI = manejadorEmpleados.BuscarEmpleadoPorDPI(txtDPI.Text) != null;
-            bool empleadoExistenteUsuario = manejadorEmpleados.BuscarEmpleadoPorUsuario(txtUsuario.Text) != null;
-            bool empleadoExistenteCorreo = manejadorEmpleados.BuscarEmpleadoPorCorreo(txtCorreo.Text) != null;
-            bool empleadoExistenteTelefono = manejadorEmpleados.BuscarEmpleadoPorTelefono(txtTelefono.Text) != null;
-
-            if (empleadoExistenteDPI)
-            {
-                MessageBox.Show("Ya existe un empleado con este DPI.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (empleadoExistenteUsuario)
-            {
-                MessageBox.Show("Ya existe un empleado con este usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (empleadoExistenteCorreo)
-            {
-                MessageBox.Show("Ya existe un empleado con este correo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (empleadoExistenteTelefono)
-            {
-                MessageBox.Show("Ya existe un empleado con este teléfono.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            return true; // No hay empleados existentes con los mismos datos
-        }
-
-        private bool validarDatos()
-        {
-            bool elDPIesValido = !string.IsNullOrWhiteSpace(txtDPI.Text) && txtDPI.Text.Length == 13;
-            bool elTelefonoEsValido = !string.IsNullOrWhiteSpace(txtTelefono.Text) && txtTelefono.Text.Length == 8;
-            string correo = txtCorreo.Text;
-
-            if (
-                string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                string.IsNullOrWhiteSpace(txtApellido.Text)
-            )
-            {
-                MessageBox.Show("Por favor, complete todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            if (elDPIesValido == false)
-            {
-                MessageBox.Show("El DPI debe contener 13 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            if (elTelefonoEsValido == false)
-            {
-                MessageBox.Show("El teléfono debe contener 8 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            if (correo.Length > 0 && !correo.Contains("@"))
-            {
-                MessageBox.Show("El correo electrónico no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            // Si todos los campos están completos, se puede proceder a crear el empleado
-            return true;
-        }
-        #endregion
         private void CrearEmpleado()
         {
-            string codigo = txtCodigo.Text;
-            string direccion = string.IsNullOrWhiteSpace(txtDireccion.Text) ? "Sin especificar" : txtDireccion.Text;
-            
+            try
+            {
+                clsEmpleado nuevoEmpleado = new clsEmpleado(txtCodigo.Text,
+                    txtNombre.Text,
+                    txtApellido.Text,
+                    txtDPI.Text,
+                    txtTelefono.Text,
+                    txtCorreo.Text,
+                    txtDireccion.Text,
+                    cmbEstado.SelectedItem.ToString(),
+                    txtUsuario.Text,
+                    txtContrasenia.Text,
+                    txtRol.Text,
+                    nudSueldo.Value);
 
-            clsEmpleado empleadoTemporal = new clsEmpleado(
-                codigo,
-                txtNombre.Text,
-                txtApellido.Text,
-                txtDPI.Text,
-                txtTelefono.Text,
-                txtCorreo.Text,
-                direccion,
-                cmbEstado.SelectedItem.ToString(),
-                txtRol.Text, //rol
-                Convert.ToDecimal(txtSueldo.Text),           // sueldo decimal
-                txtUsuario.Text, //usuario      
-                txtContrasenia.Text //contraseña
-                );
+                if (manejadorEmpleados.AgregarEmpleado(nuevoEmpleado))
 
-            manejadorEmpleados.AgregarEmpleado(empleadoTemporal);
-            redibujarTabla();
+                {
+                    MessageBox.Show("Empleado creado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            MessageBox.Show("Empleado creado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            contadorEmpleados++;
-
-            limpiarFormulario();
+                    limpiarFormulario();
+                }
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+                        
         }
+
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
@@ -195,7 +113,7 @@ namespace AutoCare_R_J.Formularios     //borrar este comentario del 231026
         private void limpiarFormulario()
         {
 
-            txtCodigo.Text = $"EM-{contadorEmpleados:000}";
+            txtCodigo.Text = manejadorEmpleados.ObtenerSiguienteCodigo();
 
             txtNombre.Text = "";
             txtApellido.Text = "";
@@ -209,7 +127,7 @@ namespace AutoCare_R_J.Formularios     //borrar este comentario del 231026
             txtTelefono.Text = "";
             txtCorreo.Text = "";
 
-            txtSueldo.Text = "";
+            nudSueldo.Value = 0;
             txtRol.Text = "";
 
             txtDireccion.Text = "";
@@ -255,7 +173,7 @@ namespace AutoCare_R_J.Formularios     //borrar este comentario del 231026
             txtCorreo.Text = dtGvDatos.Rows[e.RowIndex].Cells["Correo"].Value.ToString();
             txtDireccion.Text = dtGvDatos.Rows[e.RowIndex].Cells["Direccion"].Value.ToString();
             txtRol.Text = dtGvDatos.Rows[e.RowIndex].Cells["Rol"].Value.ToString();
-            txtSueldo.Text = dtGvDatos.Rows[e.RowIndex].Cells["Sueldo"].Value.ToString();
+            nudSueldo.Value = Convert.ToDecimal(dtGvDatos.Rows[e.RowIndex].Cells["Sueldo"].Value.ToString());
             cmbEstado.SelectedItem = dtGvDatos.Rows[e.RowIndex].Cells["Estado"].Value.ToString();
 
 
@@ -278,25 +196,22 @@ namespace AutoCare_R_J.Formularios     //borrar este comentario del 231026
         private void btnModificarCliente_Click(object sender, EventArgs e)
 
         {
-            if (validarDatos())
-            {
-                clsEmpleado empleadoExistente = manejadorEmpleados.BuscarEmpleadoPorCodigo(txtCodigo.Text);
-
-                if (empleadoExistente != null)
-                {
-                    empleadoExistente.actualizarEmpleado(
+            try { 
+            clsEmpleado empleadoModificado = new clsEmpleado(txtCodigo.Text,
                         txtNombre.Text,
                         txtApellido.Text,
+                        txtDPI.Text,
                         txtTelefono.Text,
                         txtCorreo.Text,
                         txtDireccion.Text,
                         cmbEstado.SelectedItem.ToString(),
-                        txtRol.Text,
-                        Convert.ToDecimal(txtSueldo.Text),
                         txtUsuario.Text,
-                        txtContrasenia.Text 
-                    );
-                    // redibujarTabla();
+                        txtContrasenia.Text,
+                        txtRol.Text,
+                        nudSueldo.Value);
+        
+
+                if (manejadorEmpleados.ModificarEmpleado(empleadoModificado)){ 
                     MessageBox.Show("Empleado modificado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     limpiarFormulario();
 
@@ -306,8 +221,13 @@ namespace AutoCare_R_J.Formularios     //borrar este comentario del 231026
                 {
                     MessageBox.Show("No se encontró un cliente con este código.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
 
+
+            }   
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
 
         }
@@ -321,8 +241,6 @@ namespace AutoCare_R_J.Formularios     //borrar este comentario del 231026
                 redibujarTabla();
                 MessageBox.Show("Empleado eliminado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 limpiarFormulario();
-                contadorEmpleados--; // Disminuir el contador de empleados
-
 
             }
             else

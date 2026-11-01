@@ -29,7 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEmpleados));
             this.pnlMenus = new System.Windows.Forms.Panel();
             this.cstmPnlDato = new AutoCare_R_J.CustomPanel();
@@ -48,6 +48,7 @@
             this.bntNuevoEmpleado = new AutoCare_R_J.CustomButton();
             this.lblAccionesRapidas = new System.Windows.Forms.Label();
             this.cstmPnlDatosEmpleado = new AutoCare_R_J.CustomPanel();
+            this.nudSueldo = new System.Windows.Forms.NumericUpDown();
             this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
@@ -64,7 +65,6 @@
             this.lblDatosCliente = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.txtSueldo = new System.Windows.Forms.TextBox();
             this.txtContrasenia = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtRol = new System.Windows.Forms.TextBox();
@@ -93,6 +93,7 @@
             this.gbValorDeBusqueda.SuspendLayout();
             this.cpAccionesRapidas.SuspendLayout();
             this.cstmPnlDatosEmpleado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSueldo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -136,14 +137,14 @@
             this.dtGvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtGvDatos.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dtGvDatos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtGvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtGvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtGvDatos.Location = new System.Drawing.Point(0, 0);
@@ -349,6 +350,8 @@
             // 
             this.cstmPnlDatosEmpleado.BackColor = System.Drawing.Color.Transparent;
             this.cstmPnlDatosEmpleado.BorderRadius = 20;
+            this.cstmPnlDatosEmpleado.Controls.Add(this.txtContrasenia);
+            this.cstmPnlDatosEmpleado.Controls.Add(this.nudSueldo);
             this.cstmPnlDatosEmpleado.Controls.Add(this.cmbEstado);
             this.cstmPnlDatosEmpleado.Controls.Add(this.pictureBox7);
             this.cstmPnlDatosEmpleado.Controls.Add(this.pictureBox12);
@@ -365,8 +368,6 @@
             this.cstmPnlDatosEmpleado.Controls.Add(this.lblDatosCliente);
             this.cstmPnlDatosEmpleado.Controls.Add(this.pictureBox1);
             this.cstmPnlDatosEmpleado.Controls.Add(this.txtCodigo);
-            this.cstmPnlDatosEmpleado.Controls.Add(this.txtSueldo);
-            this.cstmPnlDatosEmpleado.Controls.Add(this.txtContrasenia);
             this.cstmPnlDatosEmpleado.Controls.Add(this.lblCodigo);
             this.cstmPnlDatosEmpleado.Controls.Add(this.txtRol);
             this.cstmPnlDatosEmpleado.Controls.Add(this.txtUsuario);
@@ -390,6 +391,20 @@
             this.cstmPnlDatosEmpleado.Name = "cstmPnlDatosEmpleado";
             this.cstmPnlDatosEmpleado.Size = new System.Drawing.Size(685, 321);
             this.cstmPnlDatosEmpleado.TabIndex = 24;
+            // 
+            // nudSueldo
+            // 
+            this.nudSueldo.DecimalPlaces = 2;
+            this.nudSueldo.Location = new System.Drawing.Point(463, 227);
+            this.nudSueldo.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
+            this.nudSueldo.Name = "nudSueldo";
+            this.nudSueldo.Size = new System.Drawing.Size(208, 26);
+            this.nudSueldo.TabIndex = 27;
+            this.nudSueldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cmbEstado
             // 
@@ -547,17 +562,9 @@
             this.txtCodigo.Size = new System.Drawing.Size(115, 26);
             this.txtCodigo.TabIndex = 1;
             // 
-            // txtSueldo
-            // 
-            this.txtSueldo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSueldo.Location = new System.Drawing.Point(446, 228);
-            this.txtSueldo.MaxLength = 13;
-            this.txtSueldo.Name = "txtSueldo";
-            this.txtSueldo.Size = new System.Drawing.Size(225, 26);
-            this.txtSueldo.TabIndex = 11;
-            // 
             // txtContrasenia
             // 
+            this.txtContrasenia.BackColor = System.Drawing.SystemColors.Window;
             this.txtContrasenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContrasenia.Location = new System.Drawing.Point(483, 110);
             this.txtContrasenia.MaxLength = 16;
@@ -579,6 +586,7 @@
             // 
             // txtRol
             // 
+            this.txtRol.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRol.Location = new System.Drawing.Point(138, 228);
             this.txtRol.MaxLength = 200;
@@ -588,6 +596,7 @@
             // 
             // txtUsuario
             // 
+            this.txtUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.Location = new System.Drawing.Point(106, 110);
             this.txtUsuario.MaxLength = 25;
@@ -597,6 +606,7 @@
             // 
             // txtApellido
             // 
+            this.txtApellido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellido.Location = new System.Drawing.Point(463, 74);
             this.txtApellido.Name = "txtApellido";
@@ -665,6 +675,7 @@
             // 
             // txtDireccion
             // 
+            this.txtDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.Location = new System.Drawing.Point(121, 269);
             this.txtDireccion.Name = "txtDireccion";
@@ -693,6 +704,7 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(106, 74);
             this.txtNombre.Name = "txtNombre";
@@ -778,6 +790,7 @@
             this.cpAccionesRapidas.PerformLayout();
             this.cstmPnlDatosEmpleado.ResumeLayout(false);
             this.cstmPnlDatosEmpleado.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSueldo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
@@ -844,11 +857,11 @@
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.TextBox txtSueldo;
         private System.Windows.Forms.TextBox txtContrasenia;
         private System.Windows.Forms.TextBox txtRol;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblContrasenia;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown nudSueldo;
     }
 }
