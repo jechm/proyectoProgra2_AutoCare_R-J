@@ -207,6 +207,43 @@ namespace AutoCare_R_J.MetodosGlobales
                 throw new Exception("Error al obtener las órdenes de trabajo: " + ex.Message);
             }
         }
+
+        public static List<clsFacturas> ObtenerFacturas()
+        {
+            List<clsFacturas> lstFacturas = new List<clsFacturas>();
+            try
+            {
+                string sql = @"SELECT codigo_factura, precio, descuento, subtotal, total, descripcion_servicio, servicio, vehiculo, fecha, repuesto, precio_repuesto
+                   FROM factura ORDER BY codigo_factura";
+                using (var con = clsConexion.ObtenerConexion())
+                using (var cmd = new SqliteCommand(sql, con))
+                using (var r = cmd.ExecuteReader())
+                {
+                    while (r.Read())
+                    {
+                        lstFacturas.Add(new clsFacturas
+                        {
+                            Codigo = r.GetString(0),
+                            Precio = r.GetDouble(1),
+                            Descuento = r.GetDouble(2),
+                            Subtotal = r.GetDouble(3),
+                            Total = r.GetDouble(4),
+                            DescripcionServicio = r.IsDBNull(5) ? null : r.GetString(5),
+                            Servicio = r.GetString(6),
+                            Vehiculo = r.GetString(7),
+                            Fecha = r.GetDateTime(8).ToString("yyyy-MM-dd"),
+                            Repuesto = r.IsDBNull(9) ? null : r.GetString(9),
+                            PrecioRepuesto = r.IsDBNull(10) ? 0 : r.GetDouble(10)
+                        });
+                    }
+                }
+                return lstFacturas;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener las facturas: " + ex.Message);
+            }
+        }
         #endregion
     }
 }

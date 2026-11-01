@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using AutoCare_R_J.MetodosGlobales;
 using AutoCare_R_J.Modelos;
 
 namespace AutoCare_R_J.Controladores
@@ -99,6 +100,8 @@ namespace AutoCare_R_J.Controladores
         // Método para listar todos los vehículos
         public List<clsVehiculos> ListarVehiculos()
         {
+            lstVehiculos.Clear();
+            lstVehiculos = clsMetodosGlobales.ObtenerVehiculos();
             return lstVehiculos;
         }
     }
