@@ -148,11 +148,6 @@ namespace AutoCare_R_J.Formularios     //borrar este comentario del 231026
         }
 
 
-        private void frmClientes_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void dtGvDatos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
