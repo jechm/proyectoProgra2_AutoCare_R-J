@@ -30,10 +30,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEmpleados));
             this.pnlMenus = new System.Windows.Forms.Panel();
-            this.cstmPnlDato = new AutoCare_R_J.CustomPanel();
-            this.dtGvDatos = new System.Windows.Forms.DataGridView();
             this.cpBusquedas = new AutoCare_R_J.CustomPanel();
             this.btnBuscarEmpleado = new AutoCare_R_J.CustomButton();
             this.gbValorABuscar = new System.Windows.Forms.GroupBox();
@@ -48,6 +45,8 @@
             this.bntNuevoEmpleado = new AutoCare_R_J.CustomButton();
             this.lblAccionesRapidas = new System.Windows.Forms.Label();
             this.cstmPnlDatosEmpleado = new AutoCare_R_J.CustomPanel();
+            this.txtContrasenia = new System.Windows.Forms.TextBox();
+            this.nudSueldo = new System.Windows.Forms.NumericUpDown();
             this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
@@ -64,8 +63,6 @@
             this.lblDatosCliente = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.txtSueldo = new System.Windows.Forms.TextBox();
-            this.txtContrasenia = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtRol = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
@@ -85,14 +82,15 @@
             this.lblTelefono = new System.Windows.Forms.Label();
             this.lblDPI = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
+            this.cstmPnlDato = new AutoCare_R_J.CustomPanel();
+            this.dtGvDatos = new System.Windows.Forms.DataGridView();
             this.pnlMenus.SuspendLayout();
-            this.cstmPnlDato.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGvDatos)).BeginInit();
             this.cpBusquedas.SuspendLayout();
             this.gbValorABuscar.SuspendLayout();
             this.gbValorDeBusqueda.SuspendLayout();
             this.cpAccionesRapidas.SuspendLayout();
             this.cstmPnlDatosEmpleado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSueldo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -105,6 +103,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.cstmPnlDato.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGvDatos)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMenus
@@ -117,44 +117,6 @@
             this.pnlMenus.Name = "pnlMenus";
             this.pnlMenus.Size = new System.Drawing.Size(1081, 332);
             this.pnlMenus.TabIndex = 26;
-            // 
-            // cstmPnlDato
-            // 
-            this.cstmPnlDato.BackColor = System.Drawing.Color.Transparent;
-            this.cstmPnlDato.BorderRadius = 20;
-            this.cstmPnlDato.Controls.Add(this.dtGvDatos);
-            this.cstmPnlDato.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cstmPnlDato.Location = new System.Drawing.Point(0, 332);
-            this.cstmPnlDato.Name = "cstmPnlDato";
-            this.cstmPnlDato.Size = new System.Drawing.Size(1081, 312);
-            this.cstmPnlDato.TabIndex = 27;
-            // 
-            // dtGvDatos
-            // 
-            this.dtGvDatos.AllowUserToAddRows = false;
-            this.dtGvDatos.AllowUserToDeleteRows = false;
-            this.dtGvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dtGvDatos.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dtGvDatos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtGvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtGvDatos.Location = new System.Drawing.Point(0, 0);
-            this.dtGvDatos.MultiSelect = false;
-            this.dtGvDatos.Name = "dtGvDatos";
-            this.dtGvDatos.ReadOnly = true;
-            this.dtGvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGvDatos.Size = new System.Drawing.Size(1081, 312);
-            this.dtGvDatos.TabIndex = 23;
-            this.dtGvDatos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGvDatos_CellClick);
-            this.dtGvDatos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGvDatos_CellDoubleClick);
             // 
             // cpBusquedas
             // 
@@ -173,7 +135,7 @@
             // 
             this.btnBuscarEmpleado.BackColor = System.Drawing.Color.Transparent;
             this.btnBuscarEmpleado.BorderRadius = 15;
-            this.btnBuscarEmpleado.ButtonIcon = ((System.Drawing.Image)(resources.GetObject("btnBuscarEmpleado.ButtonIcon")));
+            this.btnBuscarEmpleado.ButtonIcon = null;
             this.btnBuscarEmpleado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBuscarEmpleado.CustomBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
             this.btnBuscarEmpleado.FlatAppearance.BorderSize = 0;
@@ -257,7 +219,7 @@
             // 
             this.btnEliminarEmpleado.BackColor = System.Drawing.Color.Transparent;
             this.btnEliminarEmpleado.BorderRadius = 15;
-            this.btnEliminarEmpleado.ButtonIcon = ((System.Drawing.Image)(resources.GetObject("btnEliminarEmpleado.ButtonIcon")));
+            this.btnEliminarEmpleado.ButtonIcon = null;
             this.btnEliminarEmpleado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminarEmpleado.CustomBackColor = System.Drawing.Color.SlateGray;
             this.btnEliminarEmpleado.Enabled = false;
@@ -278,7 +240,7 @@
             // 
             this.btnLimpiar.BackColor = System.Drawing.Color.Transparent;
             this.btnLimpiar.BorderRadius = 15;
-            this.btnLimpiar.ButtonIcon = ((System.Drawing.Image)(resources.GetObject("btnLimpiar.ButtonIcon")));
+            this.btnLimpiar.ButtonIcon = null;
             this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLimpiar.CustomBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnLimpiar.FlatAppearance.BorderSize = 0;
@@ -298,7 +260,7 @@
             // 
             this.btnModificarEmpleado.BackColor = System.Drawing.Color.Transparent;
             this.btnModificarEmpleado.BorderRadius = 15;
-            this.btnModificarEmpleado.ButtonIcon = ((System.Drawing.Image)(resources.GetObject("btnModificarEmpleado.ButtonIcon")));
+            this.btnModificarEmpleado.ButtonIcon = null;
             this.btnModificarEmpleado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnModificarEmpleado.CustomBackColor = System.Drawing.Color.SlateGray;
             this.btnModificarEmpleado.Enabled = false;
@@ -319,7 +281,7 @@
             // 
             this.bntNuevoEmpleado.BackColor = System.Drawing.Color.Transparent;
             this.bntNuevoEmpleado.BorderRadius = 15;
-            this.bntNuevoEmpleado.ButtonIcon = ((System.Drawing.Image)(resources.GetObject("bntNuevoEmpleado.ButtonIcon")));
+            this.bntNuevoEmpleado.ButtonIcon = null;
             this.bntNuevoEmpleado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bntNuevoEmpleado.CustomBackColor = System.Drawing.Color.Green;
             this.bntNuevoEmpleado.FlatAppearance.BorderSize = 0;
@@ -349,6 +311,8 @@
             // 
             this.cstmPnlDatosEmpleado.BackColor = System.Drawing.Color.Transparent;
             this.cstmPnlDatosEmpleado.BorderRadius = 20;
+            this.cstmPnlDatosEmpleado.Controls.Add(this.txtContrasenia);
+            this.cstmPnlDatosEmpleado.Controls.Add(this.nudSueldo);
             this.cstmPnlDatosEmpleado.Controls.Add(this.cmbEstado);
             this.cstmPnlDatosEmpleado.Controls.Add(this.pictureBox7);
             this.cstmPnlDatosEmpleado.Controls.Add(this.pictureBox12);
@@ -365,8 +329,6 @@
             this.cstmPnlDatosEmpleado.Controls.Add(this.lblDatosCliente);
             this.cstmPnlDatosEmpleado.Controls.Add(this.pictureBox1);
             this.cstmPnlDatosEmpleado.Controls.Add(this.txtCodigo);
-            this.cstmPnlDatosEmpleado.Controls.Add(this.txtSueldo);
-            this.cstmPnlDatosEmpleado.Controls.Add(this.txtContrasenia);
             this.cstmPnlDatosEmpleado.Controls.Add(this.lblCodigo);
             this.cstmPnlDatosEmpleado.Controls.Add(this.txtRol);
             this.cstmPnlDatosEmpleado.Controls.Add(this.txtUsuario);
@@ -391,6 +353,31 @@
             this.cstmPnlDatosEmpleado.Size = new System.Drawing.Size(685, 321);
             this.cstmPnlDatosEmpleado.TabIndex = 24;
             // 
+            // txtContrasenia
+            // 
+            this.txtContrasenia.BackColor = System.Drawing.SystemColors.Window;
+            this.txtContrasenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContrasenia.Location = new System.Drawing.Point(483, 110);
+            this.txtContrasenia.MaxLength = 16;
+            this.txtContrasenia.Name = "txtContrasenia";
+            this.txtContrasenia.PasswordChar = '*';
+            this.txtContrasenia.Size = new System.Drawing.Size(188, 26);
+            this.txtContrasenia.TabIndex = 5;
+            // 
+            // nudSueldo
+            // 
+            this.nudSueldo.DecimalPlaces = 2;
+            this.nudSueldo.Location = new System.Drawing.Point(463, 227);
+            this.nudSueldo.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
+            this.nudSueldo.Name = "nudSueldo";
+            this.nudSueldo.Size = new System.Drawing.Size(208, 26);
+            this.nudSueldo.TabIndex = 27;
+            this.nudSueldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // cmbEstado
             // 
             this.cmbEstado.FormattingEnabled = true;
@@ -402,7 +389,6 @@
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
             this.pictureBox7.Location = new System.Drawing.Point(4, 185);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(30, 26);
@@ -422,7 +408,6 @@
             // 
             // pictureBox10
             // 
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
             this.pictureBox10.Location = new System.Drawing.Point(343, 110);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(30, 26);
@@ -452,7 +437,6 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(343, 74);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(30, 26);
@@ -462,7 +446,6 @@
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
             this.pictureBox9.Location = new System.Drawing.Point(346, 187);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(27, 26);
@@ -472,7 +455,6 @@
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
             this.pictureBox8.Location = new System.Drawing.Point(4, 269);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(30, 26);
@@ -490,7 +472,6 @@
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
             this.pictureBox6.Location = new System.Drawing.Point(346, 151);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(30, 26);
@@ -500,7 +481,6 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(4, 148);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(30, 26);
@@ -510,7 +490,6 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(4, 71);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(30, 26);
@@ -530,7 +509,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(4, 33);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(30, 26);
@@ -547,25 +525,6 @@
             this.txtCodigo.Size = new System.Drawing.Size(115, 26);
             this.txtCodigo.TabIndex = 1;
             // 
-            // txtSueldo
-            // 
-            this.txtSueldo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSueldo.Location = new System.Drawing.Point(446, 228);
-            this.txtSueldo.MaxLength = 13;
-            this.txtSueldo.Name = "txtSueldo";
-            this.txtSueldo.Size = new System.Drawing.Size(225, 26);
-            this.txtSueldo.TabIndex = 11;
-            // 
-            // txtContrasenia
-            // 
-            this.txtContrasenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContrasenia.Location = new System.Drawing.Point(483, 110);
-            this.txtContrasenia.MaxLength = 16;
-            this.txtContrasenia.Name = "txtContrasenia";
-            this.txtContrasenia.PasswordChar = '*';
-            this.txtContrasenia.Size = new System.Drawing.Size(188, 26);
-            this.txtContrasenia.TabIndex = 5;
-            // 
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
@@ -579,6 +538,7 @@
             // 
             // txtRol
             // 
+            this.txtRol.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRol.Location = new System.Drawing.Point(138, 228);
             this.txtRol.MaxLength = 200;
@@ -588,6 +548,7 @@
             // 
             // txtUsuario
             // 
+            this.txtUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.Location = new System.Drawing.Point(106, 110);
             this.txtUsuario.MaxLength = 25;
@@ -597,6 +558,7 @@
             // 
             // txtApellido
             // 
+            this.txtApellido.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellido.Location = new System.Drawing.Point(463, 74);
             this.txtApellido.Name = "txtApellido";
@@ -665,6 +627,7 @@
             // 
             // txtDireccion
             // 
+            this.txtDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.Location = new System.Drawing.Point(121, 269);
             this.txtDireccion.Name = "txtDireccion";
@@ -693,6 +656,7 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(106, 74);
             this.txtNombre.Name = "txtNombre";
@@ -749,6 +713,44 @@
             this.lblNombre.TabIndex = 2;
             this.lblNombre.Text = "Nombre:";
             // 
+            // cstmPnlDato
+            // 
+            this.cstmPnlDato.BackColor = System.Drawing.Color.Transparent;
+            this.cstmPnlDato.BorderRadius = 20;
+            this.cstmPnlDato.Controls.Add(this.dtGvDatos);
+            this.cstmPnlDato.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cstmPnlDato.Location = new System.Drawing.Point(0, 332);
+            this.cstmPnlDato.Name = "cstmPnlDato";
+            this.cstmPnlDato.Size = new System.Drawing.Size(1081, 312);
+            this.cstmPnlDato.TabIndex = 27;
+            // 
+            // dtGvDatos
+            // 
+            this.dtGvDatos.AllowUserToAddRows = false;
+            this.dtGvDatos.AllowUserToDeleteRows = false;
+            this.dtGvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtGvDatos.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dtGvDatos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtGvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtGvDatos.Location = new System.Drawing.Point(0, 0);
+            this.dtGvDatos.MultiSelect = false;
+            this.dtGvDatos.Name = "dtGvDatos";
+            this.dtGvDatos.ReadOnly = true;
+            this.dtGvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtGvDatos.Size = new System.Drawing.Size(1081, 312);
+            this.dtGvDatos.TabIndex = 23;
+            this.dtGvDatos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGvDatos_CellClick);
+            this.dtGvDatos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGvDatos_CellDoubleClick);
+            // 
             // frmEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -758,17 +760,13 @@
             this.Controls.Add(this.cstmPnlDato);
             this.Controls.Add(this.pnlMenus);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximumSize = new System.Drawing.Size(1097, 900);
             this.MinimumSize = new System.Drawing.Size(1010, 600);
             this.Name = "frmEmpleados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Empleados";
-            this.Load += new System.EventHandler(this.frmClientes_Load);
             this.pnlMenus.ResumeLayout(false);
-            this.cstmPnlDato.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtGvDatos)).EndInit();
             this.cpBusquedas.ResumeLayout(false);
             this.cpBusquedas.PerformLayout();
             this.gbValorABuscar.ResumeLayout(false);
@@ -778,6 +776,7 @@
             this.cpAccionesRapidas.PerformLayout();
             this.cstmPnlDatosEmpleado.ResumeLayout(false);
             this.cstmPnlDatosEmpleado.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSueldo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
@@ -790,6 +789,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.cstmPnlDato.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtGvDatos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -844,11 +845,11 @@
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.TextBox txtSueldo;
         private System.Windows.Forms.TextBox txtContrasenia;
         private System.Windows.Forms.TextBox txtRol;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblContrasenia;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown nudSueldo;
     }
 }

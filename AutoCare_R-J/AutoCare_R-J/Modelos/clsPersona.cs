@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AutoCare_R_J.Modelos
 {
@@ -70,14 +71,35 @@ namespace AutoCare_R_J.Modelos
         //Constructor
         public clsPersona(string pCodigo, string pNombre, string pApellido, string pDpi, string pTelefono, string pCorreo, string pDireccion, string pEStado) 
         {
-            this.strCodigoPersona=pCodigo;
-            this.strNombrePersona = pNombre;
-            this.strApellidoPersona = pApellido;
+            validarYAsignarDatosBase(pCodigo, pNombre, pApellido, pDpi, pTelefono, pCorreo, pDireccion, pEStado);
+
+        }
+
+        private void validarYAsignarDatosBase(string pCodigo, string pNombre, string pApellido, string pDpi, string pTelefono, string pCorreo, string pDireccion, string pEstado)
+        {
+            revisarSiEstaVacio(pCodigo, "El código");
+            revisarSiEstaVacio(pNombre, "El nombre");
+            revisarSiEstaVacio(pApellido, "El apellido");
+            revisarSiEstaVacio(pDpi, "El DPI");
+            revisarSiEstaVacio(pTelefono, "El teléfono");
+            revisarSiEstaVacio(pCorreo, "El correo");
+
+            this.strCodigoPersona = pCodigo;
+            this.Nombre = pNombre;
+            this.Apellido = pApellido;
             this.strDPIPersona = pDpi;
-            this.strTelefono = pTelefono;
-            this.strCorreoPersona = pCorreo;
-            this.strDireccion = pDireccion;
-            this.strEstado = pEStado;
+            this.Telefono = pTelefono;
+            this.Correo = pCorreo;
+            this.Direccion = string.IsNullOrWhiteSpace(pDireccion) ? "No Indica" : pDireccion;
+            this.strEstado = string.IsNullOrWhiteSpace(pEstado) ? "Activo" : pEstado;
+        }
+
+        private void revisarSiEstaVacio(string pValor, string pCampo)
+        {
+            if (string.IsNullOrWhiteSpace(pValor))
+            {
+                throw new ArgumentException(pCampo + " no debe de estar vacío.");
+            }
 
         }
 

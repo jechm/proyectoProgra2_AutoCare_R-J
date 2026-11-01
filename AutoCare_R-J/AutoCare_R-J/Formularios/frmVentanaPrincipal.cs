@@ -80,7 +80,6 @@ namespace AutoCare_R_J.Formularios     //borrar este comentario del 231026
             if (!FormularioAbierto("frmClientes"))
             {
                 frmClientes clientes = new frmClientes();
-                clientes.AsignarListaclientes(ref listaClientes);
                 clientes.MdiParent = this;
                 clientes.Show();
             }
@@ -91,7 +90,6 @@ namespace AutoCare_R_J.Formularios     //borrar este comentario del 231026
             if (!FormularioAbierto("frmEmpleados"))
             {
                 frmEmpleados empleados = new frmEmpleados();
-                empleados.AsignarListaEmpleados(ref listaEmpleados);
                 empleados.MdiParent = this;
                 empleados.Show();
             }
@@ -161,7 +159,7 @@ namespace AutoCare_R_J.Formularios     //borrar este comentario del 231026
         {
             if (!FormularioAbierto("frmRepuestos"))
             {
-                frmRepuestos vRepuestos = new frmRepuestos(listaRepuestos);
+                frmRepuestos vRepuestos = new frmRepuestos();
                 vRepuestos.MdiParent = this;
                 vRepuestos.Show();
             }

@@ -10,12 +10,12 @@ namespace AutoCare_R_J.Modelos
     {
         private string strCodigoRepuesto;
         private string strNombreRepuesto;
-        private string strEstado;
         private string strCategoria;
         private string strMarca;
         private decimal decPrecio;
         private decimal decCosto;
         private int intExistencias;
+        private string strEstado;
 
         public string CodigoRepuesto 
         {
@@ -26,12 +26,6 @@ namespace AutoCare_R_J.Modelos
         {
             get { return strNombreRepuesto; } 
             set { strNombreRepuesto = value; }
-        }
-
-        public string Estado
-        {
-            get { return strEstado; }
-            set { strEstado = value; }  
         }
 
         public string Categoria 
@@ -62,7 +56,13 @@ namespace AutoCare_R_J.Modelos
             set {intExistencias = value; }
         }
 
-        public clsRepuesto(string pCodigo,string pNombre, string pCategoria, string pMarca, decimal pPrecio, decimal pCosto, int PExistencias, string pEstado)
+        public string Estado
+        {
+            get { return strEstado; }
+            set { strEstado = value; }
+        }
+
+        public clsRepuesto(string pCodigo,string pNombre, string pMarca, string pCategoria, decimal pCosto, decimal pPrecio, int PExistencias, string pEstado)
         {
             this.strCodigoRepuesto = pCodigo;
             this.strNombreRepuesto= pNombre;
