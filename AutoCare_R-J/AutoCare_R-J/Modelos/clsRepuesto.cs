@@ -18,8 +18,9 @@ namespace AutoCare_R_J.Modelos
         private int intExistencias;
 
         public string CodigoRepuesto 
-        { 
-            get { return strCodigoRepuesto; } 
+        {
+            get { return strCodigoRepuesto; }
+            set { strCodigoRepuesto = value; }
         }
         public string NombreRepuesto 
         {
@@ -72,6 +73,7 @@ namespace AutoCare_R_J.Modelos
             this.Costo = pCosto;
             this.intExistencias=PExistencias;
 
-    }
+        }
+        public clsRepuesto() { }
     }
 }

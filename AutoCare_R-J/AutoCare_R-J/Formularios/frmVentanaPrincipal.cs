@@ -44,6 +44,7 @@ namespace AutoCare_R_J.Formularios     //borrar este comentario del 231026
             listaServicios = new clsManejadorServicios();
             listaVehiculos = new clsManejadorVehiculos();
             listaFacturas = new clsManejadorFacturas();
+            
 
             InitializeComponent();
         }
@@ -103,8 +104,8 @@ namespace AutoCare_R_J.Formularios     //borrar este comentario del 231026
                 Servicios servicios = new Servicios();
                 servicios.MdiParent = this;
 
-                // Inyeccion del manejador compartido
-                servicios.CargarManejador(listaServicios);
+                
+
 
                 servicios.Show();
             }

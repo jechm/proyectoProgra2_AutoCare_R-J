@@ -17,14 +17,14 @@ namespace AutoCare_R_J.Modelos
         string strMarca;
         string strModelo;
         string strTipo;
-        string strAño;
+        string strAnio;
 
         //creacion de constructor de la clase vehiculos
         public clsVehiculos(string strCodigo, string strPropietario,
             string strPlaca, string strEstado,
             string strColor, string strMarca,
             string strModelo, string strTipo,
-            string strAño)
+            string strAnio)
         {
             this.strCodigo = strCodigo;
             this.strPropietario = strPropietario;
@@ -34,7 +34,7 @@ namespace AutoCare_R_J.Modelos
             this.strMarca = strMarca;
             this.strModelo = strModelo;
             this.strTipo = strTipo;
-            this.strAño = strAño;
+            this.strAnio = strAnio;
         }
 
         //creacion de constructor vacio de la clase vehiculos
@@ -49,6 +49,11 @@ namespace AutoCare_R_J.Modelos
         public string Marca { get => strMarca; set => strMarca = value; }
         public string Modelo { get => strModelo; set => strModelo = value; }
         public string Tipo { get => strTipo; set => strTipo = value; }
-        public string Año { get => strAño; set => strAño = value; }
+        public string Anio { get => strAnio; set => strAnio = value; }
+
+        public string TipoModelo
+        {
+            get { return $"{strTipo} {strModelo}"; }
+        }
     }
 }

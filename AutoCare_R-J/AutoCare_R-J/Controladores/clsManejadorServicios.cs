@@ -12,23 +12,6 @@ namespace AutoCare_R_J.Controladores
         // Creación de la lista de servicios
         private List<clsServicios> lstServicios = new List<clsServicios>();
 
-        // Método para generar el siguiente código automático (ej. srv-001)
-        public string ObtenerSiguienteCodigo()
-        {
-            string sql = "SELECT MAX(codigo_servicio) FROM servicio";
-
-            using (var con = clsConexion.ObtenerConexion())
-            using (var cmd = new SqliteCommand(sql, con))
-            {
-                object resultado = cmd.ExecuteScalar();
-
-                if (resultado == null || resultado == DBNull.Value)
-                    return "SRV-001";
-
-                int numero = int.Parse(resultado.ToString().Substring(4)) + 1;
-                return "SRV-" + numero.ToString("D3");
-            }
-        }
 
         // Creación de método para agregar un servicio
         public void AgregarServicio(string strNombre, string strCategoria, double dblCosto, string strDescripcion, string strDuracion)
@@ -37,7 +20,7 @@ namespace AutoCare_R_J.Controladores
             {
                 clsServicios nuevoServicio = new clsServicios();
 
-                nuevoServicio.Codigo = ObtenerSiguienteCodigo();
+                nuevoServicio.Codigo = clsMetodosGlobales.ObtenerSiguienteCodigo("servicio");
                 nuevoServicio.Nombre = strNombre;
                 nuevoServicio.Categoria = strCategoria;
                 nuevoServicio.Costo = dblCosto;
@@ -113,6 +96,8 @@ namespace AutoCare_R_J.Controladores
 
         public List<clsServicios> ListarServicios()
         {
+            lstServicios.Clear();
+            lstServicios = clsMetodosGlobales.ObtenerServicios();
             return lstServicios;
         }
 
@@ -129,12 +114,7 @@ namespace AutoCare_R_J.Controladores
 
             return null;
         }
-        private string MinutosADuracion(int minutos)
-        {
-            int h = minutos / 60;
-            int m = minutos % 60;
-            return $"{h}h {m}min";
-        }
+        
 
         #region operaciones con la base de datos
         public int AgregarSql(clsServicios s)
@@ -160,31 +140,6 @@ namespace AutoCare_R_J.Controladores
             }
         }
 
-        public void CargarServiciosDesdeSql()
-        {
-            lstServicios.Clear();
-
-            string sql = @"SELECT codigo_servicio, nombre, categoria, costo, descripcion, duracion_min
-                   FROM servicio ORDER BY codigo_servicio";
-
-            using (var con = clsConexion.ObtenerConexion())
-            using (var cmd = new SqliteCommand(sql, con))
-            using (var r = cmd.ExecuteReader())
-            {
-                while (r.Read())
-                {
-                    lstServicios.Add(new clsServicios
-                    {
-                        Codigo = r.GetString(0),
-                        Nombre = r.GetString(1),
-                        Categoria = r.IsDBNull(2) ? null : r.GetString(2),
-                        Costo = Convert.ToDouble(r.GetValue(3)),
-                        Descripcion = r.IsDBNull(4) ? null : r.GetString(4),
-                        Duracion = r.IsDBNull(5) ? "" : MinutosADuracion(r.GetInt32(5))
-                    });
-                }
-            }
-        }
         public int EliminarSql(string codigo)
         {
             string sql = "DELETE FROM servicio WHERE codigo_servicio = @codigo";

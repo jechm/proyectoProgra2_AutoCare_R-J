@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Servicios));
             this.dgvServicios = new System.Windows.Forms.DataGridView();
-            this.cpFiltros = new AutoCare_R_J.CustomPanel();
             this.cpBusquedas = new AutoCare_R_J.CustomPanel();
             this.gbBuscName = new System.Windows.Forms.GroupBox();
             this.tbxBuscNombre = new System.Windows.Forms.TextBox();
@@ -89,22 +88,13 @@
             this.dgvServicios.AllowUserToDeleteRows = false;
             this.dgvServicios.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvServicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvServicios.Location = new System.Drawing.Point(12, 412);
+            this.dgvServicios.Location = new System.Drawing.Point(12, 336);
             this.dgvServicios.MultiSelect = false;
             this.dgvServicios.Name = "dgvServicios";
             this.dgvServicios.ReadOnly = true;
             this.dgvServicios.RowHeadersWidth = 51;
-            this.dgvServicios.Size = new System.Drawing.Size(841, 187);
+            this.dgvServicios.Size = new System.Drawing.Size(841, 263);
             this.dgvServicios.TabIndex = 23;
-            // 
-            // cpFiltros
-            // 
-            this.cpFiltros.BackColor = System.Drawing.Color.Transparent;
-            this.cpFiltros.BorderRadius = 20;
-            this.cpFiltros.Location = new System.Drawing.Point(12, 336);
-            this.cpFiltros.Name = "cpFiltros";
-            this.cpFiltros.Size = new System.Drawing.Size(841, 70);
-            this.cpFiltros.TabIndex = 31;
             // 
             // cpBusquedas
             // 
@@ -566,7 +556,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(864, 611);
-            this.Controls.Add(this.cpFiltros);
             this.Controls.Add(this.cpBusquedas);
             this.Controls.Add(this.cpAccionesRapidas);
             this.Controls.Add(this.cpDatosServicio);
@@ -638,7 +627,6 @@
         private System.Windows.Forms.TextBox tbxBuscNombre;
         private System.Windows.Forms.GroupBox gbBuscCod;
         private System.Windows.Forms.TextBox tbxBuscCodigo;
-        private CustomPanel cpFiltros;
         private CustomButton btnLimpiarCampos;
     }
 }

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using AutoCare_R_J.MetodosGlobales;
 using AutoCare_R_J.Modelos;
+using Microsoft.Data.Sqlite;
 
 namespace AutoCare_R_J.Controladores
 {
@@ -10,12 +12,7 @@ namespace AutoCare_R_J.Controladores
         // Creación de la lista de órdenes de trabajo
         private List<clsOrdenesDeTrabajo> lstOrdenesTrabajo = new List<clsOrdenesDeTrabajo>();
 
-        // Método para generar el siguiente código automático (ej. ORD-001)
-        public string ObtenerSiguienteCodigo()
-        {
-            int siguienteNumero = lstOrdenesTrabajo.Count + 1;
-            return $"ORD-{siguienteNumero:D3}";
-        }
+
 
         // Creación de método para agregar una orden de trabajo
         public void AgregarOrdenTrabajo(DateTime dtFechaRecepcion, string strServicio, string strVehiculo, string strEstado, string strRepuestos)
@@ -24,7 +21,7 @@ namespace AutoCare_R_J.Controladores
             {
                 clsOrdenesDeTrabajo nuevaOrden = new clsOrdenesDeTrabajo();
 
-                nuevaOrden.Codigo = ObtenerSiguienteCodigo();
+                nuevaOrden.Codigo = clsMetodosGlobales.ObtenerSiguienteCodigo("orden_trabajo");
                 nuevaOrden.FechaRecepcion = dtFechaRecepcion;
                 nuevaOrden.Servicio = strServicio;
                 nuevaOrden.Vehiculo = strVehiculo;
@@ -89,7 +86,14 @@ namespace AutoCare_R_J.Controladores
         // Método para listar todas las órdenes de trabajo
         public List<clsOrdenesDeTrabajo> ListarOrdenesTrabajo()
         {
+            lstOrdenesTrabajo.Clear();
+            lstOrdenesTrabajo = clsMetodosGlobales.ObtenerOrdenesTrabajo();
             return lstOrdenesTrabajo;
         }
+
+        #region Metodos sqlite
+
+
+        #endregion
     }
 }

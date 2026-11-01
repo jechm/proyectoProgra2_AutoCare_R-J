@@ -71,7 +71,6 @@
             this.tbxBuscCodigo = new System.Windows.Forms.TextBox();
             this.btnBuscar = new AutoCare_R_J.CustomButton();
             this.lblBusquedas = new System.Windows.Forms.Label();
-            this.customPanel2 = new AutoCare_R_J.CustomPanel();
             this.dgvVehiculos = new System.Windows.Forms.DataGridView();
             this.customPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -624,22 +623,13 @@
             this.lblBusquedas.TabIndex = 29;
             this.lblBusquedas.Text = "Busquedas";
             // 
-            // customPanel2
-            // 
-            this.customPanel2.BackColor = System.Drawing.Color.Transparent;
-            this.customPanel2.BorderRadius = 20;
-            this.customPanel2.Location = new System.Drawing.Point(12, 346);
-            this.customPanel2.Name = "customPanel2";
-            this.customPanel2.Size = new System.Drawing.Size(840, 59);
-            this.customPanel2.TabIndex = 57;
-            // 
             // dgvVehiculos
             // 
             this.dgvVehiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVehiculos.Location = new System.Drawing.Point(10, 410);
+            this.dgvVehiculos.Location = new System.Drawing.Point(10, 347);
             this.dgvVehiculos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvVehiculos.Name = "dgvVehiculos";
-            this.dgvVehiculos.Size = new System.Drawing.Size(842, 190);
+            this.dgvVehiculos.Size = new System.Drawing.Size(842, 253);
             this.dgvVehiculos.TabIndex = 59;
             // 
             // frmVehiculos
@@ -649,7 +639,6 @@
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(864, 611);
             this.Controls.Add(this.dgvVehiculos);
-            this.Controls.Add(this.customPanel2);
             this.Controls.Add(this.cpBusquedas);
             this.Controls.Add(this.cpAccionesRapidas);
             this.Controls.Add(this.customPanel1);
@@ -723,7 +712,6 @@
         private System.Windows.Forms.TextBox tbxBuscCodigo;
         private CustomButton btnBuscar;
         private System.Windows.Forms.Label lblBusquedas;
-        private CustomPanel customPanel2;
         private System.Windows.Forms.DataGridView dgvVehiculos;
         private System.Windows.Forms.ComboBox cbxTipo;
         private System.Windows.Forms.ComboBox cbxEstado;

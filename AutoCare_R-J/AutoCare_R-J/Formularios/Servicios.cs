@@ -29,7 +29,6 @@ namespace AutoCare_R_J.Formularios
             InitializeComponent();
 
             manejadorServicios = new clsManejadorServicios();
-            manejadorServicios.CargarServiciosDesdeSql();
             clsMetodosGlobales.CargarGrid(dgvServicios, manejadorServicios.ListarServicios());
 
 
@@ -49,17 +48,7 @@ namespace AutoCare_R_J.Formularios
 
         }
 
-        internal void CargarManejador(clsManejadorServicios pManejador)
-        {
-            manejadorServicios = pManejador;
-
-            // Llena la lista desde SQLite (antes estaba vacía al abrir el programa)
-            manejadorServicios.CargarServiciosDesdeSql();
-
-            clsMetodosGlobales.CargarGrid(dgvServicios, manejadorServicios.ListarServicios());
-
-            tbxCodigo.Text = manejadorServicios.ObtenerSiguienteCodigo();
-        }
+        
 
 
         private void AumentarTiempo_Click(object sender, EventArgs e)
@@ -96,7 +85,7 @@ namespace AutoCare_R_J.Formularios
         private void Servicios_Load(object sender, EventArgs e)
         {
             // Muestra el primer código (srv-001) al abrir
-            tbxCodigo.Text = manejadorServicios.ObtenerSiguienteCodigo();
+            tbxCodigo.Text = clsMetodosGlobales.ObtenerSiguienteCodigo("servicio");
             tbxCodigo.ReadOnly = true; // Bloqueado para que el usuario no lo modifique
         }
 
@@ -140,7 +129,7 @@ namespace AutoCare_R_J.Formularios
                     MessageBox.Show("¡Servicio guardado con éxito!");
 
                     //actualizar el código automáticamente para el siguiente servicio
-                    tbxCodigo.Text = manejadorServicios.ObtenerSiguienteCodigo();
+                    tbxCodigo.Text = clsMetodosGlobales.ObtenerSiguienteCodigo("servicio");
 
                     //limpiar los campos después de guardar
                     LimpiarCampos();
@@ -257,7 +246,7 @@ namespace AutoCare_R_J.Formularios
             tbxDuracionMinutos.Clear();
 
             // Actualiza al siguiente código correlativo automáticamente (ej. srv-003)
-            tbxCodigo.Text = manejadorServicios.ObtenerSiguienteCodigo();
+            tbxCodigo.Text = clsMetodosGlobales.ObtenerSiguienteCodigo("servicio");
             tbxNombre.Focus(); // Pone el cursor listo para escribir el próximo
         }
 

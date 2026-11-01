@@ -2,11 +2,23 @@
 using AutoCare_R_J.Controladores;
 using AutoCare_R_J.MetodosGlobales;
 using System.Windows.Forms;
+using System.Collections.Generic;
+using AutoCare_R_J.Modelos;
 
 namespace AutoCare_R_J.Formularios
 {
     public partial class frmOrdenesTrabajo : Form
     {
+
+        //Lista para obtener los servicios desde la base de datos
+        private List<clsServicios> lstServicios;
+
+        //Obtener los Vehiculos desde la base de datos
+        private List<clsVehiculos> lstVehiculos;
+
+        //Lista para repuestos
+        private List<clsRepuesto> lstRepuestos;
+        private List<string> lstRepuestosSeleccionados = new List<string>();
 
         private readonly clsManejadorOrdenesTrabajo manejadorOrdenes = new clsManejadorOrdenesTrabajo();
         public frmOrdenesTrabajo()
@@ -18,8 +30,28 @@ namespace AutoCare_R_J.Formularios
             //desabilitar el botón de modificar al inicio
             clsMetodosGlobales.DeshabilitarBoton(btnModificar);
 
+            // Cargar los servicios en el ComboBox al iniciar el formulario
+            lstServicios = clsMetodosGlobales.ObtenerServicios();
+            cbxServicio.DataSource = lstServicios;
+            cbxServicio.DisplayMember = "Nombre";
+            cbxServicio.ValueMember = "Codigo";
+
+            //Cargar los vehiculos en el ComboBox al inciar el formulario
+            lstVehiculos = clsMetodosGlobales.ObtenerVehiculos();
+            cbxVehiculo.DataSource = lstVehiculos;
+            cbxVehiculo.DisplayMember = "TipoModelo";
+            cbxVehiculo.ValueMember = "Codigo";
+
+            //Cargar los repuestos en el ConboBox al inicar el formulario
+            lstRepuestos = clsMetodosGlobales.ObtenerRepuestos();
+            cbxRepuestos.DataSource = lstRepuestos;
+            cbxRepuestos.DisplayMember = "NombreRepuesto";
+            cbxRepuestos.ValueMember = "CodigoRepuesto";
+
+
+
         }
-      
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             // obtener los valores de los campos de entrada
@@ -103,6 +135,35 @@ namespace AutoCare_R_J.Formularios
             }
 
             clsMetodosGlobales.CargarGrid(dgvOrdenesTrabajo, manejadorOrdenes.ListarOrdenesTrabajo());
+        }
+
+        private void frmOrdenesTrabajo_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAgregarRepuesto_Click(object sender, EventArgs e)
+        {
+            string strCodigoRepuesto = cbxRepuestos.Text.Trim();
+            
+
+            if (string.IsNullOrEmpty(strCodigoRepuesto))
+            {
+                MessageBox.Show("Por favor, seleccione un repuesto", "Código no válido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                if (!lstRepuestosSeleccionados.Contains(strCodigoRepuesto))
+                {
+                    lstRepuestosSeleccionados.Add(strCodigoRepuesto);
+                    tbxRepuestos.Text = string.Join(Environment.NewLine, lstRepuestosSeleccionados);
+                }
+                else
+                {
+                    MessageBox.Show("Este repuesto ya fue agregado a la lista", "Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
     }
 }

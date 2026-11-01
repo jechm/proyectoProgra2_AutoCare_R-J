@@ -62,7 +62,6 @@
             this.tbxCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.lblDatosServicio = new System.Windows.Forms.Label();
-            this.cpFiltros = new AutoCare_R_J.CustomPanel();
             this.dgvFacturas = new System.Windows.Forms.DataGridView();
             this.cpBusquedas.SuspendLayout();
             this.gbBuscCod.SuspendLayout();
@@ -499,28 +498,18 @@
             this.lblDatosServicio.TabIndex = 26;
             this.lblDatosServicio.Text = "Datos de la factura";
             // 
-            // cpFiltros
-            // 
-            this.cpFiltros.BackColor = System.Drawing.Color.Transparent;
-            this.cpFiltros.BorderRadius = 20;
-            this.cpFiltros.Location = new System.Drawing.Point(7, 334);
-            this.cpFiltros.Margin = new System.Windows.Forms.Padding(2);
-            this.cpFiltros.Name = "cpFiltros";
-            this.cpFiltros.Size = new System.Drawing.Size(845, 57);
-            this.cpFiltros.TabIndex = 35;
-            // 
             // dgvFacturas
             // 
             this.dgvFacturas.AllowUserToAddRows = false;
             this.dgvFacturas.AllowUserToDeleteRows = false;
             this.dgvFacturas.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFacturas.Location = new System.Drawing.Point(8, 395);
+            this.dgvFacturas.Location = new System.Drawing.Point(8, 335);
             this.dgvFacturas.Margin = new System.Windows.Forms.Padding(2);
             this.dgvFacturas.MultiSelect = false;
             this.dgvFacturas.Name = "dgvFacturas";
             this.dgvFacturas.ReadOnly = true;
-            this.dgvFacturas.Size = new System.Drawing.Size(845, 205);
+            this.dgvFacturas.Size = new System.Drawing.Size(845, 265);
             this.dgvFacturas.TabIndex = 36;
             // 
             // frmFacturas
@@ -530,7 +519,6 @@
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(864, 611);
             this.Controls.Add(this.dgvFacturas);
-            this.Controls.Add(this.cpFiltros);
             this.Controls.Add(this.customPanel1);
             this.Controls.Add(this.cpBusquedas);
             this.Controls.Add(this.cpAccionesRapidas);
@@ -572,7 +560,6 @@
         private System.Windows.Forms.Label lblAccionesRapidas;
         private CustomPanel customPanel1;
         private System.Windows.Forms.Label lblDatosServicio;
-        private CustomPanel cpFiltros;
         private System.Windows.Forms.DataGridView dgvFacturas;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox tbxCodigo;

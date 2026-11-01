@@ -34,7 +34,7 @@ namespace AutoCare_R_J.Controladores
                 nuevoVehiculo.Marca = strMarca;
                 nuevoVehiculo.Modelo = strModelo;
                 nuevoVehiculo.Tipo = strTipo;
-                nuevoVehiculo.Año = strAño;
+                nuevoVehiculo.Anio = strAño;
 
                 lstVehiculos.Add(nuevoVehiculo);
             }
@@ -88,7 +88,7 @@ namespace AutoCare_R_J.Controladores
                 vehiculoEncontrado.Marca = strMarca;
                 vehiculoEncontrado.Modelo = strModelo;
                 vehiculoEncontrado.Tipo = strTipo;
-                vehiculoEncontrado.Año = strAño;
+                vehiculoEncontrado.Anio = strAño;
             }
             else
             {

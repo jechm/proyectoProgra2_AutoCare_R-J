@@ -75,7 +75,7 @@ namespace AutoCare_R_J.Formularios
                 // Crear una instancia de clsVehiculos con los valores obtenidos
                 clsVehiculos nuevoVehiculo = new clsVehiculos(manejadorVehiculo.ObtenerSiguienteCodigo(), strPropietario, strPlaca, strEstado, strColor, strMarca, strModelo, strTipo, strAnio);
                 // Agregar el vehículo a la lista utilizando el manejador
-                manejadorVehiculo.AgregarVehiculo(nuevoVehiculo.Propietario, nuevoVehiculo.Placa, nuevoVehiculo.Estado, nuevoVehiculo.Color, nuevoVehiculo.Marca, nuevoVehiculo.Modelo, nuevoVehiculo.Tipo, nuevoVehiculo.Año);
+                manejadorVehiculo.AgregarVehiculo(nuevoVehiculo.Propietario, nuevoVehiculo.Placa, nuevoVehiculo.Estado, nuevoVehiculo.Color, nuevoVehiculo.Marca, nuevoVehiculo.Modelo, nuevoVehiculo.Tipo, nuevoVehiculo.Anio);
                 MessageBox.Show("¡Vehículo agregado exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // Limpiar los campos después de agregar el vehículo
                 LimpiarCampos();

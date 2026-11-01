@@ -29,7 +29,7 @@ namespace AutoCare_R_J.Formularios
         /// </summary>
         private void InitializeComponent()
         {
-            this.cpFiltros = new AutoCare_R_J.CustomPanel();
+            this.dgvOrdenesTrabajo = new System.Windows.Forms.DataGridView();
             this.cpBusquedas = new AutoCare_R_J.CustomPanel();
             this.gbBuscCod = new System.Windows.Forms.GroupBox();
             this.tbxBuscCodigo = new System.Windows.Forms.TextBox();
@@ -61,7 +61,9 @@ namespace AutoCare_R_J.Formularios
             this.tbxCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.lblDatosServicio = new System.Windows.Forms.Label();
-            this.dgvOrdenesTrabajo = new System.Windows.Forms.DataGridView();
+            this.cbxRepuestos = new System.Windows.Forms.ComboBox();
+            this.btnAgregarRepuesto = new AutoCare_R_J.CustomButton();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenesTrabajo)).BeginInit();
             this.cpBusquedas.SuspendLayout();
             this.gbBuscCod.SuspendLayout();
             this.cpAccionesRapidas.SuspendLayout();
@@ -72,17 +74,21 @@ namespace AutoCare_R_J.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenesTrabajo)).BeginInit();
             this.SuspendLayout();
             // 
-            // cpFiltros
+            // dgvOrdenesTrabajo
             // 
-            this.cpFiltros.BackColor = System.Drawing.Color.Transparent;
-            this.cpFiltros.BorderRadius = 20;
-            this.cpFiltros.Location = new System.Drawing.Point(11, 336);
-            this.cpFiltros.Name = "cpFiltros";
-            this.cpFiltros.Size = new System.Drawing.Size(841, 70);
-            this.cpFiltros.TabIndex = 36;
+            this.dgvOrdenesTrabajo.AllowUserToAddRows = false;
+            this.dgvOrdenesTrabajo.AllowUserToDeleteRows = false;
+            this.dgvOrdenesTrabajo.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvOrdenesTrabajo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrdenesTrabajo.Location = new System.Drawing.Point(8, 335);
+            this.dgvOrdenesTrabajo.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvOrdenesTrabajo.MultiSelect = false;
+            this.dgvOrdenesTrabajo.Name = "dgvOrdenesTrabajo";
+            this.dgvOrdenesTrabajo.ReadOnly = true;
+            this.dgvOrdenesTrabajo.Size = new System.Drawing.Size(845, 265);
+            this.dgvOrdenesTrabajo.TabIndex = 32;
             // 
             // cpBusquedas
             // 
@@ -128,7 +134,7 @@ namespace AutoCare_R_J.Formularios
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.IconSize = new System.Drawing.Size(20, 20);
             this.btnBuscar.Location = new System.Drawing.Point(162, 4);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(120, 37);
             this.btnBuscar.TabIndex = 30;
@@ -253,6 +259,8 @@ namespace AutoCare_R_J.Formularios
             // 
             this.cpDatosServicio.BackColor = System.Drawing.Color.Transparent;
             this.cpDatosServicio.BorderRadius = 20;
+            this.cpDatosServicio.Controls.Add(this.btnAgregarRepuesto);
+            this.cpDatosServicio.Controls.Add(this.cbxRepuestos);
             this.cpDatosServicio.Controls.Add(this.pictureBox6);
             this.cpDatosServicio.Controls.Add(this.tbxRepuestos);
             this.cpDatosServicio.Controls.Add(this.lnlRepuestos);
@@ -273,16 +281,16 @@ namespace AutoCare_R_J.Formularios
             this.cpDatosServicio.Controls.Add(this.lblCodigo);
             this.cpDatosServicio.Controls.Add(this.lblDatosServicio);
             this.cpDatosServicio.Location = new System.Drawing.Point(8, 2);
-            this.cpDatosServicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cpDatosServicio.Margin = new System.Windows.Forms.Padding(2);
             this.cpDatosServicio.Name = "cpDatosServicio";
-            this.cpDatosServicio.Size = new System.Drawing.Size(432, 328);
+            this.cpDatosServicio.Size = new System.Drawing.Size(443, 328);
             this.cpDatosServicio.TabIndex = 33;
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Image = global::AutoCare_R_J.Properties.Resources.escanear;
-            this.pictureBox6.Location = new System.Drawing.Point(13, 173);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox6.Image = global::AutoCare_R_J.Properties.Resources.repuesto;
+            this.pictureBox6.Location = new System.Drawing.Point(13, 195);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(22, 21);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -293,11 +301,12 @@ namespace AutoCare_R_J.Formularios
             // 
             this.tbxRepuestos.Enabled = false;
             this.tbxRepuestos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxRepuestos.Location = new System.Drawing.Point(139, 178);
-            this.tbxRepuestos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxRepuestos.Location = new System.Drawing.Point(139, 225);
+            this.tbxRepuestos.Margin = new System.Windows.Forms.Padding(2);
             this.tbxRepuestos.Multiline = true;
             this.tbxRepuestos.Name = "tbxRepuestos";
-            this.tbxRepuestos.Size = new System.Drawing.Size(205, 89);
+            this.tbxRepuestos.ReadOnly = true;
+            this.tbxRepuestos.Size = new System.Drawing.Size(218, 89);
             this.tbxRepuestos.TabIndex = 44;
             // 
             // lnlRepuestos
@@ -305,7 +314,7 @@ namespace AutoCare_R_J.Formularios
             this.lnlRepuestos.AutoSize = true;
             this.lnlRepuestos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lnlRepuestos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lnlRepuestos.Location = new System.Drawing.Point(39, 177);
+            this.lnlRepuestos.Location = new System.Drawing.Point(39, 199);
             this.lnlRepuestos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lnlRepuestos.Name = "lnlRepuestos";
             this.lnlRepuestos.Size = new System.Drawing.Size(101, 20);
@@ -314,6 +323,7 @@ namespace AutoCare_R_J.Formularios
             // 
             // cbxEstado
             // 
+            this.cbxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxEstado.FormattingEnabled = true;
             this.cbxEstado.Items.AddRange(new object[] {
@@ -325,7 +335,7 @@ namespace AutoCare_R_J.Formularios
             "Entregado",
             "Cancelado"});
             this.cbxEstado.Location = new System.Drawing.Point(126, 148);
-            this.cbxEstado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxEstado.Margin = new System.Windows.Forms.Padding(2);
             this.cbxEstado.Name = "cbxEstado";
             this.cbxEstado.Size = new System.Drawing.Size(218, 26);
             this.cbxEstado.TabIndex = 42;
@@ -335,7 +345,7 @@ namespace AutoCare_R_J.Formularios
             // 
             this.pictureBox5.Image = global::AutoCare_R_J.Properties.Resources.descripcion_del_trabajo;
             this.pictureBox5.Location = new System.Drawing.Point(13, 143);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(22, 21);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -356,10 +366,11 @@ namespace AutoCare_R_J.Formularios
             // 
             // cbxVehiculo
             // 
+            this.cbxVehiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxVehiculo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxVehiculo.FormattingEnabled = true;
             this.cbxVehiculo.Location = new System.Drawing.Point(126, 120);
-            this.cbxVehiculo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxVehiculo.Margin = new System.Windows.Forms.Padding(2);
             this.cbxVehiculo.Name = "cbxVehiculo";
             this.cbxVehiculo.Size = new System.Drawing.Size(218, 26);
             this.cbxVehiculo.TabIndex = 39;
@@ -368,7 +379,7 @@ namespace AutoCare_R_J.Formularios
             // 
             this.pictureBox4.Image = global::AutoCare_R_J.Properties.Resources.coche;
             this.pictureBox4.Location = new System.Drawing.Point(13, 116);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(22, 21);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -389,10 +400,11 @@ namespace AutoCare_R_J.Formularios
             // 
             // cbxServicio
             // 
+            this.cbxServicio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxServicio.FormattingEnabled = true;
             this.cbxServicio.Location = new System.Drawing.Point(126, 90);
-            this.cbxServicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxServicio.Margin = new System.Windows.Forms.Padding(2);
             this.cbxServicio.Name = "cbxServicio";
             this.cbxServicio.Size = new System.Drawing.Size(218, 26);
             this.cbxServicio.TabIndex = 36;
@@ -401,7 +413,7 @@ namespace AutoCare_R_J.Formularios
             // 
             this.pictureBox3.Image = global::AutoCare_R_J.Properties.Resources.servicio;
             this.pictureBox3.Location = new System.Drawing.Point(13, 90);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(22, 21);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -423,17 +435,17 @@ namespace AutoCare_R_J.Formularios
             // dtpFechaRecepcion
             // 
             this.dtpFechaRecepcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaRecepcion.Location = new System.Drawing.Point(228, 65);
-            this.dtpFechaRecepcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpFechaRecepcion.Location = new System.Drawing.Point(219, 65);
+            this.dtpFechaRecepcion.Margin = new System.Windows.Forms.Padding(2);
             this.dtpFechaRecepcion.Name = "dtpFechaRecepcion";
-            this.dtpFechaRecepcion.Size = new System.Drawing.Size(151, 24);
+            this.dtpFechaRecepcion.Size = new System.Drawing.Size(209, 24);
             this.dtpFechaRecepcion.TabIndex = 32;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::AutoCare_R_J.Properties.Resources.calendario;
             this.pictureBox2.Location = new System.Drawing.Point(13, 64);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(22, 21);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -456,7 +468,7 @@ namespace AutoCare_R_J.Formularios
             // 
             this.pictureBox1.Image = global::AutoCare_R_J.Properties.Resources.escanear;
             this.pictureBox1.Location = new System.Drawing.Point(13, 38);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(22, 21);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -468,7 +480,7 @@ namespace AutoCare_R_J.Formularios
             this.tbxCodigo.Enabled = false;
             this.tbxCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxCodigo.Location = new System.Drawing.Point(112, 40);
-            this.tbxCodigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxCodigo.Margin = new System.Windows.Forms.Padding(2);
             this.tbxCodigo.Name = "tbxCodigo";
             this.tbxCodigo.Size = new System.Drawing.Size(87, 26);
             this.tbxCodigo.TabIndex = 27;
@@ -496,33 +508,60 @@ namespace AutoCare_R_J.Formularios
             this.lblDatosServicio.TabIndex = 25;
             this.lblDatosServicio.Text = "Datos de la orden de trabajo";
             // 
-            // dgvOrdenesTrabajo
+            // cbxRepuestos
             // 
-            this.dgvOrdenesTrabajo.AllowUserToAddRows = false;
-            this.dgvOrdenesTrabajo.AllowUserToDeleteRows = false;
-            this.dgvOrdenesTrabajo.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgvOrdenesTrabajo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrdenesTrabajo.Location = new System.Drawing.Point(8, 411);
-            this.dgvOrdenesTrabajo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dgvOrdenesTrabajo.MultiSelect = false;
-            this.dgvOrdenesTrabajo.Name = "dgvOrdenesTrabajo";
-            this.dgvOrdenesTrabajo.ReadOnly = true;
-            this.dgvOrdenesTrabajo.Size = new System.Drawing.Size(845, 189);
-            this.dgvOrdenesTrabajo.TabIndex = 32;
+            this.cbxRepuestos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxRepuestos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxRepuestos.FormattingEnabled = true;
+            this.cbxRepuestos.Items.AddRange(new object[] {
+            "Pendiente / Recepcionado",
+            "En Diagnóstico / En Revisión",
+            "En Proceso / En Reparación",
+            "En Espera de Repuestos",
+            "Finalizado / Listo para Entrega",
+            "Entregado",
+            "Cancelado"});
+            this.cbxRepuestos.Location = new System.Drawing.Point(139, 195);
+            this.cbxRepuestos.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxRepuestos.Name = "cbxRepuestos";
+            this.cbxRepuestos.Size = new System.Drawing.Size(218, 26);
+            this.cbxRepuestos.TabIndex = 46;
+            this.cbxRepuestos.UseWaitCursor = true;
+            // 
+            // btnAgregarRepuesto
+            // 
+            this.btnAgregarRepuesto.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgregarRepuesto.BorderRadius = 15;
+            this.btnAgregarRepuesto.ButtonIcon = null;
+            this.btnAgregarRepuesto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarRepuesto.CustomBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.btnAgregarRepuesto.FlatAppearance.BorderSize = 0;
+            this.btnAgregarRepuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarRepuesto.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarRepuesto.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarRepuesto.IconSize = new System.Drawing.Size(20, 20);
+            this.btnAgregarRepuesto.Location = new System.Drawing.Point(363, 187);
+            this.btnAgregarRepuesto.Name = "btnAgregarRepuesto";
+            this.btnAgregarRepuesto.Size = new System.Drawing.Size(52, 50);
+            this.btnAgregarRepuesto.TabIndex = 47;
+            this.btnAgregarRepuesto.Text = "+";
+            this.btnAgregarRepuesto.UseVisualStyleBackColor = false;
+            this.btnAgregarRepuesto.Click += new System.EventHandler(this.btnAgregarRepuesto_Click);
             // 
             // frmOrdenesTrabajo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(864, 611);
-            this.Controls.Add(this.cpFiltros);
             this.Controls.Add(this.cpBusquedas);
             this.Controls.Add(this.cpAccionesRapidas);
             this.Controls.Add(this.cpDatosServicio);
             this.Controls.Add(this.dgvOrdenesTrabajo);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmOrdenesTrabajo";
             this.Text = "Ordenes De Trabajo";
+            this.Load += new System.EventHandler(this.frmOrdenesTrabajo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenesTrabajo)).EndInit();
             this.cpBusquedas.ResumeLayout(false);
             this.cpBusquedas.PerformLayout();
             this.gbBuscCod.ResumeLayout(false);
@@ -537,14 +576,11 @@ namespace AutoCare_R_J.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenesTrabajo)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private CustomPanel cpFiltros;
         private CustomPanel cpBusquedas;
         private System.Windows.Forms.GroupBox gbBuscCod;
         private System.Windows.Forms.TextBox tbxBuscCodigo;
@@ -577,5 +613,7 @@ namespace AutoCare_R_J.Formularios
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.TextBox tbxRepuestos;
         private System.Windows.Forms.Label lnlRepuestos;
+        private CustomButton btnAgregarRepuesto;
+        private System.Windows.Forms.ComboBox cbxRepuestos;
     }
 }
