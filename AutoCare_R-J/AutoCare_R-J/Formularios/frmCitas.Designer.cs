@@ -32,7 +32,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCitas));
             this.pnlMenus = new System.Windows.Forms.Panel();
             this.cstmPnlDato = new AutoCare_R_J.CustomPanel();
@@ -120,14 +120,14 @@
             this.dtGvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtGvDatos.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dtGvDatos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtGvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtGvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtGvDatos.Location = new System.Drawing.Point(0, 0);
@@ -138,6 +138,7 @@
             this.dtGvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtGvDatos.Size = new System.Drawing.Size(1078, 271);
             this.dtGvDatos.TabIndex = 23;
+            this.dtGvDatos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGvDatos_CellDoubleClick);
             // 
             // cpBusquedas
             // 
@@ -170,6 +171,7 @@
             this.btnBuscar.TabIndex = 15;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // gbValorABuscar
             // 
@@ -204,12 +206,14 @@
             // 
             // cmbValoresDeBusqueda
             // 
+            this.cmbValoresDeBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbValoresDeBusqueda.FormattingEnabled = true;
             this.cmbValoresDeBusqueda.Location = new System.Drawing.Point(6, 19);
             this.cmbValoresDeBusqueda.Name = "cmbValoresDeBusqueda";
-            this.cmbValoresDeBusqueda.Size = new System.Drawing.Size(350, 24);
+            this.cmbValoresDeBusqueda.Size = new System.Drawing.Size(350, 28);
             this.cmbValoresDeBusqueda.TabIndex = 13;
             this.cmbValoresDeBusqueda.Text = "Escoger campo";
+            this.cmbValoresDeBusqueda.SelectedIndexChanged += new System.EventHandler(this.cmbValoresDeBusqueda_SelectedIndexChanged);
             // 
             // lblBusquedas
             // 
@@ -241,8 +245,7 @@
             this.btnEliminar.BorderRadius = 15;
             this.btnEliminar.ButtonIcon = ((System.Drawing.Image)(resources.GetObject("btnEliminar.ButtonIcon")));
             this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.CustomBackColor = System.Drawing.Color.SlateGray;
-            this.btnEliminar.Enabled = false;
+            this.btnEliminar.CustomBackColor = System.Drawing.Color.Red;
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
@@ -274,6 +277,7 @@
             this.btnLimpiar.TabIndex = 14;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnModificar
             // 
@@ -281,8 +285,7 @@
             this.btnModificar.BorderRadius = 15;
             this.btnModificar.ButtonIcon = ((System.Drawing.Image)(resources.GetObject("btnModificar.ButtonIcon")));
             this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificar.CustomBackColor = System.Drawing.Color.SlateGray;
-            this.btnModificar.Enabled = false;
+            this.btnModificar.CustomBackColor = System.Drawing.Color.CornflowerBlue;
             this.btnModificar.FlatAppearance.BorderSize = 0;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
@@ -402,11 +405,12 @@
             // 
             // cmbEstado
             // 
+            this.cmbEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.ItemHeight = 13;
+            this.cmbEstado.ItemHeight = 20;
             this.cmbEstado.Location = new System.Drawing.Point(124, 279);
             this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(211, 21);
+            this.cmbEstado.Size = new System.Drawing.Size(211, 28);
             this.cmbEstado.TabIndex = 9;
             // 
             // pictureBox3

@@ -49,9 +49,9 @@ namespace AutoCare_R_J.Controladores
         #region Traer la Lista de Citas
         private IList<clsCita> TraerListaCitas()
         {
-            IList<clsCita> listaCitasTemporal= new List<clsCita>();
+            IList<clsCita> listaCitasTemporal = new List<clsCita>();
 
-            using(var con = clsConexion.ObtenerConexion())
+            using (var con = clsConexion.ObtenerConexion())
             {
                 string sql = "SELECT * FROM cita";
                 if (con.State != System.Data.ConnectionState.Open)
@@ -61,7 +61,7 @@ namespace AutoCare_R_J.Controladores
                 {
                     using (var r = cmd.ExecuteReader())
                     {
-                        while(r.Read())
+                        while (r.Read())
                         {
                             string nombreCliente = listaClientes.BuscarClientePorParametroUnico("codigo", r.GetString(1)).Nombre + " " + listaClientes.BuscarClientePorParametroUnico("codigo", r.GetString(1)).Apellido;
                             string vehiculo = listaVehiculos.BuscarVehiculo(r.GetString(2)).Marca + " " + listaVehiculos.BuscarVehiculo(r.GetString(2)).Modelo + " - " + listaVehiculos.BuscarVehiculo(r.GetString(2)).Placa;
@@ -98,9 +98,12 @@ namespace AutoCare_R_J.Controladores
         //Agregar nueva cita a la lista de citas
         public bool AgregarCita(clsCita pCita)
         {
+            if (pCita == null)
+                return false;
+
             if (BuscarCitaPorCodigo(pCita.CodigoCita) != null)
                 return false;
-            using(var con = clsConexion.ObtenerConexion())
+            using (var con = clsConexion.ObtenerConexion())
             {
                 string sql = "INSERT INTO cita (codigo_cita, codigo_cliente, codigo_vehiculo, codigo_tecnico, fecha_hora, estado, observaciones) VALUES (@codigo, @codigo_cliente, @codigo_vehiculo, @codigo_tecnico, @fecha_hora, @estado, @observaciones)";
                 if (con.State != System.Data.ConnectionState.Open)
@@ -108,7 +111,7 @@ namespace AutoCare_R_J.Controladores
 
                 using (var cmd = new SqliteCommand(sql, con))
                 {
-                    
+
                     cmd.Parameters.AddWithValue("@codigo", pCita.CodigoCita);
                     cmd.Parameters.AddWithValue("@codigo_cliente", pCita.CodigoCliente);
                     cmd.Parameters.AddWithValue("@codigo_vehiculo", pCita.CodigoVehiculo);
@@ -131,7 +134,7 @@ namespace AutoCare_R_J.Controladores
         {
             if (BuscarCitaPorCodigo(pCita.CodigoCita) == null)
                 return false;
-            using(var con = clsConexion.ObtenerConexion())
+            using (var con = clsConexion.ObtenerConexion())
             {
                 string sql = "UPDATE cita SET codigo_cliente=@codigo_cliente, codigo_vehiculo=@codigo_vehiculo, codigo_tecnico=@codigo_tecnico, fecha_hora=@fecha_hora, estado=@estado, observaciones=@observaciones WHERE codigo_cita=@codigo";
                 if (con.State != System.Data.ConnectionState.Open)
@@ -152,11 +155,11 @@ namespace AutoCare_R_J.Controladores
 
         public bool eliminarCita(string pCodigo)
         {
-            
+
             if (BuscarCitaPorCodigo(pCodigo) == null)
                 return false;
 
-            using(var con = clsConexion.ObtenerConexion())
+            using (var con = clsConexion.ObtenerConexion())
             {
                 string sql = "DELETE FROM cita WHERE codigo_cita=@codigo";
                 if (con.State != System.Data.ConnectionState.Open)
@@ -199,8 +202,30 @@ namespace AutoCare_R_J.Controladores
                 }
             }
         }
+
+        internal IList<clsCita> BuscarCitas(string campo, string text)
+        {
+            if (campo == "Codigo")
+            {
+                return lstCitas.Where(c => c.CodigoCita.Contains(text)).ToList();
+            }
+            else if (campo == "Cliente")
+            {
+                return lstCitas.Where(c => c.CodigoCliente.Contains(text)).ToList();
+            }
+            else if (campo == "Vehiculo")
+            {
+                return lstCitas.Where(c => c.CodigoVehiculo.Contains(text)).ToList();
+            }
+            else if (campo == "Tecnico")
+            {
+                return lstCitas.Where(c => c.CodigoTecnico.Contains(text)).ToList();
+            }
+            return new List<clsCita>();
+        }
+
+
     }
-
-
 }
+
     #endregion

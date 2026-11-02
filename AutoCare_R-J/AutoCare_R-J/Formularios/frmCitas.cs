@@ -17,6 +17,7 @@ namespace AutoCare_R_J.Formularios
     public partial class frmCitas : Form
     {
         private string[] estadosCita = { "Pendiente", "En Proceso", "Completada", "Cancelada" };
+        private string[] valoresDeBusqueda = { "Codigo", "Cliente", "Tecnico", "Estado" };
         private clsManejadorCitas listaCitas;
         private clsManejadorVehiculos listaVehiculos;
         private clsManejadorClientes listaClientes;
@@ -31,9 +32,10 @@ namespace AutoCare_R_J.Formularios
             listaEmpleados = new clsManejadorEmpleados();
 
 
-            CargarListas();
-
             cmbEstado.DataSource = estadosCita;
+            cmbValoresDeBusqueda.DataSource = valoresDeBusqueda;
+
+            CargarListas();
             cargarComboBox(cmbCliente);
             // cargarComboBox(cmbVehiculo) ;
             cargarComboBox(cmbEmpleado);
@@ -49,6 +51,9 @@ namespace AutoCare_R_J.Formularios
             dtFechaHora.Value = DateTime.Now;
             cmbEstado.SelectedIndex = -1;
             txtObservaciones.Clear();
+
+            cmbValoresDeBusqueda.SelectedIndex = 0;
+            txtValorAbuscar.Text = "CIT-";
         }
 
 
@@ -69,6 +74,9 @@ namespace AutoCare_R_J.Formularios
             dtGvDatos.DataSource = null;
 
             dtGvDatos.DataSource = listaCitas.ObtenerCitas();
+            dtGvDatos.Columns["CodigoCliente"].HeaderText = "Cliente";
+            dtGvDatos.Columns["CodigoVehiculo"].HeaderText = "Vehículo";
+            dtGvDatos.Columns["CodigoTecnico"].HeaderText = "Técnico";
             limpiarFormulario();
         }
 
@@ -80,7 +88,7 @@ namespace AutoCare_R_J.Formularios
 
                 foreach (clsCliente cliente in listaClientes.ObtenerClientes())
                 {
-                    comboBox.Items.Add(cliente.Nombre);
+                    comboBox.Items.Add($"{cliente.Nombre} {cliente.Apellido}");
                 }
             }
             else if (comboBox == cmbVehiculo)
@@ -109,9 +117,14 @@ namespace AutoCare_R_J.Formularios
         private void cmbCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = cmbCliente.SelectedIndex;
-            string CodigoCliente = listaClientes.ObtenerClientes()[selectedIndex].Codigo;
+            
+            if (selectedIndex > -1)
+            {
+                string CodigoCliente = listaClientes.ObtenerClientes()[selectedIndex].Codigo;
+                cargarComboBox(cmbVehiculo);
+            }
 
-            cargarComboBox(cmbVehiculo);
+            
         }
 
         private void bntNuevo_Click(object sender, EventArgs e)
@@ -132,11 +145,13 @@ namespace AutoCare_R_J.Formularios
 
         private clsCita citaParaMovimientos()
         {
-            string codigoCliente = listaClientes.ObtenerClientes()[cmbCliente.SelectedIndex].Codigo;
-            string codigoVehiculo = listaVehiculos.ListarVehiculos()[cmbVehiculo.SelectedIndex].Codigo;
-            string codigoTecnico = listaEmpleados.ObtenerEmpleados()[cmbEmpleado.SelectedIndex].Codigo;
-
-            clsCita citaTemporal = new clsCita(
+            clsCita citaTemporal = null;
+            string codigoCliente = string.IsNullOrWhiteSpace(cmbCliente.SelectedItem.ToString()) ? "" : listaClientes.ObtenerClientes()[cmbCliente.SelectedIndex].Codigo;
+            string codigoVehiculo = string.IsNullOrWhiteSpace(cmbVehiculo.SelectedItem.ToString()) ? "" : listaVehiculos.ListarVehiculos()[cmbVehiculo.SelectedIndex].Codigo;
+            string codigoTecnico = string.IsNullOrWhiteSpace(cmbEmpleado.SelectedItem.ToString()) ? "" : listaEmpleados.ObtenerEmpleados()[cmbEmpleado.SelectedIndex].Codigo;
+            try
+            {
+                citaTemporal = new clsCita(
                 txtCodigo.Text,
                 codigoCliente,
                 codigoVehiculo,
@@ -145,6 +160,12 @@ namespace AutoCare_R_J.Formularios
                 cmbEstado.SelectedItem.ToString(),
                 txtObservaciones.Text
             );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
 
             return citaTemporal;
         }
@@ -152,6 +173,7 @@ namespace AutoCare_R_J.Formularios
         private void btnModificar_Click(object sender, EventArgs e)
         {
             clsCita citaModificada = citaParaMovimientos();
+
 
             if(listaCitas.ModificarCita(citaModificada))
             {
@@ -179,6 +201,62 @@ namespace AutoCare_R_J.Formularios
             }
         }
 
+        private void cmbValoresDeBusqueda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gbValorABuscar.Text = $"Ingrese el {cmbValoresDeBusqueda.SelectedItem} a buscar:";
+            if (cmbValoresDeBusqueda.SelectedItem.ToString() == "Codigo")
+            {
+                txtValorAbuscar.Text = "CIT-";
+            }
+            else
+            {
+                txtValorAbuscar.Text = "";
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            IList<clsCita> listaCitasEncontrada = new List<clsCita>();
+            listaCitasEncontrada = listaCitas.BuscarCitas(cmbValoresDeBusqueda.SelectedItem.ToString(), txtValorAbuscar.Text);
+            if(listaCitasEncontrada.Count == 0)
+            {
+                MessageBox.Show("No se encontraron citas con el valor ingresado.");
+            }
+            else
+            {
+                dtGvDatos.DataSource = null;
+                dtGvDatos.DataSource = listaCitasEncontrada;
+                dtGvDatos.Columns["CodigoCliente"].HeaderText = "Cliente";
+                dtGvDatos.Columns["CodigoVehiculo"].HeaderText = "Vehículo";
+                dtGvDatos.Columns["CodigoTecnico"].HeaderText = "Técnico";
+            }
+
+        }
+
+        private void dtGvDatos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+
+            string codigoCliente = dtGvDatos.Rows[e.RowIndex].Cells["CodigoCliente"].Value.ToString();
+            MessageBox.Show($"Cliente seleccionado: {cmbCliente.FindStringExact(codigoCliente)}");
+            txtCodigo.Text = dtGvDatos.Rows[e.RowIndex].Cells["CodigoCita"].Value.ToString();
+
+            cmbCliente.SelectedIndex = cmbCliente.FindStringExact(codigoCliente);
+
+            cmbEmpleado.SelectedIndex = cmbEmpleado.FindStringExact(dtGvDatos.Rows[e.RowIndex].Cells["CodigoTecnico"].Value.ToString());
+            cmbEstado.SelectedItem = dtGvDatos.Rows[e.RowIndex].Cells["EstadoCita"].Value.ToString();
+            txtObservaciones.Text = dtGvDatos.Rows[e.RowIndex].Cells["Observaciones"].Value.ToString();
+            dtFechaHora.Value = Convert.ToDateTime(dtGvDatos.Rows[e.RowIndex].Cells["FechaHoraCita"].Value);
+
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            limpiarFormulario();
+        }
     }
 }
 
