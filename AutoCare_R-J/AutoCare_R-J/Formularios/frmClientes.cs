@@ -32,6 +32,7 @@ namespace AutoCare_R_J.Formularios
             limpiarFormulario();
             dtGvDatos.DataSource = null;
             dtGvDatos.DataSource = listaClientes.ObtenerClientes();
+
             reordenarColumnas();
             
         }
