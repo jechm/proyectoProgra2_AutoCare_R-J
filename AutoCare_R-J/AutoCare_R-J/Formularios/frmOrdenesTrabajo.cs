@@ -1,9 +1,10 @@
-﻿using System;
-using AutoCare_R_J.Controladores;
+﻿using AutoCare_R_J.Controladores;
 using AutoCare_R_J.MetodosGlobales;
-using System.Windows.Forms;
-using System.Collections.Generic;
 using AutoCare_R_J.Modelos;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace AutoCare_R_J.Formularios
 {
@@ -29,6 +30,9 @@ namespace AutoCare_R_J.Formularios
 
             //desabilitar el botón de modificar al inicio
             clsMetodosGlobales.DeshabilitarBoton(btnModificar);
+
+            //Crargar datos en el DataGridView al iniciar el formulario
+            clsMetodosGlobales.CargarGrid(dgvOrdenesTrabajo, manejadorOrdenes.ListarOrdenesTrabajo());
 
             // Cargar los servicios en el ComboBox al iniciar el formulario
             lstServicios = clsMetodosGlobales.ObtenerServicios();
@@ -132,6 +136,8 @@ namespace AutoCare_R_J.Formularios
                 MessageBox.Show("¡Orden de trabajo eliminada exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // Limpiar los campos después de eliminar la orden
                 LimpiarCampos();
+
+                clsMetodosGlobales.CargarGrid(dgvOrdenesTrabajo, manejadorOrdenes.ListarOrdenesTrabajo());
             }
 
             clsMetodosGlobales.CargarGrid(dgvOrdenesTrabajo, manejadorOrdenes.ListarOrdenesTrabajo());
@@ -139,7 +145,10 @@ namespace AutoCare_R_J.Formularios
 
         private void frmOrdenesTrabajo_Load(object sender, EventArgs e)
         {
+            tbxCodigo.Text = clsMetodosGlobales.ObtenerSiguienteCodigo("ordenes_trabajo");
+            tbxCodigo.ReadOnly = true;
 
+            clsMetodosGlobales.CargarGrid(dgvOrdenesTrabajo, manejadorOrdenes.ListarOrdenesTrabajo());
         }
 
         private void btnAgregarRepuesto_Click(object sender, EventArgs e)
@@ -162,6 +171,47 @@ namespace AutoCare_R_J.Formularios
                 else
                 {
                     MessageBox.Show("Este repuesto ya fue agregado a la lista", "Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string strCodigo = tbxBuscCodigo.Text.Trim();
+
+            if (string.IsNullOrEmpty(strCodigo))
+            {
+                MessageBox.Show("Por favor, ingrese un código de orden de trabajo para buscar.", "Código no válido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                try
+                {
+                    clsOrdenesDeTrabajo ordenEncontrada = manejadorOrdenes.BuscarOrdenTrabajo(strCodigo);
+                    // Mostrar los datos de la orden encontrada en los campos correspondientes
+
+                    if (ordenEncontrada == null)
+                    {
+                        MessageBox.Show("No se encontró ninguna orden de trabajo con ese código.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    else
+                    {
+                        dtpFechaRecepcion.Value = ordenEncontrada.FechaRecepcion;
+                        cbxServicio.SelectedItem = ordenEncontrada.Servicio;
+                        cbxVehiculo.SelectedItem = ordenEncontrada.Vehiculo;
+                        cbxEstado.SelectedItem = ordenEncontrada.Estado;
+                        tbxRepuestos.Text = ordenEncontrada.Repuestos;
+                        // Habilitar los botones de modificar y eliminar
+                        clsMetodosGlobales.HabilitarBoton(btnModificar, Color.DeepSkyBlue, Color.White, Cursors.Hand);
+                        clsMetodosGlobales.HabilitarBoton(btnEliminar, Color.Red, Color.White, Cursors.Hand);
+                    }
+                    
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

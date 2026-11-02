@@ -29,7 +29,22 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVehiculos));
+            this.dgvVehiculos = new System.Windows.Forms.DataGridView();
+            this.cpBusquedas = new AutoCare_R_J.CustomPanel();
+            this.gbBuscName = new System.Windows.Forms.GroupBox();
+            this.cbxBuscPropietario = new System.Windows.Forms.ComboBox();
+            this.gbBuscCod = new System.Windows.Forms.GroupBox();
+            this.tbxBuscCodigo = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new AutoCare_R_J.CustomButton();
+            this.lblBusquedas = new System.Windows.Forms.Label();
+            this.cpAccionesRapidas = new AutoCare_R_J.CustomPanel();
+            this.btnLimpiarCampos = new AutoCare_R_J.CustomButton();
+            this.btnEliminar = new AutoCare_R_J.CustomButton();
+            this.btnModificar = new AutoCare_R_J.CustomButton();
+            this.btnAgregar = new AutoCare_R_J.CustomButton();
+            this.lblAccionesRapidas = new System.Windows.Forms.Label();
             this.customPanel1 = new AutoCare_R_J.CustomPanel();
+            this.cbxPropietario = new System.Windows.Forms.ComboBox();
             this.cbxEstado = new System.Windows.Forms.ComboBox();
             this.cbxTipo = new System.Windows.Forms.ComboBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
@@ -45,7 +60,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.tbxPropietario = new System.Windows.Forms.TextBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -58,20 +72,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tbxCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
-            this.lblAccionesRapidas = new System.Windows.Forms.Label();
-            this.btnAgregar = new AutoCare_R_J.CustomButton();
-            this.btnModificar = new AutoCare_R_J.CustomButton();
-            this.btnEliminar = new AutoCare_R_J.CustomButton();
-            this.btnLimpiarCampos = new AutoCare_R_J.CustomButton();
-            this.cpAccionesRapidas = new AutoCare_R_J.CustomPanel();
-            this.cpBusquedas = new AutoCare_R_J.CustomPanel();
-            this.gbBuscName = new System.Windows.Forms.GroupBox();
-            this.tbxBuscNombre = new System.Windows.Forms.TextBox();
-            this.gbBuscCod = new System.Windows.Forms.GroupBox();
-            this.tbxBuscCodigo = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new AutoCare_R_J.CustomButton();
-            this.lblBusquedas = new System.Windows.Forms.Label();
-            this.dgvVehiculos = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVehiculos)).BeginInit();
+            this.cpBusquedas.SuspendLayout();
+            this.gbBuscName.SuspendLayout();
+            this.gbBuscCod.SuspendLayout();
+            this.cpAccionesRapidas.SuspendLayout();
             this.customPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -82,17 +87,215 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.cpAccionesRapidas.SuspendLayout();
-            this.cpBusquedas.SuspendLayout();
-            this.gbBuscName.SuspendLayout();
-            this.gbBuscCod.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVehiculos)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dgvVehiculos
+            // 
+            this.dgvVehiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVehiculos.Location = new System.Drawing.Point(8, 338);
+            this.dgvVehiculos.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvVehiculos.Name = "dgvVehiculos";
+            this.dgvVehiculos.Size = new System.Drawing.Size(842, 253);
+            this.dgvVehiculos.TabIndex = 59;
+            // 
+            // cpBusquedas
+            // 
+            this.cpBusquedas.BackColor = System.Drawing.Color.Transparent;
+            this.cpBusquedas.BorderRadius = 20;
+            this.cpBusquedas.Controls.Add(this.gbBuscName);
+            this.cpBusquedas.Controls.Add(this.gbBuscCod);
+            this.cpBusquedas.Controls.Add(this.btnBuscar);
+            this.cpBusquedas.Controls.Add(this.lblBusquedas);
+            this.cpBusquedas.Location = new System.Drawing.Point(431, 167);
+            this.cpBusquedas.Name = "cpBusquedas";
+            this.cpBusquedas.Size = new System.Drawing.Size(421, 175);
+            this.cpBusquedas.TabIndex = 56;
+            // 
+            // gbBuscName
+            // 
+            this.gbBuscName.Controls.Add(this.cbxBuscPropietario);
+            this.gbBuscName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbBuscName.Location = new System.Drawing.Point(14, 113);
+            this.gbBuscName.Name = "gbBuscName";
+            this.gbBuscName.Size = new System.Drawing.Size(362, 53);
+            this.gbBuscName.TabIndex = 32;
+            this.gbBuscName.TabStop = false;
+            this.gbBuscName.Text = "Propietario:";
+            // 
+            // cbxBuscPropietario
+            // 
+            this.cbxBuscPropietario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxBuscPropietario.FormattingEnabled = true;
+            this.cbxBuscPropietario.Items.AddRange(new object[] {
+            "Activo",
+            "En Mantenimiento",
+            "Fuera de Servicio",
+            "De Baja"});
+            this.cbxBuscPropietario.Location = new System.Drawing.Point(16, 20);
+            this.cbxBuscPropietario.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxBuscPropietario.Name = "cbxBuscPropietario";
+            this.cbxBuscPropietario.Size = new System.Drawing.Size(340, 28);
+            this.cbxBuscPropietario.TabIndex = 57;
+            // 
+            // gbBuscCod
+            // 
+            this.gbBuscCod.Controls.Add(this.tbxBuscCodigo);
+            this.gbBuscCod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbBuscCod.Location = new System.Drawing.Point(14, 51);
+            this.gbBuscCod.Name = "gbBuscCod";
+            this.gbBuscCod.Size = new System.Drawing.Size(362, 53);
+            this.gbBuscCod.TabIndex = 31;
+            this.gbBuscCod.TabStop = false;
+            this.gbBuscCod.Text = "Código";
+            // 
+            // tbxBuscCodigo
+            // 
+            this.tbxBuscCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tbxBuscCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxBuscCodigo.Location = new System.Drawing.Point(16, 21);
+            this.tbxBuscCodigo.Name = "tbxBuscCodigo";
+            this.tbxBuscCodigo.Size = new System.Drawing.Size(340, 26);
+            this.tbxBuscCodigo.TabIndex = 29;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.BorderRadius = 15;
+            this.btnBuscar.ButtonIcon = global::AutoCare_R_J.Properties.Resources.buscar;
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.CustomBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnBuscar.ForeColor = System.Drawing.Color.White;
+            this.btnBuscar.IconSize = new System.Drawing.Size(20, 20);
+            this.btnBuscar.Location = new System.Drawing.Point(216, 5);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(160, 45);
+            this.btnBuscar.TabIndex = 30;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // lblBusquedas
+            // 
+            this.lblBusquedas.AutoSize = true;
+            this.lblBusquedas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBusquedas.Location = new System.Drawing.Point(10, 13);
+            this.lblBusquedas.Name = "lblBusquedas";
+            this.lblBusquedas.Size = new System.Drawing.Size(114, 24);
+            this.lblBusquedas.TabIndex = 29;
+            this.lblBusquedas.Text = "Busquedas";
+            // 
+            // cpAccionesRapidas
+            // 
+            this.cpAccionesRapidas.BackColor = System.Drawing.Color.Transparent;
+            this.cpAccionesRapidas.BorderRadius = 20;
+            this.cpAccionesRapidas.Controls.Add(this.btnLimpiarCampos);
+            this.cpAccionesRapidas.Controls.Add(this.btnEliminar);
+            this.cpAccionesRapidas.Controls.Add(this.btnModificar);
+            this.cpAccionesRapidas.Controls.Add(this.btnAgregar);
+            this.cpAccionesRapidas.Controls.Add(this.lblAccionesRapidas);
+            this.cpAccionesRapidas.Location = new System.Drawing.Point(431, 9);
+            this.cpAccionesRapidas.Name = "cpAccionesRapidas";
+            this.cpAccionesRapidas.Size = new System.Drawing.Size(421, 149);
+            this.cpAccionesRapidas.TabIndex = 55;
+            // 
+            // btnLimpiarCampos
+            // 
+            this.btnLimpiarCampos.BackColor = System.Drawing.Color.Transparent;
+            this.btnLimpiarCampos.BorderRadius = 15;
+            this.btnLimpiarCampos.ButtonIcon = global::AutoCare_R_J.Properties.Resources.limpiar;
+            this.btnLimpiarCampos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiarCampos.CustomBackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnLimpiarCampos.FlatAppearance.BorderSize = 0;
+            this.btnLimpiarCampos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiarCampos.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnLimpiarCampos.ForeColor = System.Drawing.Color.White;
+            this.btnLimpiarCampos.IconSize = new System.Drawing.Size(20, 20);
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(236, 88);
+            this.btnLimpiarCampos.Name = "btnLimpiarCampos";
+            this.btnLimpiarCampos.Size = new System.Drawing.Size(160, 45);
+            this.btnLimpiarCampos.TabIndex = 29;
+            this.btnLimpiarCampos.Text = "Limpiar campos";
+            this.btnLimpiarCampos.UseVisualStyleBackColor = false;
+            this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.Transparent;
+            this.btnEliminar.BorderRadius = 15;
+            this.btnEliminar.ButtonIcon = global::AutoCare_R_J.Properties.Resources.eliminar;
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.CustomBackColor = System.Drawing.Color.Red;
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.IconSize = new System.Drawing.Size(20, 20);
+            this.btnEliminar.Location = new System.Drawing.Point(28, 88);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(160, 45);
+            this.btnEliminar.TabIndex = 28;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.BackColor = System.Drawing.Color.Transparent;
+            this.btnModificar.BorderRadius = 15;
+            this.btnModificar.ButtonIcon = global::AutoCare_R_J.Properties.Resources.editar;
+            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar.CustomBackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnModificar.ForeColor = System.Drawing.Color.White;
+            this.btnModificar.IconSize = new System.Drawing.Size(20, 20);
+            this.btnModificar.Location = new System.Drawing.Point(236, 37);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(160, 45);
+            this.btnModificar.TabIndex = 27;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgregar.BorderRadius = 15;
+            this.btnAgregar.ButtonIcon = global::AutoCare_R_J.Properties.Resources.salvar;
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.CustomBackColor = System.Drawing.Color.Green;
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnAgregar.ForeColor = System.Drawing.Color.White;
+            this.btnAgregar.IconSize = new System.Drawing.Size(20, 20);
+            this.btnAgregar.Location = new System.Drawing.Point(28, 37);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(160, 45);
+            this.btnAgregar.TabIndex = 26;
+            this.btnAgregar.Text = "Guardar nuevo";
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // lblAccionesRapidas
+            // 
+            this.lblAccionesRapidas.AutoSize = true;
+            this.lblAccionesRapidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccionesRapidas.Location = new System.Drawing.Point(10, 9);
+            this.lblAccionesRapidas.Name = "lblAccionesRapidas";
+            this.lblAccionesRapidas.Size = new System.Drawing.Size(178, 24);
+            this.lblAccionesRapidas.TabIndex = 25;
+            this.lblAccionesRapidas.Text = "Acciones Rapidas";
             // 
             // customPanel1
             // 
             this.customPanel1.BackColor = System.Drawing.Color.Transparent;
             this.customPanel1.BorderRadius = 20;
+            this.customPanel1.Controls.Add(this.cbxPropietario);
             this.customPanel1.Controls.Add(this.cbxEstado);
             this.customPanel1.Controls.Add(this.cbxTipo);
             this.customPanel1.Controls.Add(this.pictureBox9);
@@ -108,7 +311,6 @@
             this.customPanel1.Controls.Add(this.pictureBox2);
             this.customPanel1.Controls.Add(this.label6);
             this.customPanel1.Controls.Add(this.pictureBox3);
-            this.customPanel1.Controls.Add(this.tbxPropietario);
             this.customPanel1.Controls.Add(this.pictureBox4);
             this.customPanel1.Controls.Add(this.label5);
             this.customPanel1.Controls.Add(this.pictureBox6);
@@ -125,6 +327,21 @@
             this.customPanel1.Name = "customPanel1";
             this.customPanel1.Size = new System.Drawing.Size(413, 337);
             this.customPanel1.TabIndex = 0;
+            // 
+            // cbxPropietario
+            // 
+            this.cbxPropietario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxPropietario.FormattingEnabled = true;
+            this.cbxPropietario.Items.AddRange(new object[] {
+            "Activo",
+            "En Mantenimiento",
+            "Fuera de Servicio",
+            "De Baja"});
+            this.cbxPropietario.Location = new System.Drawing.Point(156, 71);
+            this.cbxPropietario.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxPropietario.Name = "cbxPropietario";
+            this.cbxPropietario.Size = new System.Drawing.Size(179, 28);
+            this.cbxPropietario.TabIndex = 56;
             // 
             // cbxEstado
             // 
@@ -182,7 +399,7 @@
             this.tbxAnio.Location = new System.Drawing.Point(134, 293);
             this.tbxAnio.Margin = new System.Windows.Forms.Padding(2);
             this.tbxAnio.Name = "tbxAnio";
-            this.tbxAnio.Size = new System.Drawing.Size(113, 26);
+            this.tbxAnio.Size = new System.Drawing.Size(118, 26);
             this.tbxAnio.TabIndex = 52;
             // 
             // tbxModelo
@@ -191,7 +408,7 @@
             this.tbxModelo.Location = new System.Drawing.Point(134, 230);
             this.tbxModelo.Margin = new System.Windows.Forms.Padding(2);
             this.tbxModelo.Name = "tbxModelo";
-            this.tbxModelo.Size = new System.Drawing.Size(113, 26);
+            this.tbxModelo.Size = new System.Drawing.Size(118, 26);
             this.tbxModelo.TabIndex = 46;
             // 
             // label8
@@ -211,7 +428,7 @@
             this.tbxMarca.Location = new System.Drawing.Point(134, 198);
             this.tbxMarca.Margin = new System.Windows.Forms.Padding(2);
             this.tbxMarca.Name = "tbxMarca";
-            this.tbxMarca.Size = new System.Drawing.Size(113, 26);
+            this.tbxMarca.Size = new System.Drawing.Size(118, 26);
             this.tbxMarca.TabIndex = 43;
             // 
             // tbxColor
@@ -220,7 +437,7 @@
             this.tbxColor.Location = new System.Drawing.Point(134, 166);
             this.tbxColor.Margin = new System.Windows.Forms.Padding(2);
             this.tbxColor.Name = "tbxColor";
-            this.tbxColor.Size = new System.Drawing.Size(113, 26);
+            this.tbxColor.Size = new System.Drawing.Size(118, 26);
             this.tbxColor.TabIndex = 40;
             // 
             // tbxPlaca
@@ -229,7 +446,7 @@
             this.tbxPlaca.Location = new System.Drawing.Point(134, 102);
             this.tbxPlaca.Margin = new System.Windows.Forms.Padding(2);
             this.tbxPlaca.Name = "tbxPlaca";
-            this.tbxPlaca.Size = new System.Drawing.Size(113, 26);
+            this.tbxPlaca.Size = new System.Drawing.Size(118, 26);
             this.tbxPlaca.TabIndex = 34;
             // 
             // label7
@@ -295,16 +512,6 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 35;
             this.pictureBox3.TabStop = false;
-            // 
-            // tbxPropietario
-            // 
-            this.tbxPropietario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxPropietario.Location = new System.Drawing.Point(156, 70);
-            this.tbxPropietario.Margin = new System.Windows.Forms.Padding(2);
-            this.tbxPropietario.Name = "tbxPropietario";
-            this.tbxPropietario.Size = new System.Drawing.Size(196, 26);
-            this.tbxPropietario.TabIndex = 31;
-            this.tbxPropietario.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // pictureBox4
             // 
@@ -425,7 +632,7 @@
             this.tbxCodigo.Location = new System.Drawing.Point(134, 41);
             this.tbxCodigo.Margin = new System.Windows.Forms.Padding(2);
             this.tbxCodigo.Name = "tbxCodigo";
-            this.tbxCodigo.Size = new System.Drawing.Size(87, 26);
+            this.tbxCodigo.Size = new System.Drawing.Size(118, 26);
             this.tbxCodigo.TabIndex = 27;
             // 
             // lblCodigo
@@ -439,198 +646,6 @@
             this.lblCodigo.Size = new System.Drawing.Size(70, 20);
             this.lblCodigo.TabIndex = 26;
             this.lblCodigo.Text = "Código:";
-            // 
-            // lblAccionesRapidas
-            // 
-            this.lblAccionesRapidas.AutoSize = true;
-            this.lblAccionesRapidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccionesRapidas.Location = new System.Drawing.Point(10, 9);
-            this.lblAccionesRapidas.Name = "lblAccionesRapidas";
-            this.lblAccionesRapidas.Size = new System.Drawing.Size(178, 24);
-            this.lblAccionesRapidas.TabIndex = 25;
-            this.lblAccionesRapidas.Text = "Acciones Rapidas";
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.BackColor = System.Drawing.Color.Transparent;
-            this.btnAgregar.BorderRadius = 15;
-            this.btnAgregar.ButtonIcon = global::AutoCare_R_J.Properties.Resources.salvar;
-            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar.CustomBackColor = System.Drawing.Color.Green;
-            this.btnAgregar.FlatAppearance.BorderSize = 0;
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.IconSize = new System.Drawing.Size(20, 20);
-            this.btnAgregar.Location = new System.Drawing.Point(28, 37);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(160, 45);
-            this.btnAgregar.TabIndex = 26;
-            this.btnAgregar.Text = "Guardar nuevo";
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.BackColor = System.Drawing.Color.Transparent;
-            this.btnModificar.BorderRadius = 15;
-            this.btnModificar.ButtonIcon = global::AutoCare_R_J.Properties.Resources.editar;
-            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificar.CustomBackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnModificar.FlatAppearance.BorderSize = 0;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.IconSize = new System.Drawing.Size(20, 20);
-            this.btnModificar.Location = new System.Drawing.Point(236, 37);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(160, 45);
-            this.btnModificar.TabIndex = 27;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = false;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.Transparent;
-            this.btnEliminar.BorderRadius = 15;
-            this.btnEliminar.ButtonIcon = global::AutoCare_R_J.Properties.Resources.eliminar;
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.CustomBackColor = System.Drawing.Color.Red;
-            this.btnEliminar.FlatAppearance.BorderSize = 0;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.IconSize = new System.Drawing.Size(20, 20);
-            this.btnEliminar.Location = new System.Drawing.Point(28, 88);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(160, 45);
-            this.btnEliminar.TabIndex = 28;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnLimpiarCampos
-            // 
-            this.btnLimpiarCampos.BackColor = System.Drawing.Color.Transparent;
-            this.btnLimpiarCampos.BorderRadius = 15;
-            this.btnLimpiarCampos.ButtonIcon = global::AutoCare_R_J.Properties.Resources.limpiar;
-            this.btnLimpiarCampos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLimpiarCampos.CustomBackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnLimpiarCampos.FlatAppearance.BorderSize = 0;
-            this.btnLimpiarCampos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiarCampos.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnLimpiarCampos.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiarCampos.IconSize = new System.Drawing.Size(20, 20);
-            this.btnLimpiarCampos.Location = new System.Drawing.Point(236, 88);
-            this.btnLimpiarCampos.Name = "btnLimpiarCampos";
-            this.btnLimpiarCampos.Size = new System.Drawing.Size(160, 45);
-            this.btnLimpiarCampos.TabIndex = 29;
-            this.btnLimpiarCampos.Text = "Limpiar campos";
-            this.btnLimpiarCampos.UseVisualStyleBackColor = false;
-            // 
-            // cpAccionesRapidas
-            // 
-            this.cpAccionesRapidas.BackColor = System.Drawing.Color.Transparent;
-            this.cpAccionesRapidas.BorderRadius = 20;
-            this.cpAccionesRapidas.Controls.Add(this.btnLimpiarCampos);
-            this.cpAccionesRapidas.Controls.Add(this.btnEliminar);
-            this.cpAccionesRapidas.Controls.Add(this.btnModificar);
-            this.cpAccionesRapidas.Controls.Add(this.btnAgregar);
-            this.cpAccionesRapidas.Controls.Add(this.lblAccionesRapidas);
-            this.cpAccionesRapidas.Location = new System.Drawing.Point(431, 9);
-            this.cpAccionesRapidas.Name = "cpAccionesRapidas";
-            this.cpAccionesRapidas.Size = new System.Drawing.Size(421, 149);
-            this.cpAccionesRapidas.TabIndex = 55;
-            // 
-            // cpBusquedas
-            // 
-            this.cpBusquedas.BackColor = System.Drawing.Color.Transparent;
-            this.cpBusquedas.BorderRadius = 20;
-            this.cpBusquedas.Controls.Add(this.gbBuscName);
-            this.cpBusquedas.Controls.Add(this.gbBuscCod);
-            this.cpBusquedas.Controls.Add(this.btnBuscar);
-            this.cpBusquedas.Controls.Add(this.lblBusquedas);
-            this.cpBusquedas.Location = new System.Drawing.Point(431, 167);
-            this.cpBusquedas.Name = "cpBusquedas";
-            this.cpBusquedas.Size = new System.Drawing.Size(421, 175);
-            this.cpBusquedas.TabIndex = 56;
-            // 
-            // gbBuscName
-            // 
-            this.gbBuscName.Controls.Add(this.tbxBuscNombre);
-            this.gbBuscName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbBuscName.Location = new System.Drawing.Point(14, 113);
-            this.gbBuscName.Name = "gbBuscName";
-            this.gbBuscName.Size = new System.Drawing.Size(362, 53);
-            this.gbBuscName.TabIndex = 32;
-            this.gbBuscName.TabStop = false;
-            this.gbBuscName.Text = "Propietario:";
-            // 
-            // tbxBuscNombre
-            // 
-            this.tbxBuscNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxBuscNombre.Location = new System.Drawing.Point(16, 21);
-            this.tbxBuscNombre.Name = "tbxBuscNombre";
-            this.tbxBuscNombre.Size = new System.Drawing.Size(340, 26);
-            this.tbxBuscNombre.TabIndex = 29;
-            // 
-            // gbBuscCod
-            // 
-            this.gbBuscCod.Controls.Add(this.tbxBuscCodigo);
-            this.gbBuscCod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbBuscCod.Location = new System.Drawing.Point(14, 51);
-            this.gbBuscCod.Name = "gbBuscCod";
-            this.gbBuscCod.Size = new System.Drawing.Size(362, 53);
-            this.gbBuscCod.TabIndex = 31;
-            this.gbBuscCod.TabStop = false;
-            this.gbBuscCod.Text = "Código";
-            // 
-            // tbxBuscCodigo
-            // 
-            this.tbxBuscCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxBuscCodigo.Location = new System.Drawing.Point(16, 21);
-            this.tbxBuscCodigo.Name = "tbxBuscCodigo";
-            this.tbxBuscCodigo.Size = new System.Drawing.Size(340, 26);
-            this.tbxBuscCodigo.TabIndex = 29;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
-            this.btnBuscar.BorderRadius = 15;
-            this.btnBuscar.ButtonIcon = global::AutoCare_R_J.Properties.Resources.buscar;
-            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscar.CustomBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.IconSize = new System.Drawing.Size(20, 20);
-            this.btnBuscar.Location = new System.Drawing.Point(216, 5);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(160, 45);
-            this.btnBuscar.TabIndex = 30;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            // 
-            // lblBusquedas
-            // 
-            this.lblBusquedas.AutoSize = true;
-            this.lblBusquedas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBusquedas.Location = new System.Drawing.Point(10, 13);
-            this.lblBusquedas.Name = "lblBusquedas";
-            this.lblBusquedas.Size = new System.Drawing.Size(114, 24);
-            this.lblBusquedas.TabIndex = 29;
-            this.lblBusquedas.Text = "Busquedas";
-            // 
-            // dgvVehiculos
-            // 
-            this.dgvVehiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVehiculos.Location = new System.Drawing.Point(8, 338);
-            this.dgvVehiculos.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvVehiculos.Name = "dgvVehiculos";
-            this.dgvVehiculos.Size = new System.Drawing.Size(842, 253);
-            this.dgvVehiculos.TabIndex = 59;
             // 
             // frmVehiculos
             // 
@@ -646,6 +661,14 @@
             this.Name = "frmVehiculos";
             this.Text = "Vehículos";
             this.Load += new System.EventHandler(this.frmVehiculos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVehiculos)).EndInit();
+            this.cpBusquedas.ResumeLayout(false);
+            this.cpBusquedas.PerformLayout();
+            this.gbBuscName.ResumeLayout(false);
+            this.gbBuscCod.ResumeLayout(false);
+            this.gbBuscCod.PerformLayout();
+            this.cpAccionesRapidas.ResumeLayout(false);
+            this.cpAccionesRapidas.PerformLayout();
             this.customPanel1.ResumeLayout(false);
             this.customPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
@@ -657,15 +680,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.cpAccionesRapidas.ResumeLayout(false);
-            this.cpAccionesRapidas.PerformLayout();
-            this.cpBusquedas.ResumeLayout(false);
-            this.cpBusquedas.PerformLayout();
-            this.gbBuscName.ResumeLayout(false);
-            this.gbBuscName.PerformLayout();
-            this.gbBuscCod.ResumeLayout(false);
-            this.gbBuscCod.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVehiculos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -678,7 +692,6 @@
         private System.Windows.Forms.TextBox tbxCodigo;
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox tbxPropietario;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.TextBox tbxPlaca;
@@ -707,7 +720,6 @@
         private CustomPanel cpAccionesRapidas;
         private CustomPanel cpBusquedas;
         private System.Windows.Forms.GroupBox gbBuscName;
-        private System.Windows.Forms.TextBox tbxBuscNombre;
         private System.Windows.Forms.GroupBox gbBuscCod;
         private System.Windows.Forms.TextBox tbxBuscCodigo;
         private CustomButton btnBuscar;
@@ -715,5 +727,7 @@
         private System.Windows.Forms.DataGridView dgvVehiculos;
         private System.Windows.Forms.ComboBox cbxTipo;
         private System.Windows.Forms.ComboBox cbxEstado;
+        private System.Windows.Forms.ComboBox cbxPropietario;
+        private System.Windows.Forms.ComboBox cbxBuscPropietario;
     }
 }

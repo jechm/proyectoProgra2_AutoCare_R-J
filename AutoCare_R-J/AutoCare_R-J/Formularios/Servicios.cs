@@ -119,11 +119,11 @@ namespace AutoCare_R_J.Formularios
                 {
                     // llamar al método AgregarServicio del manejador de servicios para agregar un nuevo servicio
                     manejadorServicios.AgregarServicio(
-                        tbxNombre.Text,
-                        cbxCategoria.Text,
+                        strNombre,
+                        strCategoria,
                         Convert.ToDouble(nmCosto.Value),
-                        tbxDescripcion.Text,
-                        $"{tbxDuracionHoras.Text}h {tbxDuracionMinutos.Text}m"
+                        strDescripcion,
+                        strDuracion
                     );
 
                     MessageBox.Show("¡Servicio guardado con éxito!");
@@ -168,16 +168,18 @@ namespace AutoCare_R_J.Formularios
                     nmCosto.Value = Convert.ToDecimal(servicioEncontrado.Costo);
                     tbxDescripcion.Text = servicioEncontrado.Descripcion;
                     // Separar la duración en horas y minutos
-                    string[] duracionPartes = servicioEncontrado.Duracion.Split(new char[] { 'h', 'm' }, StringSplitOptions.RemoveEmptyEntries);
-                    if (duracionPartes.Length == 2)
+                    if (int.TryParse(servicioEncontrado.Duracion, out int totalMinutos))
                     {
-                        tbxDuracionHoras.Text = duracionPartes[0].Trim();
-                        tbxDuracionMinutos.Text = duracionPartes[1].Trim();
+                        int horas = totalMinutos / 60;
+                        int minutosRestantes = totalMinutos % 60;
+
+                        tbxDuracionHoras.Text = horas.ToString();
+                        tbxDuracionMinutos.Text = minutosRestantes.ToString();
                     }
                     else
                     {
-                        tbxDuracionHoras.Clear();
-                        tbxDuracionMinutos.Clear();
+                        tbxDuracionHoras.Text = "0";
+                        tbxDuracionMinutos.Text = "0";
                     }
 
                     MessageBox.Show("¡Servicio encontrado y cargado en pantalla!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);

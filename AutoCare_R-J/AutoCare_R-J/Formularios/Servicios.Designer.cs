@@ -141,6 +141,7 @@
             // 
             // tbxBuscCodigo
             // 
+            this.tbxBuscCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbxBuscCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxBuscCodigo.Location = new System.Drawing.Point(16, 21);
             this.tbxBuscCodigo.Name = "tbxBuscCodigo";
@@ -536,6 +537,11 @@
             this.nmCosto.DecimalPlaces = 2;
             this.nmCosto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nmCosto.Location = new System.Drawing.Point(129, 134);
+            this.nmCosto.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.nmCosto.Name = "nmCosto";
             this.nmCosto.Size = new System.Drawing.Size(120, 26);
             this.nmCosto.TabIndex = 11;

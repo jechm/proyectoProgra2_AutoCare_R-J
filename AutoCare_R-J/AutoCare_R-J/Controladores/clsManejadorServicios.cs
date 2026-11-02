@@ -39,7 +39,7 @@ namespace AutoCare_R_J.Controladores
 
         public clsServicios BuscarServicio(string strCodigo, string strNombre)
         {
-            clsServicios servicioEncontrado = lstServicios.FirstOrDefault(s => s.Codigo == strCodigo || s.Nombre == strNombre);
+            BuscarSql(strCodigo, out clsServicios servicioEncontrado);
             if (servicioEncontrado == null)
             {
                 throw new Exception("Servicio no encontrado");
@@ -51,14 +51,10 @@ namespace AutoCare_R_J.Controladores
 
         public void EliminarServicio(string strCodigo)
         {
-            clsServicios servicioEncontrado = lstServicios.FirstOrDefault(s => s.Codigo == strCodigo);
-            if (servicioEncontrado == null)
-                throw new Exception("Servicio no encontrado");
-
+            
             try
             {
                 EliminarSql(strCodigo);                 
-                lstServicios.Remove(servicioEncontrado);
             }
             catch (SqliteException ex) when (ex.SqliteErrorCode == 19)
             {
@@ -70,10 +66,7 @@ namespace AutoCare_R_J.Controladores
         public void ModificarServicio(string strCodigo, string strNombre, string strCategoria,
                               double dblCosto, string strDescripcion, string strDuracion)
         {
-            clsServicios servicioEncontrado = lstServicios.FirstOrDefault(s => s.Codigo == strCodigo);
-            if (servicioEncontrado == null)
-                throw new Exception("Servicio no encontrado");
-
+            
             // Objeto con los datos nuevos, para guardarlo antes de tocar la lista
             var actualizado = new clsServicios
             {
@@ -87,11 +80,6 @@ namespace AutoCare_R_J.Controladores
 
             ActualizarSql(actualizado);   // si falla, la lista no cambia
 
-            servicioEncontrado.Nombre = strNombre;
-            servicioEncontrado.Categoria = strCategoria;
-            servicioEncontrado.Costo = dblCosto;
-            servicioEncontrado.Descripcion = strDescripcion;
-            servicioEncontrado.Duracion = strDuracion;
         }
 
         public List<clsServicios> ListarServicios()
@@ -173,6 +161,37 @@ namespace AutoCare_R_J.Controladores
                 cmd.Parameters.AddWithValue("@descripcion", (object)s.Descripcion ?? DBNull.Value);
                 cmd.Parameters.AddWithValue("@duracion", (object)DuracionAMinutos(s.Duracion) ?? DBNull.Value);
                 return cmd.ExecuteNonQuery();
+            }
+        }
+
+        public int BuscarSql(string codigo, out clsServicios servicio)
+        {
+            string sql = "SELECT * FROM servicio WHERE codigo_servicio = @codigo";
+            using (var con = clsConexion.ObtenerConexion())
+            using (var cmd = new SqliteCommand(sql, con))
+            {
+                cmd.Parameters.AddWithValue("@codigo", codigo);
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        servicio = new clsServicios
+                        {
+                            Codigo = reader["codigo_servicio"].ToString(),
+                            Nombre = reader["nombre"].ToString(),
+                            Categoria = reader["categoria"]?.ToString(),
+                            Costo = Convert.ToDouble(reader["costo"]),
+                            Descripcion = reader["descripcion"]?.ToString(),
+                            Duracion = reader["duracion_min"] != DBNull.Value ? reader.GetInt32(reader.GetOrdinal("duracion_min")).ToString() : "0"
+                        };
+                        return 1; // encontrado
+                    }
+                    else
+                    {
+                        servicio = null;
+                        return 0; // no encontrado
+                    }
+                }
             }
         }
 

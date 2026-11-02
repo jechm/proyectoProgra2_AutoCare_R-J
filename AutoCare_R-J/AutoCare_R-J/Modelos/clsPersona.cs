@@ -22,7 +22,8 @@ namespace AutoCare_R_J.Modelos
         //Propiedades de una persona
         public string Codigo{
             get {  return strCodigoPersona; }
-            
+            set { strCodigoPersona = value; }
+
         }
 
         public string Nombre
@@ -40,7 +41,8 @@ namespace AutoCare_R_J.Modelos
         public string DPI
         {
             get { return strDPIPersona; }
-            
+            set { strDPIPersona = value; }
+
         }
 
         public string Telefono
@@ -67,6 +69,8 @@ namespace AutoCare_R_J.Modelos
             set { strEstado = value; }
             
         }
+        //Constructor vacio de la clase persona
+        public clsPersona() { }
 
         //Constructor
         public clsPersona(string pCodigo, string pNombre, string pApellido, string pDpi, string pTelefono, string pCorreo, string pDireccion, string pEStado) 

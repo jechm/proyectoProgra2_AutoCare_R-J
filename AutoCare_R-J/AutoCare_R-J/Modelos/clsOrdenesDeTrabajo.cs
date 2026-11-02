@@ -4,26 +4,63 @@ namespace AutoCare_R_J.Modelos
 {
     public class clsOrdenesDeTrabajo
     {
-        // Propiedades automáticas de C# (más limpias y evitan errores de definición)
-        public string Codigo { get; set; }
-        public DateTime FechaRecepcion { get; set; }
-        public string Servicio { get; set; }
-        public string Vehiculo { get; set; }
-        public string Estado { get; set; }
-        public string Repuestos { get; set; }
+        // Atributos privados
+        private string strCodigo;
+        private DateTime dtFechaRecepcion;
+        private string strServicio;
+        private string strVehiculo;
+        private string strEstado;
+        private string strRepuestos;
 
-        // Constructor con parámetros
-        public clsOrdenesDeTrabajo(string codigo, DateTime fechaRecepcion, string servicio, string vehiculo, string estado, string repuestos)
+        // Propiedades con Get y Set explícitos
+        public string Codigo
         {
-            Codigo = codigo;
-            FechaRecepcion = fechaRecepcion;
-            Servicio = servicio;
-            Vehiculo = vehiculo;
-            Estado = estado;
-            Repuestos = repuestos;
+            get { return strCodigo; }
+            set { strCodigo = value; }
         }
 
-        // Constructor vacío
+        public DateTime FechaRecepcion
+        {
+            get { return dtFechaRecepcion; }
+            set { dtFechaRecepcion = value; }
+        }
+
+        public string Servicio
+        {
+            get { return strServicio; }
+            set { strServicio = value; }
+        }
+
+        public string Vehiculo
+        {
+            get { return strVehiculo; }
+            set { strVehiculo = value; }
+        }
+
+        public string Estado
+        {
+            get { return strEstado; }
+            set { strEstado = value; }
+        }
+
+        public string Repuestos
+        {
+            get { return strRepuestos; }
+            set { strRepuestos = value; }
+        }
+
+        // Constructor lleno
+        public clsOrdenesDeTrabajo(string pCodigo, DateTime pFechaRecepcion, string pServicio, string pVehiculo, string pEstado, string pRepuestos)
+        {
+            this.strCodigo = pCodigo;
+            this.dtFechaRecepcion = pFechaRecepcion;
+            this.strServicio = pServicio;
+            this.strVehiculo = pVehiculo;
+            this.strEstado = pEstado;
+            this.strRepuestos = pRepuestos;
+        }
+
+        // Constructor vacío 
         public clsOrdenesDeTrabajo()
         {
         }

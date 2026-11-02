@@ -15,10 +15,13 @@ namespace AutoCare_R_J.Formularios
     
     public partial class frmFacturas : Form
     {
-        private clsManejadorFacturas manejadorFacturas;
+        private clsManejadorFacturas manejadorFacturas = new clsManejadorFacturas();
         public frmFacturas()
         {
             InitializeComponent();
+
+            tbxCodigo.Text = clsMetodosGlobales.ObtenerSiguienteCodigo("factura");
+            clsMetodosGlobales.CargarGrid(dgvFacturas, manejadorFacturas.ListarFacturas());
         }
 
         
@@ -30,7 +33,7 @@ namespace AutoCare_R_J.Formularios
             clsMetodosGlobales.CargarGrid(dgvFacturas, manejadorFacturas.ListarFacturas());
 
             // Actualiza el siguiente código
-            tbxCodigo.Text = manejadorFacturas.ObtenerSiguienteCodigo();
+            tbxCodigo.Text = clsMetodosGlobales.ObtenerSiguienteCodigo("factura");
         }
         private void frmFacturas_Load(object sender, EventArgs e)
         {

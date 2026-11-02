@@ -17,6 +17,9 @@ namespace AutoCare_R_J.Formularios
     {
         private clsManejadorVehiculos manejadorVehiculo;
 
+        private List<clsVehiculos> lstVehiculos;
+        private List<clsCliente> lstPropietarios;
+
         public frmVehiculos()
         {
             
@@ -32,6 +35,17 @@ namespace AutoCare_R_J.Formularios
             //
             manejadorVehiculo = new clsManejadorVehiculos();
             clsMetodosGlobales.CargarGrid(dgvVehiculos, manejadorVehiculo.ListarVehiculos());
+
+            //cargar los el propietarios en el ComboBox al iniciar el formulario
+            lstPropietarios = clsMetodosGlobales.ObtenerClientes();
+            cbxPropietario.DataSource = lstPropietarios;
+            cbxPropietario.DisplayMember = "Nombre";
+            cbxPropietario.ValueMember = "Codigo";
+
+            cbxBuscPropietario.DataSource = lstPropietarios;
+            cbxBuscPropietario.DisplayMember = "Nombre";
+            cbxBuscPropietario.ValueMember = "Codigo";
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -49,13 +63,13 @@ namespace AutoCare_R_J.Formularios
             clsMetodosGlobales.CargarGrid(dgvVehiculos, manejadorVehiculo.ListarVehiculos());
 
             //Actualiza el siguiente código disponible para un nuevo vehículo
-            tbxCodigo.Text = manejadorVehiculo.ObtenerSiguienteCodigo();
+            tbxCodigo.Text = clsMetodosGlobales.ObtenerSiguienteCodigo("Vehiculo");
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             //obtener los valores de los campos de entrada
-            string strPropietario = tbxPropietario.Text.Trim();
+            string strPropietario = cbxPropietario.SelectedValue?.ToString();
             string strPlaca = tbxPlaca.Text.Trim();
             string strEstado = cbxEstado.Text.Trim();
             string strColor = tbxColor.Text.Trim();
@@ -72,13 +86,22 @@ namespace AutoCare_R_J.Formularios
             }
             else
             {
-                // Crear una instancia de clsVehiculos con los valores obtenidos
-                clsVehiculos nuevoVehiculo = new clsVehiculos(manejadorVehiculo.ObtenerSiguienteCodigo(), strPropietario, strPlaca, strEstado, strColor, strMarca, strModelo, strTipo, strAnio);
-                // Agregar el vehículo a la lista utilizando el manejador
-                manejadorVehiculo.AgregarVehiculo(nuevoVehiculo.Propietario, nuevoVehiculo.Placa, nuevoVehiculo.Estado, nuevoVehiculo.Color, nuevoVehiculo.Marca, nuevoVehiculo.Modelo, nuevoVehiculo.Tipo, nuevoVehiculo.Anio);
+                manejadorVehiculo.AgregarVehiculo(
+                    strPropietario, 
+                    strPlaca,
+                    strEstado,
+                    strColor,
+                    strMarca,
+                    strModelo,
+                    strTipo,
+                    strAnio
+                    
+                 );
                 MessageBox.Show("¡Vehículo agregado exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // Limpiar los campos después de agregar el vehículo
                 LimpiarCampos();
+
+                tbxCodigo.Text = clsMetodosGlobales.ObtenerSiguienteCodigo("Vehiculo");
 
                 //actualizar el DataGridView con la lista de vehículos
                 clsMetodosGlobales.CargarGrid(dgvVehiculos, manejadorVehiculo.ListarVehiculos());
@@ -89,7 +112,7 @@ namespace AutoCare_R_J.Formularios
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             string strCodigo = tbxCodigo.Text.Trim();
-            string strPropietario = tbxPropietario.Text.Trim();
+            string strPropietario = cbxPropietario.Text.Trim();
 
             if (string.IsNullOrEmpty(strCodigo) && string.IsNullOrEmpty(strPropietario))
             {
@@ -130,7 +153,7 @@ namespace AutoCare_R_J.Formularios
 
         private void LimpiarCampos()
         {
-            tbxPropietario.Clear();
+            cbxPropietario.SelectedIndex = -1;
             tbxPlaca.Clear();
             cbxEstado.SelectedIndex = -1;
             tbxColor.Clear();
@@ -142,44 +165,49 @@ namespace AutoCare_R_J.Formularios
             // Vuelve a asignar el código automático para que no quede vacío ni busque ""
             if (manejadorVehiculo != null)
             {
-                tbxCodigo.Text = manejadorVehiculo.ObtenerSiguienteCodigo();
+                tbxCodigo.Text = clsMetodosGlobales.ObtenerSiguienteCodigo("Vehiculo");
             }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
             string strCodigo = tbxCodigo.Text.Trim();
-            string strPropietario = tbxPropietario.Text.Trim();
 
-            if (string.IsNullOrEmpty(strCodigo) && string.IsNullOrEmpty(strPropietario))
+            // Capturamos el SelectedValue para obtener el código del cliente (ej: CL-001) y no su nombre
+            string strPropietario = cbxPropietario.SelectedValue?.ToString();
+
+            // Validar que exista un código de vehículo seleccionado/cargado
+            if (string.IsNullOrEmpty(strCodigo))
             {
-                MessageBox.Show("Por favor, complete los campos necesarios para modificar.", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, seleccione o busque un vehículo para modificar.", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(strPropietario))
+            {
+                MessageBox.Show("Por favor, seleccione un propietario válido.", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             try
             {
-                if (!string.IsNullOrEmpty(strCodigo))
-                {
-                    manejadorVehiculo.ModificarVehiculo(strCodigo, strPropietario, tbxPlaca.Text.Trim(), cbxEstado.Text.Trim(), tbxColor.Text.Trim(), tbxMarca.Text.Trim(), tbxModelo.Text.Trim(), cbxTipo.Text.Trim(), tbxAnio.Text.Trim());
-                    MessageBox.Show("¡Vehículo modificado exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LimpiarCampos();
-                }
-                else
-                {
-                    clsVehiculos vehiculoEncontrado = manejadorVehiculo.BuscarVehiculo("", strPropietario);
-                    if (vehiculoEncontrado != null)
-                    {
-                        manejadorVehiculo.ModificarVehiculo(vehiculoEncontrado.Codigo, strPropietario, tbxPlaca.Text.Trim(), cbxEstado.Text.Trim(), tbxColor.Text.Trim(), tbxMarca.Text.Trim(), tbxModelo.Text.Trim(), cbxTipo.Text.Trim(), tbxAnio.Text.Trim());
-                        MessageBox.Show("¡Vehículo modificado exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LimpiarCampos();
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se encontró el vehículo para modificar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
+                // Llamada limpia usando los valores de los controles
+                manejadorVehiculo.ModificarVehiculo(
+                    strCodigo,
+                    strPropietario,
+                    tbxPlaca.Text.Trim(),
+                    cbxEstado.Text.Trim(),
+                    tbxColor.Text.Trim(),
+                    tbxMarca.Text.Trim(),
+                    tbxModelo.Text.Trim(),
+                    cbxTipo.Text.Trim(),
+                    tbxAnio.Text.Trim()
+                );
 
+                MessageBox.Show("¡Vehículo modificado exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Limpiar controles y refrescar el DataGridView
+                LimpiarCampos();
                 clsMetodosGlobales.CargarGrid(dgvVehiculos, manejadorVehiculo.ListarVehiculos());
             }
             catch (Exception ex)
@@ -195,7 +223,91 @@ namespace AutoCare_R_J.Formularios
 
         private void frmVehiculos_Load(object sender, EventArgs e)
         {
+            tbxCodigo.Text = clsMetodosGlobales.ObtenerSiguienteCodigo("vehiculo");
+            tbxCodigo.ReadOnly = true;
+        }
 
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string strCodigo = tbxBuscCodigo.Text.Trim();
+            string strPropietario = cbxBuscPropietario.SelectedValue?.ToString();
+
+            if (string.IsNullOrEmpty(strCodigo) && string.IsNullOrEmpty(strPropietario))
+            {
+                MessageBox.Show("Por favor, ingrese un código o propietario para buscar.", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                if(strCodigo != "")
+                {
+                    try
+                    {
+                        clsVehiculos vehiculoEncontrado = manejadorVehiculo.BuscarVehiculo(strCodigo);
+                        if (vehiculoEncontrado != null)
+                        {
+                            // Mostrar los datos del vehículo encontrado en los campos correspondientes
+                            cbxPropietario.SelectedValue = vehiculoEncontrado.Propietario;
+                            tbxPlaca.Text = vehiculoEncontrado.Placa;
+                            cbxEstado.Text = vehiculoEncontrado.Estado;
+                            tbxColor.Text = vehiculoEncontrado.Color;
+                            tbxMarca.Text = vehiculoEncontrado.Marca;
+                            tbxModelo.Text = vehiculoEncontrado.Modelo;
+                            cbxTipo.Text = vehiculoEncontrado.Tipo;
+                            tbxAnio.Text = vehiculoEncontrado.Anio;
+                            // Habilitar los botones de modificar y eliminar
+                            clsMetodosGlobales.HabilitarBoton(btnLimpiarCampos, Color.DeepSkyBlue, Color.White, Cursors.Hand);
+                            clsMetodosGlobales.HabilitarBoton(btnEliminar, Color.Red, Color.White, Cursors.Hand);
+                            clsMetodosGlobales.HabilitarBoton(btnModificar, Color.DeepSkyBlue, Color.White, Cursors.Hand);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se encontró ningún vehículo con ese código.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al buscar: " + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else if (strPropietario != "")
+                {
+                    try
+                    {
+                        clsVehiculos vehiculoEncontrado = manejadorVehiculo.BuscarVehiculo("", strPropietario);
+                        if (vehiculoEncontrado != null)
+                        {
+                            // Mostrar los datos del vehículo encontrado en los campos correspondientes
+                            tbxCodigo.Text = vehiculoEncontrado.Codigo;
+                            cbxPropietario.SelectedValue = vehiculoEncontrado.Propietario;
+                            tbxPlaca.Text = vehiculoEncontrado.Placa;
+                            cbxEstado.Text = vehiculoEncontrado.Estado;
+                            tbxColor.Text = vehiculoEncontrado.Color;
+                            tbxMarca.Text = vehiculoEncontrado.Marca;
+                            tbxModelo.Text = vehiculoEncontrado.Modelo;
+                            cbxTipo.Text = vehiculoEncontrado.Tipo;
+                            tbxAnio.Text = vehiculoEncontrado.Anio;
+                            // Habilitar los botones de modificar y eliminar
+                            clsMetodosGlobales.HabilitarBoton(btnLimpiarCampos, Color.DeepSkyBlue, Color.White, Cursors.Hand);
+                            clsMetodosGlobales.HabilitarBoton(btnEliminar, Color.Red, Color.White, Cursors.Hand);
+                            clsMetodosGlobales.HabilitarBoton(btnModificar, Color.DeepSkyBlue, Color.White, Cursors.Hand);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se encontró ningún vehículo con ese propietario.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al buscar: " + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+        }
+
+        private void btnLimpiarCampos_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
         }
     }
 }

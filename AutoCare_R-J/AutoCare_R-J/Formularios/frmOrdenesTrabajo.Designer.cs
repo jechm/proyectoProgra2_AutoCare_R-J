@@ -42,6 +42,8 @@ namespace AutoCare_R_J.Formularios
             this.btnAgregar = new AutoCare_R_J.CustomButton();
             this.lblAccionesRapidas = new System.Windows.Forms.Label();
             this.cpDatosServicio = new AutoCare_R_J.CustomPanel();
+            this.btnAgregarRepuesto = new AutoCare_R_J.CustomButton();
+            this.cbxRepuestos = new System.Windows.Forms.ComboBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.tbxRepuestos = new System.Windows.Forms.TextBox();
             this.lnlRepuestos = new System.Windows.Forms.Label();
@@ -61,8 +63,6 @@ namespace AutoCare_R_J.Formularios
             this.tbxCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.lblDatosServicio = new System.Windows.Forms.Label();
-            this.cbxRepuestos = new System.Windows.Forms.ComboBox();
-            this.btnAgregarRepuesto = new AutoCare_R_J.CustomButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenesTrabajo)).BeginInit();
             this.cpBusquedas.SuspendLayout();
             this.gbBuscCod.SuspendLayout();
@@ -115,6 +115,7 @@ namespace AutoCare_R_J.Formularios
             // 
             // tbxBuscCodigo
             // 
+            this.tbxBuscCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbxBuscCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxBuscCodigo.Location = new System.Drawing.Point(16, 21);
             this.tbxBuscCodigo.Name = "tbxBuscCodigo";
@@ -140,6 +141,7 @@ namespace AutoCare_R_J.Formularios
             this.btnBuscar.TabIndex = 30;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // lblBusquedas
             // 
@@ -285,6 +287,46 @@ namespace AutoCare_R_J.Formularios
             this.cpDatosServicio.Name = "cpDatosServicio";
             this.cpDatosServicio.Size = new System.Drawing.Size(443, 328);
             this.cpDatosServicio.TabIndex = 33;
+            // 
+            // btnAgregarRepuesto
+            // 
+            this.btnAgregarRepuesto.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgregarRepuesto.BorderRadius = 15;
+            this.btnAgregarRepuesto.ButtonIcon = null;
+            this.btnAgregarRepuesto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarRepuesto.CustomBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.btnAgregarRepuesto.FlatAppearance.BorderSize = 0;
+            this.btnAgregarRepuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarRepuesto.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarRepuesto.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarRepuesto.IconSize = new System.Drawing.Size(20, 20);
+            this.btnAgregarRepuesto.Location = new System.Drawing.Point(363, 187);
+            this.btnAgregarRepuesto.Name = "btnAgregarRepuesto";
+            this.btnAgregarRepuesto.Size = new System.Drawing.Size(52, 50);
+            this.btnAgregarRepuesto.TabIndex = 47;
+            this.btnAgregarRepuesto.Text = "+";
+            this.btnAgregarRepuesto.UseVisualStyleBackColor = false;
+            this.btnAgregarRepuesto.Click += new System.EventHandler(this.btnAgregarRepuesto_Click);
+            // 
+            // cbxRepuestos
+            // 
+            this.cbxRepuestos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxRepuestos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxRepuestos.FormattingEnabled = true;
+            this.cbxRepuestos.Items.AddRange(new object[] {
+            "Pendiente / Recepcionado",
+            "En Diagnóstico / En Revisión",
+            "En Proceso / En Reparación",
+            "En Espera de Repuestos",
+            "Finalizado / Listo para Entrega",
+            "Entregado",
+            "Cancelado"});
+            this.cbxRepuestos.Location = new System.Drawing.Point(139, 195);
+            this.cbxRepuestos.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxRepuestos.Name = "cbxRepuestos";
+            this.cbxRepuestos.Size = new System.Drawing.Size(218, 26);
+            this.cbxRepuestos.TabIndex = 46;
+            this.cbxRepuestos.UseWaitCursor = true;
             // 
             // pictureBox6
             // 
@@ -507,46 +549,6 @@ namespace AutoCare_R_J.Formularios
             this.lblDatosServicio.Size = new System.Drawing.Size(274, 24);
             this.lblDatosServicio.TabIndex = 25;
             this.lblDatosServicio.Text = "Datos de la orden de trabajo";
-            // 
-            // cbxRepuestos
-            // 
-            this.cbxRepuestos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxRepuestos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxRepuestos.FormattingEnabled = true;
-            this.cbxRepuestos.Items.AddRange(new object[] {
-            "Pendiente / Recepcionado",
-            "En Diagnóstico / En Revisión",
-            "En Proceso / En Reparación",
-            "En Espera de Repuestos",
-            "Finalizado / Listo para Entrega",
-            "Entregado",
-            "Cancelado"});
-            this.cbxRepuestos.Location = new System.Drawing.Point(139, 195);
-            this.cbxRepuestos.Margin = new System.Windows.Forms.Padding(2);
-            this.cbxRepuestos.Name = "cbxRepuestos";
-            this.cbxRepuestos.Size = new System.Drawing.Size(218, 26);
-            this.cbxRepuestos.TabIndex = 46;
-            this.cbxRepuestos.UseWaitCursor = true;
-            // 
-            // btnAgregarRepuesto
-            // 
-            this.btnAgregarRepuesto.BackColor = System.Drawing.Color.Transparent;
-            this.btnAgregarRepuesto.BorderRadius = 15;
-            this.btnAgregarRepuesto.ButtonIcon = null;
-            this.btnAgregarRepuesto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregarRepuesto.CustomBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.btnAgregarRepuesto.FlatAppearance.BorderSize = 0;
-            this.btnAgregarRepuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarRepuesto.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarRepuesto.ForeColor = System.Drawing.Color.White;
-            this.btnAgregarRepuesto.IconSize = new System.Drawing.Size(20, 20);
-            this.btnAgregarRepuesto.Location = new System.Drawing.Point(363, 187);
-            this.btnAgregarRepuesto.Name = "btnAgregarRepuesto";
-            this.btnAgregarRepuesto.Size = new System.Drawing.Size(52, 50);
-            this.btnAgregarRepuesto.TabIndex = 47;
-            this.btnAgregarRepuesto.Text = "+";
-            this.btnAgregarRepuesto.UseVisualStyleBackColor = false;
-            this.btnAgregarRepuesto.Click += new System.EventHandler(this.btnAgregarRepuesto_Click);
             // 
             // frmOrdenesTrabajo
             // 

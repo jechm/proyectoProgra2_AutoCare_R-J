@@ -504,7 +504,7 @@
             this.dgvFacturas.AllowUserToDeleteRows = false;
             this.dgvFacturas.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFacturas.Location = new System.Drawing.Point(8, 335);
+            this.dgvFacturas.Location = new System.Drawing.Point(7, 335);
             this.dgvFacturas.Margin = new System.Windows.Forms.Padding(2);
             this.dgvFacturas.MultiSelect = false;
             this.dgvFacturas.Name = "dgvFacturas";

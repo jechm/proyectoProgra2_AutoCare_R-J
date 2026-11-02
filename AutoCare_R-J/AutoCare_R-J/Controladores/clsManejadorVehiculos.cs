@@ -1,8 +1,9 @@
-﻿using System;
+﻿using AutoCare_R_J.MetodosGlobales;
+using AutoCare_R_J.Modelos;
+using Microsoft.Data.Sqlite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using AutoCare_R_J.MetodosGlobales;
-using AutoCare_R_J.Modelos;
 
 namespace AutoCare_R_J.Controladores
 {
@@ -21,23 +22,23 @@ namespace AutoCare_R_J.Controladores
         // Método para agregar un vehículo
         public void AgregarVehiculo(string strPropietario, string strPlaca,
             string strEstado, string strColor, string strMarca,
-            string strModelo, string strTipo, string strAño)
+            string strModelo, string strTipo, string strAnio)
         {
             try
             {
                 clsVehiculos nuevoVehiculo = new clsVehiculos();
 
-                nuevoVehiculo.Codigo = ObtenerSiguienteCodigo();
+                nuevoVehiculo.Codigo = clsMetodosGlobales.ObtenerSiguienteCodigo("Vehiculo");
                 nuevoVehiculo.Propietario = strPropietario;
                 nuevoVehiculo.Placa = strPlaca;
-                nuevoVehiculo.Estado = strEstado;
-                nuevoVehiculo.Color = strColor;
                 nuevoVehiculo.Marca = strMarca;
                 nuevoVehiculo.Modelo = strModelo;
+                nuevoVehiculo.Estado = strEstado;
+                nuevoVehiculo.Color = strColor;
                 nuevoVehiculo.Tipo = strTipo;
-                nuevoVehiculo.Anio = strAño;
+                nuevoVehiculo.Anio = strAnio;
 
-                lstVehiculos.Add(nuevoVehiculo);
+                AgregarSql(nuevoVehiculo);
             }
             catch (Exception ex)
             {
@@ -46,26 +47,39 @@ namespace AutoCare_R_J.Controladores
         }
 
         // Método para buscar un vehículo por código o por número de placa
-        public clsVehiculos BuscarVehiculo(string strCodigo, string strPlaca = "")
+        public clsVehiculos BuscarVehiculo(string strCodigo, string strPropietario = "")
         {
-            clsVehiculos vehiculoEncontrado = lstVehiculos.FirstOrDefault(v => v.Codigo == strCodigo || (!string.IsNullOrEmpty(strPlaca) && v.Placa == strPlaca));
-
-            if (vehiculoEncontrado == null)
+            if (!string.IsNullOrEmpty(strCodigo))
             {
-                throw new Exception("Vehículo no encontrado");
+                BuscarSql(strCodigo, out clsVehiculos vehiculoEncontrado);
+                if (vehiculoEncontrado == null)
+                {
+                    throw new Exception("Vehículo no encontrado");
+                }
+                return vehiculoEncontrado;
             }
-
-            return vehiculoEncontrado;
+            else if (!string.IsNullOrEmpty(strPropietario))
+            {
+                BuscarPropietarioSql(strPropietario, out clsVehiculos vehiculoEncontrado);
+                if (vehiculoEncontrado == null)
+                {
+                    throw new Exception("Vehículo no encontrado");
+                }
+                return vehiculoEncontrado;
+            }
+            else
+            {
+                throw new Exception("Debe proporcionar un código o propietario para buscar el vehículo.");
+            }
         }
 
         // Método para eliminar un vehículo por código
         public void EliminarVehiculo(string strCodigo)
         {
-            clsVehiculos vehiculoEncontrado = lstVehiculos.FirstOrDefault(v => v.Codigo == strCodigo);
-
-            if (vehiculoEncontrado != null)
+            
+            if (strCodigo != null)
             {
-                lstVehiculos.Remove(vehiculoEncontrado);
+                EliminarSql(strCodigo);
             }
             else
             {
@@ -75,25 +89,36 @@ namespace AutoCare_R_J.Controladores
 
         // Método para modificar un vehículo
         public void ModificarVehiculo(string strCodigo, string strPropietario,
-            string strPlaca, string strEstado, string strColor,
-            string strMarca, string strModelo, string strTipo, string strAño)
+    string strPlaca, string strEstado, string strColor,
+    string strMarca, string strModelo, string strTipo, string strAño)
         {
-            clsVehiculos vehiculoEncontrado = lstVehiculos.FirstOrDefault(v => v.Codigo == strCodigo);
-
-            if (vehiculoEncontrado != null)
+            // Validar que el código no esté vacío
+            if (string.IsNullOrEmpty(strCodigo))
             {
-                vehiculoEncontrado.Propietario = strPropietario;
-                vehiculoEncontrado.Placa = strPlaca;
-                vehiculoEncontrado.Estado = strEstado;
-                vehiculoEncontrado.Color = strColor;
-                vehiculoEncontrado.Marca = strMarca;
-                vehiculoEncontrado.Modelo = strModelo;
-                vehiculoEncontrado.Tipo = strTipo;
-                vehiculoEncontrado.Anio = strAño;
+                throw new Exception("El código del vehículo es obligatorio para modificar.");
             }
-            else
+
+            try
             {
-                throw new Exception("Vehículo no encontrado");
+                var actualizado = new clsVehiculos
+                {
+                    Codigo = strCodigo.Trim(),
+                    Propietario = strPropietario,
+                    Placa = strPlaca.Trim(),
+                    Marca = strMarca.Trim(),
+                    Modelo = strModelo.Trim(),
+                    Estado = strEstado.Trim(),
+                    Color = strColor.Trim(),
+                    Tipo = strTipo.Trim(),
+                    Anio = strAño.Trim()
+                };
+
+                // Llamamos al método SQL que ya tienes hecho
+                ActualizarSql(actualizado);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error en el manejador al modificar el vehículo: " + ex.Message);
             }
         }
 
@@ -104,5 +129,127 @@ namespace AutoCare_R_J.Controladores
             lstVehiculos = clsMetodosGlobales.ObtenerVehiculos();
             return lstVehiculos;
         }
+
+        #region Metodos sqlite
+        public int AgregarSql(clsVehiculos vehiculo)
+        {
+            string sql = "INSERT INTO vehiculo (codigo_vehiculo, codigo_cliente, placa, marca, modelo, tipo, color, anio, estado) " +
+                            "VALUES (@codigo, @propietario, @placa, @marca, @modelo, @tipo, @color, @anio, @estado)";
+
+            using (var con = clsConexion.ObtenerConexion())
+            using (var cmd = new SqliteCommand(sql, con))
+            {
+                cmd.Parameters.AddWithValue("@codigo", vehiculo.Codigo);
+                cmd.Parameters.AddWithValue("@propietario", vehiculo.Propietario);
+                cmd.Parameters.AddWithValue("@placa", vehiculo.Placa);
+                cmd.Parameters.AddWithValue("@marca", vehiculo.Marca);
+                cmd.Parameters.AddWithValue("@modelo", vehiculo.Modelo);
+                cmd.Parameters.AddWithValue("@tipo", vehiculo.Tipo);
+                cmd.Parameters.AddWithValue("@color", vehiculo.Color);
+                cmd.Parameters.AddWithValue("@anio", vehiculo.Anio);
+                cmd.Parameters.AddWithValue("@estado", vehiculo.Estado);
+                return cmd.ExecuteNonQuery();
+            }
+        }
+
+        public int EliminarSql(string strCodigo)
+        {
+            string sql = "DELETE FROM vehiculo WHERE codigo_vehiculo = @codigo";
+            using (var con = clsConexion.ObtenerConexion())
+            using (var cmd = new SqliteCommand(sql, con))
+            {
+                cmd.Parameters.AddWithValue("@codigo", strCodigo);
+                return cmd.ExecuteNonQuery();
+            }
+        }
+
+        public int ActualizarSql(clsVehiculos vehiculo)
+        {
+            string sql = "UPDATE vehiculo SET codigo_cliente = @propietario, placa = @placa, marca = @marca, modelo = @modelo, tipo = @tipo, color = @color, anio = @anio, estado = @estado " +
+                            "WHERE codigo_vehiculo = @codigo";
+            using (var con = clsConexion.ObtenerConexion())
+            using (var cmd = new SqliteCommand(sql, con))
+            {
+                cmd.Parameters.AddWithValue("@codigo", vehiculo.Codigo);
+                cmd.Parameters.AddWithValue("@propietario", vehiculo.Propietario);
+                cmd.Parameters.AddWithValue("@placa", vehiculo.Placa);
+                cmd.Parameters.AddWithValue("@marca", vehiculo.Marca);
+                cmd.Parameters.AddWithValue("@modelo", vehiculo.Modelo);
+                cmd.Parameters.AddWithValue("@tipo", vehiculo.Tipo);
+                cmd.Parameters.AddWithValue("@color", vehiculo.Color);
+                cmd.Parameters.AddWithValue("@anio", vehiculo.Anio);
+                cmd.Parameters.AddWithValue("@estado", vehiculo.Estado);
+                return cmd.ExecuteNonQuery();
+            }
+        }
+
+        public int BuscarSql(string codigo, out clsVehiculos vehiculo)
+        {
+            string sql = "SELECT * FROM vehiculo WHERE codigo_vehiculo = @codigo";
+            using (var con = clsConexion.ObtenerConexion())
+            using (var cmd = new SqliteCommand(sql, con))
+            {
+                cmd.Parameters.AddWithValue("@codigo", codigo);
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        vehiculo = new clsVehiculos
+                        {
+                            Codigo = reader["codigo_vehiculo"].ToString(),
+                            Propietario = reader["codigo_cliente"].ToString(),
+                            Placa = reader["placa"].ToString(),
+                            Marca = reader["marca"].ToString(),
+                            Modelo = reader["modelo"].ToString(),
+                            Tipo = reader["tipo"].ToString(),
+                            Color = reader["color"].ToString(),
+                            Anio = reader["anio"].ToString(),
+                            Estado = reader["estado"].ToString()
+                        };
+                        return 1; // encontrado
+                    }
+                    else
+                    {
+                        vehiculo = null;
+                        return 0; // no encontrado
+                    }
+                }
+            }
+        }
+
+        public int BuscarPropietarioSql(string propietario, out clsVehiculos vehiculo)
+        {
+            string sql = "SELECT * FROM vehiculo WHERE codigo_cliente = @propietario";
+            using (var con = clsConexion.ObtenerConexion())
+            using (var cmd = new SqliteCommand(sql, con))
+            {
+                cmd.Parameters.AddWithValue("@propietario", propietario);
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        vehiculo = new clsVehiculos
+                        {
+                            Codigo = reader["codigo_vehiculo"].ToString(),
+                            Propietario = reader["codigo_cliente"].ToString(),
+                            Placa = reader["placa"].ToString(),
+                            Marca = reader["marca"].ToString(),
+                            Modelo = reader["modelo"].ToString(),
+                            Tipo = reader["tipo"].ToString(),
+                            Color = reader["color"].ToString(),
+                            Anio = reader["anio"].ToString(),
+                            Estado = reader["estado"].ToString()
+                        };
+                        return 1; // encontrado
+                    }
+                    else
+                    {
+                        vehiculo = null;
+                        return 0; // no encontrado
+                    }
+                }
+            }
+        }
+        #endregion
     }
 }

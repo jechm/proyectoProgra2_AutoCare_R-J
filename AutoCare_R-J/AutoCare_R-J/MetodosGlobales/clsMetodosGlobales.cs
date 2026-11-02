@@ -36,7 +36,46 @@ namespace AutoCare_R_J.MetodosGlobales
         }
         public static string ObtenerSiguienteCodigo(string tabla)
         {
-            string sql = $"SELECT MAX(codigo_{tabla}) FROM {tabla}";
+            string nombreColumna = "codigo";
+            string prefijo = "COD";
+
+            switch (tabla.ToLower())
+            {
+                case "clientes":
+                    nombreColumna = "codigo";
+                    prefijo = "CL";
+                    break;
+                case "empleados":
+                    nombreColumna = "codigo";
+                    prefijo = "EM";
+                    break;
+                case "vehiculo":
+                    nombreColumna = "codigo_vehiculo";
+                    prefijo = "VEH";
+                    break;
+                case "servicio":
+                    nombreColumna = "codigo_servicio";
+                    prefijo = "SERV";
+                    break;
+                case "repuesto":
+                    nombreColumna = "codigo_repuesto";
+                    prefijo = "REP";
+                    break;
+                case "cita":
+                    nombreColumna = "codigo_cita";
+                    prefijo = "CIT";
+                    break;
+                case "factura":
+                    nombreColumna = "codigo_factura"; 
+                    prefijo = "FAC";
+                    break;
+                case "ordenes_trabajo":
+                    nombreColumna = "codigo";
+                    prefijo = "ORD";
+                    break;
+            }
+
+            string sql = $"SELECT MAX({nombreColumna}) FROM {tabla}";
 
             using (var con = clsConexion.ObtenerConexion())
             using (var cmd = new SqliteCommand(sql, con))
@@ -44,10 +83,19 @@ namespace AutoCare_R_J.MetodosGlobales
                 object resultado = cmd.ExecuteScalar();
 
                 if (resultado == null || resultado == DBNull.Value)
-                    return "SRV-001";
+                    return $"{prefijo}-001";
 
-                int numero = int.Parse(resultado.ToString().Substring(4)) + 1;
-                return "SRV-" + numero.ToString("D3");
+                string ultimoCodigo = resultado.ToString();
+
+                string parteNumerica = System.Text.RegularExpressions.Regex.Match(ultimoCodigo, @"\d+$").Value;
+
+                if (int.TryParse(parteNumerica, out int numero))
+                {
+                    numero++;
+                    return $"{prefijo}-{numero.ToString("D3")}";
+                }
+
+                return $"{prefijo}-001";
             }
         }
 
@@ -66,7 +114,10 @@ namespace AutoCare_R_J.MetodosGlobales
 
         private static List<clsOrdenesDeTrabajo> lstOrdenesTrabajo = new List<clsOrdenesDeTrabajo>();
         private static List<clsRepuesto> lstRepuestos = new List<clsRepuesto>();
-             
+        private static List<clsCliente> lstClientes = new List<clsCliente>();
+        private static List<clsFacturas> lstFacturas = new List<clsFacturas>();
+
+
         // Método para obtener los servicios desde la base de datos
         public static List<clsServicios> ObtenerServicios()
         {
@@ -180,8 +231,8 @@ namespace AutoCare_R_J.MetodosGlobales
             lstOrdenesTrabajo.Clear();
             try
             {
-                string sql = @"SELECT codigo_orden, fecha_recepcion, servicio, vehiculo, estado, repuestos
-                   FROM orden_trabajo ORDER BY codigo_orden";
+                string sql = @"SELECT codigo, fecha_recepcion, servicio, vehiculo, estado, repuestos
+                   FROM ordenes_trabajo ORDER BY codigo";
                 using (var con = clsConexion.ObtenerConexion())
                 using (var cmd = new SqliteCommand(sql, con))
                 using (var r = cmd.ExecuteReader())
@@ -210,7 +261,7 @@ namespace AutoCare_R_J.MetodosGlobales
 
         public static List<clsFacturas> ObtenerFacturas()
         {
-            List<clsFacturas> lstFacturas = new List<clsFacturas>();
+            lstFacturas.Clear();
             try
             {
                 string sql = @"SELECT codigo_factura, precio, descuento, subtotal, total, descripcion_servicio, servicio, vehiculo, fecha, repuesto, precio_repuesto
@@ -242,6 +293,78 @@ namespace AutoCare_R_J.MetodosGlobales
             catch (Exception ex)
             {
                 throw new Exception("Error al obtener las facturas: " + ex.Message);
+            }
+        }
+
+        public static List<clsRepuesto> ObtenerRepuestosDisponibles()
+        {
+            lstRepuestos.Clear();
+            try
+            {
+                string sql = @"SELECT codigo_repuesto, nombre, categoria, marca, precio, existencias, costo, estado
+                   FROM repuesto WHERE existencias > 0 ORDER BY codigo_repuesto";
+                using (var con = clsConexion.ObtenerConexion())
+                using (var cmd = new SqliteCommand(sql, con))
+                using (var r = cmd.ExecuteReader())
+                {
+                    while (r.Read())
+                    {
+                        lstRepuestos.Add(new clsRepuesto
+                        {
+                            CodigoRepuesto = r.GetString(0),
+                            NombreRepuesto = r.GetString(1),
+                            Categoria = r.GetString(2),
+                            Marca = r.GetString(3),
+                            Precio = r.GetDecimal(4),
+                            Existencias = r.GetInt32(5),
+                            Costo = r.GetDecimal(6),
+                            Estado = r.GetString(7)
+                        });
+                    }
+                }
+                return lstRepuestos;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener los repuestos disponibles: " + ex.Message);
+            }
+        }
+
+        public static List<clsCliente> ObtenerClientes()
+        {
+            lstClientes.Clear();
+            try
+            {
+                string sql = @"SELECT codigo, nombres, apellidos, dpi, telefono, correo, direccion, estado, nit, saldo 
+                       FROM clientes 
+                       ORDER BY codigo";
+
+                using (var con = clsConexion.ObtenerConexion())
+                using (var cmd = new SqliteCommand(sql, con))
+                using (var r = cmd.ExecuteReader())
+                {
+                    while (r.Read())
+                    {
+                        lstClientes.Add(new clsCliente
+                        {
+                            Codigo = r.GetString(0),
+                            Nombre = r.GetString(1),
+                            Apellido = r.GetString(2),
+                            DPI = r.GetString(3),
+                            Telefono = r.GetString(4),
+                            Correo = r.GetString(5),
+                            Direccion = r.GetString(6),
+                            Estado = r.GetString(7),
+                            Nit = r.GetString(8),
+                            Saldo = Convert.ToDecimal(r.GetValue(9))
+                        });
+                    }
+                }
+                return lstClientes;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener los clientes: " + ex.Message);
             }
         }
         #endregion

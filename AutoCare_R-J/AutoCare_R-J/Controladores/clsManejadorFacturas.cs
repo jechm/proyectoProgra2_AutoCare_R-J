@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using AutoCare_R_J.MetodosGlobales;
 using AutoCare_R_J.Modelos;
 
 namespace AutoCare_R_J.Controladores
@@ -10,12 +11,6 @@ namespace AutoCare_R_J.Controladores
         // Creación de la lista de facturas
         private List<clsFacturas> lstFacturas = new List<clsFacturas>();
 
-        // Método para generar el siguiente código automático (ej. FAC-001)
-        public string ObtenerSiguienteCodigo()
-        {
-            int siguienteNumero = lstFacturas.Count + 1;
-            return $"FAC-{siguienteNumero:D3}";
-        }
 
         // Creación de método para agregar una factura
         public void AgregarFactura(double dblPrecio, double dblDescuento,
@@ -27,7 +22,7 @@ namespace AutoCare_R_J.Controladores
             {
                 clsFacturas nuevaFactura = new clsFacturas();
 
-                nuevaFactura.Codigo = ObtenerSiguienteCodigo();
+                nuevaFactura.Codigo = clsMetodosGlobales.ObtenerSiguienteCodigo("codigo_factura");
                 nuevaFactura.Precio = dblPrecio;
                 nuevaFactura.Descuento = dblDescuento;
                 nuevaFactura.Subtotal = dblSubtotal;
@@ -105,6 +100,8 @@ namespace AutoCare_R_J.Controladores
         // Método para listar todas las facturas
         public List<clsFacturas> ListarFacturas()
         {
+            lstFacturas.Clear();
+            lstFacturas = clsMetodosGlobales.ObtenerFacturas();
             return lstFacturas;
         }
     }

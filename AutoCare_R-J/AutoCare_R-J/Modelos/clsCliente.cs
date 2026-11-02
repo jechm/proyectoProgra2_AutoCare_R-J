@@ -19,6 +19,7 @@ namespace AutoCare_R_J.Modelos
         public string Nit
         {
             get { return strNit; }
+            set { strNit = value; }
         }
 
         public decimal Saldo
@@ -27,6 +28,8 @@ namespace AutoCare_R_J.Modelos
             set { decSaldo = value; }
         }
 
+        //constructor vacio de la clase cliente
+        public clsCliente() { }
 
         public clsCliente(string pCodigo, string pNombre, string pApellido, string pDpi, string pTelefono, string pCorreo, string pDireccion, string pEstado, string pNit)
             : base(pCodigo, 
