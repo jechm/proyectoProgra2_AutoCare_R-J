@@ -10,9 +10,7 @@ namespace AutoCare_R_J.Modelos
         private string strCodigoCliente;
         private string strCodigoVehiculo;
         private string strCodigoTecnico;
-        private DateTime dtFechaCita;
-        private DateTime dtHoraCita;
-        private IList<string> strCodigoServiciosolicitado;
+        private DateTime dtFechaCitaHora;
         private string strEstadoCita;
         private string strObservaciones;
 
@@ -34,11 +32,22 @@ namespace AutoCare_R_J.Modelos
             set { strCodigoVehiculo = value; }
         }
 
-
-        public IList<string> CodigoServiciosolicitado
+        public string CodigoTecnico
         {
-            get { return strCodigoServiciosolicitado; }
-            set { strCodigoServiciosolicitado = value; }
+            get { return strCodigoTecnico; }
+            set { strCodigoTecnico = value; }
+        }
+
+        public DateTime FechaHoraCita
+        {
+            get { return dtFechaCitaHora; }
+            set { dtFechaCitaHora = value; }
+        }
+
+        public string EstadoCita
+        {
+            get { return strEstadoCita; }
+            set { strEstadoCita = value; }
         }
 
         public string Observaciones
@@ -47,52 +56,58 @@ namespace AutoCare_R_J.Modelos
             set { strObservaciones = value; }
         }
 
-        public string CodigoTecnico
-        {
-            get { return strCodigoTecnico; }
-            set { strCodigoTecnico = value; }
-        }
-
-        public DateTime FechaCita
-        {
-            get { return dtFechaCita; }
-            set { dtFechaCita = value; }
-        }
-
-        public DateTime HoraCita
-        {
-            get { return dtHoraCita; }
-            set { dtHoraCita = value; }
-        }
 
 
-        public string EstadoCita
-        {
-            get { return strEstadoCita; }
-            set { strEstadoCita = value; }
-        }
 
         //Constructor de Citas
         public clsCita(string pCodigoCita,
             string pCodigoCliente, string pCodigoVehiculo,
             string pCodigoTecnico,
-            DateTime pFecha, DateTime pHora,
-
-            IList<string> pCodigoServiciosolicitado,
-
-            string pEstado
+            DateTime pFechaHora,
+            string pEstado,
+            string pObservaciones
             )
         {
 
-            this.strCodigoCita = pCodigoCita;
-            this.strCodigoCliente = pCodigoCliente;
-            this.strCodigoVehiculo = pCodigoVehiculo;
-            this.strCodigoTecnico = pCodigoTecnico;
-            this.dtFechaCita = pFecha;
-            this.dtHoraCita = pHora;
-            this.strCodigoServiciosolicitado = pCodigoServiciosolicitado;
-            this.strEstadoCita = pEstado;
+            ValidacionyAsignacion(pCodigoCita, pCodigoCliente, pCodigoVehiculo, pCodigoTecnico, pFechaHora, pEstado, pObservaciones);
 
+
+        }
+
+        private void ValidacionyAsignacion(string pCodigoCita, string pCodigoCliente, string pCodigoVehiculo, string pCodigoTecnico, DateTime pFechaHora, string pEstado, string pObservaciones)
+        {
+            if (string.IsNullOrWhiteSpace(pCodigoCita))
+            {
+                throw new ArgumentException("El código de la cita no puede estar vacío.");
+            }
+            if (string.IsNullOrWhiteSpace(pCodigoCliente))
+            {
+                throw new ArgumentException("El cliente no es válido.");
+            }
+            if (string.IsNullOrWhiteSpace(pCodigoVehiculo))
+            {
+                throw new ArgumentException("El vehículo no es válido.");
+            }
+            if (string.IsNullOrWhiteSpace(pCodigoTecnico))
+            {
+                throw new ArgumentException("El técnico no es válido.");
+            }
+            if (pFechaHora < DateTime.Now)
+            {
+                throw new ArgumentException("La fecha y hora de la cita no puede ser en el pasado.");
+            }
+            if (string.IsNullOrWhiteSpace(pEstado))
+            {
+                throw new ArgumentException("El estado de la cita no puede estar vacío.");
+            }
+            this.strCodigoCita = pCodigoCita;
+            this.CodigoCliente = pCodigoCliente;
+            this.CodigoVehiculo = pCodigoVehiculo;
+            this.CodigoTecnico = pCodigoTecnico;
+            this.FechaHoraCita = pFechaHora;
+            this.EstadoCita = pEstado;
+            this.Observaciones = pObservaciones;
         }
     }
 }
+
