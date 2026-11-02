@@ -15,20 +15,19 @@ namespace AutoCare_R_J.Modelos
         double dblTotal;
         string strDescripcionServicio;
         string strServicio;
-
         string strVehiculo;
         string strFecha;
         string strRepuesto;
-        double dblPrecioRepuesto;
+        string strPrecioRepuesto; 
 
-        //constructor vacio de la clase facturas
+        // Constructor vacío de la clase facturas
         public clsFacturas() { }
 
-        // metodo constructor de la clase facturas
+        // Método constructor de la clase facturas
         public clsFacturas(string strCodigo, double dblPrecio, double dblDescuento,
             double dblSubtotal, double dblTotal, string strDescripcionServicio,
             string strServicio, string strVehiculo, string strFecha,
-            string strRepuesto, double dblPrecioRepuesto)
+            string strRepuesto, string strPrecioRepuesto)
         {
             this.strCodigo = strCodigo;
             this.dblPrecio = dblPrecio;
@@ -40,10 +39,10 @@ namespace AutoCare_R_J.Modelos
             this.strVehiculo = strVehiculo;
             this.strFecha = strFecha;
             this.strRepuesto = strRepuesto;
-            this.dblPrecioRepuesto = dblPrecioRepuesto;
+            this.strPrecioRepuesto = strPrecioRepuesto;
         }
 
-        //getters y setters de la clase facturas
+        // Getters y setters de la clase facturas
         public string Codigo { get => strCodigo; set => strCodigo = value; }
         public double Precio { get => dblPrecio; set => dblPrecio = value; }
         public double Descuento { get => dblDescuento; set => dblDescuento = value; }
@@ -54,8 +53,6 @@ namespace AutoCare_R_J.Modelos
         public string Vehiculo { get => strVehiculo; set => strVehiculo = value; }
         public string Fecha { get => strFecha; set => strFecha = value; }
         public string Repuesto { get => strRepuesto; set => strRepuesto = value; }
-        public double PrecioRepuesto { get => dblPrecioRepuesto; set => dblPrecioRepuesto = value; }
-          
-
+        public string PrecioRepuesto { get => strPrecioRepuesto; set => strPrecioRepuesto = value; }
     }
 }

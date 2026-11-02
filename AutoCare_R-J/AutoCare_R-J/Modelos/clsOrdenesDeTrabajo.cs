@@ -64,5 +64,11 @@ namespace AutoCare_R_J.Modelos
         public clsOrdenesDeTrabajo()
         {
         }
+
+        public string OrdenTrabajo
+        {
+            get { return $"{strServicio} - {strVehiculo}"; }
+
+        }
     }
 }

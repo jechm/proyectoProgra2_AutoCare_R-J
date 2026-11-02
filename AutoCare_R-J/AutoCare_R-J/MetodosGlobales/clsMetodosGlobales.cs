@@ -66,7 +66,7 @@ namespace AutoCare_R_J.MetodosGlobales
                     prefijo = "CIT";
                     break;
                 case "factura":
-                    nombreColumna = "codigo_factura"; 
+                    nombreColumna = "codigo_factura";
                     prefijo = "FAC";
                     break;
                 case "ordenes_trabajo":
@@ -75,7 +75,8 @@ namespace AutoCare_R_J.MetodosGlobales
                     break;
             }
 
-            string sql = $"SELECT MAX({nombreColumna}) FROM {tabla}";
+            // Cambiamos MAX por un ORDER BY convirtiendo el texto después del guion a número entero
+            string sql = $"SELECT {nombreColumna} FROM {tabla} ORDER BY CAST(SUBSTR({nombreColumna}, INSTR({nombreColumna}, '-') + 1) AS INTEGER) DESC LIMIT 1";
 
             using (var con = clsConexion.ObtenerConexion())
             using (var cmd = new SqliteCommand(sql, con))
@@ -284,7 +285,7 @@ namespace AutoCare_R_J.MetodosGlobales
                             Vehiculo = r.GetString(7),
                             Fecha = r.GetDateTime(8).ToString("yyyy-MM-dd"),
                             Repuesto = r.IsDBNull(9) ? null : r.GetString(9),
-                            PrecioRepuesto = r.IsDBNull(10) ? 0 : r.GetDouble(10)
+                            PrecioRepuesto = r.IsDBNull(10) ? string.Empty : r.GetString(10)
                         });
                     }
                 }
